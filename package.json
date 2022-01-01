@@ -1,0 +1,20 @@
+{
+  "name": "notes-with-eleventy",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf ./_site",
+    "build": "npm run clean && eleventy --pathprefix=notes",
+    "start": "eleventy --serve --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcelestino/notes.git"
+  },
+  "author": "elisabethirgens",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "0.12.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "3.0.4",
+    "prettier": "2.2.1"
+  }
+}
