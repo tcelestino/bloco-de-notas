@@ -1,16 +1,17 @@
 {
-  "name": "notes-with-eleventy",
+  "name": "notes",
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf ./_site",
     "build": "npm run clean && eleventy --pathprefix=notes",
+    "dev": "DEBUG=Eleventy* eleventy --serve --watch",
     "start": "eleventy --serve --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tcelestino/notes.git"
   },
-  "author": "elisabethirgens",
+  "author": "tcelestino",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "0.12.1",
