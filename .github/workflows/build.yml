@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v2.1.2
 
       - name: Install dependencies
-        run: yarn ci
+        run: yarn
 
       - name: Run build command
         run: yarn build
