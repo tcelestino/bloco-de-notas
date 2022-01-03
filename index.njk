@@ -7,7 +7,7 @@ layout: default
   <ol reversed class="post-list">
     {%- for post in collections.post | reverse -%}
       <li>
-        <span class="post-meta hide">{{ post.date | readableDate }}</span>
+        <span class="post-meta">{{ post.date | readableDate }}</span>
         <h2>
           <a class="post-link" href="{{ post.url | url }}">{{ post.data.title | safe }}</a>
         </h2>
