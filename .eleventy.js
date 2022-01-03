@@ -4,7 +4,10 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addFilter('readableDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj).setLocale('pt').toFormat('d LLL yyyy');
+    return DateTime.fromJSDate(dateObj)
+      .setLocale('pt')
+      .toFormat('d LLLL yyyy')
+      .toUpperCase();
   });
   eleventyConfig.addPlugin(syntaxHighlight);
   return {
