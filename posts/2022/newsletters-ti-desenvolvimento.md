@@ -18,6 +18,7 @@ Todas as newsletters abaixo são gratuitas!
 |[bytes.dev](https://bytes.dev/?x=478660080&ck_subscriber_id=478660080) | Staying informed on the JavaScript ecosystem has never been so entertaining. Delivered every Monday, for free |
 |[Friday Front-end](https://www.getrevue.co/profile/fridayfrontend) | Front-end development links tweeted daily, emailed weekly |
 |[Javascript Weekly](https://javascriptweekly.com/) | A newsletter of JavaScript articles, news and cool projects |
+|[Node Weekly](https://nodeweekly.com/) | A free, once–weekly e-mail round-up of Node.js news and articles |
 |[Jamstacked](https://jamstack.email) | An email update on the evolving JAMstack ecosystem |
 |[Frontend Horse Newsletter](https://www.getrevue.co/profile/frontendhorse) | A round-up of the web's best CodePens, websites, and articles, plus the latest Frontend Horse content |
 |[React Status](https://react.statuscode.com/) | A weekly roundup of the latest React and React Native links and tutorials |
