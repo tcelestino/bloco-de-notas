@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/notes/assets/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/notes/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Configurar uma porta diferente no Next.js</h1>
+    <p class="post-date">
+      <time datetime="Tue Jan 18 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        18 JANEIRO 2022
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Por padrão, ao executar uma aplicação <a href="https://nextjs.org/">Next.js</a>, a aplicação será acessa na seguinte url http://localhost:3000. Caso queria alterar a porta padrão da aplicação, só é preciso fazer um pequeno ajuste no seu arquivo <code>package.json</code>.</p>
+<p>O padrão do <code>package.json</code> no Next.js é assim (caso não use o Typescript):</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"meu-projeto-next"</span><span class="token punctuation">,</span><br>  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span><br>  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><br>  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"next dev"</span><span class="token punctuation">,</span><br>    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"next build"</span><span class="token punctuation">,</span><br>    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"next start"</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token property">"next"</span><span class="token operator">:</span> <span class="token string">"12.0.8"</span><span class="token punctuation">,</span><br>    <span class="token property">"react"</span><span class="token operator">:</span> <span class="token string">"17.0.2"</span><span class="token punctuation">,</span><br>    <span class="token property">"react-dom"</span><span class="token operator">:</span> <span class="token string">"17.0.2"</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Para alterar a porta, você só precisa alterar o script <code>&quot;dev&quot;: &quot;next dev&quot;</code> para <code>&quot;dev&quot;: &quot;next dev -p 3001&quot;</code>. Assim, quando rodar <code>npm dev</code>, seu aplicação rodará na url http://localhost:3001 e não mais na porta &quot;3000&quot;.</p>
+<p>No final, o arquivo <code>package.json</code> fica assim:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"meu-projeto-next"</span><span class="token punctuation">,</span><br>  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span><br>  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><br>  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"next dev -p 3001"</span><span class="token punctuation">,</span><br>    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"next build"</span><span class="token punctuation">,</span><br>    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"next start"</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token property">"next"</span><span class="token operator">:</span> <span class="token string">"12.0.8"</span><span class="token punctuation">,</span><br>    <span class="token property">"react"</span><span class="token operator">:</span> <span class="token string">"17.0.2"</span><span class="token punctuation">,</span><br>    <span class="token property">"react-dom"</span><span class="token operator">:</span> <span class="token string">"17.0.2"</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
