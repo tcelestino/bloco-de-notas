@@ -20,7 +20,7 @@ Hoje, só conseguimos usar o operador `await` a partir de uma função assíncro
 const result = await getUserData();
 ```
 
-Não vamos precisar mais usar [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/pt-BR/docs/Glossary/IIFE) para definir uma função assíncrona para usar o `await`.
+Não vamos precisar mais usar [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/pt-BR/docs/Glossary/IIFE) para definir uma função assíncrona e usar o `await`.
 
 ## at()
 
