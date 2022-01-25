@@ -20,6 +20,8 @@ Hoje, só conseguimos usar o operador `await` a partir de uma função assíncro
 const result = await getUserData();
 ```
 
+Não vamos precisar mais usar [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/pt-BR/docs/Glossary/IIFE) para definir uma função assíncrona para usar o `await`.
+
 ## at()
 
 Quando precisamos capturar o último indíce de um array, hoje utilizamos a seguinte técnica:
@@ -44,8 +46,6 @@ const lastItem = arr.at(1); // foo
 ```
 
 Muito mais simples!!
-
-Não vamos precisar mais usar [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/pt-BR/docs/Glossary/IIFE) para definir uma função assíncrona para usar o `await`.
 
 ## Classes sem construtor
 
