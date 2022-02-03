@@ -1,15 +1,15 @@
 {
-  "name": "notes",
+  "name": "bloco-de-notas",
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf ./_site",
-    "build": "npm run clean && eleventy --pathprefix=notes",
+    "build": "npm run clean && eleventy --pathprefix=bloco-de-notas",
     "dev": "DEBUG=Eleventy* eleventy --serve --watch",
     "start": "eleventy --serve --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tcelestino/notes.git"
+    "url": "git+https://github.com/tcelestino/bloco-de-notas.git"
   },
   "author": "tcelestino",
   "license": "ISC",
