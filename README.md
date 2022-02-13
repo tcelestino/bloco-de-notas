@@ -1,7 +1,13 @@
-# My notes
+# Bloco de notas
 
-Eleventy and GitHub Pages to write notes
+Anotações para mim mesmo, mas se tiver interesse em ler, fique a vontade.
 
-## Configure a publishing source
+Utilizando o [Eleventy](https://www.11ty.dev/) e Github Actions.
 
-Under Settings for GitHub Pages, use the `publish_branch` named in `.github/workflows/build.yml` as the publishing source.
+## Instalação
+
+TODO
+
+## Configurando publicação
+
+TODO
