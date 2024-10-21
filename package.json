@@ -14,8 +14,8 @@
   "author": "tcelestino",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "1.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "4.0.0",
+    "@11ty/eleventy": "3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
     "prettier": "2.5.1"
   }
 }
