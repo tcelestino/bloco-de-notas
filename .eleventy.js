@@ -1,13 +1,15 @@
-const { DateTime } = require('luxon');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addFilter('readableDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj)
-      .setLocale('pt')
-      .toFormat('d LLLL yyyy')
-      .toUpperCase();
+    const date = new Date(dateObj);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    return date.toLocaleString('pt-BR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
   });
   eleventyConfig.addPlugin(syntaxHighlight);
   return {
