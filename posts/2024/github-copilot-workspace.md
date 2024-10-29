@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Github Copilot Workspace"
-date: 2024-10-29
+date: 2024-10-30
 ---
 TLDR:
 
-- Github liberou o acesso ao Github Copilot Workspace, ferramenta para auxiliar desenvolvedores em brainstorming, planejamento, etc… Estou utilizando já duas semanas e estou achando excelente;
+- Github liberou o Github Copilot Workspace, ferramenta para auxiliar desenvolvedores em brainstorming, planejamento, etc… Estou utilizando já duas semanas e estou achando excelente;
 - Fiz uma pequena demonstração de como a ferramenta pode ajudar;
 - Apresento também o Bolt.new da StackBlitz;
 - Enfatizo o surgimento cada vez mais ferramentas similares no futuro próximo.
