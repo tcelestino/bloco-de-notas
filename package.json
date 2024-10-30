@@ -4,7 +4,7 @@
   "scripts": {
     "clean": "rm -rf ./_site",
     "build": "npm run clean && eleventy --pathprefix=bloco-de-notas",
-    "dev": "DEBUG=Eleventy* eleventy --serve --watch",
+    "dev": "yarn clean && DEBUG=Eleventy* eleventy --serve --watch",
     "start": "eleventy --serve --watch"
   },
   "repository": {
