@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
     <title>Bloco de Notas por Tiago Celestino</title>
   </head>
 
@@ -17,7 +17,7 @@
     </header>
 
     <main class="page-content">
-      <div class="wrapper">{{ content }}</div>
+      <div class="wrapper">{{ content | raw }}</div>
     </main>
 
     <footer class="site-footer">

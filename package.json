@@ -11,8 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/tcelestino/bloco-de-notas.git"
   },
+  "bugs": {
+    "url": "https://github.com/tcelestino/bloco-de-notas/issues"
+  },
+  "homepage": "https://github.com/tcelestino/bloco-de-notas#readme",
   "author": "tcelestino",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "3.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0"
