@@ -6,8 +6,8 @@ module.exports = (config) => {
 
   config.addPassthroughCopy('src/assets/css/**/*');
 
-  config.addLayoutAlias('default', 'default.html');
-  config.addLayoutAlias('post', 'post.html');
+  config.addLayoutAlias('default', 'default.njk');
+  config.addLayoutAlias('post', 'post.njk');
 
   config.addCollection('posts', require('./lib/collections/posts'));
 
