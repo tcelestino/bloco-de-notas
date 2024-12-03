@@ -4,9 +4,9 @@ title: Meus apps essenciais em 2024
 date: 2024-12-03
 ---
 
-Inspirado na lista no [post](https://amanhimself.dev/blog/default-apps-2024/) do Aman Mittal, decidi compartilhar minha seleção de aplicativos essenciais para 2024.
+Inspirado na [lista](https://amanhimself.dev/blog/default-apps-2024/) do Aman Mittal, decidi compartilhar minha seleção de aplicativos essenciais para 2024.
 
-Sempre gostei dessas listas pois sempre acabo descobrindo novas ferramentas que ajudam na produtividade. Espero que estas descobertas possam inspirar outros a encontrarem soluções que melhorem sua experiência digital.
+Sempre gostei dessas listas pois sempre acabo descobrindo novas ferramentas que me ajudam na minha produtividade. Espero que descobra apps que possam melhorar a sua também.
 
 Vamos lá!!
 
