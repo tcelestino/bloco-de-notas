@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Configurando modo tela cheia do Firefox no macOS</h1>
+    <p class="post-date">
+      <time datetime="Fri Dec 20 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        20 de dezembro de 2024
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Uma situação incômoda ocorre ao assistir vídeos no Firefox no macOS: quando habilito o modo tela cheia, o sistema automaticamente cria um novo &quot;Space&quot; (área de trabalho). Isso se torna irritante ao final do vídeo, pois sou “forçado” a visualizar uma animação desnecessária durante a transição entre as áreas de trabalho. Nem vou comentar o impacto na performance.</p>
+<p>Encontrei uma <a href="https://www.reddit.com/r/osx/comments/ctqaa4/comment/lfucrni/">solução</a> simples através de uma discussão no reddit que resolve este &quot;problema&quot; específico do Firefox.</p>
+<h2>Passo a passo</h2>
+<ol>
+<li>Acesse <code>about:config</code> na barra de endereço do Firefox</li>
+<li>Localize a configuração <code>full-screen-api.macos-native-full-screen</code></li>
+<li>Mude o valor de <code>true</code> para <code>false</code></li>
+</ol>
+<p>A mudança é aplicada instantaneamente, sem necessidade de reiniciar o navegador. <strong>Mais um motivo para usar o Firefox</strong>! 🦊</p>
+<p>Até o momento, não há uma solução conhecida para outros navegadores como Chrome ou Edge.</p>
+<p>É importante mencionar que, embora os desenvolvedores possam criar suas próprias implementações para gerenciar o modo tela cheia, muitos optam por utilizar a API nativa do macOS.</p>
+<p>Assim como esse <a href="https://www.reddit.com/r/osx/comments/ctqaa4/comment/kw4epf7">comentário</a> no reddit, seria interessante se a Apple considerasse olhar para este comportamento do sistema.</p>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
