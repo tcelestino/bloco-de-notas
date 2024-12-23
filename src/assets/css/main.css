@@ -104,6 +104,10 @@ body {
   flex-direction: column;
 }
 
+img {
+  max-width: 100%;
+}
+
 .page-content {
   margin-bottom: 2rem;
   flex: 1;
