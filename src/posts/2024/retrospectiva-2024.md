@@ -84,6 +84,6 @@ Esta lista não está em ordem cronológica nem por nível de importância, que 
 ## Dezembro
 
 - Liberação da fisioterapia.
-- Compartilhei meu escritório para os leitores do MdU: https://manualdousuario.net/mesa-de-trabalho-tiago-celestino/
-- Aceitação de um novo desafio profissional (conto mais em breve).
+- Compartilhei meu escritório para os leitores do MdU: [https://manualdousuario.net/mesa-de-trabalho-tiago-celestino/](https://manualdousuario.net/mesa-de-trabalho-tiago-celestino/)
+- Um novo desafio profissional (conto mais em breve).
 - Show despedida do Sepultura.
