@@ -6,7 +6,7 @@ date: 2025-01-31
 
 Dias atrás, o Rodrigo Ghedin, do [Manual do Usuário](https://manualdousuario.net/), disponibilizou um recurso simples no blog, mas que, sem dúvida, trouxe uma experiência mais agradável para os usuários ao implementar o compartilhamento de link nativo dos navegadores. Dei uma fuçada e acabei confirmando o que imaginava: a implementação é baseada na [Web Share API](https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/share).
 
-Lembrei da época em que trabalhava no elo7 e usamos a Web Share API na página de detalhes dos produtos do marketplace, no qual conseguimos garantir uma experiência mais fluida no marketplace.
+Lembrei da época em que trabalhava no elo7 e usamos a Web Share API na página de detalhes dos produtos do marketplace, no qual conseguimos garantir uma experiência mais fluida no marketplace. Inclusive, [escrevi](https://blog.elo7.dev/web-share-api/) sobre a API no blog da empresa.
 
 ## O que é a Web Share API?
 
