@@ -104,6 +104,16 @@ body {
   flex-direction: column;
 }
 
+.media_image {
+  text-align: center;
+}
+
+.media_image figcaption {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}
+
 img {
   max-width: 100%;
 }
