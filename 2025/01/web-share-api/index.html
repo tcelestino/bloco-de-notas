@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Compartilhamento de links usando Web Share API</h1>
+    <p class="post-date">
+      <time datetime="Fri Jan 31 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        31 de janeiro de 2025
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Dias atrás, o Rodrigo Ghedin, do <a href="https://manualdousuario.net/">Manual do Usuário</a>, disponibilizou um recurso simples no blog, mas que, sem dúvida, trouxe uma experiência mais agradável para os usuários ao implementar o compartilhamento de link nativo dos navegadores. Dei uma fuçada e acabei confirmando o que imaginava: a implementação é baseada na <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/share">Web Share API</a>.</p>
+<p>Lembrei da época em que trabalhava no elo7 e usamos a Web Share API na página de detalhes dos produtos do marketplace, no qual conseguimos garantir uma experiência mais fluida no marketplace.</p>
+<h2>O que é a Web Share API?</h2>
+<p>A <a href="https://wicg.github.io/web-share/">Web Share API</a> é uma API em Javascript presente em diversos navegadores, na qual você pode usar o recurso nativo de compartilhamento de link sem a necessidade de implementação de plugins de terceiros na sua página. Segundo o <a href="https://caniuse.com/web-share">Can I Use</a>, a Web Share API já tem um amplo suporte nos navegadores mais atuais:</p>
+<figure class="media_image">
+  <img src="https://i.ibb.co/7J1bttp3/SCR-20250131-kccw.png" alt="Screenshot exibindo compatibilidade da Web Share API">
+  <figcaption>Infelizmente, o Firefox para desktop ainda não possui o recurso. 😞</figcaption>
+</figure>
+<h2>Como usar Web Share API</h2>
+<p>Antes de falarmos de como implementar a Web Share API, precisamos lembrar que, no passado não muito distante, existiam diversas formas de implementar o compartilhamento de link através do navegador. No Android, era possível implementar <a href="https://www.chromium.org/developers/web-intents-in-chrome">Web Intents</a> e no iOS, era possível usar <a href="https://css-tricks.com/create-url-scheme/">Custom URL Schemes</a>. Ou seja, uma salada de frutas para algo &quot;simples&quot;. 🤯 Sem contar os diversos plugins de terceiros existentes (Facebook, Twitter, etc.).</p>
+<p>A Web Share API surgiu para simplificar e garantir maior compatibilidade entre os sistemas operacionais e navegadores. Além de trazer uma melhor experiência com o uso de um comportamento nativo, em vez de pop-ups, modais e redirecionamentos.</p>
+<p>A implementação da Web Share API é muito simples:</p>
+<script src="https://gist.github.com/tcelestino/7b738d076654d1d2880cb67672149786.js"></script>
+<p>Com essa estrutura, você já tem uma implementação funcional de compartilhamento de link do próprio sistema operacional.</p>
+<figure class="media_image">
+  <img src="https://i.ibb.co/b51X5YKB/RPReplay-Final1738330987.gif" alt="Screenshot com o funcionamento da Web Share API em um dispositivo móvel">
+  <figcaption>Ao clicar no link "Compartilhar link", a Web Share API entra em ação</figcaption>
+</figure>
+<p>Caso queira visualizar no seu dispositivo, o exemplo está disponível em <a href="https://tcelestino-web-share-api.netlify.app/">https://tcelestino-web-share-api.netlify.app/
+</a></p>
+<h2>Destrinchando o código</h2>
+<p>Como a Web Share API é baseada em <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, podemos implementá-la de diferentes maneiras. Seja usando <code>try..catch</code>, <code>then</code> e <code>catch</code>, etc., fica a critério do projeto e do gosto de quem está implementando, já que o resultado final será o mesmo. No exemplo, estou usando <code>try...catch</code>, mas fique à vontade para adaptar à sua realidade.</p>
+<script src="https://gist.github.com/tcelestino/c6086cb811d1d745d1988ecfbcda3145.js"></script>
+<p>A Web Share API está disponível através do método <code>share</code> do objeto <code>navigator</code>. Sendo assim, precisamos verificar se o método está disponível no navegador; caso não esteja, podemos implementar uma ação de falha. No exemplo, implementei um <code>alert</code>, mas não façam isso na vida real! 😅</p>
+<p>A &quot;magia&quot; do funcionamento da Web Share API está na seguinte configuração:</p>
+<script src="https://gist.github.com/tcelestino/185360f7691f9b4e793747e23bb927f9.js"></script>
+<ul>
+<li>title: título que será usado no compartilhamento do link;</li>
+<li>text: texto descritivo do compartilhamento que será adicionando no campo de texto (opcional);</li>
+<li>url: link para onde o usuário será redirecionado ao clicar.</li>
+</ul>
+<p>Caso não tenha notado, na chave <code>url</code>, adicionei uma condicional na qual estou capturando o valor do href existente na tag <code>&lt;link rel=&quot;canonical&quot; href=&quot;https://tcelestino.github.io/bloco-de-notas/&quot;&gt;</code>, e isso tem uma explicação.</p>
+<p>Imagine que um site tenha domínios específicos para desktop e mobile (https://m.site.com), ou até mesmo URLs baseadas no contexto do usuário, utilizando a estratégia <a href="https://en.wikipedia.org/wiki/Canonical_link_element">Canonical URL</a> conseguimos garantir que o link compartilhado será &quot;real&quot;, mantendo a consistência e a experiência do usuário.</p>
+<h2>Pontos de atenção!</h2>
+<p>Apesar da implementação da Web Share API ser simples, temos alguns pontos de atenção:</p>
+<ul>
+<li><strong>Seu servidor precisa ter HTTPS habilitado;</strong></li>
+<li><strong>Os valores passados para API precisam ser no formato de texto;</strong></li>
+<li><strong>Você só pode executar a API a partir de uma ação do usuário. Ou seja, a partir de uma ação de clique;</strong></li>
+<li><strong>Não pode chamá-la no carregamento da página (onload, DOMContentLoaded, etc...).</strong></li>
+</ul>
+<h2>Conclusão</h2>
+<p>Por ser algo simples de implementar, a Web Share API pode trazer bons ganhos na experiência de usuário, principalmente por não haver interferência de terceiros e por proporcionar maior controle das ações realizadas pelo usuário em seu site.</p>
+<p>Ter uma solução nativa integrada com os sistemas operacionais, sem dúvidas, trará uma experiência mais fluida para os usuários, além de garantir a autonomia do funcionamento de todo o seu site.</p>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
