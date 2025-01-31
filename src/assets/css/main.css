@@ -223,3 +223,8 @@ img {
 .hide {
   display: none;
 }
+
+/* codepen embed */
+.cp_embed_wrapper {
+  margin-bottom: 1.5rem;
+}
