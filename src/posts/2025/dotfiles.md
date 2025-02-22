@@ -1,33 +1,45 @@
 ---
 layout: post
 title: Como organizei meus dotfiles e otimizei meu fluxo de trabalho
-summary: Descubra como organizar e automatizar seu ambiente de desenvolvimento usando dotfiles. Um guia prático sobre shell script, personalização do Terminal e gerenciamento de configurações para desenvolvedores.
+summary: Descubra como organizar e automatizar seu ambiente de desenvolvimento usando dotfiles. Um guia prático sobre shell script, personalização do terminal e gerenciamento de configurações para desenvolvedores.
 date: 2025-02-24
+tags: [linux, unix, shell, dotfiles]
 ---
 
-Aproveitei a semana passada para aprender mais sobre shell script e utilizei meus [dotfiles](https://github.com/tcelestino/dotfiles) como laboratório para aplicar na prática o meu aprendizado.
+Aproveitei a semana passada para aprofundar meus conhecimentos em shell script e decidi usar meus [dotfiles](https://github.com/tcelestino/dotfiles) como laboratório prático para aplicar o que aprendi.
 
-## O que é isso?
+## O que são dotfiles?
 
-Para quem não conhece, dotfiles são arquivos de configuração que geralmente começam com um ponto (.), o que os torna ocultos em sistemas Unix/Linux. Esses arquivos são usados para armazenar configurações personalizadas de aplicativos e ambientes de desenvolvimento, como editores de texto, gerenciadores de pacotes e outros programas.
+Para quem não conhece, dotfiles são arquivos de configuração que geralmente começam com um ponto (.), tornando-se ocultos em sistemas Unix/Linux. Eles armazenam personalizações para aplicativos e ambientes de desenvolvimento, incluindo:
 
-Por exemplo, alguns dotfiles comuns:
-* `~/.bashrc`: Configurações do shell Bash.
-* `~/.npmrc`: Configurações do npm.
-* `~/.gitconfig`: Configurações do Git.
-* `~/.zsh`: Configuração do shell zsh.
+* `~/.bashrc`: Configurações do shell Bash
+* `~/.npmrc`: Preferências do npm
+* `~/.gitconfig`: Configurações globais do Git
+* `~/.zshrc`: Arquivo principal de configuração do Zsh
 
-Os dotfiles permitem personalizar o seu ambiente de trabalho e manter suas configurações consistentes em diferentes sistemas.
+Esses arquivos permitem não só personalizar seu ambiente de trabalho, mas também manter consistência entre diferentes máquinas e sistemas.
 
-Já tenho meus [dotfiles](https://github.com/tcelestino/dotfiles) criados há 9 anos e fazia um tempo que não realizava uma atualização. Aproveitei que me despertou o interesse em shell script e resolvi atualizá-lo. Além disso, utilizei o [GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview) no VS Code, que agora está disponível gratuitamente (com limite de uso), como um assistente para me auxiliar com a sintaxe, documentação e sugestões de melhorias. Posso dizer que ajudou muito! Vou escrever sobre como estou usando IAs como assistentes no meu dia a dia mais para frente.
+Meus [dotfiles](https://github.com/tcelestino/dotfiles) existem há 9 anos e estavam precisando de atualização. Combinei a necessidade de modernizar as configurações com meu interesse recente em shell script. Durante o processo, utilizei o [GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview) no VS Code (disponível gratuitamente com limites de uso) como assistente para verificar sintaxe, documentação e sugestões de boas práticas. Pretendo detalhar meu fluxo de trabalho com IAs assistivas em um futuro post aqui no blog.
 
-## Minhas configurações
+## Minha estrutura atual
 
-No meus dotfiles, mantenho as configurações de todos os [alias](https://github.com/tcelestino/dotfiles/blob/main/zsh/aliases.zsh) que utilizo no [zsh](https://ohmyz.sh/), além dos [plugins](https://github.com/tcelestino/dotfiles/blob/main/zsh/.zshrc#L5). Também faço a instalação de [apps e serviços](https://github.com/tcelestino/dotfiles/blob/main/Brewfile) via [brew](https://brew.sh/), assim como faço configurações específicas do [macOS](https://github.com/tcelestino/dotfiles/blob/main/.macos), do [git](https://github.com/tcelestino/dotfiles/tree/main/git), [node](https://github.com/tcelestino/dotfiles/blob/main/.npmrc) entre outras ferramentas. Tudo isso executando o `./install` no Terminal. 🚀
+Nos meus dotfiles, gerencio:
 
-Devo continuar mexendo nos meus dotfiles, principalmente por conta do aprendizado que estou obtendo com shell script. Acredito que posso melhorar ainda mais o meu fluxo de trabalho.
+* [Aliases](https://github.com/tcelestino/dotfiles/blob/main/zsh/aliases.zsh) e [plugins](https://github.com/tcelestino/dotfiles/blob/main/zsh/.zshrc#L5) do Zsh
+* Instalação automatizada de [aplicativos via Homebrew](https://github.com/tcelestino/dotfiles/blob/main/Brewfile)
+* Configurações específicas para [macOS](https://github.com/tcelestino/dotfiles/blob/main/.macos)
+* Otimizações para [Git](https://github.com/tcelestino/dotfiles/tree/main/git) e [Node.js](https://github.com/tcelestino/dotfiles/blob/main/.npmrc)
 
-## Tenha o seu
+Todo o setup é executado com um único comando `./install` no terminal. 🚀
 
-Se você não tiver seus dotfiles, fique à vontade para usar o [meu](https://github.com/tcelestino/dotfiles) como base ou até mesmo se inspirar para criar o seu do zero. O projeto é aberto, fique livre para contribuir da melhor maneira. E se tiver interesse em conhecer outros dotfiles, recomendo dar uma olhada no site [dotfiles](https://dotfiles.github.io/); você vai encontrar dotfiles criados por diversas pessoas com abordagens totalmente diferentes umas das outras. Eu, por exemplo, me inspirei no dotfiles do [Paul Irish](https://www.paulirish.com/).
+À medida que aprofundo meu conhecimento em shell scripting, continuo iterando sobre essas configurações para melhorar a eficiência e ergonomia no fluxo de trabalho.
 
+## Comece seus próprios dotfiles
+
+Se você ainda não tem dotfiles, sinta-se à vontade para usar [meu repositório](https://github.com/tcelestino/dotfiles) como base ou inspiração. O projeto é open source - contribuições são bem-vindas! Para explorar diferentes abordagens, recomendo:
+
+* O portal [dotfiles.github.io](https://dotfiles.github.io/) com curadoria de exemplos
+* O famoso repositório do [Paul Irish](https://github.com/paulirish/dotfiles) que me inspirou inicialmente
+* A comunidade [Awesome Dotfiles](https://github.com/webpro/awesome-dotfiles) no GitHub
+
+  A chave é adaptar as configurações às suas necessidades específicas enquanto mantém a capacidade de replicar seu ambiente em qualquer máquina rapidamente.
