@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Como organizei meus dotfiles e otimizei meu fluxo de trabalho</h1>
+    <p class="post-date">
+      <time datetime="Mon Feb 24 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        24 de fevereiro de 2025
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Aproveitei a semana passada para aprofundar meus conhecimentos em <em>shell script</em> e decidi usar meus <a href="https://github.com/tcelestino/dotfiles">dotfiles</a> como laboratório prático para aplicar o que aprendi e devo continuar aprendendo ao longo desse ano.</p>
+<h2>O que são dotfiles?</h2>
+<p>Para quem não conhece, dotfiles são arquivos de configuração que geralmente começam com um ponto (.), tornando-se ocultos em sistemas Unix/Linux. Eles armazenam personalizações para aplicativos e ambientes de desenvolvimento, incluindo:</p>
+<ul>
+<li><code>~/.bashrc</code>: Configurações do shell Bash;</li>
+<li><code>~/.npmrc</code>: Preferências do npm;</li>
+<li><code>~/.gitconfig</code>: Configurações globais do Git;</li>
+<li><code>~/.zshrc</code>: Arquivo principal de configuração do Zsh.</li>
+</ul>
+<p>Esses arquivos permitem não só personalizar seu ambiente de trabalho, mas também manter consistência entre diferentes máquinas e sistemas.</p>
+<p>Meus <a href="https://github.com/tcelestino/dotfiles">dotfiles</a> existem há 9 anos e estavam precisando de atualização. Combinei a necessidade de atualizar as configurações com meu interesse recente em <em>shell script</em>. Durante o processo, utilizei o <a href="https://code.visualstudio.com/docs/copilot/overview">GitHub Copilot</a> no VS Code (disponível gratuitamente com limites de uso) como assistente para verificar sintaxe, documentação e sugestões de boas práticas. Pretendo detalhar meu fluxo de trabalho com IAs assistivas em um futuro post.</p>
+<h2>Minha configuração</h2>
+<p>Nos meus dotfiles, gerencio:</p>
+<ul>
+<li><a href="https://github.com/tcelestino/dotfiles/blob/main/zsh/aliases.zsh">Aliases</a> e <a href="https://github.com/tcelestino/dotfiles/blob/main/zsh/.zshrc#L5">plugins</a> do Zsh;</li>
+<li>Instalação automatizada de aplicativos via <a href="https://github.com/tcelestino/dotfiles/blob/main/Brewfile">Homebrew</a>;</li>
+<li>Configurações específicas para <a href="https://github.com/tcelestino/dotfiles/blob/main/.macos">macOS</a>;</li>
+<li>Otimizações para <a href="https://github.com/tcelestino/dotfiles/tree/main/git">Git</a> e <a href="https://github.com/tcelestino/dotfiles/blob/main/.npmrc">Node.js</a>.</li>
+</ul>
+<p>Toda instalação é executada por um único comando <code>./install</code> no terminal. 🚀</p>
+<p>À medida que evoluo meu conhecimento em <em>shell scripting</em>, vou implementando melhorias nessas configurações para aumentar a eficiência e ergonomia no meu fluxo de trabalho.</p>
+<h2>Comece seus próprios dotfiles</h2>
+<p>Se você ainda não tem dotfiles, sinta-se à vontade para usar <a href="https://github.com/tcelestino/dotfiles">meu repositório</a> como base ou inspiração. O projeto é open source - contribuições são bem-vindas! Para explorar diferentes abordagens, recomendo:</p>
+<ul>
+<li>O portal <a href="https://dotfiles.github.io/">dotfiles.github.io</a> com curadoria de exemplos;</li>
+<li>O repositório do <a href="https://github.com/paulirish/dotfiles">Paul Irish</a> que me inspirou inicialmente;</li>
+<li>O repositório <a href="https://github.com/webpro/awesome-dotfiles">Awesome Dotfiles</a> no GitHub, que possui uma lista de recursos e exemplos interessantes para explorar e implementar em seus dotfiles.</li>
+</ul>
+<p>O ponto principal é adaptar as configurações às suas necessidades específicas enquanto mantém a capacidade de replicar seu ambiente em qualquer computador rapidamente.</p>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
