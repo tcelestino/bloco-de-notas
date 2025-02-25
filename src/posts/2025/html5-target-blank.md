@@ -18,7 +18,7 @@ Cada frame continha um nome único. Algo como `name="footer"`, `name="content"`,
 
 Ao clicar no link, a página "sobre-mim.html" era carregada no _frame_ nomeado "content". Agora, imagine se houvesse um link assim: `<a href="/outra-pagina.html" target="blank">Outra página</a>`. O que aconteceria?
 
-Como expliquei anteriormente, ao informar `target="blank"`, o link teria que ser aberto em um frame nomeado como "_blank_", mas caso esse frame não existisse, por padrão, o navegador criava uma nova janela identificando-a como "_blank_". O mais estranho é que ao clicar no mesmo link novamente, o navegador não abria uma nova janela. 🫣
+Como expliquei anteriormente, ao informar `target="blank"`, o link teria que ser aberto em um _frame_ nomeado como "_blank_", mas caso esse _frame_ não existisse, por padrão, o navegador criava uma nova janela identificando-a como "_blank_". O mais estranho é que ao clicar no mesmo link novamente, o navegador não abria uma nova janela. 🫣
 
 ## A solução com underscore
 
