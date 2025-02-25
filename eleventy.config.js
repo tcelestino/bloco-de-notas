@@ -6,8 +6,8 @@ module.exports = (config) => {
 
   config.addPassthroughCopy('src/assets/css/**/*');
 
-  config.addLayoutAlias('default', 'default.njk');
-  config.addLayoutAlias('post', 'post.njk');
+  config.addLayoutAlias('default', 'layouts/default.njk');
+  config.addLayoutAlias('post', 'layouts/post.njk');
 
   config.addCollection('posts', require('./lib/collections/posts'));
 
@@ -19,10 +19,9 @@ module.exports = (config) => {
     dir: {
       input: 'src',
       output: './_site',
-      layouts: '_layouts',
+      layouts: '_includes',
     },
     templateFormats: ['md', 'njk', 'html'],
     dataTemplateEngine: 'njk',
-    // markdownTemplateEngine: 'njk',
   };
 };
