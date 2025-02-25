@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+  </head>
+
+  <body>
+    {% include "partials/header.njk" %}
+    <main>
+      {{ content | safe }}
+    </main>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>

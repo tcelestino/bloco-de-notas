@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+    <time datetime="{{ page.date }}">
+      {{ page.date | readableDate }}
+    </time>
+  </header>
+  {{ content | safe }}
+</article>
