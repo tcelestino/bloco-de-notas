@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Você sabe por que usamos o underscore no target=&quot;_blank&quot;?</h1>
+    <p class="post-date">
+      <time datetime="Tue Feb 25 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        25 de fevereiro de 2025
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Alguma vez você já se perguntou por que usamos o <em>underscore</em> em valores como <code>_blank</code>, <code>_self</code>, etc...? Eu não sabia até ler esse <a href="https://kyrylo.org/html/2024/10/25/why-does-target-blank-have-an-underscore-in-front.html">post</a> do Kyrylo Silin.</p>
+<h2>Um pouco de história</h2>
+<p>Antes do surgimento do HTML5, abusávamos do uso de <em>frames</em> para construção de páginas. Essas páginas eram criadas baseadas em <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frameset">framesets</a>. Eu mesmo escrevi muito código HTML utilizando <em>frames</em>. Como nem tudo são flores, usar <em>frames</em> para construção de páginas podia ser útil para organizar conteúdo em várias janelas na própria página (SPA, alguém aí? 😅), mas os <em>frames</em> eram difíceis de manter e tinham sérios problemas de segurança.</p>
+<h2>Como funcionavam os framesets</h2>
+<p>Cada frame continha um nome único. Algo como <code>name=&quot;footer&quot;</code>, <code>name=&quot;content&quot;</code>, <code>name=&quot;sidebar&quot;</code>. E quando precisávamos abrir um link em um frame específico, informávamos qual o name do frame onde o conteúdo do link seria carregado. Por exemplo: <code>&lt;a href=&quot;/sobre-mim.html&quot; target=&quot;content&quot;&gt;Sobre mim&lt;/a&gt;</code>.</p>
+<p>Ao clicar no link, a página &quot;sobre-mim.html&quot; era carregada no <em>frame</em> nomeado &quot;content&quot;. Agora, imagine se houvesse um link assim: <code>&lt;a href=&quot;/outra-pagina.html&quot; target=&quot;blank&quot;&gt;Outra página&lt;/a&gt;</code>. O que aconteceria?</p>
+<p>Como expliquei anteriormente, ao informar <code>target=&quot;blank&quot;</code>, o link teria que ser aberto em um <em>frame</em> nomeado como &quot;<em>blank</em>&quot;, mas caso esse <em>frame</em> não existisse, por padrão, o navegador criava uma nova janela identificando-a como &quot;<em>blank</em>&quot;. O mais estranho é que ao clicar no mesmo link novamente, o navegador não abria uma nova janela. 🫣</p>
+<h2>A solução com underscore</h2>
+<p>Ao usar o <em>underscore</em>, o navegador passou a entender que o valor <code>target=&quot;_blank&quot;</code> não era um nome de um frame na tela, mas sim um valor especial, compreendendo que o conteúdo do link deveria ser aberto em uma nova janela/aba. Esse comportamento também se aplica para os valores <code>target=&quot;_self&quot;</code>, <code>target=&quot;_parent&quot;</code> e <code>target=&quot;_top&quot;</code>.</p>
+<h2>Relevância hoje</h2>
+<p>Mesmo com a obsolescência dos framesets com o surgimento do HTML5, esses valores especiais foram preservados na especificação. Hoje, quando usamos <code>target=&quot;_blank&quot;</code>, continuamos aproveitando essa convenção estabelecida há décadas, mas com propósitos modernos de navegação.</p>
+<p>Simples, porém eficiente, não é mesmo!? 😎</p>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
