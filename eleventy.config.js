@@ -1,6 +1,6 @@
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const dataSite = require('./src/_data/site.js');
-const menuData = require('./src/_data/menu.js');
+const headerData = require('./src/_data/header.js');
 
 module.exports = (config) => {
   config.addPassthroughCopy('src/assets/images/**/*');
@@ -19,7 +19,7 @@ module.exports = (config) => {
 
   // TODO: _data folder is not working
   config.addGlobalData('site', dataSite);
-  config.addGlobalData('menu', menuData);
+  config.addGlobalData('header', headerData);
 
   return {
     dir: {

@@ -1,16 +1,23 @@
 <header id="header">
-  <h1><a href="{{ '/' | url }}">Blocos de Notas</a> <small>por Tiago Celestino</small></h1>
+  <h1><a href="{{ '/' | url }}">{{ header.title | safe }} <small>{{ header.subtitle | safe }}</small></a></h1>
+
+  {% if header.menu.local %}
   <nav id="pages">
     <ul>
-      <li><a href="{{ page.url | url }}">Quem sou</a></li>
-      <li><a href="{{ page.url | url }}">Projetos</a></li>
+      {% for item in header.menu.local %}
+        <li><a href="{{ item.url }}">{{ item.title | safe }}</a></li>
+      {% endfor %}
     </ul>
   </nav>
+  {% endif %}
+
+  {% if header.menu.social %}
   <nav>
    <ul id="social">
-      <li><a href="#">Github</a></li>
-      <li><a href="#">Bluesky</a></li>
-      <li><a href="#">Linkedin</a></li>
+   {% for social in header.menu.social %}
+      <li><a href="{{social.url }}" {% if social.newTab %}target="_blank" rel="noopener noreferrer"{% endif %}>{{social.title | safe }}</a></li>
+    {% endfor %}
     </ul>
   </nav>
+  {% endif %}
 </header>
