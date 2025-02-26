@@ -1,9 +1,42 @@
+{%- set metaTitle -%}
+  {%- if not title -%}{{ site.title }}
+  {%- else -%}{{ title | safe }} | {{ site.title }}
+  {%- endif -%}
+{%- endset -%}
+{%- set metaDesc -%}
+  {%- if not description -%}{{ site.description | safe }}
+  {%- else -%}{{ description | safe }}
+  {%- endif -%}
+{%- endset -%}
+{%- set metaKeywords -%}
+  {%- if tags -%}{%- for tag in tags -%}{{ tag }},{%- endfor -%}{%- endif -%}
+  {%- if site.keywords -%}
+    {%- for keyword in site.keywords -%}
+        {{ keyword }}{%- if not loop.last %},{% endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endset -%}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bloco de Notas por Tiago Celestino</title>
+    <title>{{ metaTitle }}</title>
+    <meta name="title" content="{{ metaTitle }}">
+    <meta name="description" content="{{ metaDesc }}">
+    <meta name="keywords" content="{{ metaKeywords }}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ site.url | url }}{{ page.url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/favicon.png' | url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | url }}">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
   </head>
 
