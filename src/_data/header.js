@@ -17,6 +17,10 @@ module.exports = {
         title: 'Contato',
         url: '/contato',
       },
+      {
+        title: 'RSS',
+        url: '/rss.xml',
+      },
     ],
     social: [
       {
