@@ -1,6 +1,6 @@
 export default {
   title: 'Bloco de Notas por Tiago Celestino',
-  description: 'Blog pessoal de um entusiasta de tecnologia',
+  description: 'Blog pessoal de um entusiasta de tecnologia e afins',
   keywords: [
     '11yt',
     'tecnologia',
@@ -10,5 +10,6 @@ export default {
   ],
   url: 'https://tcelestino.github.io/bloco-de-notas',
   author: 'Tiago Celestino',
+  lang: 'pt-BR',
   paginate: 3,
 };

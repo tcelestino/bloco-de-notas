@@ -1,17 +1,17 @@
 {%- set metaTitle -%}
-  {%- if not title -%}{{ site.title }}
-  {%- else -%}{{ title | safe }} | {{ site.title }}
+  {%- if not title -%}{{ metadata.title }}
+  {%- else -%}{{ title | safe }} | {{ metadata.title }}
   {%- endif -%}
 {%- endset -%}
 {%- set metaDesc -%}
-  {%- if not description -%}{{ site.description | safe }}
+  {%- if not description -%}{{ metadata.description | safe }}
   {%- else -%}{{ description | safe }}
   {%- endif -%}
 {%- endset -%}
 {%- set metaKeywords -%}
   {%- if tags -%}{%- for tag in tags -%}{{ tag }},{%- endfor -%}{%- endif -%}
-  {%- if site.keywords -%}
-    {%- for keyword in site.keywords -%}
+  {%- if metadata.keywords -%}
+    {%- for keyword in metadata.keywords -%}
         {{ keyword }}{%- if not loop.last %},{% endif -%}
     {%- endfor -%}
   {%- endif -%}
@@ -24,12 +24,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ metaTitle }}</title>
-    <meta name="title" content="{{ metaTitle }}">
+    <meta name="title" content="{{ metadata.title }}">
     <meta name="description" content="{{ metaDesc }}">
     <meta name="keywords" content="{{ metaKeywords }}">
-    <meta name="author" content="{{ site.author }}">
+    <meta name="author" content="{{ metadata.author }}">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ site.url | url }}{{ page.url }}">
+    <link rel="canonical" href="{{ metadata.url | url }}{{ page.url }}">
     <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/favicon.png' | url }}">
     <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | url }}">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
