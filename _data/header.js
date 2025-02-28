@@ -1,6 +1,4 @@
-const { url, title } = require('./site');
-
-module.exports = {
+export default {
   title: 'Bloco de Notas',
   subtitle: 'por Tiago Celestino',
   menu: {

@@ -1,8 +1,8 @@
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const dataSite = require('./src/_data/site.js');
-const headerData = require('./src/_data/header.js');
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import collections from './_config/collections.js';
+import pluginFilters from './_config/filters.js';
 
-module.exports = (config) => {
+export default (config) => {
   config.addPassthroughCopy('src/assets/images/**/*');
   config.addPassthroughCopy({ 'src/posts/images/**/*': 'assets/images/' });
 
@@ -11,21 +11,20 @@ module.exports = (config) => {
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
 
-  config.addCollection('posts', require('./lib/collections/posts'));
+  // Add collections
+  collections(config);
 
-  config.addFilter('readableDate', require('./lib/filters/readableDate'));
+  // Filters
+  config.addPlugin(pluginFilters);
 
   config.addPlugin(syntaxHighlight);
-
-  // TODO: _data folder is not working
-  config.addGlobalData('site', dataSite);
-  config.addGlobalData('header', headerData);
 
   return {
     dir: {
       input: 'src',
       output: './_site',
-      includes: '_includes',
+      includes: '../_includes',
+      data: '../_data',
     },
     templateFormats: ['md', 'njk', 'html'],
     dataTemplateEngine: 'njk',

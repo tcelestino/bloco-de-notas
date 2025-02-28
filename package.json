@@ -1,6 +1,8 @@
 {
   "name": "bloco-de-notas",
   "version": "1.0.0",
+  "description": "My personal blog",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf ./_site",
     "build": "npm run clean && eleventy --pathprefix=bloco-de-notas",

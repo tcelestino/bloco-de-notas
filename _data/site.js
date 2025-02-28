@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'Bloco de Notas por Tiago Celestino',
   description: 'Blog pessoal de um entusiasta de tecnologia',
   keywords: [
