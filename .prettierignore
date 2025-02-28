@@ -1,2 +1,9 @@
 node_modules
 _site
+.DS_Store
+dist
+build
+coverage
+.cache
+*.log
+*.lock
