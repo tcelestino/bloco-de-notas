@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Novidades do Javascript para 2022"
 date: 2022-01-25
 ---

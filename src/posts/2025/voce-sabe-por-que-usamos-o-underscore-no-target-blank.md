@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Você sabe por que usamos o underscore no target="_blank"?
 summary: Descubra por que o uso do underscore em _blank não é apenas um detalhe, mas uma solução elegante que sobreviveu à evolução do HTML. Uma pequena característica com grande impacto no comportamento dos navegadores.
 date: 2025-02-25

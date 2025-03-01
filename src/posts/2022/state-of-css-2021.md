@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "State of CSS 2021"
 date: 2022-01-03
 ---

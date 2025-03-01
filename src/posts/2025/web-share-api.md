@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Compartilhamento de links usando Web Share API
 date: 2025-01-31
 ---
@@ -55,9 +54,9 @@ A "magia" do funcionamento da Web Share API está na seguinte configuração:
 
 Caso não tenha notado, na chave `url`, adicionei uma condicional na qual estou capturando o valor do href existente na tag `<link rel="canonical" href="https://tcelestino.github.io/bloco-de-notas/">`, e isso tem uma explicação.
 
-Imagine que um site tenha domínios específicos para desktop e mobile (https://m.site.com), ou até mesmo URLs baseadas no contexto do usuário, utilizando a estratégia [Canonical URL](https://en.wikipedia.org/wiki/Canonical_link_element) conseguimos garantir que o link compartilhado será "real", mantendo a consistência e a experiência do usuário.
+Imagine que um site tenha domínios específicos para desktop e mobile (<https://m.site.com>), ou até mesmo URLs baseadas no contexto do usuário, utilizando a estratégia [Canonical URL](https://en.wikipedia.org/wiki/Canonical_link_element) conseguimos garantir que o link compartilhado será "real", mantendo a consistência e a experiência do usuário.
 
-## Pontos de atenção!
+## Pontos de atenção
 
 Apesar da implementação da Web Share API ser simples, temos alguns pontos de atenção:
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Definições do front-end"
 date: 2022-01-17
 ---
@@ -16,7 +15,6 @@ date: 2022-01-17
 - participar e encabeçar das discussões de UX;
 - desenvolver código acessível a pessoas com necessidades especiais;
 - garantir que o progressive enhancement ou graceful degradation sejam aplicados;
-
 
 ## Front-end Engineer
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Faker.js encerrado por seu criador"
 date: 2022-01-07
 ---

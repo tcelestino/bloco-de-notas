@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Newsletters sobre tecnologias e desenvolvimento"
 date: 2022-01-15
 ---

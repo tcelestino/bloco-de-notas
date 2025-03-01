@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Mapeando minhas entrevistas pós-demissão
 date: 2025-01-06
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Meus apps essenciais em 2024
 date: 2024-12-03
 ---

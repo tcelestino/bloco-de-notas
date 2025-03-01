@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Como organizei meus dotfiles e otimizei meu fluxo de trabalho
 summary: Descubra como organizar e automatizar seu ambiente de desenvolvimento usando dotfiles. Um guia prático sobre shell script, personalização do terminal e gerenciamento de configurações para desenvolvedores.
 date: 2025-02-24

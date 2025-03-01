@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Next.js Developer Survey"
 date: 2022-02-19
 ---

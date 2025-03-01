@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A história do React.js"
 date: 2022-02-12
 ---

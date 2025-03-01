@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Um mês desempregado"
 date: 2024-10-17
 ---

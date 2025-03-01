@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Seja egoísta com sua carreira
 date: 2024-11-18
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Github Copilot Workspace"
 date: 2024-10-30
 ---
@@ -8,6 +7,7 @@ TLDR:
 - Github liberou o Github Copilot Workspace, ferramenta para auxiliar desenvolvedores em brainstorming, planejamento, etc… Estou utilizando há duas semanas e estou achando excelente;
 - Fiz uma pequena demonstração de como a ferramenta pode ajudar na produtividade;
 - Enfatizo o surgimento cada vez mais ferramentas similares no futuro próximo.
+
 ---
 
 No início deste ano, em abril, o GitHub [apresentou](https://github.blog/news-insights/product-news/github-copilot-workspace/) uma prévia do **GitHub Copilot Workspace** — uma ferramenta promissora para auxiliar desenvolvedores e entusiastas em tarefas como brainstorming, planejamento, refatoração e criação de testes.

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The State of JS 2021"
 date: 2022-02-21
 ---

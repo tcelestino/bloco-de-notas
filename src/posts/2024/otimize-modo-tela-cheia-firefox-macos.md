@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Configurando modo tela cheia do Firefox no macOS
 date: 2024-12-20
 ---
