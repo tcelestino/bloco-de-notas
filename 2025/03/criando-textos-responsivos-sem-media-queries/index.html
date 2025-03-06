@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Criando textos responsivos sem media queries</h1>
+    <p class="post-date">
+      <time datetime="Thu Mar 06 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        6 de março de 2025
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p><strong>TL;DR:</strong></p>
+<ul>
+<li>A função <code>clamp()</code> do CSS permite criar textos responsivos sem media queries;</li>
+<li>Apenas uma linha de código define os tamanhos mínimo, ideal e máximo da fonte;</li>
+<li>Facilita a manutenção do CSS e melhora a performance do site;</li>
+<li>Funciona em todos os navegadores modernos.</li>
+</ul>
+<p>Uma dica rápida e prática para quem precisa manter textos responsivos sem a necessidade de usar <em>media queries</em>. Usando a função <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp">clamp</a>, conseguimos ter textos que se adaptam automaticamente a diferentes tamanhos de tela sem precisar configurar tamanhos específicos para cada <em>breakpoint</em>.</p>
+<h2>Como usar</h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">h2</span> <span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">clamp</span><span class="token punctuation">(</span>1.5rem<span class="token punctuation">,</span> 8vw<span class="token punctuation">,</span> 3rem<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<p>Explicando a formatação CSS acima, temos o seguinte:</p>
+<ol>
+<li><strong>Valor mínimo</strong>: 1.5rem - define que o tamanho mínimo da fonte não ficará abaixo de 1,5x em relação ao tamanho da fonte do elemento raiz: 16px × 1.5 = 24px.</li>
+<li><strong>Valor ideal</strong>: 8vw - define o tamanho da fonte como 8% da largura do <em>viewport</em>. Se a medida da largura do <em>viewport</em> mudar, o tamanho se alterará de acordo com a nova largura.</li>
+<li><strong>Valor máximo</strong>: 3rem - define o tamanho máximo como 3x o tamanho da fonte em relação ao elemento raiz: 16px × 3 = 48px.</li>
+</ol>
+<p>Com apenas uma linha de código, você consegue manter os textos responsivos independentemente do tamanho da tela, garantindo uma experiência de leitura agradável em qualquer dispositivo.</p>
+<h2>Benefícios</h2>
+<p>Além da simplicidade, essa abordagem traz algumas vantagens interessantes:</p>
+<ul>
+<li><strong>Código mais limpo</strong>: reduz a quantidade de <em>media queries</em> no seu CSS</li>
+<li><strong>Melhor performance</strong>: menos código significa carregamento mais rápido</li>
+<li><strong>Transições suaves</strong>: o texto se ajusta gradualmente conforme o redimensionamento da tela</li>
+<li><strong>Manutenção facilitada</strong>: alterações de tamanho podem ser feitas em um único lugar</li>
+</ul>
+<h2>Compatibilidade</h2>
+<p>A função <code>clamp()</code> é suportada por todos os navegadores modernos, incluindo:</p>
+<ul>
+<li>Chrome (desde a versão 79)</li>
+<li>Firefox (desde a versão 75)</li>
+<li>Safari (desde a versão 13.1)</li>
+<li>Edge (desde a versão 79)</li>
+</ul>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp">MDN Web Docs - clamp()</a></li>
+<li><a href="https://desenvolvimentoparaweb.com/css/textos-responsivos-com-css-clamp/">Desenvolvimento para Web - Textos responsivos com CSS clamp</a></li>
+</ul>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
