@@ -1,5 +1,8 @@
-<div>
-  <ol reversed>
+---
+layout: default
+---
+<main>
+  <ol reversed class="post-list">
     {%- for post in collections.posts -%}
       <li>
         <span>{{ post.date | readableDate }}</span>
@@ -9,4 +12,4 @@
       </li>
     {%- endfor -%}
   </ol>
-</div>
+</main>
