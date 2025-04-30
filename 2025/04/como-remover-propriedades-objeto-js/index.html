@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Como remover propriedades de um objeto no JavaScript</h1>
+    <p class="post-date">
+      <time datetime="Tue Apr 29 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        29 de abril de 2025
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &quot;chaves&quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.</p>
+<p>Essa semana estive implementando uma funcionalidade a partir de uma API de terceiros, e precisava remover algumas propriedades de um objeto, e por curiosidade, decidi pesquisar sobre as diferentes formas de fazer isso e como cada uma pode impactar a performance da aplicação, saindo do tradicional <code>delete</code>.</p>
+<p>Nesse post, vou listar algumas das abordagens conhecidas e outras que acabei descobrindo nas minhas pesquisas.</p>
+<p>Partiu!! 🚀</p>
+<h2>1. Usando o operador delete</h2>
+<p>É o método mais conhecido para remover uma propriedade de um objeto em JavaScript. Usando o operador &quot;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete">delete</a>&quot;, você consegue remover a propriedade especificada do objeto de forma direta.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">delete</span> obj<span class="token punctuation">.</span>age<span class="token punctuation">;</span> <span class="token comment">// A propriedade 'age' foi removida do objeto.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span></code></pre>
+<h3>Notas</h3>
+<ul>
+<li>Simples e direto. Funciona bem para objetos simples;</li>
+<li>O operador <code>delete</code> pode afetar o desempenho, especialmente em loops, pois altera a estrutura do objeto;</li>
+<li>Não é recomendado para objetos que você deseja manter imutáveis.</li>
+</ul>
+<h2>2. Usando a desestruturação (destructuring)</h2>
+<p>Uma outra abordagem para remover propriedades de um objeto, que pode ser considerada moderna, é utilizando a &quot;<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring">destructuring</a>&quot;. A partir dessa abordagem, você cria um novo objeto removendo a propriedade, sem mexer no objeto original, mantendo-o imutável.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> age<span class="token punctuation">,</span> <span class="token operator">...</span>newObj <span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span> <span class="token comment">// A propriedade 'age' foi removida.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span></code></pre>
+<h3>Notas</h3>
+<ul>
+<li>Mantém o objeto original imutável;</li>
+<li>É uma abordagem moderna e legível;</li>
+<li>Pode não ser tão intuitivo para quem não está familiarizado com a desestruturação;</li>
+<li>Em alguns casos, criar um novo objeto pode não ser ideal.</li>
+</ul>
+<h2>3. Usando a combinação de Object.keys() com reduce()</h2>
+<p>Ao usar o &quot;<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">Object.keys()</a>&quot; combinado com o método <code>reduce()</code>, também conseguimos criar um novo objeto sem a propriedade que deseja remover. E de novo, conseguimos manter o objeto original imutável.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> newObj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">!==</span> <span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    acc<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Adiciona a propriedade ao novo objeto se não for 'age'.</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> acc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span></code></pre>
+<h3>Notas</h3>
+<ul>
+<li>Mantém o objeto original imutável. É uma abordagem funcional e pode ser mais flexível;</li>
+<li>Pode ser mais verboso do que outras abordagens. Além disso, pode ser menos eficiente em termos de desempenho, especialmente para objetos com muitas propriedades.</li>
+</ul>
+<h2>4. Usando Object.entries() e Object.fromEntries()</h2>
+<p>Usando &quot;<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">Object.entries()</a>&quot; obtemos um array de pares chave-valor e, em seguida, podemos fazer um filtro das propriedades que você deseja manter. Na sequência, usando &quot;<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>&quot; criamos um novo objeto a partir do <em>array</em> que foi filtrado usando a função <code>filter()</code>.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> newObj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>
+  Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>key<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> key <span class="token operator">!==</span> <span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token comment">// Filtra a propriedade 'age'.</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span></code></pre>
+<h3>Notas</h3>
+<ul>
+<li>Mantém o objeto original imutável. É uma abordagem moderna e legível;</li>
+<li>Pode ser mais verboso do que outras abordagens. Além disso, pode não ser tão intuitivo para quem não está familiarizado com <code>Object.entries()</code> e <code>Object.fromEntries()</code>;</li>
+<li>Pode trazer impacto na performance, já que é necessário fazer iteração em todas as propriedades do objeto.</li>
+</ul>
+<h2>5. Usando Object.defineProperty</h2>
+<p>Essa abordagem é menos conhecida, mas usando o &quot;<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a>&quot; conseguimos definir a propriedade como não enumerável. Isso não remove a propriedade, mas impede que ela seja listada em loops.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">enumerable</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token comment">// Define a propriedade 'age' como não enumerável.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ['name', 'city'] - 'age' não aparece na lista de chaves.</span></code></pre>
+<h3>Notas</h3>
+<ul>
+<li>Esta seção fornece informações adicionais sobre as abordagens discutidas;</li>
+<li>Mantém a propriedade no objeto, mas a torna não enumerável. Isso pode ser útil em alguns casos;</li>
+<li>Pode se tornar complexo e não remover verdadeiramente a propriedade do objeto.</li>
+</ul>
+<h2>6. Usando Reflect.deleteProperty</h2>
+<p>Essa abordagem descobri nessa pesquisa. No caso, usando <code>Reflect.deleteProperty</code> da <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect">Reflect API</a>, conseguimos ter abordagem semelhante ao operador <code>delete</code>, porém com muito mais possibilidades de uso a partir dos outros métodos da API.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Remove a propriedade 'age'.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span></code></pre>
+<p>Caso você queira remover uma propriedade de um objeto que não existe, o método <code>Reflect.deleteProperty</code> retornará <code>true</code>, diferente do operador <code>delete</code>, que retornará <code>false</code>.</p>
+<p>Se tiver mais interesse em entender melhor sobre a API <code>Reflect</code>, recomendo dar uma lida na documentação no <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect">Mozilla Developer Network</a>.</p>
+<h3>Notas</h3>
+<ul>
+<li>Problemas de performance parecidos com o uso do operador <code>delete</code>;</li>
+<li>Uma ampla possibilidade de uso dos métodos da API <code>Reflect</code>, como <code>Reflect.get()</code>, <code>Reflect.set()</code>, entre outros;</li>
+<li>Pode confundir para quem não tem conhecimento da API <code>Reflect</code>.</li>
+</ul>
+<h2>7. Usando bibliotecas externas</h2>
+<p>Como notado, hoje em dia temos diversas maneiras de remover propriedades de um objeto em JavaScript, sem a necessidade de usar bibliotecas externas. Mas, se você estiver usando uma biblioteca externa, como <code>lodash</code>, e ou <code>underscore</code>, existem métodos específicos para remover propriedades de um objeto.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Usando lodash</span>
+<span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'New York'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> newObj <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">omit</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Remove a propriedade 'age'.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'John', city: 'New York' }</span></code></pre>
+<p>Recomendo dar uma lida no repositório &quot;<a href="https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore">You Don't Need Lodash/Underscore</a>&quot; para entender como você pode substituir as bibliotecas <code>lodash</code> e <code>underscore</code> por outras abordagens mais performáticas.</p>
+<h2>Conclusão</h2>
+<p>Como a versatilidade do JavaScript, conseguimos ter várias diversas maneiras para remover propriedades de um objeto. A escolha da abordagem vai depender do caso de uso e do que o seu projeto precisa Usar o <code>delete</code> é o mais comum e mais fácil de entender, mas as outras abordagens também são úteis em diferentes situações e que traz impactos positivos para a performance das suas aplicações.</p>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
