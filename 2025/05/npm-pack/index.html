@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="top">
+          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Como saber quais arquivos do seu pacote serão publicados no npm</h1>
+    <p class="post-date">
+      <time datetime="Fri May 30 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        30 de maio de 2025
+      </time>
+    </p>
+  </header>
+  <div class="post-content"><p>Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> pack</code></pre>
+<p>E o resultado será algo como:</p>
+<p><img src="/assets/images/posts/2025/npm-pack.png" alt="npm pack"></p>
+<p>É gerado um arquivo <code>.tgz</code> com o nome do pacote e a versão. Você pode validar se os arquivos que precisam existir no seu pacote estão corretos, além de ter algumas informações sobre o pacote, como:</p>
+<ul>
+<li>Versão do pacote;</li>
+<li>Tamanho do pacote comprimido e descomprimido;</li>
+<li>Total de arquivos no pacote.</li>
+</ul>
+<p>Caso não queria gerar um arquivo <code>.tgz</code>, você pode usar o comando:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> pack --dry-run</code></pre>
+<p>Nesse caso, terá como resultado:</p>
+<p><img src="/assets/images/posts/2025/npm-pack-dry-run.png" alt="npm pack --dry-run"></p>
+<p>Com o <code>--dry-run</code> você pode ver quais arquivos serão publicados, mas não é gerado o arquivo <code>.tgz</code>.</p>
+<p>Simples, não!?</p>
+</div>
+</article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <small>with Eleventy and GitHub Actions 🚀</small>
+      </div>
+    </footer>
+  </body>
+</html>
