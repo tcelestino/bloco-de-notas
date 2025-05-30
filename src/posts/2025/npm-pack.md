@@ -13,7 +13,7 @@ npm pack
 ```
 E o resultado será algo como:
 
-![npm pack]({{ site.baseurl }}/assets/images/posts/2025/npm-pack.png)
+![resultado comando npm pack no terminal](https://i.ibb.co/nsJdw7Xv/npm-pack.png)
 
 É gerado um arquivo `.tgz` com o nome do pacote e a versão. Você pode validar se os arquivos que precisam existir no seu pacote estão corretos, além de ter algumas informações sobre o pacote, como:
 
@@ -28,7 +28,7 @@ npm pack --dry-run
 ```
 Nesse caso, terá como resultado:
 
-![npm pack --dry-run]({{ site.baseurl }}/assets/images/posts/2025/npm-pack-dry-run.png)
+![resultado comando npm pack --dry-run no terminal](https://i.ibb.co/nNhKHBBg/npm-pack-dry-run.png)
 
 Com o `--dry-run` você pode ver quais arquivos serão publicados, mas não é gerado o arquivo `.tgz`.
 
