@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Como saber quais arquivos serão publicados no npm
+title: Como saber quais arquivos do seu pacote serão publicados no npm
 description: Uma dica rápida para quem está desenvolvendo um projeto com Node.js e quer publicar um pacote no npm.
 date: 2025-05-30
 tags: [npm, node]
