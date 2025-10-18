@@ -5,7 +5,7 @@ layout: default
   <ol reversed>
     {%- for post in collections.posts -%}
       <li>
-        <time datetime="{{post.date}}">{{ post.date | readableDate }}</time>
+        <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
         <h2>
           <a href="{{ post.url | url }}">{{ post.data.title | safe }}</a>
         </h2>
