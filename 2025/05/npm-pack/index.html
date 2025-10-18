@@ -9,26 +9,21 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="top">
-          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
-        </div>
-      </div>
+    <header>
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
     </header>
 
-    <main class="page-content">
-      <div class="wrapper">
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">Como saber quais arquivos do seu pacote serão publicados no npm</h1>
-    <p class="post-date">
-      <time datetime="Fri May 30 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
-        30 de maio de 2025
-      </time>
-    </p>
+    <main>
+      <section>
+<article>
+  <header>
+   <time datetime="Fri May 30 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      30 de maio de 2025
+    </time>
+    <h1>Como saber quais arquivos do seu pacote serão publicados no npm</h1>
   </header>
-  <div class="post-content"><p>Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:</p>
+  <p>Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> pack</code></pre>
 <p>E o resultado será algo como:</p>
 <p><img src="https://i.ibb.co/nsJdw7Xv/npm-pack.png" alt="resultado comando npm pack no terminal"></p>
@@ -44,15 +39,13 @@
 <p><img src="https://i.ibb.co/nNhKHBBg/npm-pack-dry-run.png" alt="resultado comando npm pack --dry-run no terminal"></p>
 <p>Com o <code>--dry-run</code> você pode ver quais arquivos serão publicados, mas não é gerado o arquivo <code>.tgz</code>.</p>
 <p>Simples, não!?</p>
-</div>
+
 </article>
-</div>
+</section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <small>with Eleventy and GitHub Actions 🚀</small>
-      </div>
+    <footer>
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
     </footer>
   </body>
 </html>

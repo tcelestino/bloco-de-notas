@@ -9,30 +9,25 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="top">
-          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
-        </div>
-      </div>
+    <header>
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
     </header>
 
-    <main class="page-content">
-      <div class="wrapper">
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">Compartilhamento de links usando Web Share API</h1>
-    <p class="post-date">
-      <time datetime="Fri Jan 31 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
-        31 de janeiro de 2025
-      </time>
-    </p>
+    <main>
+      <section>
+<article>
+  <header>
+   <time datetime="Fri Jan 31 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      31 de janeiro de 2025
+    </time>
+    <h1>Compartilhamento de links usando Web Share API</h1>
   </header>
-  <div class="post-content"><p>Dias atrás, o Rodrigo Ghedin, do <a href="https://manualdousuario.net/">Manual do Usuário</a>, disponibilizou um recurso simples no blog, mas que, sem dúvida, trouxe uma experiência mais agradável para os usuários ao implementar o compartilhamento de link nativo dos navegadores. Dei uma fuçada e acabei confirmando o que imaginava: a implementação é baseada na <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/share">Web Share API</a>.</p>
+  <p>Dias atrás, o Rodrigo Ghedin, do <a href="https://manualdousuario.net/">Manual do Usuário</a>, disponibilizou um recurso simples no blog, mas que, sem dúvida, trouxe uma experiência mais agradável para os usuários ao implementar o compartilhamento de link nativo dos navegadores. Dei uma fuçada e acabei confirmando o que imaginava: a implementação é baseada na <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/share">Web Share API</a>.</p>
 <p>Lembrei da época em que trabalhava no elo7 e usamos a Web Share API na página de detalhes dos produtos do marketplace, no qual conseguimos garantir uma experiência mais fluida no marketplace. Inclusive, <a href="https://blog.elo7.dev/web-share-api/">escrevi</a> sobre a API no blog da empresa.</p>
 <h2>O que é a Web Share API?</h2>
 <p>A <a href="https://wicg.github.io/web-share/">Web Share API</a> é uma API em Javascript presente em diversos navegadores, na qual você pode usar o recurso nativo de compartilhamento de link sem a necessidade de implementação de plugins de terceiros na sua página. Segundo o <a href="https://caniuse.com/web-share">Can I Use</a>, a Web Share API já tem um amplo suporte nos navegadores mais atuais:</p>
-<figure class="media_image">
+<figure>
   <img src="https://i.ibb.co/7J1bttp3/SCR-20250131-kccw.png" alt="Screenshot exibindo compatibilidade da Web Share API">
   <figcaption>Infelizmente, o Firefox para desktop ainda não possui o recurso. 😞</figcaption>
 </figure>
@@ -42,7 +37,7 @@
 <p>A implementação da Web Share API é muito simples:</p>
 <script src="https://gist.github.com/tcelestino/7b738d076654d1d2880cb67672149786.js"></script>
 <p>Com essa estrutura, você já tem uma implementação funcional de compartilhamento de link do próprio sistema operacional.</p>
-<figure class="media_image">
+<figure>
   <img src="https://i.ibb.co/b51X5YKB/RPReplay-Final1738330987.gif" alt="Screenshot com o funcionamento da Web Share API em um dispositivo móvel">
   <figcaption>Ao clicar no link "Compartilhar link", a Web Share API entra em ação</figcaption>
 </figure>
@@ -72,15 +67,13 @@
 <h2>Conclusão</h2>
 <p>Por ser algo simples de implementar, a Web Share API pode trazer bons ganhos na experiência de usuário, principalmente por não haver interferência de terceiros e por proporcionar maior controle das ações realizadas pelo usuário em seu site.</p>
 <p>Ter uma solução nativa integrada com os sistemas operacionais, sem dúvidas, trará uma experiência mais fluida para os usuários, além de garantir a autonomia do funcionamento de todo o seu site.</p>
-</div>
+
 </article>
-</div>
+</section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <small>with Eleventy and GitHub Actions 🚀</small>
-      </div>
+    <footer>
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
     </footer>
   </body>
 </html>

@@ -9,26 +9,21 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="top">
-          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
-        </div>
-      </div>
+    <header>
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
     </header>
 
-    <main class="page-content">
-      <div class="wrapper">
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">Novidades do Javascript para 2022</h1>
-    <p class="post-date">
-      <time datetime="Tue Jan 25 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
-        25 de janeiro de 2022
-      </time>
-    </p>
+    <main>
+      <section>
+<article>
+  <header>
+   <time datetime="Tue Jan 25 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      25 de janeiro de 2022
+    </time>
+    <h1>Novidades do Javascript para 2022</h1>
   </header>
-  <div class="post-content"><p>Esse ano não teremos tantas novidades planejadas para o Javascript (também pode chamar de ES2022), porém achei algumas dessas novidades interessantes.</p>
+  <p>Esse ano não teremos tantas novidades planejadas para o Javascript (também pode chamar de ES2022), porém achei algumas dessas novidades interessantes.</p>
 <h2>Top-level await</h2>
 <p>Hoje, só conseguimos usar o operador <code>await</code> a partir de uma função assíncrona (<code>async</code>). A partir do ES2022, não haverá mais essa necessidade.</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// antes</span>
@@ -66,15 +61,13 @@
 <span class="token punctuation">}</span></code></pre>
 <p>Como você deve ter notado, também será possível usar informações privadas de uma classe utilizando o operador <code>#</code>.</p>
 <p><em>Fonte: <a href="https://bytes.dev/archives/83">bytes.dev</a></em></p>
-</div>
+
 </article>
-</div>
+</section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <small>with Eleventy and GitHub Actions 🚀</small>
-      </div>
+    <footer>
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
     </footer>
   </body>
 </html>

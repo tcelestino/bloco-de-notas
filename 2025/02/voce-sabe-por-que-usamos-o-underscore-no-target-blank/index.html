@@ -9,26 +9,21 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="top">
-          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
-        </div>
-      </div>
+    <header>
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
     </header>
 
-    <main class="page-content">
-      <div class="wrapper">
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">Você sabe por que usamos o underscore no target=&quot;_blank&quot;?</h1>
-    <p class="post-date">
-      <time datetime="Tue Feb 25 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
-        25 de fevereiro de 2025
-      </time>
-    </p>
+    <main>
+      <section>
+<article>
+  <header>
+   <time datetime="Tue Feb 25 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      25 de fevereiro de 2025
+    </time>
+    <h1>Você sabe por que usamos o underscore no target=&quot;_blank&quot;?</h1>
   </header>
-  <div class="post-content"><p>Alguma vez você já se perguntou por que usamos o <em>underscore</em> em valores como <code>_blank</code>, <code>_self</code>, etc...? Eu não sabia até ler esse <a href="https://kyrylo.org/html/2024/10/25/why-does-target-blank-have-an-underscore-in-front.html">post</a> do Kyrylo Silin.</p>
+  <p>Alguma vez você já se perguntou por que usamos o <em>underscore</em> em valores como <code>_blank</code>, <code>_self</code>, etc...? Eu não sabia até ler esse <a href="https://kyrylo.org/html/2024/10/25/why-does-target-blank-have-an-underscore-in-front.html">post</a> do Kyrylo Silin.</p>
 <h2>Um pouco de história</h2>
 <p>Antes do surgimento do HTML5, abusávamos do uso de <em>frames</em> para construção de páginas. Essas páginas eram criadas baseadas em <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frameset">framesets</a>. Eu mesmo escrevi muito código HTML utilizando <em>frames</em>. Como nem tudo são flores, usar <em>frames</em> para construção de páginas podia ser útil para organizar conteúdo em várias janelas na própria página (SPA, alguém aí? 😅), mas os <em>frames</em> eram difíceis de manter e tinham sérios problemas de segurança.</p>
 <h2>Como funcionavam os framesets</h2>
@@ -40,15 +35,13 @@
 <h2>Relevância hoje</h2>
 <p>Mesmo com a obsolescência dos framesets com o surgimento do HTML5, esses valores especiais foram preservados na especificação. Hoje, quando usamos <code>target=&quot;_blank&quot;</code>, continuamos aproveitando essa convenção estabelecida há décadas, mas com propósitos modernos de navegação.</p>
 <p>Simples, porém eficiente, não é mesmo!? 😎</p>
-</div>
+
 </article>
-</div>
+</section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <small>with Eleventy and GitHub Actions 🚀</small>
-      </div>
+    <footer>
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
     </footer>
   </body>
 </html>

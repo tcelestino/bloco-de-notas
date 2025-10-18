@@ -9,26 +9,21 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="top">
-          <h1 class="top__title"><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
-        </div>
-      </div>
+    <header>
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
     </header>
 
-    <main class="page-content">
-      <div class="wrapper">
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">Como remover propriedades de um objeto no JavaScript</h1>
-    <p class="post-date">
-      <time datetime="Tue Apr 29 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
-        29 de abril de 2025
-      </time>
-    </p>
+    <main>
+      <section>
+<article>
+  <header>
+   <time datetime="Tue Apr 29 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      29 de abril de 2025
+    </time>
+    <h1>Como remover propriedades de um objeto no JavaScript</h1>
   </header>
-  <div class="post-content"><p>Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &quot;chaves&quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.</p>
+  <p>Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &quot;chaves&quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.</p>
 <p>Essa semana estive implementando uma funcionalidade a partir de uma API de terceiros, e precisava remover algumas propriedades de um objeto, e por curiosidade, decidi pesquisar sobre as diferentes formas de fazer isso e como cada uma pode impactar a performance da aplicação, saindo do tradicional <code>delete</code>.</p>
 <p>Nesse post, vou listar algumas das abordagens conhecidas e outras que acabei descobrindo nas minhas pesquisas.</p>
 <p>Partiu!! 🚀</p>
@@ -148,15 +143,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>Recomendo dar uma lida no repositório &quot;<a href="https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore">You Don't Need Lodash/Underscore</a>&quot; para entender como você pode substituir as bibliotecas <code>lodash</code> e <code>underscore</code> por outras abordagens mais performáticas.</p>
 <h2>Conclusão</h2>
 <p>Como a versatilidade do JavaScript, conseguimos ter várias diversas maneiras para remover propriedades de um objeto. A escolha da abordagem vai depender do caso de uso e do que o seu projeto precisa Usar o <code>delete</code> é o mais comum e mais fácil de entender, mas as outras abordagens também são úteis em diferentes situações e que traz impactos positivos para a performance das suas aplicações.</p>
-</div>
+
 </article>
-</div>
+</section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <small>with Eleventy and GitHub Actions 🚀</small>
-      </div>
+    <footer>
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
     </footer>
   </body>
 </html>
