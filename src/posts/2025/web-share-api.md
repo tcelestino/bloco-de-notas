@@ -12,7 +12,7 @@ Lembrei da época em que trabalhava no elo7 e usamos a Web Share API na página 
 
 A [Web Share API](https://wicg.github.io/web-share/) é uma API em Javascript presente em diversos navegadores, na qual você pode usar o recurso nativo de compartilhamento de link sem a necessidade de implementação de plugins de terceiros na sua página. Segundo o [Can I Use](https://caniuse.com/web-share), a Web Share API já tem um amplo suporte nos navegadores mais atuais:
 
-<figure class="media_image">
+<figure>
   <img src="https://i.ibb.co/7J1bttp3/SCR-20250131-kccw.png" alt="Screenshot exibindo compatibilidade da Web Share API">
   <figcaption>Infelizmente, o Firefox para desktop ainda não possui o recurso. 😞</figcaption>
 </figure>
@@ -29,7 +29,7 @@ A implementação da Web Share API é muito simples:
 
 Com essa estrutura, você já tem uma implementação funcional de compartilhamento de link do próprio sistema operacional.
 
-<figure class="media_image">
+<figure>
   <img src="https://i.ibb.co/b51X5YKB/RPReplay-Final1738330987.gif" alt="Screenshot com o funcionamento da Web Share API em um dispositivo móvel">
   <figcaption>Ao clicar no link "Compartilhar link", a Web Share API entra em ação</figcaption>
 </figure>

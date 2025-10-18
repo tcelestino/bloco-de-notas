@@ -16,6 +16,6 @@ Por ser um projeto de código aberto, foi feito um [fork](https://github.com/wit
 
 Por enquanto não há nenhum indício de que o [@marak](https://twitter.com/marak) irá voltar oficialmente com o projeto. Em um tweet, ele expõem que o [Github](https://github.com) (dona do **npm**) reverteu a versão do Faker.js com a remoção do código do projeto e suspendeu sua conta no site.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">NPM has reverted to a previous version of the faker.js package and Github has suspended my access to all public and private projects. I have 100s of projects. <a href="https://twitter.com/hashtag/AaronSwartz?src=hash&amp;ref_src=twsrc%5Etfw">#AaronSwartz</a> <a href="https://t.co/zFddwn631S">pic.twitter.com/zFddwn631S</a></p>&mdash; marak 🗿 (@marak) <a href="https://twitter.com/marak/status/1479200803948830724?ref_src=twsrc%5Etfw">January 6, 2022</a></blockquote>
+<blockquote><p lang="en" dir="ltr">NPM has reverted to a previous version of the faker.js package and Github has suspended my access to all public and private projects. I have 100s of projects. <a href="https://twitter.com/hashtag/AaronSwartz?src=hash&amp;ref_src=twsrc%5Etfw">#AaronSwartz</a> <a href="https://t.co/zFddwn631S">pic.twitter.com/zFddwn631S</a></p>&mdash; marak 🗿 (@marak) <a href="https://twitter.com/marak/status/1479200803948830724?ref_src=twsrc%5Etfw">January 6, 2022</a></blockquote>
 
 Acompanhando os próximos capítulos dessa história.

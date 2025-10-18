@@ -2,14 +2,12 @@
 layout: default
 ---
 
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ title }}</h1>
-    <p class="post-date">
-      <time datetime="{{ page.date }}">
-        {{ page.date | readableDate }}
-      </time>
-    </p>
+<article>
+  <header>
+   <time datetime="{{ page.date }}">
+      {{ page.date | readableDate }}
+    </time>
+    <h1>{{ title }}</h1>
   </header>
-  <div class="post-content">{{ content | safe }}</div>
+  {{ content | safe }}
 </article>
