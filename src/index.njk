@@ -2,12 +2,12 @@
 layout: default
 ---
 <main>
-  <ol reversed class="post-list">
+  <ol reversed>
     {%- for post in collections.posts -%}
       <li>
-        <span class="post-meta">{{ post.date | readableDate }}</span>
+        <time datetime="{{post.date}}">{{ post.date | readableDate }}</time>
         <h2>
-          <a class="post-link" href="{{ post.url | url }}">{{ post.data.title | safe }}</a>
+          <a href="{{ post.url | url }}">{{ post.data.title | safe }}</a>
         </h2>
       </li>
     {%- endfor -%}

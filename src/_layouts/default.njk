@@ -9,22 +9,17 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="top">
-          <h1 class="top__title"><a href="{{ '/' | url }}">Blocos de Notas</a></h1>
-        </div>
-      </div>
+    <header>
+      <h1><a href="{{ '/' | url }}">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
     </header>
 
-    <main class="page-content">
-      <div class="wrapper">{{ content | safe }}</div>
+    <main>
+      <section>{{ content | safe }}</section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <small>with Eleventy and GitHub Actions 🚀</small>
-      </div>
+    <footer>
+      <small>builty using <a href="https://11ty.dev" rel="noopener follow" target="_blank">11ty</a></small>
     </footer>
   </body>
 </html>
