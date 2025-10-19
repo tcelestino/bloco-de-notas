@@ -18,13 +18,13 @@ A ideia é que a cada semana, vou acrescentar pequenas melhorias mantendo a simp
 
 Como referência, venho salvando alguns blogs minimalistas e simples:
 
-- [https://www.seangoedecke.com/](https://www.seangoedecke.com/)
-- [https://cekrem.github.io/posts/](https://cekrem.github.io/posts/)
-- [https://blog.jim-nielsen.com/](https://blog.jim-nielsen.com/)
-- [https://manualdousuario.net/](https://manualdousuario.net/)
-- [https://eduardoboucas.com/](https://eduardoboucas.com/)
-- [https://seldo.com/](https://seldo.com/)
-- [https://josh.mn/](https://josh.mn/)
+- [Sean Goedecke](https://www.seangoedecke.com/)
+- [Cekrem's blog](https://cekrem.github.io/posts/)
+- [Jim Nielsen's Blog](https://blog.jim-nielsen.com/)
+- [Manual do Usuário](https://manualdousuario.net/)
+- [Eduardo Bouças](https://eduardoboucas.com/)
+- [seldo.com](https://seldo.com/)
+- [josh.mn](https://josh.mn/)
 
 São blogs que gosto de seguir e que vão me ajudar a criar meu próprio layout.
 
