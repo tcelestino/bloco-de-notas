@@ -6,7 +6,7 @@ date: 2025-10-18
 tags: [11ty, css, html, interface, minimalism]
 ---
 
-Já faz tempo que queria mudar o layout do [Bloco de Notas](https://tcelestino.github.io/bloco-de-notas/), mas a preguiça ou falta de conhecimento em design sempre venciam. Usei o layout padrão do [11ty](https://11ty.dev/) com pequenas modificações, mas queria algo mais personalizado e simples, sem firulas de design ou código. Há um tempo atrás, tentei usar [Tailwind CSS](https://tailwindcss.com/), mas foi mais complicado que o esperado. Gastei mais tempo configurando o framework do que construindo o layout. Acabei desistindo.
+Já faz tempo que queria mudar o layout do [Bloco de Notas](https://tcelestino.github.io/bloco-de-notas/), mas a preguiça ou falta de conhecimento em design sempre venciam. Usei o layout padrão do [11ty](https://11ty.dev/) com pequenas modificações, mas queria algo mais personalizado e simples, sem firulas de design ou código. Há um tempo, tentei usar [Tailwind CSS](https://tailwindcss.com/), mas foi mais complicado que o esperado. Gastei mais tempo configurando o framework do que construindo o layout. Acabei desistindo.
 
 ### Uma nova abordagem
 
