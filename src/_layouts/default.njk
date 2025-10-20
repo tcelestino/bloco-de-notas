@@ -12,6 +12,18 @@
     <header>
       <h1><a href="{{ '/' | url }}">Blocos de Notas</a></h1>
       <small>Por Tiago Celestino</small>
+      <nav class="nav-links">
+        <ul class="hide nav-pages">
+          {% for item in collections.navLinks.pages %}
+            <li><a href="{{ item.url | url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="nav-social">
+          {% for item in collections.navLinks.social %}
+            <li><a href="{{ item.url | url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
     </header>
 
     <main>
