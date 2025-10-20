@@ -1,4 +1,16 @@
+@import "var.css";
 @import "syntax-highlighting.css";
+@import "utils.css";
+@import "header.css";
+
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #fff;
+    --color-link: #fff;
+    --color-link-hover: #fff;
+  }
+} */
 
 body {
   line-height: 1.5;
