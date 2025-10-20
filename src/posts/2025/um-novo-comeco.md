@@ -2,7 +2,7 @@
 layout: post
 title: Um novo começo
 summary: Resolvi radicalizar e fazer um reset completo no layout do Bloco de Notas, começando do zero.
-date: 2025-10-18
+date: 2025-10-20
 tags: [11ty, css, html, interface, minimalism]
 ---
 
