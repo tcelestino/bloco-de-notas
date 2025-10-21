@@ -1,0 +1,35 @@
+:root {
+  /* colors */
+  --color-text: #444;
+  --color-link: #000;
+  --color-link-hover: #000;
+  --color-link-visited: #000;
+  --color-link-active: #000;
+  --color-link-focus: #000;
+  --color-link-hover-visited: #000;
+
+  /* social */
+  --color-social-github: #1F2328;
+  --color-social-linkedin: #0A66C2;
+  --color-social-bsky: #017FF3;
+
+  /* fonts */
+  --line-height-base: 1.2;
+  --font-weight-base: 400;
+
+  /* font sizes */
+  --font-size-base: 1rem;
+  --font-size-large: 2rem;
+  --font-size-medium: 1.5rem;
+  --font-size-small: 1.25rem;
+  --font-size-tiny: 0.75rem;
+
+  /* margins */
+  --margin-base: 1rem;
+  --margin-small: 0.5rem;
+  --margin-large: 1.5rem;
+  --margin-x-large: 2rem;
+  --margin-xx-large: 2.5rem;
+  --margin-xxx-large: 3rem;
+  --margin-xxxx-large: 3.5rem;
+}

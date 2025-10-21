@@ -1,0 +1,63 @@
+@import "var.css";
+
+.nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: var(--margin-base) 0;
+}
+
+.nav-links li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-links a {
+  text-decoration: none;
+}
+
+.nav-pages, .nav-social {
+  display: flex;
+  align-items: center;
+}
+
+.nav-pages li, .nav-social li {
+  margin: 0 0.5rem;
+}
+.nav-pages li:first-child, .nav-social li:first-child {
+  margin-left: 0;
+}
+
+.nav-pages li:last-child, .nav-social li:last-child {
+  margin-right: 0;
+}
+
+.nav-pages a, .nav-links a {
+  font-weight: 600;
+}
+
+.nav-pages a:hover, .nav-links a:hover {
+  text-decoration: underline;
+}
+
+.nav-pages {
+  justify-content: space-between;
+  font-weight: 600;
+}
+.nav-pages li { margin: 0; }
+
+.nav-social {
+  text-transform: lowercase;
+}
+
+.social-link-github a {
+  color: var(--color-social-github);
+}
+
+.social-link-linkedin a {
+  color: var(--color-social-linkedin);
+}
+
+.social-link-bsky a {
+  color: var(--color-social-bsky);
+}
