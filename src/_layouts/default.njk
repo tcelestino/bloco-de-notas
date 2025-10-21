@@ -20,7 +20,7 @@
         </ul>
         <ul class="nav-social">
           {% for item in collections.navLinks.social %}
-            <li><a href="{{ item.url | url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></li>
+            <li class="social-link-{{ item.title | lower }}"><a href="{{ item.url | url }}"  target="_blank" rel="noopener noreferrer">{{ item.title }}</a></li>
           {% endfor %}
         </ul>
       </nav>
