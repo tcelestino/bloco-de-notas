@@ -8,6 +8,11 @@
   --color-link-focus: #000;
   --color-link-hover-visited: #000;
 
+  /* social */
+  --color-social-github: #1F2328;
+  --color-social-linkedin: #0A66C2;
+  --color-social-bsky: #017FF3;
+
   /* fonts */
   --line-height-base: 1.2;
   --font-weight-base: 400;
@@ -22,7 +27,6 @@
   /* margins */
   --margin-base: 1rem;
   --margin-small: 0.5rem;
-  --margin-medium: 1rem;
   --margin-large: 1.5rem;
   --margin-x-large: 2rem;
   --margin-xx-large: 2.5rem;
