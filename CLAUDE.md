@@ -10,19 +10,19 @@ This is a Portuguese-language blog called "Bloco de Notas" built with Eleventy (
 
 ```bash
 # Development server with debug output
-npm run dev          # Uses yarn, cleans output, runs with DEBUG flag and watch mode
+yarn run dev          # Uses yarn, cleans output, runs with DEBUG flag and watch mode
 
 # Development server (alternative)
-npm start            # Basic serve with watch mode, no debug output
+yarn start            # Basic serve with watch mode, no debug output
 
 # Production build
-npm run build        # Cleans, builds with pathprefix for GitHub Pages deployment
+yarn run build        # Cleans, builds with pathprefix for GitHub Pages deployment
 
 # Clean output directory
-npm run clean        # Removes _site folder
+yarn run clean        # Removes _site folder
 ```
 
-Note: `npm run dev` uses `yarn` internally, while `npm start` and `npm run build` use npm/eleventy directly.
+Note: `yarn run dev` uses `yarn` internally, while `yarn start` and `yarn run build` use yarn/eleventy directly.
 
 ## Architecture
 
@@ -57,6 +57,7 @@ Two main layouts in `src/_layouts/`:
 - `post.njk`: Layout for blog posts
 
 Layout aliases are configured:
+
 - `layout: default` → `default.njk`
 - `layout: post` → `post.njk`
 
@@ -64,7 +65,8 @@ Layout aliases are configured:
 
 Blog posts live in `src/posts/` organized by year (e.g., `src/posts/2025/`, `src/posts/2024/`).
 
-Post frontmatter structure:
+Post front-matter structure:
+
 ```yaml
 ---
 layout: post
@@ -77,10 +79,11 @@ tags: [tag1, tag2, tag3]
 
 ### Assets
 
-- CSS: `src/assets/css/` (includes `main.css` and `syntax-highlighting.css`)
+- CSS: `src/assets/css/` (includes `main.css`, `syntax-highlighting.css`, `var.css`, `theme.css`, `utils.css` and `header.css`)
 - Images: `src/assets/images/` and `src/posts/images/`
 
 Assets are copied through passthrough:
+
 - `src/assets/images/**/*` → preserves structure
 - `src/posts/images/**/*` → flattened to `assets/images/`
 - `src/assets/css/**/*` → preserves structure
