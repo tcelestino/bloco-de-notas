@@ -5,6 +5,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin: var(--margin-base) 0;
+  text-transform: lowercase;
 }
 
 .nav-links li {
@@ -45,10 +46,6 @@
   font-weight: 600;
 }
 .nav-pages li { margin: 0; }
-
-.nav-social {
-  text-transform: lowercase;
-}
 
 .social-link-github a {
   color: var(--color-social-github);
