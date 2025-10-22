@@ -13,7 +13,7 @@
       <h1><a href="{{ '/' | url }}">Blocos de Notas</a></h1>
       <small>Por Tiago Celestino</small>
       <nav class="nav-links">
-        <ul class="hide nav-pages">
+        <ul class="nav-pages">
           {% for item in collections.navLinks.pages %}
             <li><a href="{{ item.url | url }}">{{ item.title }}</a></li>
           {% endfor %}

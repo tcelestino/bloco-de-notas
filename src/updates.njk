@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<main>
+  <p>Acompanhe as atualizações realizadas no <strong>Bloco de Notas</strong>, sejam de layout e ou novas funcionalidades implementadas.</p>
+  {%- for update in collections.updates -%}
+    <article>
+      <header>
+        <h2><time datetime="{{ update.date }}">{{ update.date | readableDate }}</time></h2>
+      </header>
+      {{ update.content | safe }}
+    </article>
+  {%- endfor -%}
+</main>
