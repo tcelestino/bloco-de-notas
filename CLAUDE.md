@@ -10,7 +10,7 @@ This is a Portuguese-language blog called "Bloco de Notas" built with Eleventy (
 
 ```bash
 # Development server with debug output
-yarn run dev          # Uses yarn, cleans output, runs with DEBUG flag and watch mode
+yarn run dev          # Cleans output, runs with DEBUG flag and watch mode
 
 # Development server (alternative)
 yarn start            # Basic serve with watch mode, no debug output
@@ -22,7 +22,7 @@ yarn run build        # Cleans, builds with pathprefix for GitHub Pages deployme
 yarn run clean        # Removes _site folder
 ```
 
-Note: `yarn run dev` uses `yarn` internally, while `yarn start` and `yarn run build` use yarn/eleventy directly.
+Note: `yarn run dev` enables Eleventy debug output. `yarn run build` uses npm internally and adds the `bloco-de-notas` path prefix for GitHub Pages.
 
 ## Architecture
 
@@ -40,7 +40,8 @@ The main configuration is in `eleventy.config.js`:
 
 Collections are defined in `lib/collections/`:
 
-- `posts.js`: Aggregates all blog posts from `src/posts/**/*.md`, reversed chronologically
+- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 6 most recent posts
+- `updates.js`: Aggregates all updates/changelog posts from `src/updates/**/*.md`, reversed chronologically
 - `nav-links.js`: Social media links (Github, LinkedIn, Bluesky)
 
 ### Filters
@@ -76,6 +77,19 @@ date: YYYY-MM-DD
 tags: [tag1, tag2, tag3]
 ---
 ```
+
+Updates/changelog entries live in `src/updates/` organized by year (e.g., `src/updates/2025/`).
+
+Updates front-matter structure:
+
+```yaml
+---
+layout: post
+date: YYYY-MM-DD
+---
+```
+
+Note: Updates use a simpler structure without title, summary, or tags.
 
 ### Assets
 

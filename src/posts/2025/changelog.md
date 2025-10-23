@@ -10,4 +10,4 @@ Inspirado pelo comentário do [@dalbo1201](http://www.pedro.dalbo.me/) depois de
 
 A ideia é ir adicionando as atualizações tendo como base a estrutura de "[CHANGELOG](https://keepachangelog.com/pt-BR/1.1.0/)", no qual cada atualização pode ser considerada um _release_.
 
-Se tiver interesse, acompanhe as atualizações na página <a href="https://tcelestino.github.io/bloco-de-notas/updates/">changelog</a>.
+Se tiver interesse, acompanhe as atualizações na página [updates](/updates).
