@@ -19,7 +19,6 @@ h6 {
 }
 
 body {
-  line-height: 1.5;
   color: var(--color-text);
   padding: var(--margin-small) var(--margin-small);
 }
@@ -74,4 +73,7 @@ article ol li ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.content-page p {
+  line-height: 1.5;
 }
