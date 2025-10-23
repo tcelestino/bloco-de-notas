@@ -1,13 +1,19 @@
 ---
 layout: default
 ---
-<ol reversed>
-  {%- for post in collections.posts -%}
-    <li>
-      <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
-      <h2>
-        <a href="{{ post.url | url }}">{{ post.data.title | safe }}</a>
-      </h2>
-    </li>
-  {%- endfor -%}
-</ol>
+<section class="last-posts">
+  <h2>Últimas postagens</h2>
+  <ol>
+    {%- for post in collections.posts -%}
+      <li>
+        <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
+        <h3>
+          <a href="{{ post.url | url }}">{{ post.data.title | safe }}</a>
+        </h3>
+        {% if post.data.description %}
+          <p>{{ post.data.description | safe }}</p>
+        {% endif %}
+      </li>
+    {%- endfor -%}
+  </ol>
+</section>
