@@ -2,6 +2,7 @@
 @import "syntax-highlighting.css";
 @import "utils.css";
 @import "header.css";
+@import "home.css";
 
 * {
   box-sizing: border-box;
