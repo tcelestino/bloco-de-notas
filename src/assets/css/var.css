@@ -1,12 +1,6 @@
 :root {
   /* colors */
   --color-text: #444;
-  --color-link: #000;
-  --color-link-hover: #000;
-  --color-link-visited: #000;
-  --color-link-active: #000;
-  --color-link-focus: #000;
-  --color-link-hover-visited: #000;
 
   /* social */
   --color-social-github: #1f2328;
@@ -19,10 +13,10 @@
 
   /* font sizes */
   --font-size-base: 1rem;
-  --font-size-large: 2rem;
-  --font-size-medium: 1.5rem;
   --font-size-small: 1.25rem;
   --font-size-tiny: 0.75rem;
+  --font-size-medium: 1.5rem;
+  --font-size-large: 2rem;
 
   /* margins */
   --margin-base: 1em;
