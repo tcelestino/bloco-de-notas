@@ -69,3 +69,8 @@ article ol li ul {
   margin-top: var(--margin-xx-large);
   margin-bottom: var(--margin-base);
 }
+.content-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
