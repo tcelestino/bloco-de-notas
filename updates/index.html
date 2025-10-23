@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="top-header">
       <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
       <small>Por Tiago Celestino</small>
       <nav class="nav-links">
@@ -30,9 +30,27 @@
       </nav>
     </header>
 
-    <main>
-      <section><main>
+    <main class="content-page">
+      <main>
   <p>Acompanhe as atualizações realizadas no <strong>Bloco de Notas</strong>, sejam de layout e ou novas funcionalidades implementadas.</p><article>
+      <header>
+        <h2><time datetime="Thu Oct 23 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">23 de outubro de 2025</time></h2>
+      </header>
+      <h3>Adicionado</h3>
+<ul>
+<li>Criação do css (<code>home.css</code>) para formatação da capa do blog.</li>
+<li>Limitação da coleção de posts para exibir apenas os 6 posts mais recentes na página inicial.</li>
+<li>Usando o método <code>toReversed()</code> para reverter os posts</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Centralizando do <em>header</em>, conteúdo e rodapé.</li>
+<li>Restruturação das marcações HTML na capa.</li>
+<li>Remoção de formatações e variáveis não utilizadas não utilizadas no css</li>
+<li>Atualização do <code>CLAUDE.md</code> com informações sobre a estrutura de updates/changelog e correções na documentação de comandos.</li>
+</ul>
+
+    </article><article>
       <header>
         <h2><time datetime="Wed Oct 22 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">22 de outubro de 2025</time></h2>
       </header>
@@ -56,10 +74,10 @@
 </ul>
 
     </article></main>
-</section>
+
     </main>
 
-    <footer>
+    <footer class="content-footer">
       <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
     </footer>
   </body>
