@@ -1,0 +1,35 @@
+.last-posts > h2 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--margin-small);
+  text-transform: lowercase;
+}
+
+.last-posts ol h3 {
+  font-weight: 400;
+  font-size: var(--font-size-medium);
+}
+.last-posts ol li {
+  margin-bottom: var(--margin-large);
+}
+.last-posts ol a {
+  text-decoration: none;
+}
+.last-posts ol a:hover {
+  text-decoration: underline;
+}
+.last-posts ol p {
+  margin: 0;
+}
+
+.last-posts .see-more {
+  display: inline-block;
+  width: fit-content;
+  margin-top: var(--margin-base);
+  text-decoration: none;
+  text-transform: lowercase;
+  font-weight: 600;
+  background-color: #800080;
+  padding: var(--padding-small);
+  color: #fff;
+  font-size: var(--font-size-small);
+}
