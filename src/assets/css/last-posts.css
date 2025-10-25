@@ -20,3 +20,16 @@
 .last-posts ol p {
   margin: 0;
 }
+
+.last-posts .see-more {
+  display: inline-block;
+  width: fit-content;
+  margin-top: var(--margin-base);
+  text-decoration: none;
+  text-transform: lowercase;
+  font-weight: 600;
+  background-color: #800080;
+  padding: var(--padding-small);
+  color: #fff;
+  font-size: var(--font-size-small);
+}

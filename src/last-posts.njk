@@ -1,11 +1,13 @@
 ---
 layout: default
+eleventyExcludeFromCollections: true
+permalink: posts.html
 ---
-{# TODO: Criar include "includes/last-posts.njk" #}
+
 <section class="last-posts">
-  <h2>Últimas postagens</h2>
+  <h2>Todas as postagens</h2>
   <ol>
-    {%- for post in collections.posts -%}
+    {%- for post in collections.lastPosts -%}
       <li>
         <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
         <h3>
@@ -17,5 +19,4 @@ layout: default
       </li>
     {%- endfor -%}
   </ol>
-   <a href="{{ '/posts.html' | url }}" class="see-more">Ver todos os posts</a>
 </section>
