@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+  </head>
+
+  <body>
+    <header class="top-header">
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
+      <nav class="nav-links">
+        <ul class="nav-pages">
+          
+            <li><a href="/bloco-de-notas/updates">Changelog</a></li>
+          
+        </ul>
+        <ul class="nav-social">
+          
+            <li class="social-link-github"><a href="https://github.com/tcelestino"  target="_blank" rel="noopener noreferrer">Github</a></li>
+          
+            <li class="social-link-linkedin"><a href="https://linkedin.com/in/tcelestino"  target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+          
+            <li class="social-link-bsky"><a href="https://bsky.app/profile/tcelestino.bsky.social"  target="_blank" rel="noopener noreferrer">Bsky</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-page">
+      
+<article>
+  <header>
+   <time datetime="Thu Oct 30 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      30 de outubro de 2025
+    </time>
+    <h1>Desabilitando recursos de IA no Firefox</h1>
+  </header>
+  <p>Recentemente houve o boom de navegadores com IA, como o ChatGPT Atlas, o Perplexity Comet, o Microsoft Edge, entre outros que devem surgir no futuro. O <a href="https://www.firefox.com/pt-BR/">Firefox</a>, nas últimas atualizações, liberou a funcionalidade de usar os chatbots de IA, como o Claude, ChatGPT, Gemini, Mistral e o Copilot no navegador.</p>
+<p><img src="https://i.ibb.co/F4bsxsr7/firefox-ia-chatbot.png" alt="Chatbot Claude no Firefox">
+<em>Chatbot Claude no Firefox</em></p>
+<p>Não chega a ser um &quot;agente&quot; como os navegadores citados, mas é uma funcionalidade que para mim tem sido bem útil, seja para tirar dúvidas, traduzir textos em outros idiomas e realizar outras tarefas. Existem muitas preocupações com relação a IA em navegadores, seja por descaracterizar a forma de navegar pela internet e também por abrir diversas <a href="https://venturebeat.com/ai/when-your-ai-browser-becomes-your-enemy-the-comet-security-disaster">brechas de segurança</a>.</p>
+<p>Por sorte, no Firefox é possível desabilitar os recursos de IA, seguindo os passos abaixo:</p>
+<ol>
+<li>Acesse <code>about:config</code> na barra de endereço do Firefox</li>
+<li>Aceite o risco e clique em <em>&quot;Accept the Risk and Continue&quot;</em> (Aceitar o Risco e Continuar)</li>
+<li>Localize a configuração <code>browser.ml.enable</code></li>
+<li>Mude o valor de <code>true</code> para <code>false</code></li>
+</ol>
+<p>Com essa configuração, todos os recursos de IA serão desabilitados.</p>
+<p>Existem outras configurações caso não queira desabilitar todos os recursos de IA de uma só vez, veja a tabela abaixo:</p>
+<table>
+<thead>
+<tr>
+<th>Configuração</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>browser.ml.chat.enabled</td>
+<td>Habilita a integração do chatbot IA.</td>
+</tr>
+<tr>
+<td>browser.ml.chat.sidebar</td>
+<td>Exibe o painel de chat IA na barra lateral.</td>
+</tr>
+<tr>
+<td>browser.ml.chat.shortcuts</td>
+<td>Permite acionar o chat a partir de texto selecionado ou atalhos.</td>
+</tr>
+<tr>
+<td>browser.ml.chat.page</td>
+<td>Exibe o menu de chat na página quando você seleciona texto.</td>
+</tr>
+<tr>
+<td>browser.ml.chat.page.footerBadge</td>
+<td>Exibe o badge flutuante na parte inferior da página.</td>
+</tr>
+<tr>
+<td>browser.ml.chat.page.menuBadge</td>
+<td>Exibe o badge <em>&quot;Ask AI&quot;</em> no menu da página.</td>
+</tr>
+<tr>
+<td>browser.ml.chat.menu</td>
+<td>Adiciona <em>&quot;Chat about this&quot;</em> ao menu de clique com o botão direito.</td>
+</tr>
+<tr>
+<td>browser.ml.linkPreview.enabled</td>
+<td>Gera previsões e sugestões de links baseadas em IA.</td>
+</tr>
+<tr>
+<td>extensions.ml.enabled</td>
+<td>Permite que extensões do navegador usem a API ML do Firefox.</td>
+</tr>
+<tr>
+<td>browser.ml.pageAssist.enabled</td>
+<td>Executa o assistente IA <em>&quot;page assist&quot;</em>.</td>
+</tr>
+<tr>
+<td>browser.tabs.groups.smart.enabled</td>
+<td>Usa IA para agrupar e rotular automaticamente suas abas.</td>
+</tr>
+<tr>
+<td>browser.tabs.groups.smart.userEnable</td>
+<td>Permite que os usuários ativem manualmente o recurso de grupos de abas inteligentes.</td>
+</tr>
+</tbody>
+</table>
+<p>Referência: <a href="https://flamedfury.com/posts/disable-ai-in-firefox/">Disable AI In Firefox</a></p>
+
+</article>
+
+    </main>
+
+    <footer class="content-footer">
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
+    </footer>
+  </body>
+</html>
