@@ -1,4 +1,4 @@
-@import "var.css";
+@import 'var.css';
 
 .nav-links {
   display: grid;
@@ -69,4 +69,7 @@
 
 .social-link-bsky a {
   color: var(--color-social-bsky);
+}
+.social-link-unsplash a {
+  color: var(--color-social-unsplash);
 }

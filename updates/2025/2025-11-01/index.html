@@ -36,34 +36,37 @@
       
 <article>
   <header>
-   <time datetime="Mon Jan 17 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
-      17 de janeiro de 2022
+   <time datetime="Sat Nov 01 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      1 de novembro de 2025
     </time>
-    <h1>Definições do front-end</h1>
+    <h1></h1>
   </header>
-  <h2>Front-end UI</h2>
-<p>É focado em lidar com toda a parte visual da aplicação, e tem algumas obrigações, como:</p>
+  <h3>Adicionado</h3>
 <ul>
-<li>lidar com frameworks de layout;</li>
-<li>cuidar do styleguide;</li>
-<li>construir uma interface semântica;</li>
-<li>facilitar visualização de dados através de gráficos SVG/canvas;</li>
-<li>lidar com animações;</li>
-<li>participar e encabeçar das discussões de UX;</li>
-<li>desenvolver código acessível a pessoas com necessidades especiais;</li>
-<li>garantir que o progressive enhancement ou graceful degradation sejam aplicados;</li>
+<li>Arquivo de configuração <code>.editorconfig</code> com regras de formatação:
+<ul>
+<li>Charset UTF-8</li>
+<li>Final newline</li>
+<li>LF como end of line</li>
+<li>Indentação com espaços (2 espaços)</li>
+<li>Limite de 80 caracteres por linha</li>
 </ul>
-<h2>Front-end Engineer</h2>
-<p>É responsável pela estrutura da aplicação. Suas responsabilidades se resumem a:</p>
+</li>
+<li>Configuração do Prettier (<code>.prettierrc</code>):
 <ul>
-<li>criar ambiente de front de desenvolvimento e produção;</li>
-<li>definir tarefas de build;</li>
-<li>prover a sincronia entre back-end e front;</li>
-<li>escolher entre aplicar um framework de JavaScript ou não;</li>
-<li>criar os testes de interface/unitários;</li>
-<li>manter código padronizado;</li>
-<li>definir pattern de código;</li>
-<li>usar ferramentas compatíveis com browsers, lembrando sempre do cross-browser;</li>
+<li>Trailing comma em ES5</li>
+<li>Sem ponto-e-vírgula</li>
+<li>Aspas simples</li>
+</ul>
+</li>
+<li>Novo link social para o Unsplash na navegação (<code>lib/collections/nav-links.js</code>)</li>
+<li>Estilo CSS para o link do Unsplash (<code>src/assets/css/header.css</code>)</li>
+<li>Nova variável CSS para cor do Unsplash (<code>--color-social-unsplash: #111</code>) em <code>src/assets/css/var.css</code></li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Formatação do código em <code>lib/collections/nav-links.js</code> seguindo as novas regras do Prettier</li>
+<li>Ajuste na importação do CSS em <code>src/assets/css/header.css</code> (aspas duplas para aspas simples)</li>
 </ul>
 
 </article>
