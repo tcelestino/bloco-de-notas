@@ -23,15 +23,6 @@ module.exports = (config) => {
     type: 'rss',
     outputPath: '/feed.xml',
     collection: { name: 'posts', limit: 5 },
-    metadata: {
-      language: 'pt-BR',
-      title: 'Bloco de Notas - por Tiago Celestino',
-      description: 'Meu blog pessoal para anotações cotidianas.',
-      url: 'https://tcelestino.github.io/bloco-de-notas/',
-      author: {
-        name: 'Tiago Celestino',
-      },
-    },
   });
 
   return {
