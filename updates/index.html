@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bloco-de-notas/bloco-de-notas/assets/css/main.css">
     <title>Bloco de Notas por Tiago Celestino</title>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+    <script defer="" src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
   </head>
 
   <body>
     <header class="top-header">
-      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <h1><a href="/bloco-de-notas/bloco-de-notas/">Blocos de Notas</a></h1>
       <small>Por Tiago Celestino</small>
       <nav class="nav-links">
         <ul class="nav-pages">
           
-            <li><a href="/bloco-de-notas/updates">Changelog</a></li>
+            <li><a href="/bloco-de-notas/bloco-de-notas/updates">Changelog</a></li>
           
         </ul>
         <ul class="nav-social">
           
-            <li class="social-link-github"><a href="https://github.com/tcelestino"  target="_blank" rel="noopener noreferrer">Github</a></li>
+            <li class="social-link-rss"><a href="/bloco-de-notas/bloco-de-notas/feed.xml" target="_blank" rel="noopener noreferrer" title="Leia as postagens no seu leitor de RSS">RSS</a></li>
           
-            <li class="social-link-linkedin"><a href="https://linkedin.com/in/tcelestino"  target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+            <li class="social-link-github"><a href="https://github.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Github</a></li>
           
-            <li class="social-link-bsky"><a href="https://bsky.app/profile/tcelestino.bsky.social"  target="_blank" rel="noopener noreferrer">Bsky</a></li>
+            <li class="social-link-linkedin"><a href="https://linkedin.com/in/tcelestino" target="_blank" rel="noopener noreferrer" title="">Linkedin</a></li>
           
-            <li class="social-link-unsplash"><a href="https://unsplash.com/tcelestino"  target="_blank" rel="noopener noreferrer">Unsplash</a></li>
+            <li class="social-link-bsky"><a href="https://bsky.app/profile/tcelestino.bsky.social" target="_blank" rel="noopener noreferrer" title="">Bsky</a></li>
+          
+            <li class="social-link-unsplash"><a href="https://unsplash.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Unsplash</a></li>
           
         </ul>
       </nav>
@@ -35,6 +37,39 @@
     <main class="content-page">
       <main>
   <p>Acompanhe as atualizações realizadas no <strong>Bloco de Notas</strong>, sejam de layout e ou novas funcionalidades implementadas.</p><article>
+      <header>
+        <h2><time datetime="Fri Nov 14 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">14 de novembro de 2025</time></h2>
+      </header>
+      <h3>Adicionado</h3>
+<ul>
+<li>Plugin RSS oficial do Eleventy (<code>@11ty/eleventy-plugin-rss</code>) como dependência</li>
+<li>Template para feed RSS em <code>src/feed.njk</code>:
+<ul>
+<li>Metadados do blog (título, descrição, idioma, autor)</li>
+<li>Formato RSS 2.0 com suporte a Atom</li>
+<li>Limitado aos 5 posts mais recentes</li>
+</ul>
+</li>
+<li>Link para o feed RSS na navegação social (<code>lib/collections/nav-links.js</code>)</li>
+<li>Atributo <code>title</code> nos links da navegação social para melhor acessibilidade</li>
+<li>Estilos CSS para o link RSS (<code>src/assets/css/header.css</code>):
+<ul>
+<li>Separador visual (borda direita)</li>
+<li>Cor personalizada laranja (#f8981c)</li>
+</ul>
+</li>
+<li>Nova variável CSS para cor do RSS (<code>--color-social-rss: #f8981c</code>) em <code>src/assets/css/var.css</code></li>
+<li>Filtro <code>dateToRfc822</code> do plugin RSS para formatação de datas no feed</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Configuração do Prettier para habilitar ponto-e-vírgula (<code>semi: true</code>)</li>
+<li>Formatação do código em <code>lib/collections/nav-links.js</code> seguindo as novas regras do Prettier</li>
+<li>Link RSS movido para primeira posição na lista de links sociais</li>
+<li>Removido link RSS desabilitado da navegação</li>
+</ul>
+
+    </article><article>
       <header>
         <h2><time datetime="Sat Nov 01 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">1 de novembro de 2025</time></h2>
       </header>

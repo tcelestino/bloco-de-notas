@@ -73,3 +73,16 @@
 .social-link-unsplash a {
   color: var(--color-social-unsplash);
 }
+
+.nav-social li.social-link-rss {
+  margin-right: 0;
+}
+
+.nav-social li.social-link-rss:after {
+  content: '';
+  border-right: 1px solid #ccc;
+  padding-right: 0.5rem;
+}
+.social-link-rss a {
+  color: var(--color-social-rss);
+}
