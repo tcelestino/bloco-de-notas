@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="https://tcelestino.github.io/bloco-de-notas/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <link>https://tcelestino.github.io/bloco-de-notas/</link>
+    <atom:link href="https://tcelestino.github.io/bloco-de-notas/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Meu blog pessoal para anotações cotidianas.</description>
+    <language>pt-BR</language>
+      <item>
+        <title>Criando textos responsivos sem media queries</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</link>
+        <description>&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A função &lt;code&gt;clamp()&lt;/code&gt; do CSS permite criar textos responsivos sem media queries;&lt;/li&gt;
+&lt;li&gt;Apenas uma linha de código define os tamanhos mínimo, ideal e máximo da fonte;&lt;/li&gt;
+&lt;li&gt;Facilita a manutenção do CSS e melhora a performance do site;&lt;/li&gt;
+&lt;li&gt;Funciona em todos os navegadores modernos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Uma dica rápida e prática para quem precisa manter textos responsivos sem a necessidade de usar &lt;em&gt;media queries&lt;/em&gt;. Usando a função &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/clamp&quot;&gt;clamp&lt;/a&gt;, conseguimos ter textos que se adaptam automaticamente a diferentes tamanhos de tela sem precisar configurar tamanhos específicos para cada &lt;em&gt;breakpoint&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Como usar&lt;/h2&gt;
+&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;h2&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;1.5rem&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 8vw&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 3rem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Explicando a formatação CSS acima, temos o seguinte:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Valor mínimo&lt;/strong&gt;: 1.5rem - define que o tamanho mínimo da fonte não ficará abaixo de 1,5x em relação ao tamanho da fonte do elemento raiz: 16px × 1.5 = 24px.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Valor ideal&lt;/strong&gt;: 8vw - define o tamanho da fonte como 8% da largura do &lt;em&gt;viewport&lt;/em&gt;. Se a medida da largura do &lt;em&gt;viewport&lt;/em&gt; mudar, o tamanho se alterará de acordo com a nova largura.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Valor máximo&lt;/strong&gt;: 3rem - define o tamanho máximo como 3x o tamanho da fonte em relação ao elemento raiz: 16px × 3 = 48px.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Com apenas uma linha de código, você consegue manter os textos responsivos independentemente do tamanho da tela, garantindo uma experiência de leitura agradável em qualquer dispositivo.&lt;/p&gt;
+&lt;h2&gt;Benefícios&lt;/h2&gt;
+&lt;p&gt;Além da simplicidade, essa abordagem traz algumas vantagens interessantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Código mais limpo&lt;/strong&gt;: reduz a quantidade de &lt;em&gt;media queries&lt;/em&gt; no seu CSS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Melhor performance&lt;/strong&gt;: menos código significa carregamento mais rápido&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transições suaves&lt;/strong&gt;: o texto se ajusta gradualmente conforme o redimensionamento da tela&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manutenção facilitada&lt;/strong&gt;: alterações de tamanho podem ser feitas em um único lugar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compatibilidade&lt;/h2&gt;
+&lt;p&gt;A função &lt;code&gt;clamp()&lt;/code&gt; é suportada por todos os navegadores modernos, incluindo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome (desde a versão 79)&lt;/li&gt;
+&lt;li&gt;Firefox (desde a versão 75)&lt;/li&gt;
+&lt;li&gt;Safari (desde a versão 13.1)&lt;/li&gt;
+&lt;li&gt;Edge (desde a versão 79)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/clamp&quot;&gt;MDN Web Docs - clamp()&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://desenvolvimentoparaweb.com/css/textos-responsivos-com-css-clamp/&quot;&gt;Desenvolvimento para Web - Textos responsivos com CSS clamp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 06 Mar 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</guid>
+      </item>
+      <item>
+        <title>Como remover propriedades de um objeto no JavaScript</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</link>
+        <description>&lt;p&gt;Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &amp;quot;chaves&amp;quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.&lt;/p&gt;
+&lt;p&gt;Essa semana estive implementando uma funcionalidade a partir de uma API de terceiros, e precisava remover algumas propriedades de um objeto, e por curiosidade, decidi pesquisar sobre as diferentes formas de fazer isso e como cada uma pode impactar a performance da aplicação, saindo do tradicional &lt;code&gt;delete&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Nesse post, vou listar algumas das abordagens conhecidas e outras que acabei descobrindo nas minhas pesquisas.&lt;/p&gt;
+&lt;p&gt;Partiu!! 🚀&lt;/p&gt;
+&lt;h2&gt;1. Usando o operador delete&lt;/h2&gt;
+&lt;p&gt;É o método mais conhecido para remover uma propriedade de um objeto em JavaScript. Usando o operador &amp;quot;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete&quot;&gt;delete&lt;/a&gt;&amp;quot;, você consegue remover a propriedade especificada do objeto de forma direta.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;delete&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;age&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// A propriedade &#39;age&#39; foi removida do objeto.&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Notas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Simples e direto. Funciona bem para objetos simples;&lt;/li&gt;
+&lt;li&gt;O operador &lt;code&gt;delete&lt;/code&gt; pode afetar o desempenho, especialmente em loops, pois altera a estrutura do objeto;&lt;/li&gt;
+&lt;li&gt;Não é recomendado para objetos que você deseja manter imutáveis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. Usando a desestruturação (destructuring)&lt;/h2&gt;
+&lt;p&gt;Uma outra abordagem para remover propriedades de um objeto, que pode ser considerada moderna, é utilizando a &amp;quot;&lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring&quot;&gt;destructuring&lt;/a&gt;&amp;quot;. A partir dessa abordagem, você cria um novo objeto removendo a propriedade, sem mexer no objeto original, mantendo-o imutável.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; age&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;newObj &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// A propriedade &#39;age&#39; foi removida.&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newObj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Notas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mantém o objeto original imutável;&lt;/li&gt;
+&lt;li&gt;É uma abordagem moderna e legível;&lt;/li&gt;
+&lt;li&gt;Pode não ser tão intuitivo para quem não está familiarizado com a desestruturação;&lt;/li&gt;
+&lt;li&gt;Em alguns casos, criar um novo objeto pode não ser ideal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. Usando a combinação de Object.keys() com reduce()&lt;/h2&gt;
+&lt;p&gt;Ao usar o &amp;quot;&lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys&quot;&gt;Object.keys()&lt;/a&gt;&amp;quot; combinado com o método &lt;code&gt;reduce()&lt;/code&gt;, também conseguimos criar um novo objeto sem a propriedade que deseja remover. E de novo, conseguimos manter o objeto original imutável.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newObj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;acc&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; key&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;key &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;age&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    acc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Adiciona a propriedade ao novo objeto se não for &#39;age&#39;.&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; acc&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newObj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Notas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mantém o objeto original imutável. É uma abordagem funcional e pode ser mais flexível;&lt;/li&gt;
+&lt;li&gt;Pode ser mais verboso do que outras abordagens. Além disso, pode ser menos eficiente em termos de desempenho, especialmente para objetos com muitas propriedades.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. Usando Object.entries() e Object.fromEntries()&lt;/h2&gt;
+&lt;p&gt;Usando &amp;quot;&lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries&quot;&gt;Object.entries()&lt;/a&gt;&amp;quot; obtemos um array de pares chave-valor e, em seguida, podemos fazer um filtro das propriedades que você deseja manter. Na sequência, usando &amp;quot;&lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries&quot;&gt;Object.fromEntries()&lt;/a&gt;&amp;quot; criamos um novo objeto a partir do &lt;em&gt;array&lt;/em&gt; que foi filtrado usando a função &lt;code&gt;filter()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newObj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fromEntries&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; key &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;age&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Filtra a propriedade &#39;age&#39;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newObj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Notas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mantém o objeto original imutável. É uma abordagem moderna e legível;&lt;/li&gt;
+&lt;li&gt;Pode ser mais verboso do que outras abordagens. Além disso, pode não ser tão intuitivo para quem não está familiarizado com &lt;code&gt;Object.entries()&lt;/code&gt; e &lt;code&gt;Object.fromEntries()&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Pode trazer impacto na performance, já que é necessário fazer iteração em todas as propriedades do objeto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;5. Usando Object.defineProperty&lt;/h2&gt;
+&lt;p&gt;Essa abordagem é menos conhecida, mas usando o &amp;quot;&lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty&quot;&gt;Object.defineProperty()&lt;/a&gt;&amp;quot; conseguimos definir a propriedade como não enumerável. Isso não remove a propriedade, mas impede que ela seja listada em loops.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;defineProperty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;age&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;enumerable&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Define a propriedade &#39;age&#39; como não enumerável.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// [&#39;name&#39;, &#39;city&#39;] - &#39;age&#39; não aparece na lista de chaves.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Notas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Esta seção fornece informações adicionais sobre as abordagens discutidas;&lt;/li&gt;
+&lt;li&gt;Mantém a propriedade no objeto, mas a torna não enumerável. Isso pode ser útil em alguns casos;&lt;/li&gt;
+&lt;li&gt;Pode se tornar complexo e não remover verdadeiramente a propriedade do objeto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;6. Usando Reflect.deleteProperty&lt;/h2&gt;
+&lt;p&gt;Essa abordagem descobri nessa pesquisa. No caso, usando &lt;code&gt;Reflect.deleteProperty&lt;/code&gt; da &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect&quot;&gt;Reflect API&lt;/a&gt;, conseguimos ter abordagem semelhante ao operador &lt;code&gt;delete&lt;/code&gt;, porém com muito mais possibilidades de uso a partir dos outros métodos da API.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+Reflect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deleteProperty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;age&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Remove a propriedade &#39;age&#39;.&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Caso você queira remover uma propriedade de um objeto que não existe, o método &lt;code&gt;Reflect.deleteProperty&lt;/code&gt; retornará &lt;code&gt;true&lt;/code&gt;, diferente do operador &lt;code&gt;delete&lt;/code&gt;, que retornará &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Se tiver mais interesse em entender melhor sobre a API &lt;code&gt;Reflect&lt;/code&gt;, recomendo dar uma lida na documentação no &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Notas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Problemas de performance parecidos com o uso do operador &lt;code&gt;delete&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Uma ampla possibilidade de uso dos métodos da API &lt;code&gt;Reflect&lt;/code&gt;, como &lt;code&gt;Reflect.get()&lt;/code&gt;, &lt;code&gt;Reflect.set()&lt;/code&gt;, entre outros;&lt;/li&gt;
+&lt;li&gt;Pode confundir para quem não tem conhecimento da API &lt;code&gt;Reflect&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;7. Usando bibliotecas externas&lt;/h2&gt;
+&lt;p&gt;Como notado, hoje em dia temos diversas maneiras de remover propriedades de um objeto em JavaScript, sem a necessidade de usar bibliotecas externas. Mas, se você estiver usando uma biblioteca externa, como &lt;code&gt;lodash&lt;/code&gt;, e ou &lt;code&gt;underscore&lt;/code&gt;, existem métodos específicos para remover propriedades de um objeto.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Usando lodash&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; _ &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;lodash&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;John&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;New York&#39;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newObj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; _&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;omit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;age&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Remove a propriedade &#39;age&#39;.&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newObj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { name: &#39;John&#39;, city: &#39;New York&#39; }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Recomendo dar uma lida no repositório &amp;quot;&lt;a href=&quot;https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore&quot;&gt;You Don&#39;t Need Lodash/Underscore&lt;/a&gt;&amp;quot; para entender como você pode substituir as bibliotecas &lt;code&gt;lodash&lt;/code&gt; e &lt;code&gt;underscore&lt;/code&gt; por outras abordagens mais performáticas.&lt;/p&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Como a versatilidade do JavaScript, conseguimos ter várias diversas maneiras para remover propriedades de um objeto. A escolha da abordagem vai depender do caso de uso e do que o seu projeto precisa Usar o &lt;code&gt;delete&lt;/code&gt; é o mais comum e mais fácil de entender, mas as outras abordagens também são úteis em diferentes situações e que traz impactos positivos para a performance das suas aplicações.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Apr 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</guid>
+      </item>
+      <item>
+        <title>Como saber quais arquivos do seu pacote serão publicados no npm</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</link>
+        <description>&lt;p&gt;Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E o resultado será algo como:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nsJdw7Xv/npm-pack.png&quot; alt=&quot;resultado comando npm pack no terminal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;É gerado um arquivo &lt;code&gt;.tgz&lt;/code&gt; com o nome do pacote e a versão. Você pode validar se os arquivos que precisam existir no seu pacote estão corretos, além de ter algumas informações sobre o pacote, como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Versão do pacote;&lt;/li&gt;
+&lt;li&gt;Tamanho do pacote comprimido e descomprimido;&lt;/li&gt;
+&lt;li&gt;Total de arquivos no pacote.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caso não queria gerar um arquivo &lt;code&gt;.tgz&lt;/code&gt;, você pode usar o comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack --dry-run&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nesse caso, terá como resultado:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nNhKHBBg/npm-pack-dry-run.png&quot; alt=&quot;resultado comando npm pack --dry-run no terminal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Com o &lt;code&gt;--dry-run&lt;/code&gt; você pode ver quais arquivos serão publicados, mas não é gerado o arquivo &lt;code&gt;.tgz&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Simples, não!?&lt;/p&gt;
+</description>
+        <pubDate>Fri, 30 May 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</guid>
+      </item>
+      <item>
+        <title>Um novo começo</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</link>
+        <description>&lt;p&gt;Já faz tempo que queria mudar o layout do &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/&quot;&gt;Bloco de Notas&lt;/a&gt;, mas a preguiça ou falta de conhecimento em design sempre venciam. Usei o layout padrão do &lt;a href=&quot;https://11ty.dev/&quot;&gt;11ty&lt;/a&gt; com pequenas modificações, mas queria algo mais personalizado e simples, sem firulas de design ou código. Há um tempo, tentei usar &lt;a href=&quot;https://tailwindcss.com/&quot;&gt;Tailwind CSS&lt;/a&gt;, mas foi mais complicado que o esperado. Gastei mais tempo configurando o framework do que construindo o layout. Acabei desistindo.&lt;/p&gt;
+&lt;h3&gt;Uma nova abordagem&lt;/h3&gt;
+&lt;p&gt;Essa semana, decidi voltar a mexer no layout com uma abordagem diferente: sem revolucionar, apenas simplificar. Removi toda a formatação CSS, todas as classes HTML e deixei apenas o básico para manter a estrutura. &lt;strong&gt;E esse é o resultado! 🎉&lt;/strong&gt; Lembra a época em que as páginas eram apenas HTML com o mínimo de CSS, sem frameworks, JS ou builders? Velhos tempos que não voltam mais!&lt;/p&gt;
+&lt;p&gt;A ideia é que a cada semana, vou acrescentar pequenas melhorias mantendo a simplicidade e performance. Sem framework CSS, mas garantindo que seja responsivo e compatível com todos os navegadores. Vou aproveitar as novidades do HTML, CSS e do 11ty. Espero que até o final do ano tenha o layout ideal e quem sabe cadastrar o Bloco de Notas no &lt;a href=&quot;https://www.11ty.dev/speedlify/&quot;&gt;ranking&lt;/a&gt; dos sites performáticos do 11ty.&lt;/p&gt;
+&lt;h3&gt;Inspiração&lt;/h3&gt;
+&lt;p&gt;Como referência, venho salvando alguns blogs minimalistas e simples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.seangoedecke.com/&quot;&gt;Sean Goedecke&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cekrem.github.io/posts/&quot;&gt;Cekrem&#39;s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.jim-nielsen.com/&quot;&gt;Jim Nielsen&#39;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://manualdousuario.net/&quot;&gt;Manual do Usuário&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://eduardoboucas.com/&quot;&gt;Eduardo Bouças&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://seldo.com/&quot;&gt;seldo.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://josh.mn/&quot;&gt;josh.mn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;São blogs que gosto de seguir e que vão me ajudar a criar meu próprio layout.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agora é ver até onde vou conseguir chegar!&lt;/strong&gt; 🤞&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Oct 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</guid>
+      </item>
+      <item>
+        <title>Diário de atualizações realizadas no Bloco de Notas</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</link>
+        <description>&lt;p&gt;Inspirado pelo comentário do &lt;a href=&quot;http://www.pedro.dalbo.me/&quot;&gt;@dalbo1201&lt;/a&gt; depois de publicar o post &amp;quot;&lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/&quot;&gt;Um novo começo&lt;/a&gt;&amp;quot; no &lt;a href=&quot;https://manualdousuario.net/orbita-post/um-novo-comeco/&quot;&gt;Manual do Usuário&lt;/a&gt;, resolvi criar uma página de &lt;em&gt;changelog&lt;/em&gt; para acompanhar as atualizações realizadas no Bloco de Notas, sejam de layout ou novas funcionalidades.&lt;/p&gt;
+&lt;p&gt;A ideia é ir adicionando as atualizações tendo como base a estrutura de &amp;quot;&lt;a href=&quot;https://keepachangelog.com/pt-BR/1.1.0/&quot;&gt;CHANGELOG&lt;/a&gt;&amp;quot;, no qual cada atualização pode ser considerada um &lt;em&gt;release&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se tiver interesse, acompanhe as atualizações na página &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/updates&quot;&gt;updates&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Oct 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</guid>
+      </item>
+      <item>
+        <title>Desabilitando recursos de IA no Firefox</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</link>
+        <description>&lt;p&gt;Recentemente houve o boom de navegadores com IA, como o ChatGPT Atlas, o Perplexity Comet, o Microsoft Edge, entre outros que devem surgir no futuro. O &lt;a href=&quot;https://www.firefox.com/pt-BR/&quot;&gt;Firefox&lt;/a&gt;, nas últimas atualizações, liberou a funcionalidade de usar os chatbots de IA, como o Claude, ChatGPT, Gemini, Mistral e o Copilot no navegador.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/F4bsxsr7/firefox-ia-chatbot.png&quot; alt=&quot;Chatbot Claude no Firefox&quot;&gt;
+&lt;em&gt;Chatbot Claude no Firefox&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Não chega a ser um &amp;quot;agente&amp;quot; como os navegadores citados, mas é uma funcionalidade que para mim tem sido bem útil, seja para tirar dúvidas, traduzir textos em outros idiomas e realizar outras tarefas. Existem muitas preocupações com relação a IA em navegadores, seja por descaracterizar a forma de navegar pela internet e também por abrir diversas &lt;a href=&quot;https://venturebeat.com/ai/when-your-ai-browser-becomes-your-enemy-the-comet-security-disaster&quot;&gt;brechas de segurança&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Por sorte, no Firefox é possível desabilitar os recursos de IA, seguindo os passos abaixo:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Acesse &lt;code&gt;about:config&lt;/code&gt; na barra de endereço do Firefox&lt;/li&gt;
+&lt;li&gt;Aceite o risco e clique em &lt;em&gt;&amp;quot;Accept the Risk and Continue&amp;quot;&lt;/em&gt; (Aceitar o Risco e Continuar)&lt;/li&gt;
+&lt;li&gt;Localize a configuração &lt;code&gt;browser.ml.enable&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Mude o valor de &lt;code&gt;true&lt;/code&gt; para &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Com essa configuração, todos os recursos de IA serão desabilitados.&lt;/p&gt;
+&lt;p&gt;Existem outras configurações caso não queira desabilitar todos os recursos de IA de uma só vez, veja a tabela abaixo:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Configuração&lt;/th&gt;
+&lt;th&gt;Descrição&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.enabled&lt;/td&gt;
+&lt;td&gt;Habilita a integração do chatbot IA.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.sidebar&lt;/td&gt;
+&lt;td&gt;Exibe o painel de chat IA na barra lateral.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.shortcuts&lt;/td&gt;
+&lt;td&gt;Permite acionar o chat a partir de texto selecionado ou atalhos.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.page&lt;/td&gt;
+&lt;td&gt;Exibe o menu de chat na página quando você seleciona texto.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.page.footerBadge&lt;/td&gt;
+&lt;td&gt;Exibe o badge flutuante na parte inferior da página.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.page.menuBadge&lt;/td&gt;
+&lt;td&gt;Exibe o badge &lt;em&gt;&amp;quot;Ask AI&amp;quot;&lt;/em&gt; no menu da página.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.menu&lt;/td&gt;
+&lt;td&gt;Adiciona &lt;em&gt;&amp;quot;Chat about this&amp;quot;&lt;/em&gt; ao menu de clique com o botão direito.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.linkPreview.enabled&lt;/td&gt;
+&lt;td&gt;Gera previsões e sugestões de links baseadas em IA.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;extensions.ml.enabled&lt;/td&gt;
+&lt;td&gt;Permite que extensões do navegador usem a API ML do Firefox.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.pageAssist.enabled&lt;/td&gt;
+&lt;td&gt;Executa o assistente IA &lt;em&gt;&amp;quot;page assist&amp;quot;&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.tabs.groups.smart.enabled&lt;/td&gt;
+&lt;td&gt;Usa IA para agrupar e rotular automaticamente suas abas.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.tabs.groups.smart.userEnable&lt;/td&gt;
+&lt;td&gt;Permite que os usuários ativem manualmente o recurso de grupos de abas inteligentes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Referência: &lt;a href=&quot;https://flamedfury.com/posts/disable-ai-in-firefox/&quot;&gt;Disable AI In Firefox&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Oct 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</guid>
+      </item>
+  </channel>
+</rss>
