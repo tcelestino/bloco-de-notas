@@ -75,7 +75,7 @@
 }
 
 .nav-social li.social-link-rss {
-  margin-right: 0 !important;
+  margin-right: 0;
 }
 
 .nav-social li.social-link-rss:after {
