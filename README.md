@@ -2,6 +2,8 @@
 
 Blog pessoal sobre desenvolvimento web, JavaScript, CSS e carreira, baseado no Eleventy (11ty).
 
+**Link: https://tcelestino.github.io/bloco-de-notas/**
+
 ## Sobre o Projeto
 
 Este é um blog minimalista em português brasileiro focado em simplicidade e performance. O projeto evita frameworks CSS e mantém o código enxuto com HTML e CSS básicos.
