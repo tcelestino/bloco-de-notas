@@ -19,11 +19,11 @@ module.exports = (config) => {
   // config.addLiquidFilter('dateToRfc822', pluginRss.dateToRfc822);
 
   config.addPlugin(syntaxHighlight);
-  // config.addPlugin(pluginRss, {
-  //   type: 'rss',
-  //   outputPath: '/feed.xml',
-  //   collection: { name: 'posts', limit: 5 },
-  // });
+  config.addPlugin(pluginRss, {
+    type: 'rss',
+    outputPath: '/bloco-de-notas/feed.xml',
+    collection: { name: 'posts', limit: 5 },
+  });
 
   return {
     dir: {
