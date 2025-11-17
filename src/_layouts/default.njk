@@ -3,24 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
     <title>Bloco de Notas por Tiago Celestino</title>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
   </head>
 
   <body>
     <header class="top-header">
-      <h1><a href="{{ '/' | url }}">Blocos de Notas</a></h1>
+      <h1><a href="/">Blocos de Notas</a></h1>
       <small>Por Tiago Celestino</small>
       <nav class="nav-links">
         <ul class="nav-pages">
           {% for item in collections.navLinks.pages %}
-            <li><a href="{{ item.url | url }}">{{ item.title }}</a></li>
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="nav-social">
           {% for item in collections.navLinks.social %}
-            <li class="social-link-{{ item.title | lower }}"><a href="{{ item.url | url }}"  target="_blank" rel="noopener noreferrer" title="{{ item.linkTitle }}">{{ item.title }}</a></li>
+            <li class="social-link-{{ item.title | lower }}"><a href="{{ item.url }}"  target="_blank" rel="noopener noreferrer" title="{{ item.linkTitle }}">{{ item.title }}</a></li>
           {% endfor %}
         </ul>
       </nav>
