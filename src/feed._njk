@@ -1,6 +1,6 @@
 ---json
 {
-  "permalink": "/bloco-de-notas/feed.xml",
+  "permalink": "/feed.xml",
   "eleventyExcludeFromCollections": true,
   "metadata": {
     "title": "Bloco de Notas por Tiago Celestino",

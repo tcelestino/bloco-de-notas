@@ -21,7 +21,7 @@ module.exports = (config) => {
   config.addPlugin(syntaxHighlight);
   config.addPlugin(pluginRss, {
     type: 'rss',
-    outputPath: '/bloco-de-notas/feed.xml',
+    outputPath: '/feed.xml',
     collection: { name: 'posts', limit: 5 },
   });
 
