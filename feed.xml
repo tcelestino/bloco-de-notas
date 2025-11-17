@@ -3,7 +3,7 @@
   <channel>
     <title>Bloco de Notas por Tiago Celestino</title>
     <link>https://tcelestino.github.io/</link>
-    <atom:link href="https://tcelestino.github.io/bloco-de-notas/bloco-de-notas/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tcelestino.github.io/bloco-de-notas/feed.xml" rel="self" type="application/rss+xml" />
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
