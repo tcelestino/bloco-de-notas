@@ -3,12 +3,12 @@
   <channel>
     <title>Bloco de Notas por Tiago Celestino</title>
     <link>https://tcelestino.github.io/</link>
-    <atom:link href="https://tcelestino.github.io/bloco-de-notas/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tcelestino.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
         <title>Criando textos responsivos sem media queries</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</link>
+        <link>https://tcelestino.github.io/2025/03/criando-textos-responsivos-sem-media-queries/</link>
         <description>&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A função &lt;code&gt;clamp()&lt;/code&gt; do CSS permite criar textos responsivos sem media queries;&lt;/li&gt;
@@ -50,11 +50,11 @@
 </description>
         <pubDate>Thu, 06 Mar 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</guid>
+        <guid>https://tcelestino.github.io/2025/03/criando-textos-responsivos-sem-media-queries/</guid>
       </item>
       <item>
         <title>Como remover propriedades de um objeto no JavaScript</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</link>
+        <link>https://tcelestino.github.io/2025/04/como-remover-propriedades-objeto-js/</link>
         <description>&lt;p&gt;Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &amp;quot;chaves&amp;quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.&lt;/p&gt;
 &lt;p&gt;Essa semana estive implementando uma funcionalidade a partir de uma API de terceiros, e precisava remover algumas propriedades de um objeto, e por curiosidade, decidi pesquisar sobre as diferentes formas de fazer isso e como cada uma pode impactar a performance da aplicação, saindo do tradicional &lt;code&gt;delete&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Nesse post, vou listar algumas das abordagens conhecidas e outras que acabei descobrindo nas minhas pesquisas.&lt;/p&gt;
@@ -178,11 +178,11 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 </description>
         <pubDate>Tue, 29 Apr 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</guid>
+        <guid>https://tcelestino.github.io/2025/04/como-remover-propriedades-objeto-js/</guid>
       </item>
       <item>
         <title>Como saber quais arquivos do seu pacote serão publicados no npm</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</link>
+        <link>https://tcelestino.github.io/2025/05/npm-pack/</link>
         <description>&lt;p&gt;Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:&lt;/p&gt;
 &lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E o resultado será algo como:&lt;/p&gt;
@@ -202,11 +202,11 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 </description>
         <pubDate>Fri, 30 May 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</guid>
+        <guid>https://tcelestino.github.io/2025/05/npm-pack/</guid>
       </item>
       <item>
         <title>Um novo começo</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</link>
+        <link>https://tcelestino.github.io/2025/10/um-novo-comeco/</link>
         <description>&lt;p&gt;Já faz tempo que queria mudar o layout do &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/&quot;&gt;Bloco de Notas&lt;/a&gt;, mas a preguiça ou falta de conhecimento em design sempre venciam. Usei o layout padrão do &lt;a href=&quot;https://11ty.dev/&quot;&gt;11ty&lt;/a&gt; com pequenas modificações, mas queria algo mais personalizado e simples, sem firulas de design ou código. Há um tempo, tentei usar &lt;a href=&quot;https://tailwindcss.com/&quot;&gt;Tailwind CSS&lt;/a&gt;, mas foi mais complicado que o esperado. Gastei mais tempo configurando o framework do que construindo o layout. Acabei desistindo.&lt;/p&gt;
 &lt;h3&gt;Uma nova abordagem&lt;/h3&gt;
 &lt;p&gt;Essa semana, decidi voltar a mexer no layout com uma abordagem diferente: sem revolucionar, apenas simplificar. Removi toda a formatação CSS, todas as classes HTML e deixei apenas o básico para manter a estrutura. &lt;strong&gt;E esse é o resultado! 🎉&lt;/strong&gt; Lembra a época em que as páginas eram apenas HTML com o mínimo de CSS, sem frameworks, JS ou builders? Velhos tempos que não voltam mais!&lt;/p&gt;
@@ -227,22 +227,22 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 </description>
         <pubDate>Mon, 20 Oct 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</guid>
+        <guid>https://tcelestino.github.io/2025/10/um-novo-comeco/</guid>
       </item>
       <item>
         <title>Diário de atualizações realizadas no Bloco de Notas</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</link>
+        <link>https://tcelestino.github.io/2025/10/changelog/</link>
         <description>&lt;p&gt;Inspirado pelo comentário do &lt;a href=&quot;http://www.pedro.dalbo.me/&quot;&gt;@dalbo1201&lt;/a&gt; depois de publicar o post &amp;quot;&lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/&quot;&gt;Um novo começo&lt;/a&gt;&amp;quot; no &lt;a href=&quot;https://manualdousuario.net/orbita-post/um-novo-comeco/&quot;&gt;Manual do Usuário&lt;/a&gt;, resolvi criar uma página de &lt;em&gt;changelog&lt;/em&gt; para acompanhar as atualizações realizadas no Bloco de Notas, sejam de layout ou novas funcionalidades.&lt;/p&gt;
 &lt;p&gt;A ideia é ir adicionando as atualizações tendo como base a estrutura de &amp;quot;&lt;a href=&quot;https://keepachangelog.com/pt-BR/1.1.0/&quot;&gt;CHANGELOG&lt;/a&gt;&amp;quot;, no qual cada atualização pode ser considerada um &lt;em&gt;release&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Se tiver interesse, acompanhe as atualizações na página &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/updates&quot;&gt;updates&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se tiver interesse, acompanhe as atualizações na página &lt;a href=&quot;https://tcelestino.github.io/updates&quot;&gt;updates&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 22 Oct 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</guid>
+        <guid>https://tcelestino.github.io/2025/10/changelog/</guid>
       </item>
       <item>
         <title>Desabilitando recursos de IA no Firefox</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</link>
+        <link>https://tcelestino.github.io/2025/10/disabilitando-ai-no-firefox/</link>
         <description>&lt;p&gt;Recentemente houve o boom de navegadores com IA, como o ChatGPT Atlas, o Perplexity Comet, o Microsoft Edge, entre outros que devem surgir no futuro. O &lt;a href=&quot;https://www.firefox.com/pt-BR/&quot;&gt;Firefox&lt;/a&gt;, nas últimas atualizações, liberou a funcionalidade de usar os chatbots de IA, como o Claude, ChatGPT, Gemini, Mistral e o Copilot no navegador.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.ibb.co/F4bsxsr7/firefox-ia-chatbot.png&quot; alt=&quot;Chatbot Claude no Firefox&quot;&gt;
 &lt;em&gt;Chatbot Claude no Firefox&lt;/em&gt;&lt;/p&gt;
@@ -318,7 +318,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 </description>
         <pubDate>Thu, 30 Oct 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</guid>
+        <guid>https://tcelestino.github.io/2025/10/disabilitando-ai-no-firefox/</guid>
       </item>
   </channel>
 </rss>
