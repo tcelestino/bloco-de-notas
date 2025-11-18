@@ -38,6 +38,32 @@
       <main>
   <p>Acompanhe as atualizações realizadas no <strong>Bloco de Notas</strong>, sejam de layout e ou novas funcionalidades implementadas.</p><article>
       <header>
+        <h2><time datetime="Tue Nov 18 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">18 de novembro de 2025</time></h2>
+      </header>
+      <h3>Corrigido</h3>
+<ul>
+<li>Carregamento de CSS e assets no GitHub Pages
+<ul>
+<li>Removido filtro <code>url</code> do Eleventy de todas as referências de CSS em <code>src/_layouts/default.njk</code>, <code>src/index.njk</code> e <code>src/last-posts.njk</code></li>
+<li>Todos os links internos agora usam caminhos absolutos sem filtro</li>
+<li>Corrigido uso de URLs absolutas simples (ex: <code>/assets/css/main.css</code>) ao invés de URLs com filtro</li>
+<li>Eliminada duplicação de <code>--pathprefix</code> que causava erro 404 no carregamento de assets e urls</li>
+</ul>
+</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Configuração do plugin RSS simplificada em <code>eleventy.config.js</code>
+<ul>
+<li>Renomeado import de <code>pluginRss</code> para <code>feedPlugin</code></li>
+<li>Removida configuração detalhada (type, outputPath, collection)</li>
+<li>Plugin agora usa configuração padrão</li>
+</ul>
+</li>
+</ul>
+
+    </article><article>
+      <header>
         <h2><time datetime="Fri Nov 14 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">14 de novembro de 2025</time></h2>
       </header>
       <h3>Adicionado</h3>

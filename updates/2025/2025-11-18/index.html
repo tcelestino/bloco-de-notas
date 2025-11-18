@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css">
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <script defer="" src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+  </head>
+
+  <body>
+    <header class="top-header">
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
+      <nav class="nav-links">
+        <ul class="nav-pages">
+          
+            <li><a href="/bloco-de-notas/updates">Changelog</a></li>
+          
+        </ul>
+        <ul class="nav-social">
+          
+            <li class="social-link-rss"><a href="/bloco-de-notas/feed.xml" target="_blank" rel="noopener noreferrer" title="Leia as postagens no seu leitor de RSS">RSS</a></li>
+          
+            <li class="social-link-github"><a href="https://github.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Github</a></li>
+          
+            <li class="social-link-linkedin"><a href="https://linkedin.com/in/tcelestino" target="_blank" rel="noopener noreferrer" title="">Linkedin</a></li>
+          
+            <li class="social-link-bsky"><a href="https://bsky.app/profile/tcelestino.bsky.social" target="_blank" rel="noopener noreferrer" title="">Bsky</a></li>
+          
+            <li class="social-link-unsplash"><a href="https://unsplash.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Unsplash</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-page">
+      
+<article>
+  <header>
+   <time datetime="Tue Nov 18 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      18 de novembro de 2025
+    </time>
+    <h1></h1>
+  </header>
+  <h3>Corrigido</h3>
+<ul>
+<li>Carregamento de CSS e assets no GitHub Pages
+<ul>
+<li>Removido filtro <code>url</code> do Eleventy de todas as referências de CSS em <code>src/_layouts/default.njk</code>, <code>src/index.njk</code> e <code>src/last-posts.njk</code></li>
+<li>Todos os links internos agora usam caminhos absolutos sem filtro</li>
+<li>Corrigido uso de URLs absolutas simples (ex: <code>/assets/css/main.css</code>) ao invés de URLs com filtro</li>
+<li>Eliminada duplicação de <code>--pathprefix</code> que causava erro 404 no carregamento de assets e urls</li>
+</ul>
+</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Configuração do plugin RSS simplificada em <code>eleventy.config.js</code>
+<ul>
+<li>Renomeado import de <code>pluginRss</code> para <code>feedPlugin</code></li>
+<li>Removida configuração detalhada (type, outputPath, collection)</li>
+<li>Plugin agora usa configuração padrão</li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+    </main>
+
+    <footer class="content-footer">
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
+    </footer>
+  </body>
+</html>
