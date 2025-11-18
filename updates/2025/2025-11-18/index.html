@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/bloco-de-notas/bloco-de-notas/feed.xml" type="application/rss+xml" rel="alternate" title="Bloco de Notas por Tiago Celestino RSS feed">
+    <link href="/bloco-de-notas/feed.xml" type="application/rss+xml" rel="alternate" title="Bloco de Notas por Tiago Celestino RSS feed">
     <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css">
     <title>Bloco de Notas por Tiago Celestino</title>
     <script defer="" src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
@@ -54,6 +54,22 @@
 <li>Eliminada duplicação de <code>--pathprefix</code> que causava erro 404 no carregamento de assets e urls</li>
 </ul>
 </li>
+<li>Caminho do feed RSS na meta tag
+<ul>
+<li>Removido prefixo <code>/bloco-de-notas/</code> da meta tag do feed RSS em <code>src/_layouts/default.njk</code></li>
+<li>Link do feed agora usa <code>/feed.xml</code> ao invés de <code>/bloco-de-notas/feed.xml</code></li>
+</ul>
+</li>
+</ul>
+<h3>Adicionado</h3>
+<ul>
+<li>Arquivo de configurações gerais do blog
+<ul>
+<li>Criado <code>src/_data/site.json</code> com configurações centralizadas</li>
+<li>Propriedades: title, description, url, author e feedPath</li>
+<li>Configurações serão usadas para meta tags de SEO</li>
+</ul>
+</li>
 </ul>
 <h3>Modificado</h3>
 <ul>
@@ -62,6 +78,12 @@
 <li>Renomeado import de <code>pluginRss</code> para <code>feedPlugin</code></li>
 <li>Removida configuração detalhada (type, outputPath, collection)</li>
 <li>Plugin agora usa configuração padrão</li>
+</ul>
+</li>
+<li>Layout padrão agora usa configurações centralizadas
+<ul>
+<li>Title dinâmico usando <code>Bloco de Notas por Tiago Celestino</code> em <code>src/_layouts/default.njk</code></li>
+<li>Feed path dinâmico usando <code>/feed.xml</code> em <code>src/_layouts/default.njk</code></li>
 </ul>
 </li>
 </ul>
