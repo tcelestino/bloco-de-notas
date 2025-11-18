@@ -1,0 +1,9 @@
+{
+  "title": "Bloco de Notas por Tiago Celestino",
+  "description": "Meu blog pessoal para anotações cotidianas.",
+  "url": "https://tcelestino.github.io/bloco-de-notas/",
+  "author": {
+    "name": "Tiago Celestino"
+  },
+  "feedPath": "/feed.xml"
+}
