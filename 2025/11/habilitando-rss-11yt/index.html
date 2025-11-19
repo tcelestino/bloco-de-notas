@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/bloco-de-notas/feed.xml" type="application/rss+xml" rel="alternate" title="Bloco de Notas por Tiago Celestino RSS feed">
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css">
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <script defer="" src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+  </head>
+
+  <body>
+    <header class="top-header">
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
+      <nav class="nav-links">
+        <ul class="nav-pages">
+          
+            <li><a href="/bloco-de-notas/updates">Changelog</a></li>
+          
+        </ul>
+        <ul class="nav-social">
+          
+            <li class="social-link-rss"><a href="/bloco-de-notas/feed.xml" target="_blank" rel="noopener noreferrer" title="Leia as postagens no seu leitor de RSS">RSS</a></li>
+          
+            <li class="social-link-github"><a href="https://github.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Github</a></li>
+          
+            <li class="social-link-linkedin"><a href="https://linkedin.com/in/tcelestino" target="_blank" rel="noopener noreferrer" title="">Linkedin</a></li>
+          
+            <li class="social-link-bsky"><a href="https://bsky.app/profile/tcelestino.bsky.social" target="_blank" rel="noopener noreferrer" title="">Bsky</a></li>
+          
+            <li class="social-link-unsplash"><a href="https://unsplash.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Unsplash</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-page">
+      
+<article>
+  <header>
+   <time datetime="Wed Nov 19 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      19 de novembro de 2025
+    </time>
+    <h1>Habilitando RSS no 11ty</h1>
+  </header>
+  <p>Continuando com as melhorias do blog, finalmente habilitei o feed RSS. Para isso, usei o plugin oficial do Eleventy (11ty): <a href="https://www.11ty.dev/docs/plugins/rss/">@11ty/eleventy-plugin-rss</a>. Como muita gente usa o 11ty, resolvi compartilhar os passos para você habilitar o feed RSS no seu blog ou site.</p>
+<h2>O que é RSS?</h2>
+<p>RSS é uma forma de acompanhar atualizações de sites sem precisar visitá-los diretamente. Funciona assim: o site disponibiliza um arquivo com as últimas publicações, e você usa um leitor de RSS para receber essas atualizações automaticamente.</p>
+<p>É como assinar um canal de notícias. Sempre que o site publicar algo novo, você recebe no seu leitor de RSS.</p>
+<p>Como leitor assíduo de vários blogs usando RSS, não fazia sentido meu blog não ter esse recurso. Além disso, o RSS facilita a indexação em diretórios de blogs.</p>
+<h2>Instalando o plugin</h2>
+<p>O 11ty tem um plugin oficial para RSS. Instale usando o gerenciador de pacotes que você utiliza:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @11ty/eleventy-plugin-rss</code></pre>
+<p>ou</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> @11ty/eleventy-plugin-rss</code></pre>
+<h3>Duas formas de configurar</h3>
+<p>O plugin oferece duas opções:</p>
+<ol>
+<li><strong>Automática</strong>: configurar direto no <code>eleventy.config.js</code> e o feed é gerado automaticamente</li>
+<li><strong>Manual</strong>: criar um arquivo <code>feed.njk</code> com o template customizado</li>
+</ol>
+<p>Optei pela segunda opção porque precisava de algo rápido e a versão automática apresentou problemas no meu blog. No seu caso, pode funcionar diferente.</p>
+<h2>Criando o template do feed</h2>
+<p>Crie o arquivo <code>feed.njk</code> na pasta dos seus arquivos. No meu caso, criei em <code>src/feed.njk</code>. Esse arquivo é o template que gera o feed RSS.</p>
+<p>O plugin suporta vários formatos (RSS, JSON, Atom). Escolhi RSS:</p>
+<script src="https://gist.github.com/tcelestino/c63389b8713637252f44714109486bfc.js"></script>
+<h3>Entendendo as configurações</h3>
+<p>O template precisa de algumas informações básicas:</p>
+<ul>
+<li><strong>title</strong>: título do blog</li>
+<li><strong>description</strong>: descrição do blog</li>
+<li><strong>language</strong>: idioma (ex: pt-BR)</li>
+<li><strong>base</strong>: URL completa do blog</li>
+<li><strong>author</strong>: nome do autor</li>
+<li><strong>permalink</strong>: onde o feed será gerado (geralmente <code>/feed.xml</code>)</li>
+</ul>
+<p>No meu blog, os posts ficam em <code>src/posts/**/*.md</code>, então uso <code>collections.posts</code>. Se sua estrutura for diferente, ajuste conforme sua coleção de posts.</p>
+<p>Outros formatos de template estão na <a href="https://www.11ty.dev/docs/plugins/rss/#sample-feed-templates">documentação oficial</a>.</p>
+<h2>Ativando o plugin no Eleventy</h2>
+<p>Agora adicione o plugin no arquivo <code>eleventy.config.js</code>:</p>
+<p><strong>Se usar CommonJS:</strong></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> feedPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@11ty/eleventy-plugin-rss'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">eleventyConfig</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  eleventyConfig<span class="token punctuation">.</span><span class="token function">addPlugin</span><span class="token punctuation">(</span>feedPlugin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p><strong>Se usar ESM:</strong></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> feedPlugin <span class="token keyword">from</span> <span class="token string">'@11ty/eleventy-plugin-rss'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">eleventyConfig</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  eleventyConfig<span class="token punctuation">.</span><span class="token function">addPlugin</span><span class="token punctuation">(</span>feedPlugin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2>Testando</h2>
+<p>Pronto. Inicie seu blog e acesse <code>http://localhost:8080/feed.xml</code> para verificar se o feed RSS foi gerado corretamente.</p>
+
+</article>
+
+    </main>
+
+    <footer class="content-footer">
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
+    </footer>
+  </body>
+</html>

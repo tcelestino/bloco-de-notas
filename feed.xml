@@ -7,52 +7,6 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
-        <title>Criando textos responsivos sem media queries</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</link>
-        <description>&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A função &lt;code&gt;clamp()&lt;/code&gt; do CSS permite criar textos responsivos sem media queries;&lt;/li&gt;
-&lt;li&gt;Apenas uma linha de código define os tamanhos mínimo, ideal e máximo da fonte;&lt;/li&gt;
-&lt;li&gt;Facilita a manutenção do CSS e melhora a performance do site;&lt;/li&gt;
-&lt;li&gt;Funciona em todos os navegadores modernos.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Uma dica rápida e prática para quem precisa manter textos responsivos sem a necessidade de usar &lt;em&gt;media queries&lt;/em&gt;. Usando a função &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/clamp&quot;&gt;clamp&lt;/a&gt;, conseguimos ter textos que se adaptam automaticamente a diferentes tamanhos de tela sem precisar configurar tamanhos específicos para cada &lt;em&gt;breakpoint&lt;/em&gt;.&lt;/p&gt;
-&lt;h2&gt;Como usar&lt;/h2&gt;
-&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;h2&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;1.5rem&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 8vw&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 3rem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Explicando a formatação CSS acima, temos o seguinte:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Valor mínimo&lt;/strong&gt;: 1.5rem - define que o tamanho mínimo da fonte não ficará abaixo de 1,5x em relação ao tamanho da fonte do elemento raiz: 16px × 1.5 = 24px.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Valor ideal&lt;/strong&gt;: 8vw - define o tamanho da fonte como 8% da largura do &lt;em&gt;viewport&lt;/em&gt;. Se a medida da largura do &lt;em&gt;viewport&lt;/em&gt; mudar, o tamanho se alterará de acordo com a nova largura.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Valor máximo&lt;/strong&gt;: 3rem - define o tamanho máximo como 3x o tamanho da fonte em relação ao elemento raiz: 16px × 3 = 48px.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Com apenas uma linha de código, você consegue manter os textos responsivos independentemente do tamanho da tela, garantindo uma experiência de leitura agradável em qualquer dispositivo.&lt;/p&gt;
-&lt;h2&gt;Benefícios&lt;/h2&gt;
-&lt;p&gt;Além da simplicidade, essa abordagem traz algumas vantagens interessantes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Código mais limpo&lt;/strong&gt;: reduz a quantidade de &lt;em&gt;media queries&lt;/em&gt; no seu CSS&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Melhor performance&lt;/strong&gt;: menos código significa carregamento mais rápido&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Transições suaves&lt;/strong&gt;: o texto se ajusta gradualmente conforme o redimensionamento da tela&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Manutenção facilitada&lt;/strong&gt;: alterações de tamanho podem ser feitas em um único lugar&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Compatibilidade&lt;/h2&gt;
-&lt;p&gt;A função &lt;code&gt;clamp()&lt;/code&gt; é suportada por todos os navegadores modernos, incluindo:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Chrome (desde a versão 79)&lt;/li&gt;
-&lt;li&gt;Firefox (desde a versão 75)&lt;/li&gt;
-&lt;li&gt;Safari (desde a versão 13.1)&lt;/li&gt;
-&lt;li&gt;Edge (desde a versão 79)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Referências&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/clamp&quot;&gt;MDN Web Docs - clamp()&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://desenvolvimentoparaweb.com/css/textos-responsivos-com-css-clamp/&quot;&gt;Desenvolvimento para Web - Textos responsivos com CSS clamp&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 06 Mar 2025 24:00:00 GMT</pubDate>
-        <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</guid>
-      </item>
-      <item>
         <title>Como remover propriedades de um objeto no JavaScript</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</link>
         <description>&lt;p&gt;Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &amp;quot;chaves&amp;quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.&lt;/p&gt;
@@ -319,6 +273,63 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <pubDate>Thu, 30 Oct 2025 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</guid>
+      </item>
+      <item>
+        <title>Habilitando RSS no 11ty</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</link>
+        <description>&lt;p&gt;Continuando com as melhorias do blog, finalmente habilitei o feed RSS. Para isso, usei o plugin oficial do Eleventy (11ty): &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/&quot;&gt;@11ty/eleventy-plugin-rss&lt;/a&gt;. Como muita gente usa o 11ty, resolvi compartilhar os passos para você habilitar o feed RSS no seu blog ou site.&lt;/p&gt;
+&lt;h2&gt;O que é RSS?&lt;/h2&gt;
+&lt;p&gt;RSS é uma forma de acompanhar atualizações de sites sem precisar visitá-los diretamente. Funciona assim: o site disponibiliza um arquivo com as últimas publicações, e você usa um leitor de RSS para receber essas atualizações automaticamente.&lt;/p&gt;
+&lt;p&gt;É como assinar um canal de notícias. Sempre que o site publicar algo novo, você recebe no seu leitor de RSS.&lt;/p&gt;
+&lt;p&gt;Como leitor assíduo de vários blogs usando RSS, não fazia sentido meu blog não ter esse recurso. Além disso, o RSS facilita a indexação em diretórios de blogs.&lt;/p&gt;
+&lt;h2&gt;Instalando o plugin&lt;/h2&gt;
+&lt;p&gt;O 11ty tem um plugin oficial para RSS. Instale usando o gerenciador de pacotes que você utiliza:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; @11ty/eleventy-plugin-rss&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ou&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; @11ty/eleventy-plugin-rss&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Duas formas de configurar&lt;/h3&gt;
+&lt;p&gt;O plugin oferece duas opções:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Automática&lt;/strong&gt;: configurar direto no &lt;code&gt;eleventy.config.js&lt;/code&gt; e o feed é gerado automaticamente&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual&lt;/strong&gt;: criar um arquivo &lt;code&gt;feed.njk&lt;/code&gt; com o template customizado&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Optei pela segunda opção porque precisava de algo rápido e a versão automática apresentou problemas no meu blog. No seu caso, pode funcionar diferente.&lt;/p&gt;
+&lt;h2&gt;Criando o template do feed&lt;/h2&gt;
+&lt;p&gt;Crie o arquivo &lt;code&gt;feed.njk&lt;/code&gt; na pasta dos seus arquivos. No meu caso, criei em &lt;code&gt;src/feed.njk&lt;/code&gt;. Esse arquivo é o template que gera o feed RSS.&lt;/p&gt;
+&lt;p&gt;O plugin suporta vários formatos (RSS, JSON, Atom). Escolhi RSS:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/tcelestino/c63389b8713637252f44714109486bfc.js&quot;&gt;&lt;/script&gt;
+&lt;h3&gt;Entendendo as configurações&lt;/h3&gt;
+&lt;p&gt;O template precisa de algumas informações básicas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;title&lt;/strong&gt;: título do blog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;description&lt;/strong&gt;: descrição do blog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;language&lt;/strong&gt;: idioma (ex: pt-BR)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;base&lt;/strong&gt;: URL completa do blog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;author&lt;/strong&gt;: nome do autor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;permalink&lt;/strong&gt;: onde o feed será gerado (geralmente &lt;code&gt;/feed.xml&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No meu blog, os posts ficam em &lt;code&gt;src/posts/**/*.md&lt;/code&gt;, então uso &lt;code&gt;collections.posts&lt;/code&gt;. Se sua estrutura for diferente, ajuste conforme sua coleção de posts.&lt;/p&gt;
+&lt;p&gt;Outros formatos de template estão na &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/#sample-feed-templates&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Ativando o plugin no Eleventy&lt;/h2&gt;
+&lt;p&gt;Agora adicione o plugin no arquivo &lt;code&gt;eleventy.config.js&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Se usar CommonJS:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; feedPlugin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;@11ty/eleventy-plugin-rss&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feedPlugin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Se usar ESM:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; feedPlugin &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;@11ty/eleventy-plugin-rss&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feedPlugin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Testando&lt;/h2&gt;
+&lt;p&gt;Pronto. Inicie seu blog e acesse &lt;code&gt;http://localhost:8080/feed.xml&lt;/code&gt; para verificar se o feed RSS foi gerado corretamente.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 19 Nov 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</guid>
       </item>
   </channel>
 </rss>
