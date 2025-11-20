@@ -60,6 +60,14 @@
 <li>Meta tag do feed em <code>src/_layouts/default.njk</code> simplificada usando <code>site.feedPath</code> e <code>site.title</code></li>
 </ul>
 </li>
+<li>Renomeação de campo de descrição em posts
+<ul>
+<li>Campo <code>description</code> no front-matter dos posts renomeado para <code>summary</code></li>
+<li>Referências em <code>src/index.njk</code> atualizadas para usar <code>post.data.summary</code></li>
+<li>Resumo removido da listagem de todos os posts em <code>src/last-posts.njk</code></li>
+<li>Posts existentes migrados para usar o novo campo</li>
+</ul>
+</li>
 </ul>
 
     </article><article>
