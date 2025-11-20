@@ -10,6 +10,7 @@ module.exports = (config) => {
   config.addLayoutAlias('post', 'post.njk');
 
   config.addCollection('posts', require('./lib/collections/posts'));
+  config.addCollection('postsFeed', require('./lib/collections/postsFeed'));
   config.addCollection('lastPosts', require('./lib/collections/lastPosts'));
   config.addCollection('updates', require('./lib/collections/updates'));
   config.addCollection('navLinks', require('./lib/collections/nav-links'));
