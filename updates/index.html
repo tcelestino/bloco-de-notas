@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/bloco-de-notas/feed.xml" type="application/rss+xml" rel="alternate" title="Bloco de Notas por Tiago Celestino RSS feed">
+    <link href="https://tcelestino.github.io/bloco-de-notas/feed.xml" type="application/rss+xml" rel="alternate" title="Bloco de Notas por Tiago Celestino">
     <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css">
     <title>Bloco de Notas por Tiago Celestino</title>
     <script defer="" src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
@@ -38,6 +38,31 @@
     <main class="content-page">
       <main>
   <p>Acompanhe as atualizações realizadas no <strong>Bloco de Notas</strong>, sejam de layout e ou novas funcionalidades implementadas.</p><article>
+      <header>
+        <h2><time datetime="Thu Nov 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">20 de novembro de 2025</time></h2>
+      </header>
+      <h3>Adicionado</h3>
+<ul>
+<li>Collection dedicada para o feed RSS
+<ul>
+<li>Criado <code>lib/collections/postsFeed.js</code> com todos os posts sem limite</li>
+<li>Registrada nova collection <code>postsFeed</code> em <code>eleventy.config.js</code></li>
+<li>Feed RSS agora exibe todos os posts publicados, não apenas os 6 mais recentes</li>
+</ul>
+</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Configuração do feed RSS
+<ul>
+<li><code>src/feed.njk</code> agora usa a collection <code>postsFeed</code> ao invés de <code>posts</code></li>
+<li><code>feedPath</code> em <code>src/_data/site.json</code> agora usa URL absoluta completa</li>
+<li>Meta tag do feed em <code>src/_layouts/default.njk</code> simplificada usando <code>site.feedPath</code> e <code>site.title</code></li>
+</ul>
+</li>
+</ul>
+
+    </article><article>
       <header>
         <h2><time datetime="Tue Nov 18 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">18 de novembro de 2025</time></h2>
       </header>
@@ -86,7 +111,7 @@
 <li>Layout padrão agora usa configurações centralizadas
 <ul>
 <li>Title dinâmico usando <code>Bloco de Notas por Tiago Celestino</code> em <code>src/_layouts/default.njk</code></li>
-<li>Feed path dinâmico usando <code>/feed.xml</code> em <code>src/_layouts/default.njk</code></li>
+<li>Feed path dinâmico usando <code>https://tcelestino.github.io/bloco-de-notas/feed.xml</code> em <code>src/_layouts/default.njk</code></li>
 </ul>
 </li>
 </ul>

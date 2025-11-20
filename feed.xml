@@ -7,6 +7,203 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>Habilitando RSS no 11ty</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</link>
+        <description>&lt;p&gt;Continuando com as melhorias do blog, finalmente habilitei o feed RSS. Para isso, usei o plugin oficial do Eleventy (11ty): &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/&quot;&gt;@11ty/eleventy-plugin-rss&lt;/a&gt;. Como muita gente usa o 11ty, resolvi compartilhar os passos para você habilitar o feed RSS no seu blog ou site.&lt;/p&gt;
+&lt;h2&gt;O que é RSS?&lt;/h2&gt;
+&lt;p&gt;RSS é uma forma de acompanhar atualizações de sites sem precisar visitá-los diretamente. Funciona assim: o site disponibiliza um arquivo com as últimas publicações, e você usa um leitor de RSS para receber essas atualizações automaticamente.&lt;/p&gt;
+&lt;p&gt;É como assinar um canal de notícias. Sempre que o site publicar algo novo, você recebe no seu leitor de RSS.&lt;/p&gt;
+&lt;p&gt;Como leitor assíduo de vários blogs usando RSS, não fazia sentido meu blog não ter esse recurso. Além disso, o RSS facilita a indexação em diretórios de blogs.&lt;/p&gt;
+&lt;h2&gt;Instalando o plugin&lt;/h2&gt;
+&lt;p&gt;O 11ty tem um plugin oficial para RSS. Instale usando o gerenciador de pacotes que você utiliza:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; @11ty/eleventy-plugin-rss&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ou&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; @11ty/eleventy-plugin-rss&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Duas formas de configurar&lt;/h3&gt;
+&lt;p&gt;O plugin oferece duas opções:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Automática&lt;/strong&gt;: configurar direto no &lt;code&gt;eleventy.config.js&lt;/code&gt; e o feed é gerado automaticamente&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual&lt;/strong&gt;: criar um arquivo &lt;code&gt;feed.njk&lt;/code&gt; com o template customizado&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Optei pela segunda opção porque precisava de algo rápido e a versão automática apresentou problemas no meu blog. No seu caso, pode funcionar diferente.&lt;/p&gt;
+&lt;h2&gt;Criando o template do feed&lt;/h2&gt;
+&lt;p&gt;Crie o arquivo &lt;code&gt;feed.njk&lt;/code&gt; na pasta dos seus arquivos. No meu caso, criei em &lt;code&gt;src/feed.njk&lt;/code&gt;. Esse arquivo é o template que gera o feed RSS.&lt;/p&gt;
+&lt;p&gt;O plugin suporta vários formatos (RSS, JSON, Atom). Escolhi RSS:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/tcelestino/c63389b8713637252f44714109486bfc.js&quot;&gt;&lt;/script&gt;
+&lt;h3&gt;Entendendo as configurações&lt;/h3&gt;
+&lt;p&gt;O template precisa de algumas informações básicas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;title&lt;/strong&gt;: título do blog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;description&lt;/strong&gt;: descrição do blog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;language&lt;/strong&gt;: idioma (ex: pt-BR)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;base&lt;/strong&gt;: URL completa do blog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;author&lt;/strong&gt;: nome do autor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;permalink&lt;/strong&gt;: onde o feed será gerado (geralmente &lt;code&gt;/feed.xml&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No meu blog, os posts ficam em &lt;code&gt;src/posts/**/*.md&lt;/code&gt;, então uso &lt;code&gt;collections.posts&lt;/code&gt;. Se sua estrutura for diferente, ajuste conforme sua coleção de posts.&lt;/p&gt;
+&lt;p&gt;Outros formatos de template estão na &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/#sample-feed-templates&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Ativando o plugin no Eleventy&lt;/h2&gt;
+&lt;p&gt;Agora adicione o plugin no arquivo &lt;code&gt;eleventy.config.js&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Se usar CommonJS:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; feedPlugin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;@11ty/eleventy-plugin-rss&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feedPlugin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Se usar ESM:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; feedPlugin &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;@11ty/eleventy-plugin-rss&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feedPlugin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Testando&lt;/h2&gt;
+&lt;p&gt;Pronto. Inicie seu blog e acesse &lt;code&gt;http://localhost:8080/feed.xml&lt;/code&gt; para verificar se o feed RSS foi gerado corretamente.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 19 Nov 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</guid>
+      </item>
+      <item>
+        <title>Desabilitando recursos de IA no Firefox</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</link>
+        <description>&lt;p&gt;Recentemente houve o boom de navegadores com IA, como o ChatGPT Atlas, o Perplexity Comet, o Microsoft Edge, entre outros que devem surgir no futuro. O &lt;a href=&quot;https://www.firefox.com/pt-BR/&quot;&gt;Firefox&lt;/a&gt;, nas últimas atualizações, liberou a funcionalidade de usar os chatbots de IA, como o Claude, ChatGPT, Gemini, Mistral e o Copilot no navegador.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/F4bsxsr7/firefox-ia-chatbot.png&quot; alt=&quot;Chatbot Claude no Firefox&quot;&gt;
+&lt;em&gt;Chatbot Claude no Firefox&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Não chega a ser um &amp;quot;agente&amp;quot; como os navegadores citados, mas é uma funcionalidade que para mim tem sido bem útil, seja para tirar dúvidas, traduzir textos em outros idiomas e realizar outras tarefas. Existem muitas preocupações com relação a IA em navegadores, seja por descaracterizar a forma de navegar pela internet e também por abrir diversas &lt;a href=&quot;https://venturebeat.com/ai/when-your-ai-browser-becomes-your-enemy-the-comet-security-disaster&quot;&gt;brechas de segurança&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Por sorte, no Firefox é possível desabilitar os recursos de IA, seguindo os passos abaixo:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Acesse &lt;code&gt;about:config&lt;/code&gt; na barra de endereço do Firefox&lt;/li&gt;
+&lt;li&gt;Aceite o risco e clique em &lt;em&gt;&amp;quot;Accept the Risk and Continue&amp;quot;&lt;/em&gt; (Aceitar o Risco e Continuar)&lt;/li&gt;
+&lt;li&gt;Localize a configuração &lt;code&gt;browser.ml.enable&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Mude o valor de &lt;code&gt;true&lt;/code&gt; para &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Com essa configuração, todos os recursos de IA serão desabilitados.&lt;/p&gt;
+&lt;p&gt;Existem outras configurações caso não queira desabilitar todos os recursos de IA de uma só vez, veja a tabela abaixo:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Configuração&lt;/th&gt;
+&lt;th&gt;Descrição&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.enabled&lt;/td&gt;
+&lt;td&gt;Habilita a integração do chatbot IA.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.sidebar&lt;/td&gt;
+&lt;td&gt;Exibe o painel de chat IA na barra lateral.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.shortcuts&lt;/td&gt;
+&lt;td&gt;Permite acionar o chat a partir de texto selecionado ou atalhos.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.page&lt;/td&gt;
+&lt;td&gt;Exibe o menu de chat na página quando você seleciona texto.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.page.footerBadge&lt;/td&gt;
+&lt;td&gt;Exibe o badge flutuante na parte inferior da página.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.page.menuBadge&lt;/td&gt;
+&lt;td&gt;Exibe o badge &lt;em&gt;&amp;quot;Ask AI&amp;quot;&lt;/em&gt; no menu da página.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.chat.menu&lt;/td&gt;
+&lt;td&gt;Adiciona &lt;em&gt;&amp;quot;Chat about this&amp;quot;&lt;/em&gt; ao menu de clique com o botão direito.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.linkPreview.enabled&lt;/td&gt;
+&lt;td&gt;Gera previsões e sugestões de links baseadas em IA.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;extensions.ml.enabled&lt;/td&gt;
+&lt;td&gt;Permite que extensões do navegador usem a API ML do Firefox.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.ml.pageAssist.enabled&lt;/td&gt;
+&lt;td&gt;Executa o assistente IA &lt;em&gt;&amp;quot;page assist&amp;quot;&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.tabs.groups.smart.enabled&lt;/td&gt;
+&lt;td&gt;Usa IA para agrupar e rotular automaticamente suas abas.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;browser.tabs.groups.smart.userEnable&lt;/td&gt;
+&lt;td&gt;Permite que os usuários ativem manualmente o recurso de grupos de abas inteligentes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Referência: &lt;a href=&quot;https://flamedfury.com/posts/disable-ai-in-firefox/&quot;&gt;Disable AI In Firefox&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Oct 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</guid>
+      </item>
+      <item>
+        <title>Diário de atualizações realizadas no Bloco de Notas</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</link>
+        <description>&lt;p&gt;Inspirado pelo comentário do &lt;a href=&quot;http://www.pedro.dalbo.me/&quot;&gt;@dalbo1201&lt;/a&gt; depois de publicar o post &amp;quot;&lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/&quot;&gt;Um novo começo&lt;/a&gt;&amp;quot; no &lt;a href=&quot;https://manualdousuario.net/orbita-post/um-novo-comeco/&quot;&gt;Manual do Usuário&lt;/a&gt;, resolvi criar uma página de &lt;em&gt;changelog&lt;/em&gt; para acompanhar as atualizações realizadas no Bloco de Notas, sejam de layout ou novas funcionalidades.&lt;/p&gt;
+&lt;p&gt;A ideia é ir adicionando as atualizações tendo como base a estrutura de &amp;quot;&lt;a href=&quot;https://keepachangelog.com/pt-BR/1.1.0/&quot;&gt;CHANGELOG&lt;/a&gt;&amp;quot;, no qual cada atualização pode ser considerada um &lt;em&gt;release&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se tiver interesse, acompanhe as atualizações na página &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/updates&quot;&gt;updates&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Oct 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</guid>
+      </item>
+      <item>
+        <title>Um novo começo</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</link>
+        <description>&lt;p&gt;Já faz tempo que queria mudar o layout do &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/&quot;&gt;Bloco de Notas&lt;/a&gt;, mas a preguiça ou falta de conhecimento em design sempre venciam. Usei o layout padrão do &lt;a href=&quot;https://11ty.dev/&quot;&gt;11ty&lt;/a&gt; com pequenas modificações, mas queria algo mais personalizado e simples, sem firulas de design ou código. Há um tempo, tentei usar &lt;a href=&quot;https://tailwindcss.com/&quot;&gt;Tailwind CSS&lt;/a&gt;, mas foi mais complicado que o esperado. Gastei mais tempo configurando o framework do que construindo o layout. Acabei desistindo.&lt;/p&gt;
+&lt;h3&gt;Uma nova abordagem&lt;/h3&gt;
+&lt;p&gt;Essa semana, decidi voltar a mexer no layout com uma abordagem diferente: sem revolucionar, apenas simplificar. Removi toda a formatação CSS, todas as classes HTML e deixei apenas o básico para manter a estrutura. &lt;strong&gt;E esse é o resultado! 🎉&lt;/strong&gt; Lembra a época em que as páginas eram apenas HTML com o mínimo de CSS, sem frameworks, JS ou builders? Velhos tempos que não voltam mais!&lt;/p&gt;
+&lt;p&gt;A ideia é que a cada semana, vou acrescentar pequenas melhorias mantendo a simplicidade e performance. Sem framework CSS, mas garantindo que seja responsivo e compatível com todos os navegadores. Vou aproveitar as novidades do HTML, CSS e do 11ty. Espero que até o final do ano tenha o layout ideal e quem sabe cadastrar o Bloco de Notas no &lt;a href=&quot;https://www.11ty.dev/speedlify/&quot;&gt;ranking&lt;/a&gt; dos sites performáticos do 11ty.&lt;/p&gt;
+&lt;h3&gt;Inspiração&lt;/h3&gt;
+&lt;p&gt;Como referência, venho salvando alguns blogs minimalistas e simples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.seangoedecke.com/&quot;&gt;Sean Goedecke&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cekrem.github.io/posts/&quot;&gt;Cekrem&#39;s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.jim-nielsen.com/&quot;&gt;Jim Nielsen&#39;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://manualdousuario.net/&quot;&gt;Manual do Usuário&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://eduardoboucas.com/&quot;&gt;Eduardo Bouças&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://seldo.com/&quot;&gt;seldo.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://josh.mn/&quot;&gt;josh.mn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;São blogs que gosto de seguir e que vão me ajudar a criar meu próprio layout.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agora é ver até onde vou conseguir chegar!&lt;/strong&gt; 🤞&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Oct 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</guid>
+      </item>
+      <item>
+        <title>Como saber quais arquivos do seu pacote serão publicados no npm</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</link>
+        <description>&lt;p&gt;Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E o resultado será algo como:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nsJdw7Xv/npm-pack.png&quot; alt=&quot;resultado comando npm pack no terminal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;É gerado um arquivo &lt;code&gt;.tgz&lt;/code&gt; com o nome do pacote e a versão. Você pode validar se os arquivos que precisam existir no seu pacote estão corretos, além de ter algumas informações sobre o pacote, como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Versão do pacote;&lt;/li&gt;
+&lt;li&gt;Tamanho do pacote comprimido e descomprimido;&lt;/li&gt;
+&lt;li&gt;Total de arquivos no pacote.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caso não queria gerar um arquivo &lt;code&gt;.tgz&lt;/code&gt;, você pode usar o comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack --dry-run&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nesse caso, terá como resultado:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nNhKHBBg/npm-pack-dry-run.png&quot; alt=&quot;resultado comando npm pack --dry-run no terminal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Com o &lt;code&gt;--dry-run&lt;/code&gt; você pode ver quais arquivos serão publicados, mas não é gerado o arquivo &lt;code&gt;.tgz&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Simples, não!?&lt;/p&gt;
+</description>
+        <pubDate>Fri, 30 May 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</guid>
+      </item>
+      <item>
         <title>Como remover propriedades de um objeto no JavaScript</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</link>
         <description>&lt;p&gt;Em algum momento que você estava desenvolvendo algo em JavaScript, você precisou remover uma propriedade (podemos chamar de &amp;quot;chaves&amp;quot;) de um objeto. Por incrível que pareça, existem várias formas de fazer isso com JavaScript, o que pode ser bom por um lado, mas pode se tornar um problema para o outro, já que a depender da situação, uma abordagem menos eficiente pode impactar a performance da sua aplicação.&lt;/p&gt;
@@ -135,201 +332,812 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</guid>
       </item>
       <item>
-        <title>Como saber quais arquivos do seu pacote serão publicados no npm</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</link>
-        <description>&lt;p&gt;Uma dica rápida para quem está desenvolvendo um pacote utilizando Node.js e quer publica-lo no npm. Para saber quais os arquivos que estarão presentes no pacote, você pode simplesmente usar o comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;E o resultado será algo como:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nsJdw7Xv/npm-pack.png&quot; alt=&quot;resultado comando npm pack no terminal&quot;&gt;&lt;/p&gt;
-&lt;p&gt;É gerado um arquivo &lt;code&gt;.tgz&lt;/code&gt; com o nome do pacote e a versão. Você pode validar se os arquivos que precisam existir no seu pacote estão corretos, além de ter algumas informações sobre o pacote, como:&lt;/p&gt;
+        <title>Criando textos responsivos sem media queries</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</link>
+        <description>&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Versão do pacote;&lt;/li&gt;
-&lt;li&gt;Tamanho do pacote comprimido e descomprimido;&lt;/li&gt;
-&lt;li&gt;Total de arquivos no pacote.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;clamp()&lt;/code&gt; do CSS permite criar textos responsivos sem media queries;&lt;/li&gt;
+&lt;li&gt;Apenas uma linha de código define os tamanhos mínimo, ideal e máximo da fonte;&lt;/li&gt;
+&lt;li&gt;Facilita a manutenção do CSS e melhora a performance do site;&lt;/li&gt;
+&lt;li&gt;Funciona em todos os navegadores modernos.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Caso não queria gerar um arquivo &lt;code&gt;.tgz&lt;/code&gt;, você pode usar o comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; pack --dry-run&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nesse caso, terá como resultado:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nNhKHBBg/npm-pack-dry-run.png&quot; alt=&quot;resultado comando npm pack --dry-run no terminal&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Com o &lt;code&gt;--dry-run&lt;/code&gt; você pode ver quais arquivos serão publicados, mas não é gerado o arquivo &lt;code&gt;.tgz&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Simples, não!?&lt;/p&gt;
-</description>
-        <pubDate>Fri, 30 May 2025 24:00:00 GMT</pubDate>
-        <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</guid>
-      </item>
-      <item>
-        <title>Um novo começo</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</link>
-        <description>&lt;p&gt;Já faz tempo que queria mudar o layout do &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/&quot;&gt;Bloco de Notas&lt;/a&gt;, mas a preguiça ou falta de conhecimento em design sempre venciam. Usei o layout padrão do &lt;a href=&quot;https://11ty.dev/&quot;&gt;11ty&lt;/a&gt; com pequenas modificações, mas queria algo mais personalizado e simples, sem firulas de design ou código. Há um tempo, tentei usar &lt;a href=&quot;https://tailwindcss.com/&quot;&gt;Tailwind CSS&lt;/a&gt;, mas foi mais complicado que o esperado. Gastei mais tempo configurando o framework do que construindo o layout. Acabei desistindo.&lt;/p&gt;
-&lt;h3&gt;Uma nova abordagem&lt;/h3&gt;
-&lt;p&gt;Essa semana, decidi voltar a mexer no layout com uma abordagem diferente: sem revolucionar, apenas simplificar. Removi toda a formatação CSS, todas as classes HTML e deixei apenas o básico para manter a estrutura. &lt;strong&gt;E esse é o resultado! 🎉&lt;/strong&gt; Lembra a época em que as páginas eram apenas HTML com o mínimo de CSS, sem frameworks, JS ou builders? Velhos tempos que não voltam mais!&lt;/p&gt;
-&lt;p&gt;A ideia é que a cada semana, vou acrescentar pequenas melhorias mantendo a simplicidade e performance. Sem framework CSS, mas garantindo que seja responsivo e compatível com todos os navegadores. Vou aproveitar as novidades do HTML, CSS e do 11ty. Espero que até o final do ano tenha o layout ideal e quem sabe cadastrar o Bloco de Notas no &lt;a href=&quot;https://www.11ty.dev/speedlify/&quot;&gt;ranking&lt;/a&gt; dos sites performáticos do 11ty.&lt;/p&gt;
-&lt;h3&gt;Inspiração&lt;/h3&gt;
-&lt;p&gt;Como referência, venho salvando alguns blogs minimalistas e simples:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.seangoedecke.com/&quot;&gt;Sean Goedecke&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://cekrem.github.io/posts/&quot;&gt;Cekrem&#39;s blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://blog.jim-nielsen.com/&quot;&gt;Jim Nielsen&#39;s Blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://manualdousuario.net/&quot;&gt;Manual do Usuário&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://eduardoboucas.com/&quot;&gt;Eduardo Bouças&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://seldo.com/&quot;&gt;seldo.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://josh.mn/&quot;&gt;josh.mn&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;São blogs que gosto de seguir e que vão me ajudar a criar meu próprio layout.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Agora é ver até onde vou conseguir chegar!&lt;/strong&gt; 🤞&lt;/p&gt;
-</description>
-        <pubDate>Mon, 20 Oct 2025 24:00:00 GMT</pubDate>
-        <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</guid>
-      </item>
-      <item>
-        <title>Diário de atualizações realizadas no Bloco de Notas</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</link>
-        <description>&lt;p&gt;Inspirado pelo comentário do &lt;a href=&quot;http://www.pedro.dalbo.me/&quot;&gt;@dalbo1201&lt;/a&gt; depois de publicar o post &amp;quot;&lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/&quot;&gt;Um novo começo&lt;/a&gt;&amp;quot; no &lt;a href=&quot;https://manualdousuario.net/orbita-post/um-novo-comeco/&quot;&gt;Manual do Usuário&lt;/a&gt;, resolvi criar uma página de &lt;em&gt;changelog&lt;/em&gt; para acompanhar as atualizações realizadas no Bloco de Notas, sejam de layout ou novas funcionalidades.&lt;/p&gt;
-&lt;p&gt;A ideia é ir adicionando as atualizações tendo como base a estrutura de &amp;quot;&lt;a href=&quot;https://keepachangelog.com/pt-BR/1.1.0/&quot;&gt;CHANGELOG&lt;/a&gt;&amp;quot;, no qual cada atualização pode ser considerada um &lt;em&gt;release&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Se tiver interesse, acompanhe as atualizações na página &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/updates&quot;&gt;updates&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 22 Oct 2025 24:00:00 GMT</pubDate>
-        <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</guid>
-      </item>
-      <item>
-        <title>Desabilitando recursos de IA no Firefox</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</link>
-        <description>&lt;p&gt;Recentemente houve o boom de navegadores com IA, como o ChatGPT Atlas, o Perplexity Comet, o Microsoft Edge, entre outros que devem surgir no futuro. O &lt;a href=&quot;https://www.firefox.com/pt-BR/&quot;&gt;Firefox&lt;/a&gt;, nas últimas atualizações, liberou a funcionalidade de usar os chatbots de IA, como o Claude, ChatGPT, Gemini, Mistral e o Copilot no navegador.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/F4bsxsr7/firefox-ia-chatbot.png&quot; alt=&quot;Chatbot Claude no Firefox&quot;&gt;
-&lt;em&gt;Chatbot Claude no Firefox&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Não chega a ser um &amp;quot;agente&amp;quot; como os navegadores citados, mas é uma funcionalidade que para mim tem sido bem útil, seja para tirar dúvidas, traduzir textos em outros idiomas e realizar outras tarefas. Existem muitas preocupações com relação a IA em navegadores, seja por descaracterizar a forma de navegar pela internet e também por abrir diversas &lt;a href=&quot;https://venturebeat.com/ai/when-your-ai-browser-becomes-your-enemy-the-comet-security-disaster&quot;&gt;brechas de segurança&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Por sorte, no Firefox é possível desabilitar os recursos de IA, seguindo os passos abaixo:&lt;/p&gt;
+&lt;p&gt;Uma dica rápida e prática para quem precisa manter textos responsivos sem a necessidade de usar &lt;em&gt;media queries&lt;/em&gt;. Usando a função &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/clamp&quot;&gt;clamp&lt;/a&gt;, conseguimos ter textos que se adaptam automaticamente a diferentes tamanhos de tela sem precisar configurar tamanhos específicos para cada &lt;em&gt;breakpoint&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Como usar&lt;/h2&gt;
+&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;h2&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;1.5rem&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 8vw&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 3rem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Explicando a formatação CSS acima, temos o seguinte:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Acesse &lt;code&gt;about:config&lt;/code&gt; na barra de endereço do Firefox&lt;/li&gt;
-&lt;li&gt;Aceite o risco e clique em &lt;em&gt;&amp;quot;Accept the Risk and Continue&amp;quot;&lt;/em&gt; (Aceitar o Risco e Continuar)&lt;/li&gt;
-&lt;li&gt;Localize a configuração &lt;code&gt;browser.ml.enable&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Mude o valor de &lt;code&gt;true&lt;/code&gt; para &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Valor mínimo&lt;/strong&gt;: 1.5rem - define que o tamanho mínimo da fonte não ficará abaixo de 1,5x em relação ao tamanho da fonte do elemento raiz: 16px × 1.5 = 24px.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Valor ideal&lt;/strong&gt;: 8vw - define o tamanho da fonte como 8% da largura do &lt;em&gt;viewport&lt;/em&gt;. Se a medida da largura do &lt;em&gt;viewport&lt;/em&gt; mudar, o tamanho se alterará de acordo com a nova largura.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Valor máximo&lt;/strong&gt;: 3rem - define o tamanho máximo como 3x o tamanho da fonte em relação ao elemento raiz: 16px × 3 = 48px.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Com essa configuração, todos os recursos de IA serão desabilitados.&lt;/p&gt;
-&lt;p&gt;Existem outras configurações caso não queira desabilitar todos os recursos de IA de uma só vez, veja a tabela abaixo:&lt;/p&gt;
+&lt;p&gt;Com apenas uma linha de código, você consegue manter os textos responsivos independentemente do tamanho da tela, garantindo uma experiência de leitura agradável em qualquer dispositivo.&lt;/p&gt;
+&lt;h2&gt;Benefícios&lt;/h2&gt;
+&lt;p&gt;Além da simplicidade, essa abordagem traz algumas vantagens interessantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Código mais limpo&lt;/strong&gt;: reduz a quantidade de &lt;em&gt;media queries&lt;/em&gt; no seu CSS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Melhor performance&lt;/strong&gt;: menos código significa carregamento mais rápido&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transições suaves&lt;/strong&gt;: o texto se ajusta gradualmente conforme o redimensionamento da tela&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manutenção facilitada&lt;/strong&gt;: alterações de tamanho podem ser feitas em um único lugar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compatibilidade&lt;/h2&gt;
+&lt;p&gt;A função &lt;code&gt;clamp()&lt;/code&gt; é suportada por todos os navegadores modernos, incluindo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome (desde a versão 79)&lt;/li&gt;
+&lt;li&gt;Firefox (desde a versão 75)&lt;/li&gt;
+&lt;li&gt;Safari (desde a versão 13.1)&lt;/li&gt;
+&lt;li&gt;Edge (desde a versão 79)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/clamp&quot;&gt;MDN Web Docs - clamp()&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://desenvolvimentoparaweb.com/css/textos-responsivos-com-css-clamp/&quot;&gt;Desenvolvimento para Web - Textos responsivos com CSS clamp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 06 Mar 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</guid>
+      </item>
+      <item>
+        <title>Você sabe por que usamos o underscore no target=&quot;_blank&quot;?</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/02/voce-sabe-por-que-usamos-o-underscore-no-target-blank/</link>
+        <description>&lt;p&gt;Alguma vez você já se perguntou por que usamos o &lt;em&gt;underscore&lt;/em&gt; em valores como &lt;code&gt;_blank&lt;/code&gt;, &lt;code&gt;_self&lt;/code&gt;, etc...? Eu não sabia até ler esse &lt;a href=&quot;https://kyrylo.org/html/2024/10/25/why-does-target-blank-have-an-underscore-in-front.html&quot;&gt;post&lt;/a&gt; do Kyrylo Silin.&lt;/p&gt;
+&lt;h2&gt;Um pouco de história&lt;/h2&gt;
+&lt;p&gt;Antes do surgimento do HTML5, abusávamos do uso de &lt;em&gt;frames&lt;/em&gt; para construção de páginas. Essas páginas eram criadas baseadas em &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frameset&quot;&gt;framesets&lt;/a&gt;. Eu mesmo escrevi muito código HTML utilizando &lt;em&gt;frames&lt;/em&gt;. Como nem tudo são flores, usar &lt;em&gt;frames&lt;/em&gt; para construção de páginas podia ser útil para organizar conteúdo em várias janelas na própria página (SPA, alguém aí? 😅), mas os &lt;em&gt;frames&lt;/em&gt; eram difíceis de manter e tinham sérios problemas de segurança.&lt;/p&gt;
+&lt;h2&gt;Como funcionavam os framesets&lt;/h2&gt;
+&lt;p&gt;Cada frame continha um nome único. Algo como &lt;code&gt;name=&amp;quot;footer&amp;quot;&lt;/code&gt;, &lt;code&gt;name=&amp;quot;content&amp;quot;&lt;/code&gt;, &lt;code&gt;name=&amp;quot;sidebar&amp;quot;&lt;/code&gt;. E quando precisávamos abrir um link em um frame específico, informávamos qual o name do frame onde o conteúdo do link seria carregado. Por exemplo: &lt;code&gt;&amp;lt;a href=&amp;quot;/sobre-mim.html&amp;quot; target=&amp;quot;content&amp;quot;&amp;gt;Sobre mim&amp;lt;/a&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Ao clicar no link, a página &amp;quot;sobre-mim.html&amp;quot; era carregada no &lt;em&gt;frame&lt;/em&gt; nomeado &amp;quot;content&amp;quot;. Agora, imagine se houvesse um link assim: &lt;code&gt;&amp;lt;a href=&amp;quot;/outra-pagina.html&amp;quot; target=&amp;quot;blank&amp;quot;&amp;gt;Outra página&amp;lt;/a&amp;gt;&lt;/code&gt;. O que aconteceria?&lt;/p&gt;
+&lt;p&gt;Como expliquei anteriormente, ao informar &lt;code&gt;target=&amp;quot;blank&amp;quot;&lt;/code&gt;, o link teria que ser aberto em um &lt;em&gt;frame&lt;/em&gt; nomeado como &amp;quot;&lt;em&gt;blank&lt;/em&gt;&amp;quot;, mas caso esse &lt;em&gt;frame&lt;/em&gt; não existisse, por padrão, o navegador criava uma nova janela identificando-a como &amp;quot;&lt;em&gt;blank&lt;/em&gt;&amp;quot;. O mais estranho é que ao clicar no mesmo link novamente, o navegador não abria uma nova janela. 🫣&lt;/p&gt;
+&lt;h2&gt;A solução com underscore&lt;/h2&gt;
+&lt;p&gt;Ao usar o &lt;em&gt;underscore&lt;/em&gt;, o navegador passou a entender que o valor &lt;code&gt;target=&amp;quot;_blank&amp;quot;&lt;/code&gt; não era um nome de um frame na tela, mas sim um valor especial, compreendendo que o conteúdo do link deveria ser aberto em uma nova janela/aba. Esse comportamento também se aplica para os valores &lt;code&gt;target=&amp;quot;_self&amp;quot;&lt;/code&gt;, &lt;code&gt;target=&amp;quot;_parent&amp;quot;&lt;/code&gt; e &lt;code&gt;target=&amp;quot;_top&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Relevância hoje&lt;/h2&gt;
+&lt;p&gt;Mesmo com a obsolescência dos framesets com o surgimento do HTML5, esses valores especiais foram preservados na especificação. Hoje, quando usamos &lt;code&gt;target=&amp;quot;_blank&amp;quot;&lt;/code&gt;, continuamos aproveitando essa convenção estabelecida há décadas, mas com propósitos modernos de navegação.&lt;/p&gt;
+&lt;p&gt;Simples, porém eficiente, não é mesmo!? 😎&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Feb 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/02/voce-sabe-por-que-usamos-o-underscore-no-target-blank/</guid>
+      </item>
+      <item>
+        <title>Como organizei meus dotfiles e otimizei meu fluxo de trabalho</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/02/dotfiles/</link>
+        <description>&lt;p&gt;Aproveitei a semana passada para aprofundar meus conhecimentos em &lt;em&gt;shell script&lt;/em&gt; e decidi usar meus &lt;a href=&quot;https://github.com/tcelestino/dotfiles&quot;&gt;dotfiles&lt;/a&gt; como laboratório prático para aplicar o que aprendi e devo continuar aprendendo ao longo desse ano.&lt;/p&gt;
+&lt;h2&gt;O que são dotfiles?&lt;/h2&gt;
+&lt;p&gt;Para quem não conhece, dotfiles são arquivos de configuração que geralmente começam com um ponto (.), tornando-se ocultos em sistemas Unix/Linux. Eles armazenam personalizações para aplicativos e ambientes de desenvolvimento, incluindo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/.bashrc&lt;/code&gt;: Configurações do shell Bash;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.npmrc&lt;/code&gt;: Preferências do npm;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;: Configurações globais do Git;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.zshrc&lt;/code&gt;: Arquivo principal de configuração do Zsh.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esses arquivos permitem não só personalizar seu ambiente de trabalho, mas também manter consistência entre diferentes máquinas e sistemas.&lt;/p&gt;
+&lt;p&gt;Meus &lt;a href=&quot;https://github.com/tcelestino/dotfiles&quot;&gt;dotfiles&lt;/a&gt; existem há 9 anos e estavam precisando de atualização. Combinei a necessidade de atualizar as configurações com meu interesse recente em &lt;em&gt;shell script&lt;/em&gt;. Durante o processo, utilizei o &lt;a href=&quot;https://code.visualstudio.com/docs/copilot/overview&quot;&gt;GitHub Copilot&lt;/a&gt; no VS Code (disponível gratuitamente com limites de uso) como assistente para verificar sintaxe, documentação e sugestões de boas práticas. Pretendo detalhar meu fluxo de trabalho com IAs assistivas em um futuro post.&lt;/p&gt;
+&lt;h2&gt;Minha configuração&lt;/h2&gt;
+&lt;p&gt;Nos meus dotfiles, gerencio:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tcelestino/dotfiles/blob/main/zsh/aliases.zsh&quot;&gt;Aliases&lt;/a&gt; e &lt;a href=&quot;https://github.com/tcelestino/dotfiles/blob/main/zsh/.zshrc#L5&quot;&gt;plugins&lt;/a&gt; do Zsh;&lt;/li&gt;
+&lt;li&gt;Instalação automatizada de aplicativos via &lt;a href=&quot;https://github.com/tcelestino/dotfiles/blob/main/Brewfile&quot;&gt;Homebrew&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Configurações específicas para &lt;a href=&quot;https://github.com/tcelestino/dotfiles/blob/main/.macos&quot;&gt;macOS&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Otimizações para &lt;a href=&quot;https://github.com/tcelestino/dotfiles/tree/main/git&quot;&gt;Git&lt;/a&gt; e &lt;a href=&quot;https://github.com/tcelestino/dotfiles/blob/main/.npmrc&quot;&gt;Node.js&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Toda instalação é executada por um único comando &lt;code&gt;./install&lt;/code&gt; no terminal. 🚀&lt;/p&gt;
+&lt;p&gt;À medida que evoluo meu conhecimento em &lt;em&gt;shell scripting&lt;/em&gt;, vou implementando melhorias nessas configurações para aumentar a eficiência e ergonomia no meu fluxo de trabalho.&lt;/p&gt;
+&lt;h2&gt;Comece seus próprios dotfiles&lt;/h2&gt;
+&lt;p&gt;Se você ainda não tem dotfiles, sinta-se à vontade para usar &lt;a href=&quot;https://github.com/tcelestino/dotfiles&quot;&gt;meu repositório&lt;/a&gt; como base ou inspiração. O projeto é open source - contribuições são bem-vindas! Para explorar diferentes abordagens, recomendo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O portal &lt;a href=&quot;https://dotfiles.github.io/&quot;&gt;dotfiles.github.io&lt;/a&gt; com curadoria de exemplos;&lt;/li&gt;
+&lt;li&gt;O repositório do &lt;a href=&quot;https://github.com/paulirish/dotfiles&quot;&gt;Paul Irish&lt;/a&gt; que me inspirou inicialmente;&lt;/li&gt;
+&lt;li&gt;O repositório &lt;a href=&quot;https://github.com/webpro/awesome-dotfiles&quot;&gt;Awesome Dotfiles&lt;/a&gt; no GitHub, que possui uma lista de recursos e exemplos interessantes para explorar e implementar em seus dotfiles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O ponto principal é adaptar as configurações às suas necessidades específicas enquanto mantém a capacidade de replicar seu ambiente em qualquer computador rapidamente.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 24 Feb 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/02/dotfiles/</guid>
+      </item>
+      <item>
+        <title>Compartilhamento de links usando Web Share API</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/01/web-share-api/</link>
+        <description>&lt;p&gt;Dias atrás, o Rodrigo Ghedin, do &lt;a href=&quot;https://manualdousuario.net/&quot;&gt;Manual do Usuário&lt;/a&gt;, disponibilizou um recurso simples no blog, mas que, sem dúvida, trouxe uma experiência mais agradável para os usuários ao implementar o compartilhamento de link nativo dos navegadores. Dei uma fuçada e acabei confirmando o que imaginava: a implementação é baseada na &lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/share&quot;&gt;Web Share API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Lembrei da época em que trabalhava no elo7 e usamos a Web Share API na página de detalhes dos produtos do marketplace, no qual conseguimos garantir uma experiência mais fluida no marketplace. Inclusive, &lt;a href=&quot;https://blog.elo7.dev/web-share-api/&quot;&gt;escrevi&lt;/a&gt; sobre a API no blog da empresa.&lt;/p&gt;
+&lt;h2&gt;O que é a Web Share API?&lt;/h2&gt;
+&lt;p&gt;A &lt;a href=&quot;https://wicg.github.io/web-share/&quot;&gt;Web Share API&lt;/a&gt; é uma API em Javascript presente em diversos navegadores, na qual você pode usar o recurso nativo de compartilhamento de link sem a necessidade de implementação de plugins de terceiros na sua página. Segundo o &lt;a href=&quot;https://caniuse.com/web-share&quot;&gt;Can I Use&lt;/a&gt;, a Web Share API já tem um amplo suporte nos navegadores mais atuais:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://i.ibb.co/7J1bttp3/SCR-20250131-kccw.png&quot; alt=&quot;Screenshot exibindo compatibilidade da Web Share API&quot;&gt;
+  &lt;figcaption&gt;Infelizmente, o Firefox para desktop ainda não possui o recurso. 😞&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Como usar Web Share API&lt;/h2&gt;
+&lt;p&gt;Antes de falarmos de como implementar a Web Share API, precisamos lembrar que, no passado não muito distante, existiam diversas formas de implementar o compartilhamento de link através do navegador. No Android, era possível implementar &lt;a href=&quot;https://www.chromium.org/developers/web-intents-in-chrome&quot;&gt;Web Intents&lt;/a&gt; e no iOS, era possível usar &lt;a href=&quot;https://css-tricks.com/create-url-scheme/&quot;&gt;Custom URL Schemes&lt;/a&gt;. Ou seja, uma salada de frutas para algo &amp;quot;simples&amp;quot;. 🤯 Sem contar os diversos plugins de terceiros existentes (Facebook, Twitter, etc.).&lt;/p&gt;
+&lt;p&gt;A Web Share API surgiu para simplificar e garantir maior compatibilidade entre os sistemas operacionais e navegadores. Além de trazer uma melhor experiência com o uso de um comportamento nativo, em vez de pop-ups, modais e redirecionamentos.&lt;/p&gt;
+&lt;p&gt;A implementação da Web Share API é muito simples:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/tcelestino/7b738d076654d1d2880cb67672149786.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;Com essa estrutura, você já tem uma implementação funcional de compartilhamento de link do próprio sistema operacional.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://i.ibb.co/b51X5YKB/RPReplay-Final1738330987.gif&quot; alt=&quot;Screenshot com o funcionamento da Web Share API em um dispositivo móvel&quot;&gt;
+  &lt;figcaption&gt;Ao clicar no link &quot;Compartilhar link&quot;, a Web Share API entra em ação&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Caso queira visualizar no seu dispositivo, o exemplo está disponível em &lt;a href=&quot;https://tcelestino-web-share-api.netlify.app/&quot;&gt;https://tcelestino-web-share-api.netlify.app/
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Destrinchando o código&lt;/h2&gt;
+&lt;p&gt;Como a Web Share API é baseada em &lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise&quot;&gt;Promise&lt;/a&gt;, podemos implementá-la de diferentes maneiras. Seja usando &lt;code&gt;try..catch&lt;/code&gt;, &lt;code&gt;then&lt;/code&gt; e &lt;code&gt;catch&lt;/code&gt;, etc., fica a critério do projeto e do gosto de quem está implementando, já que o resultado final será o mesmo. No exemplo, estou usando &lt;code&gt;try...catch&lt;/code&gt;, mas fique à vontade para adaptar à sua realidade.&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/tcelestino/c6086cb811d1d745d1988ecfbcda3145.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;A Web Share API está disponível através do método &lt;code&gt;share&lt;/code&gt; do objeto &lt;code&gt;navigator&lt;/code&gt;. Sendo assim, precisamos verificar se o método está disponível no navegador; caso não esteja, podemos implementar uma ação de falha. No exemplo, implementei um &lt;code&gt;alert&lt;/code&gt;, mas não façam isso na vida real! 😅&lt;/p&gt;
+&lt;p&gt;A &amp;quot;magia&amp;quot; do funcionamento da Web Share API está na seguinte configuração:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/tcelestino/185360f7691f9b4e793747e23bb927f9.js&quot;&gt;&lt;/script&gt;
+&lt;ul&gt;
+&lt;li&gt;title: título que será usado no compartilhamento do link;&lt;/li&gt;
+&lt;li&gt;text: texto descritivo do compartilhamento que será adicionando no campo de texto (opcional);&lt;/li&gt;
+&lt;li&gt;url: link para onde o usuário será redirecionado ao clicar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caso não tenha notado, na chave &lt;code&gt;url&lt;/code&gt;, adicionei uma condicional na qual estou capturando o valor do href existente na tag &lt;code&gt;&amp;lt;link rel=&amp;quot;canonical&amp;quot; href=&amp;quot;https://tcelestino.github.io/bloco-de-notas/&amp;quot;&amp;gt;&lt;/code&gt;, e isso tem uma explicação.&lt;/p&gt;
+&lt;p&gt;Imagine que um site tenha domínios específicos para desktop e mobile (https://m.site.com), ou até mesmo URLs baseadas no contexto do usuário, utilizando a estratégia &lt;a href=&quot;https://en.wikipedia.org/wiki/Canonical_link_element&quot;&gt;Canonical URL&lt;/a&gt; conseguimos garantir que o link compartilhado será &amp;quot;real&amp;quot;, mantendo a consistência e a experiência do usuário.&lt;/p&gt;
+&lt;h2&gt;Pontos de atenção!&lt;/h2&gt;
+&lt;p&gt;Apesar da implementação da Web Share API ser simples, temos alguns pontos de atenção:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seu servidor precisa ter HTTPS habilitado;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Os valores passados para API precisam ser no formato de texto;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Você só pode executar a API a partir de uma ação do usuário. Ou seja, a partir de uma ação de clique;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Não pode chamá-la no carregamento da página (onload, DOMContentLoaded, etc...).&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Por ser algo simples de implementar, a Web Share API pode trazer bons ganhos na experiência de usuário, principalmente por não haver interferência de terceiros e por proporcionar maior controle das ações realizadas pelo usuário em seu site.&lt;/p&gt;
+&lt;p&gt;Ter uma solução nativa integrada com os sistemas operacionais, sem dúvidas, trará uma experiência mais fluida para os usuários, além de garantir a autonomia do funcionamento de todo o seu site.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Jan 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/01/web-share-api/</guid>
+      </item>
+      <item>
+        <title>Mapeando minhas entrevistas pós-demissão</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/01/mapeando-minhas-entrevistas-pos-demissao/</link>
+        <description>&lt;p&gt;TLDR:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Criei um banco de dados no Notion para mapear e registrar informações sobre as entrevistas.&lt;/li&gt;
+&lt;li&gt;Participei de entrevistas para cargos como Tech Lead, Team Lead e desenvolvedor.&lt;/li&gt;
+&lt;li&gt;Feedbacks como melhorias para próximas entrevistas.&lt;/li&gt;
+&lt;li&gt;A falta de respostas de algumas entrevistas e a adaptação ao modelo PJ, foram pontos impactantes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Depois de sofrer uma demissão, a primeira coisa que você pensa é buscar uma nova recolocação. Inclusive &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2024/10/um-mes-desempregado/&quot;&gt;escrevi&lt;/a&gt; sobre isso depois de um mês desempregado. Mesmo não buscando por vagas durante os últimos três meses, recebi alguns convites para entrevistas. Grande parte desses convites vieram via Linkedin. Seja por pessoas que viram a postagem da planilha com o nome das pessoas demitidas, por indicação de pessoas com quem já trabalhei (obrigado, inclusive) e/ou pela busca direta na plataforma.&lt;/p&gt;
+&lt;h2&gt;Mapeamento das entrevistas&lt;/h2&gt;
+&lt;p&gt;Sempre tive o hábito de anotar pontos-chave das entrevistas em que já participei, tanto para melhorar algum aspecto quanto para fazer perguntas sobre os assuntos abordados no processo. Dessa vez, resolvi fazer algo diferente. Em vez de apenas anotar, criei um banco de dados para registrar informações pertinentes (para mim, claro), com o objetivo de obter algumas métricas.&lt;/p&gt;
+&lt;p&gt;Organizei o banco de dados com as seguintes informações:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nome da empresa;&lt;/li&gt;
+&lt;li&gt;Cargo;&lt;/li&gt;
+&lt;li&gt;Descrição da vaga (link para a vaga);&lt;/li&gt;
+&lt;li&gt;Salário;&lt;/li&gt;
+&lt;li&gt;Benefícios;&lt;/li&gt;
+&lt;li&gt;Tipo de contrato;&lt;/li&gt;
+&lt;li&gt;Formato de trabalho;&lt;/li&gt;
+&lt;li&gt;Datas do primeiro e do último contato;&lt;/li&gt;
+&lt;li&gt;Status da entrevista.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DsVPv1U.png&quot; alt=&quot;Gráfico mapeamento entrevistas&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;Cargos&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;Configuração&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Tech Lead&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Desenvolvedor&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Team Lead&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como já mencionei, não fiz nenhuma busca ativa por vagas. Os contatos aconteceram principalmente com base na minha experiência como desenvolvedor. No caso da vaga de liderança (Team Lead), achei interessante que foi uma oportunidade para voltar para uma empresa que já tinha passado anteriormente. Tive feedbacks bem legais, tanto do pessoal de engenharia, quanto da recrutadora. Antes que me pergunte: não passei! 🙂&lt;/p&gt;
+&lt;h3&gt;Salários&lt;/h3&gt;
+&lt;p&gt;Os salários no formato PJ tendem a ser maiores. Já li relatos de profissionais recebendo 25k, 30k e até 40k como PJ. Grande parte dessas pessoas recebem em dólares, verdade seja dita, mas são PJs no final. Nunca ouvi algo semelhante no formato CLT, mas não duvido que haja alguém recebendo algo parecido em uma grande empresa tech brasileira.&lt;/p&gt;
+&lt;p&gt;Os resultados que obtive foram estes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Valor&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Salário mais alto (PJ)&lt;/td&gt;
+&lt;td&gt;R$ 17.000,00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Salário mais alto (CLT)&lt;/td&gt;
+&lt;td&gt;R$ 15.000,00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Salário mais baixo (PJ)&lt;/td&gt;
+&lt;td&gt;R$ 15.000,00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Salário mais baixo (CLT)&lt;/td&gt;
+&lt;td&gt;R$ 11.060,00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Média de salário&lt;/td&gt;
+&lt;td&gt;R$ 11.506,00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Vale mencionar que as vagas no modelo de contrato PJ, para quem nunca trabalhou nesse formato, lidar com todo o processo inicial – abertura de conta jurídica, contratação de contador ou serviços online – foi o que me deixou com dificuldade de aceitação. Amigos que já trabalham nesse modelo me deram dicas e indicações, mas mesmo assim, não me vejo pronto para me adaptar a esse novo formato.&lt;/p&gt;
+&lt;h3&gt;Benefícios&lt;/h3&gt;
+&lt;p&gt;As empresas que contratam no formato CLT ofereciam como principais benefícios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Plano de Saúde/Odontológico;&lt;/li&gt;
+&lt;li&gt;Vale Alimentação;&lt;/li&gt;
+&lt;li&gt;Vale Refeição.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Algumas curiosidades:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ausência de feedbacks por parte de alguns recrutadores(as). Em um caso específico, enviei uma mensagem procurando saber se havia uma resposta negativa. Até hoje espero.&lt;/li&gt;
+&lt;li&gt;No salário mais baixo no contrato CLT, os benefícios eram muito melhores do que no maior salário no formato CLT.&lt;/li&gt;
+&lt;li&gt;No modelo PJ, apenas uma empresa oferecia férias remuneradas como benefício, o restante é aquele esquema PJ: você paga por tudo!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Como foi meu primeiro ano fazendo esse mapeamento, ao reunir os dados, observei que senti falta de fazer o registro das fases dos processos seletivos, como por exemplo, a entrevista que fiz no esquema de &lt;em&gt;whiteboard&lt;/em&gt;. Seria mais fácil visualizar o tempo de cada processo até o resultado final.&lt;/p&gt;
+&lt;p&gt;Além disso, ao pedir feedbacks logo após as entrevistas só confirmou o quanto é importante se ter um feedback assertivo no frescor da situação, o que influencia muito na melhoria de desempenho para as próximas entrevistas.&lt;/p&gt;
+&lt;p&gt;Se você está buscando novas oportunidades no momento, recomendo tentar algum tipo de registro. Começando com algo mais básico, como registrando os benefícios e ou incrementar com a suas necessidades. Eu fiz no Notion, mas em uma planilha também pode ser bem útil. Certeza que isso vai te ajudar a entender quais as melhores oportunidades farão sentido para você.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jan 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/01/mapeando-minhas-entrevistas-pos-demissao/</guid>
+      </item>
+      <item>
+        <title>Retrospectiva 2024</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2024/12/retrospectiva-2024/</link>
+        <description>&lt;p&gt;Mais um ano finalizando com a expectativa de que o próximo seja muito melhor, sempre! Resolvi listar os principais acontecimentos deste ano para minha vida pessoal e profissional.&lt;/p&gt;
+&lt;p&gt;Esta lista não está em ordem cronológica nem por nível de importância, que fique bem claro.&lt;/p&gt;
+&lt;h2&gt;Janeiro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Início do uso de prótese capilar com cabelo de verdade.
+&lt;ul&gt;
+&lt;li&gt;Desisti no segundo mês. 🙃&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fevereiro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Primeira vez no bloco afro Filhos de Gandhy no Carnaval de Salvador.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Março&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lollapalooza&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Abril&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Primeira consulta com ortopedista&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Maio&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Primeira viagem para a Europa.
+&lt;ul&gt;
+&lt;li&gt;Conheci as cidades: Évora, Lisboa, Braga, Porto, Amsterdã, Salamanca, Madrid e Móstoles.&lt;/li&gt;
+&lt;li&gt;Encontrei os amigos: Gui e Gilvalso; Thiago (TedK) e família em Braga; Osmundo e família no Porto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Trabalho remoto no fuso horário 4 horas à frente. 💥&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Junho&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Seek vende a Catho para a Redabor.
+&lt;ul&gt;
+&lt;li&gt;Ansiedade nas alturas!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Avaliações positivas sobre meu trabalho como gestor. Não rolou mérito dessa vez.&lt;/li&gt;
+&lt;li&gt;Primeira vez na primeira classe. 🥂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Julho&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Aniversário em casa com a família.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Agosto&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Início dos estudos sobre o Deno.js.&lt;/li&gt;
+&lt;li&gt;Corrida Santander (10km) com o Aurélio.&lt;/li&gt;
+&lt;li&gt;Jogo do Esporte Clube Vitória no estádio do time (foi o único jogo que fui esse ano).&lt;/li&gt;
+&lt;li&gt;Mentoria de carreira com o Eduardo Galbiati.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Setembro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Demissão geral na Catho.&lt;/li&gt;
+&lt;li&gt;Voltei a escrever no blog.&lt;/li&gt;
+&lt;li&gt;Cirurgia para remoção de um encondroma no osso do dedo.&lt;/li&gt;
+&lt;li&gt;Maratona Salvador (10km) com o clube de corrida da academia.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Outubro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Início de entrevistas para cargos de desenvolvedor em startups, empresas médias e grandes.
+&lt;ul&gt;
+&lt;li&gt;Mapeamento do processo, escrevo em breve sobre.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Início da formação em Product Management, na PM3.&lt;/li&gt;
+&lt;li&gt;Primeira parcela do seguro-desemprego na conta.&lt;/li&gt;
+&lt;li&gt;Knotfest.&lt;/li&gt;
+&lt;li&gt;Resenha com os amigos em SP:
+&lt;ul&gt;
+&lt;li&gt;Encontro dos TTT (Tauan, Tiago e Thassio).&lt;/li&gt;
+&lt;li&gt;Churrasco na casa do Cael.&lt;/li&gt;
+&lt;li&gt;Encontro com os Diego’s e com o Hyun.&lt;/li&gt;
+&lt;li&gt;Andanças com a Nayane.&lt;/li&gt;
+&lt;li&gt;Café com os membros do meu ex-time (Larissa e Bruno).&lt;/li&gt;
+&lt;li&gt;Jantar com o Sachetto e o Pita.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Novembro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Início da fisioterapia para garantir a mobilidade do dedo pós-cirurgia.&lt;/li&gt;
+&lt;li&gt;Tentativa estressante de importar produtos da Europa para o Brasil via transportadora internacional.&lt;/li&gt;
+&lt;li&gt;Primeira produção/organização de um evento musical.&lt;/li&gt;
+&lt;li&gt;Primeira vez no estádio da Fonte Nova.
+&lt;ul&gt;
+&lt;li&gt;Jogo Brasil vs Uruguai.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Corrida do Leão (Esporte Clube Vitória) (10km).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Dezembro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Liberação da fisioterapia.&lt;/li&gt;
+&lt;li&gt;Compartilhei meu escritório para os leitores do MdU: &lt;a href=&quot;https://manualdousuario.net/mesa-de-trabalho-tiago-celestino/&quot;&gt;https://manualdousuario.net/mesa-de-trabalho-tiago-celestino/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Um novo desafio profissional (conto mais em breve).&lt;/li&gt;
+&lt;li&gt;Show despedida do Sepultura.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 30 Dec 2024 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2024/12/retrospectiva-2024/</guid>
+      </item>
+      <item>
+        <title>Configurando modo tela cheia do Firefox no macOS</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2024/12/otimize-modo-tela-cheia-firefox-macos/</link>
+        <description>&lt;p&gt;Uma situação incômoda ocorre ao assistir vídeos no Firefox no macOS: quando habilito o modo tela cheia, o sistema automaticamente cria um novo &amp;quot;Space&amp;quot; (área de trabalho). Isso se torna irritante ao final do vídeo, pois sou “forçado” a visualizar uma animação desnecessária durante a transição entre as áreas de trabalho. Nem vou comentar o impacto na performance.&lt;/p&gt;
+&lt;p&gt;Encontrei uma &lt;a href=&quot;https://www.reddit.com/r/osx/comments/ctqaa4/comment/lfucrni/&quot;&gt;solução&lt;/a&gt; simples através de uma discussão no reddit que resolve este &amp;quot;problema&amp;quot; específico do Firefox.&lt;/p&gt;
+&lt;h2&gt;Passo a passo&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Acesse &lt;code&gt;about:config&lt;/code&gt; na barra de endereço do Firefox&lt;/li&gt;
+&lt;li&gt;Localize a configuração &lt;code&gt;full-screen-api.macos-native-full-screen&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Mude o valor de &lt;code&gt;true&lt;/code&gt; para &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A mudança é aplicada instantaneamente, sem necessidade de reiniciar o navegador. &lt;strong&gt;Mais um motivo para usar o Firefox&lt;/strong&gt;! 🦊&lt;/p&gt;
+&lt;p&gt;Até o momento, não há uma solução conhecida para outros navegadores como Chrome ou Edge.&lt;/p&gt;
+&lt;p&gt;É importante mencionar que, embora os desenvolvedores possam criar suas próprias implementações para gerenciar o modo tela cheia, muitos optam por utilizar a API nativa do macOS.&lt;/p&gt;
+&lt;p&gt;Assim como esse &lt;a href=&quot;https://www.reddit.com/r/osx/comments/ctqaa4/comment/kw4epf7&quot;&gt;comentário&lt;/a&gt; no reddit, seria interessante se a Apple considerasse olhar para este comportamento do sistema.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Dec 2024 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2024/12/otimize-modo-tela-cheia-firefox-macos/</guid>
+      </item>
+      <item>
+        <title>Meus apps essenciais em 2024</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/</link>
+        <description>&lt;p&gt;Inspirado na &lt;a href=&quot;https://amanhimself.dev/blog/default-apps-2024/&quot;&gt;lista&lt;/a&gt; do Aman Mittal, decidi compartilhar minha seleção de aplicativos essenciais para 2024.&lt;/p&gt;
+&lt;p&gt;Sempre gostei dessas listas pois sempre acabo descobrindo novas ferramentas que me ajudam na minha produtividade. Espero que descobra apps que possam melhorar a sua também.&lt;/p&gt;
+&lt;p&gt;Vamos lá!!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🚀 &lt;strong&gt;Launchers&lt;/strong&gt;: &lt;a href=&quot;https://www.raycast.com/&quot;&gt;Raycast&lt;/a&gt; (macOS) e &lt;a href=&quot;https://ulauncher.io/&quot;&gt;Ulauncher&lt;/a&gt; (Linux)&lt;/li&gt;
+&lt;li&gt;📧 &lt;strong&gt;Cliente de email:&lt;/strong&gt; &lt;a href=&quot;https://gmail.com&quot;&gt;Gmail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📝 &lt;strong&gt;Bloco de Notas&lt;/strong&gt;: &lt;a href=&quot;https://bear.app/&quot;&gt;Bear&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Lista de tarefas&lt;/strong&gt;: &lt;a href=&quot;https://todoist.com/pt-BR&quot;&gt;Todoist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📅 &lt;strong&gt;Calendário&lt;/strong&gt;: Apple Calendar&lt;/li&gt;
+&lt;li&gt;☁️ &lt;strong&gt;Cloud Storage&lt;/strong&gt;: &lt;a href=&quot;https://www.google.com/intl/pt-PT/drive/&quot;&gt;Google Drive&lt;/a&gt; / &lt;a href=&quot;https://www.icloud.com/&quot;&gt;iCloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📷 &lt;strong&gt;Câmera:&lt;/strong&gt; &lt;a href=&quot;https://halide.cam/&quot;&gt;Halide&lt;/a&gt; (iOS)&lt;/li&gt;
+&lt;li&gt;📰 &lt;strong&gt;RSS:&lt;/strong&gt; &lt;a href=&quot;https://feedly.com/&quot;&gt;Feedly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;👥 &lt;strong&gt;Lista de Contato:&lt;/strong&gt; Apple Contact&lt;/li&gt;
+&lt;li&gt;🌐 &lt;strong&gt;Navegador:&lt;/strong&gt; &lt;a href=&quot;https://floorp.app/en&quot;&gt;Floorp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💬 &lt;strong&gt;Chat:&lt;/strong&gt; &lt;a href=&quot;https://whatsapp.com/&quot;&gt;WhatsApp&lt;/a&gt; e &lt;a href=&quot;https://telegram.org/&quot;&gt;Telegram&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🔖 &lt;strong&gt;Favoritos:&lt;/strong&gt; &lt;a href=&quot;https://raindrop.io/&quot;&gt;Raindrop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📖 &lt;strong&gt;Lista de leitura:&lt;/strong&gt; &lt;a href=&quot;https://www.notion.so/&quot;&gt;Notion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📊 &lt;strong&gt;Suite de escritório:&lt;/strong&gt; Google Docs/Sheets/Slides&lt;/li&gt;
+&lt;li&gt;💰 &lt;strong&gt;Financeiro:&lt;/strong&gt; &lt;a href=&quot;https://www.google.com/sheets/about/&quot;&gt;Google Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🎵 &lt;strong&gt;Música:&lt;/strong&gt; &lt;a href=&quot;https://www.deezer.com/&quot;&gt;Deezer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🎧 &lt;strong&gt;Podcasts:&lt;/strong&gt; &lt;a href=&quot;https://overcast.fm/&quot;&gt;Overcast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🔐 &lt;strong&gt;Gerenciador de senhas:&lt;/strong&gt; &lt;a href=&quot;https://bitwarden.com/&quot;&gt;Bitwarden&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💻 &lt;strong&gt;Editor de código:&lt;/strong&gt; &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VS Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💬 &lt;strong&gt;Terminal:&lt;/strong&gt; &lt;a href=&quot;https://www.warp.dev/&quot;&gt;Warp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🤖 &lt;strong&gt;Assistente IA:&lt;/strong&gt; &lt;a href=&quot;https://claude.ai/login&quot;&gt;Claude&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;👨‍💻 &lt;strong&gt;Git:&lt;/strong&gt; &lt;a href=&quot;https://github.com/mobile&quot;&gt;Github Mobile&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 03 Dec 2024 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/</guid>
+      </item>
+      <item>
+        <title>Seja egoísta com sua carreira</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2024/11/seja-egoista-com-sua-carreira/</link>
+        <description>&lt;p&gt;TLDR:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Livro escrito por Luciano Santos, aborda como evoluir na carreira profissional com uma linguagem simples e direta, sem jargões;&lt;/li&gt;
+&lt;li&gt;Foca em priorizar o desenvolvimento profissional e os objetivos pessoais, impactando positivamente o engajamento e saúde mental;&lt;/li&gt;
+&lt;li&gt;Destaca a importância de se manter atualizado profissionalmente e participar de entrevistas, mesmo estando empregado.&lt;/li&gt;
+&lt;li&gt;Me ajudou a evitar tomadas de decisão baseadas na ansiedade do momento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Com mais tempo disponível para atividades que havia negligenciado, coloquei em prática um dos meus principais objetivos: &lt;em&gt;&lt;strong&gt;ler uma quantidade maior de livros até o final do ano&lt;/strong&gt;&lt;/em&gt;. Decidi começar a compartilhar uma breve opinião sobre cada livro que termino de ler.&lt;/p&gt;
+&lt;p&gt;Pois bem! Como desafio aceito geralmente é desafio cumprido, selecionei um livro na biblioteca física. O escolhido foi: &lt;a href=&quot;https://www.amazon.com.br/Seja-ego%C3%ADsta-com-sua-carreira/dp/6588523343&quot;&gt;&lt;strong&gt;Seja egoísta com sua carreira&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Escrito por &lt;a href=&quot;https://www.linkedin.com/in/lucianoresponde/&quot;&gt;Luciano Santos&lt;/a&gt;, o livro traz uma abordagem sem jargões, focando no que realmente desejamos para nossa carreira. Com uma escrita simples e direta, é possível identificar em diversos capítulos situações que vivenciei, as quais achava estar fazendo errado, mas que no final se revelaram como formas de auto-sabotagem.&lt;/p&gt;
+&lt;p&gt;Pessoas que sofrem de ansiedade, como eu, têm o instinto de resolver situações desconfortáveis rapidamente, às vezes tomando decisões sem um pensamento crítico. Por exemplo, aceitando uma oferta de trabalho por uma necessidade específica (seja para manter as contas em dia, manter o padrão de vida ou se sentir relevante). No livro, Luciano consegue mostrar que focar plenamente no seu desenvolvimento profissional, priorizando seus objetivos, sejam eles quais forem, impactará positivamente o engajamento, a produtividade e, principalmente, a sua saúde mental. Não quero dizer que todos precisam recusar ofertas de trabalho que não condizem com sua vontade profissional, mas ser mais exigente quanto à qualidade e ao tipo de trabalho a escolher é, sem dúvida, algo reconfortante. &amp;quot;Seja egoísta com sua carreira&amp;quot; nos mostra que ser &amp;quot;egoísta&amp;quot; com a carreira não é algo ruim, mas sim benéfico.&lt;/p&gt;
+&lt;p&gt;O que mais curti no livro, além da escrita de fácil compreensão, são os diversos casos (ou seriam &amp;quot;cases&amp;quot;?) que o próprio Luciano vivenciou ou que pessoas que foram mentoradas por ele experimentaram. Me identifiquei com vários deles. Um dos casos mais marcantes foi o de uma pessoa que trabalhava em uma empresa por muitos anos e acreditava no tal &amp;quot;espírito de família&amp;quot;. Ela se considerava insubstituível, acreditando que seu conhecimento pleno sobre o negócio a tornava indispensável. Sabemos como isso termina: com sua demissão. O que realmente me impactou nesse caso foi o fato de a pessoa não ter se mantido atualizada durante todos esses anos. Manter-se atualizado é crucial para qualquer profissão, não só em termos de ferramentas e metodologias, mas também em relação ao mercado. Deixar de participar de entrevistas por medo de alguém da empresa descobrir, ou por &amp;quot;se sentir confortável&amp;quot; na empresa, foi um dos meus erros. Lição aprendida!&lt;/p&gt;
+&lt;p&gt;O livro também propõe exercícios práticos interessantes. Um deles consistia em investigar se pessoas que considero inspiradoras para minha carreira haviam planejado suas trajetórias e se tudo ocorreu conforme o esperado. Realizei uma breve pesquisa usando o Google Forms e a enviei para essas pessoas. As respostas obtidas foram esclarecedoras:  nem tudo sai como planejamos. Surpreendentemente, 100% dos respondentes afirmaram não ter planejado suas carreiras, o que me trouxe uma sensação de tranquilidade por não ter planejado a minha própria.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Obrigado a todos os amigos e amigas que dedicaram um tempo para responder minha breve pesquisa.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Um pontapé inicial para mudanças&lt;/h2&gt;
+&lt;p&gt;Se você se encontra na incerteza quanto à sua carreira, sentindo que nada está acontecendo como planejado, ou buscando &amp;quot;coragem&amp;quot; para se desafiar em outra profissão/empresa, &amp;quot;&lt;a href=&quot;https://www.amazon.com.br/Seja-ego%C3%ADsta-com-sua-carreira/dp/6588523343&quot;&gt;&lt;strong&gt;Seja egoísta com sua carreira&lt;/strong&gt;&lt;/a&gt;&amp;quot; é um ótimo livro para dar o pontapé inicial. Por experiência própria, posso dizer que a leitura do livro proporcionará mais tranquilidade e, ao mesmo tempo, incentivará você a ser mais ambicioso com sua carreira. Você ganhará coragem para questionar nas entrevistas, para &amp;quot;se jogar&amp;quot; em oportunidades desejadas mesmo sem anos de experiência e, principalmente, para não tomar decisões baseadas na ansiedade do momento.&lt;/p&gt;
+&lt;p&gt;Recomendo fortemente para quem deseja sair da zona de conforto e começar a enxergar sua carreira sob uma nova perspectiva.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 18 Nov 2024 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2024/11/seja-egoista-com-sua-carreira/</guid>
+      </item>
+      <item>
+        <title>Github Copilot Workspace</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2024/10/github-copilot-workspace/</link>
+        <description>&lt;p&gt;TLDR:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github liberou o Github Copilot Workspace, ferramenta para auxiliar desenvolvedores em brainstorming, planejamento, etc… Estou utilizando há duas semanas e estou achando excelente;&lt;/li&gt;
+&lt;li&gt;Fiz uma pequena demonstração de como a ferramenta pode ajudar na produtividade;&lt;/li&gt;
+&lt;li&gt;Enfatizo o surgimento cada vez mais ferramentas similares no futuro próximo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;No início deste ano, em abril, o GitHub &lt;a href=&quot;https://github.blog/news-insights/product-news/github-copilot-workspace/&quot;&gt;apresentou&lt;/a&gt; uma prévia do &lt;strong&gt;GitHub Copilot Workspace&lt;/strong&gt; — uma ferramenta promissora para auxiliar desenvolvedores e entusiastas em tarefas como brainstorming, planejamento, refatoração e criação de testes.&lt;/p&gt;
+&lt;p&gt;Alguns meses depois, o GitHub liberou o acesso, e eu comecei a testar a ferramenta. Estou usando-a há cerca de duas semanas, realizando tarefas básicas, e já posso afirmar: é bem útil!&lt;/p&gt;
+&lt;p&gt;Para demonstrar seu potencial, fiz uma gravação simples, que você pode conferir nos dois vídeos a seguir.&lt;/p&gt;
+&lt;h2&gt;Experimentando&lt;/h2&gt;
+&lt;video width=&quot;100%&quot; height=&quot;480&quot; controls=&quot;&quot;&gt;
+  &lt;source src=&quot;https://i.imgur.com/RPtGXTD.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  Seu navegador não suporta o elemento de vídeo. Assista aqui: https://imgur.com/gallery/github-copilot-workspace-beta-phaItCC
+&lt;/video&gt;
+&lt;p&gt;Nesse primeiro vídeo, demonstro como gerei um brainstorm sobre o conteúdo necessário para o README.md do projeto. Em seguida, solicitei a criação do que foi planejado.&lt;/p&gt;
+&lt;video width=&quot;100%&quot; height=&quot;480&quot; controls=&quot;&quot;&gt;
+  &lt;source src=&quot;https://i.imgur.com/afWblM8.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  Seu navegador não suporta o elemento de vídeo. Assista aqui: https://imgur.com/gallery/github-copilot-workspace-beta-phaItCC
+&lt;/video&gt;
+&lt;p&gt;Neste segundo vídeo, após validar as alterações e criar um pull request (PR), solicitei ao Copilot que gerasse uma descrição para o PR. Muitos desenvolvedores sabem como pode ser chato o processo de escrever uma descrição de PR. Com apenas um clique, consegui gerar uma descrição completa. 💥 Se você tiver interesse em ver o PR, acesse aqui: &lt;a href=&quot;https://github.com/tcelestino/learn-programming/pull/1&quot;&gt;https://github.com/tcelestino/learn-programming/pull/11&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Mais ferramentas&lt;/h2&gt;
+&lt;p&gt;No Viteconf 2024, o pessoal da &lt;a href=&quot;https://stackblitz.com/&quot;&gt;StackBiltz&lt;/a&gt; surpreendeu com o lançamento do &lt;a href=&quot;https://bolt.new/&quot;&gt;&lt;strong&gt;Bolt.new&lt;/strong&gt;&lt;/a&gt;. Escrevendo &lt;em&gt;prompts&lt;/em&gt;, você consegue criar aplicações do zero, testa-la e se quiser, pode publica-la utilizando a ferramenta.&lt;/p&gt;
+&lt;p&gt;Pode ver um exemplo de uso  nesse &lt;a href=&quot;https://x.com/stackblitz/status/1841873251313844631&quot;&gt;https://x.com/stackblitz/status/1841873251313844631&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ainda não testei o &lt;a href=&quot;http://Bolt.new&quot;&gt;Bolt.new&lt;/a&gt; e ainda estou fuçando o grande potencial do Github Copilot Workspace, mas parece que cada vez teremos ainda mais ferramentas desse tipo. 👀&lt;/p&gt;
+&lt;p&gt;Não posso deixar de mencionar o &lt;a href=&quot;https://idx.google.com/&quot;&gt;&lt;strong&gt;Project IDX&lt;/strong&gt;&lt;/a&gt; do Google, uma IDE online que simplifica o desenvolvimento de soluções em várias linguagens e frameworks. Recentemente, a ferramenta ganhou suporte ao Gemini, ampliando ainda mais suas capacidades.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.blog/news-insights/product-news/github-copilot-workspace/&quot;&gt;https://github.blog/news-insights/product-news/github-copilot-workspace/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.blog/ai-and-ml/github-copilot/5-tips-and-tricks-when-using-github-copilot-workspace/&quot;&gt;https://github.blog/ai-and-ml/github-copilot/5-tips-and-tricks-when-using-github-copilot-workspace/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.stackblitz.com/posts/viteconf-2024-recap/&quot;&gt;https://blog.stackblitz.com/posts/viteconf-2024-recap/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 30 Oct 2024 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2024/10/github-copilot-workspace/</guid>
+      </item>
+      <item>
+        <title>Um mês desempregado</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2024/10/um-mes-desempregado/</link>
+        <description>&lt;p&gt;TLDR:&lt;/p&gt;
+&lt;p&gt;Fui demitido após 6 anos de trabalho em uma empresa que foi adquirida por outra companhia.&lt;/p&gt;
+&lt;p&gt;A empresa passou por mudanças estratégicas, incluindo redução de custos e venda para uma empresa europeia. Apesar das promessas de que mudanças só ocorreriam em 2025, demissões em massa aconteceram antes.&lt;/p&gt;
+&lt;p&gt;Me senti aliviado com a demissão, pois vinha enfrentando crises de ansiedade devido às incertezas.&lt;/p&gt;
+&lt;p&gt;Estou aproveitando o período para realizar uma cirurgia, ler livros e assistir séries.&lt;/p&gt;
+&lt;p&gt;Enfatizo a importância de se preparar financeiramente para situações de desemprego e alerto sobre a saturação do mercado de tecnologia e a necessidade de pensar no futuro.&lt;/p&gt;
+&lt;p&gt;Caso queira saber mais detalhes, leia o texto abaixo.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;No dia 17/09/2024, fui chamado pelo CTO da empresa onde trabalhei por 6 anos para &amp;quot;tirar uma dúvida&amp;quot;. Desconfiei, até porque nunca fui chamado naquele horário para esse tipo de conversa. E estava certo! Fui demitido da empresa (prefiro não citar o nome) na qual entrei como desenvolvedor sênior e saí como coordenador (ou team lead, se preferir em inglês) e aprendi demais com todos que convivi durante esses anos,  principalmente por ter tido a oportunidade de enfrentar novos desafios. Sou grato, óbvio!&lt;/p&gt;
+&lt;p&gt;Resolvi fazer o resumo de como me senti durante esse primeiro mês desempregado. Espero que sirva de suporte para as pessoas que vêm passando por esse tipo de situação.&lt;/p&gt;
+&lt;h2&gt;Contexto&lt;/h2&gt;
+&lt;p&gt;Vou simplificar para chegar ao foco principal deste &amp;quot;artigo&amp;quot;.&lt;/p&gt;
+&lt;p&gt;A empresa na qual trabalhei por 6 anos fazia parte de um portfólio de empresas de uma grande empresa do outro lado do mundo. Essa companhia tem negócios na Ásia, Oceania e tinha também América Latina (Brasil e México). Posso dizer que é considerada uma das maiores no ramo.&lt;/p&gt;
+&lt;p&gt;Algum tempo atrás, essa empresa mudou a pessoa responsável por administrar os negócios das subsidiárias na AL. Na época dessa mudança, comentei com algumas pessoas que algo iria acontecer. Estrategicamente, ouvimos que seria necessário alcançar o break-even e aumentar o número de pessoas assinando os serviços da plataforma. Toda empresa é assim, nada de anormal. Passaram-se alguns meses e houve reduções de custos com eliminação de serviços externos que não eram mais usados ou substituição por serviços menos caros. Ex.: Browserstack.&lt;/p&gt;
+&lt;p&gt;Alguns meses se passaram e tudo parecia ocorrer bem, pelo menos era o que a gente acreditava. Ouviamos da “alta gestão” que estava tudo bem, que tudo estava caminhando como esperado que era para continuarmos buscando a economia e ações para trazer mais usuários pagantes. Em algum momento, as reduções dos custos operacionais surtiram efeito, conseguimos atingir o break-even. Sim, a empresa não estava mais gastando o que não tinha. Pelo menos foi isso que nos informaram.&lt;/p&gt;
+&lt;p&gt;Vou dar um salto para maio de 2024. De surpresa, fomos comunicados que a empresa estava sendo vendida para outra companhia. Nesse caso, seriamos agora parte de um grupo de empresas de uma companhia europeia. Inclusive, essa companhia é dona de uma das concorrentes direta. Não é mais. É fato que quando há esse tipo de aquisição, ainda mais sendo empresas no mesmo segmento e público, em algum momento haverá reestruturação. Em uma reunião com o novo dono, onde estava pessoas presentes fisicamente e remotas, o novo dono trouxe quais eram as expectativas, algumas percepções de futuro, mas nada tão maduro. Além disso, enfatizaram que as futuras &lt;strong&gt;mudanças só aconteceriam em 2025&lt;/strong&gt; (vai vendo!). Nunca vou esquecer o momento mais “impactante” desse dia. Fomos informados que o trabalho remoto continuaria. As pessoas ficaram super animadas! Foi o momento em que as pessoas bateram palmas por minutos. Ouviram-se até gritos de “uhuuuu”. Foi engraçado!&lt;/p&gt;
+&lt;h2&gt;Demissão em massa&lt;/h2&gt;
+&lt;p&gt;Passados alguns meses, meu time, que atuava no segmento B2B, era responsável por uma integração importante para a plataforma de ATS da nova empresa. Mesmo na correria, priorizamos essa integração. Era algo que tinha data para ser entregue e as expectativas eram grandes para que tudo estivesse integrado no prazo esperado. Eu, mesmo sendo coordenador, nunca deixei de atuar como desenvolvedor e sempre que podia, participava das atividades para ajudar meu time. Tínhamos várias frentes de trabalho e poucos braços; nessas situações, precisamos ajudar como podemos. Abri alguns pull requests, revisei alguns códigos e continuei garantindo que meu time permanecesse engajado. E eles estavam!&lt;/p&gt;
+&lt;p&gt;Novamente vou dar um salto e ir direto para o dia 17/09/2024.&lt;/p&gt;
+&lt;p&gt;Geralmente, eu começava a trabalhar às 9h. Abria o Slack, checava os e-mails, a agenda do dia, verificava o dashboard de acompanhamento de performance do time, etc. Nesse dia, recebi uma mensagem do CTO no Slack. Na mensagem, sem exagerar, fui chamado para &amp;quot;tirar uma dúvida&amp;quot;. Estranhei, mas já tinha entendido do que se tratava, até porque nunca recebi mensagem dele nesse horário e principalmente para tirar uma dúvida. Em poucas palavras, fui comunicado que estava deixando a empresa. Já passei por esse tipo de situação antes e as pessoas que precisam comunicar tentam ao máximo amenizar a situação. Querem trazer segurança às pessoas, já que elas estarão deixando o dia a dia e o ganha-pão mensal. Compreensível. Passei alguns anos na empresa e, mesmo não lidando diretamente com o CTO, minha participação em diversos debates importantes me fez ter algum tipo de destaque. Não vou esquecer meu apelido: Celestino, o questionador. 😄 E isso foi enfatizado positivamente no desligamento. Legal, vida segue!&lt;/p&gt;
+&lt;p&gt;Sinceramente, me senti aliviado. Gostava do que fazia, das pessoas que trabalhava, do ambiente colaborativo, mas com o aumento das incertezas após a aquisição pelo novo dono, crises de ansiedade bateram em todo mundo. Em mim, vinham mais forte todo início de mês. Eu ficava esperando ser chamado no Slack para &amp;quot;tirar uma dúvida&amp;quot;. Acabou essa sensação! Aquele ditado &amp;quot;foi bom enquanto durou&amp;quot; foi real para mim.&lt;/p&gt;
+&lt;p&gt;Fui me despedir do meu time no grupo do WhatsApp e, para minha surpresa, outras pessoas estavam sendo demitidas. Do meu time, duas pessoas ficaram (o especialista e um dev pleno que estava de férias). O time fazia entregas importantes, trouxemos resultados positivos para a empresa, mas com a reestruturação — que só aconteceria em 2025, vale lembrar — resolveram encerrar. Acontece!&lt;/p&gt;
+&lt;p&gt;Outros times de tecnologia e outros setores também foram impactados. Passei a acompanhar via LinkedIn e a cada momento recebia atualização de status, inclusão do selo &amp;quot;Open to Work&amp;quot; na foto do perfil, alguns fazendo textos de despedidas, etc. Pessoas boas e competentes que, com certeza, logo estarão em novos desafios profissionais. Se tiver interesse em conhecê-las profissionalmente, montamos uma planilha com o contato: &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1iREXbL2n5x45pKoOBvIMPn5hhsegk6fBIJqCjkREQRo/edit?gid=0#gid=0&quot;&gt;https://docs.google.com/spreadsheets/d/1iREXbL2n5x45pKoOBvIMPn5hhsegk6fBIJqCjkREQRo/edit?gid=0#gid=0&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Novos ares&lt;/h2&gt;
+&lt;p&gt;No primeiro dia, você fica querendo se empregar rapidamente. A sensação de que precisa ocupar logo a mente com um emprego que te pague mensalmente bate forte demais. Não sei se foi o destino, mas, por incrível que pareça, no dia anterior (16.09) à minha demissão, recebi um contato de uma recrutadora sobre uma oportunidade de trabalho em uma empresa daqui da minha cidade (Salvador, Bahia). Respondi e fiz todo o processo. Consegui a vaga em uma semana. Achei impressionante! O processo foi muito bom, conduzido de maneira humana e assertiva. Demorei alguns dias para dar uma resposta se aceitaria ou não. A recrutadora e a empresa foram bem compreensíveis. No fim, decidi continuar desempregado, ou melhor, me energizando (soa estranho, mas é real). Precisava fazer uma cirurgia importante, e fiz! Precisava ler os livros pendentes, li um até agora (🤦). Queria poder assistir séries e filmes salvos nas diversas listas nos streamings, já assisti muitos. Fazer isso tudo sem precisar me preocupar é algo energizador; acredito que todo mundo precisa passar por isso, nem que seja por um mês (faça nas férias, por exemplo).&lt;/p&gt;
+&lt;p&gt;Muitos que leram até aqui podem estar se perguntando se não tenho contas, dívidas, etc. Posso dizer que hoje estou bem. Tudo controlado e organizado para ficar um bom tempo sem me preocupar. Acompanho o subreddit &lt;a href=&quot;https://www.reddit.com/r/brdev/&quot;&gt;/r/brdev&lt;/a&gt; e o que mais vejo por lá são pessoas comentando que o mercado está saturado, que tem muitos profissionais com anos de experiência que não estão conseguindo emprego, etc. Me assusta, claro, mas também percebi que muita gente no mercado de tecnologia não pensa/pensou no futuro. Olha que fui aprender tarde a investir, mas ver pessoas com 10, 15 anos de experiência escrevendo posts em rede social alegando passar fome, só mostra o quanto as pessoas ainda não se conscientizaram de que nada é para sempre. Não quero julgar ninguém, até porque desconheço a realidade de muitos; cada um tem seu estilo de vida, seus objetivos, sonhos, etc. Mas pensar que estará sempre recebendo seu salário de 10k, 15k, 20k e não pensar no futuro, pode e está frustrando muita gente na área de tecnologia. É complicado pensar que muita gente acredita que estará na ativa para sempre.&lt;/p&gt;
+&lt;p&gt;Como todo &amp;quot;guru de investimentos&amp;quot; costuma dizer: faça sua reserva de emergência. Independentemente do valor que consiga adicionar mensalmente, crie o hábito de guardar dinheiro. No futuro, se enfrentar uma demissão, você se sentirá mais tranquilo por um período, pelo menos.&lt;/p&gt;
+&lt;p&gt;Quanto ao meu futuro, continuo participando de processos seletivos. Agora posso ser mais seletivo com as oportunidades, focando em empresas nas quais acredito, não apenas naquelas que oferecem um salário x ou y. Em breve, espero estar de volta ao mercado e torço para que todos os afetados na antiga empresa também encontrem novos desafios. Até lá, vou continuar colocando a leitura em dia, assistindo a séries e filmes, fazendo cursos e aproveitando meus dias de desempregado.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 17 Oct 2024 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2024/10/um-mes-desempregado/</guid>
+      </item>
+      <item>
+        <title>The State of JS 2021</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/02/state-of-js-2021/</link>
+        <description>&lt;p&gt;Depois do &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2022/01/state-of-css-2021/&quot;&gt;State of CSS 2021&lt;/a&gt;, temos agora o &lt;a href=&quot;https://2021.stateofjs.com/&quot;&gt;States of JS 2021&lt;/a&gt;. Se você é interessado em entender quais foram as ferramentas, bibliotecas baseadas no Javascript mais populares no ano de 2021, vai querer conferir &lt;a href=&quot;https://2021.stateofjs.com/&quot;&gt;conferir&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 21 Feb 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/02/state-of-js-2021/</guid>
+      </item>
+      <item>
+        <title>Next.js Developer Survey</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/02/nextjs-developer-survey/</link>
+        <description>&lt;p&gt;Se você utiliza o &lt;a href=&quot;https://nextjs.org&quot;&gt;Next.js&lt;/a&gt; em seus projetos pessoais, ou no trabalho, vale a pena responder a &lt;a href=&quot;https://docs.google.com/forms/d/e/1FAIpQLSeRWegF1xgt_mKkxQGSHZPyegADsMY0YhJSY61WYi_xgQfi3g/viewform&quot;&gt;pesquisa&lt;/a&gt; realizada pelo o time da &lt;a href=&quot;https://vercel.com&quot;&gt;Vercel&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Não vai levar mais de 5 minutos!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 19 Feb 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/02/nextjs-developer-survey/</guid>
+      </item>
+      <item>
+        <title>A história do React.js</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/02/a-historia-do-reactjs/</link>
+        <description>&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/Wm_xI7KntDs&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Sat, 12 Feb 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/02/a-historia-do-reactjs/</guid>
+      </item>
+      <item>
+        <title>Novidades do Javascript para 2022</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/novidades-javascript-2022/</link>
+        <description>&lt;p&gt;Esse ano não teremos tantas novidades planejadas para o Javascript (também pode chamar de ES2022), porém achei algumas dessas novidades interessantes.&lt;/p&gt;
+&lt;h2&gt;Top-level await&lt;/h2&gt;
+&lt;p&gt;Hoje, só conseguimos usar o operador &lt;code&gt;await&lt;/code&gt; a partir de uma função assíncrona (&lt;code&gt;async&lt;/code&gt;). A partir do ES2022, não haverá mais essa necessidade.&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// antes&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getUserData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// agora&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getUserData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Não vamos precisar mais usar &lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Glossary/IIFE&quot;&gt;IIFE (Immediately Invoked Function Expression)&lt;/a&gt; para definir uma função assíncrona e usar o &lt;code&gt;await&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;at()&lt;/h2&gt;
+&lt;p&gt;Quando precisamos capturar o último indíce de um array, hoje utilizamos a seguinte técnica:&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;foo&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;bar&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; lastItem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// bar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A partir do ES2022, teremos o método &lt;code&gt;at()&lt;/code&gt; para facilitar esse tipo de implementação.&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;foo&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;bar&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; lastItem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// bar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vale lembrar que também podemos utilizar o &lt;code&gt;at&lt;/code&gt; para recuperar qualquer indíce de um array.&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;foo&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;bar&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; lastItem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// foo&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Muito mais simples!!&lt;/p&gt;
+&lt;h2&gt;Classes sem construtor&lt;/h2&gt;
+&lt;p&gt;Agora vai ser possível criar classes sem um &lt;code&gt;constructor&lt;/code&gt;. Se já criou componentes usando classes no &lt;a href=&quot;https://reactjs.org&quot;&gt;React.js&lt;/a&gt;, utilizando o &lt;a href=&quot;https://babeljs.io&quot;&gt;Babel&lt;/a&gt;, irá achar essa novidade bem interessante.&lt;/p&gt;
+&lt;p&gt;Agora podemos escrever classes assim:&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyClass&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;bar&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  #bar &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function-variable function&quot;&gt;getFoo&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;foo&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function-variable function&quot;&gt;boom&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// apenas um exemplo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;#bar &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;#bar&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como você deve ter notado, também será possível usar informações privadas de uma classe utilizando o operador &lt;code&gt;#&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Fonte: &lt;a href=&quot;https://bytes.dev/archives/83&quot;&gt;bytes.dev&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Jan 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/novidades-javascript-2022/</guid>
+      </item>
+      <item>
+        <title>Configurar uma porta diferente no Next.js</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/configurar-porta-nextjs/</link>
+        <description>&lt;p&gt;Por padrão, ao executar uma aplicação &lt;a href=&quot;https://nextjs.org/&quot;&gt;Next.js&lt;/a&gt;, a aplicação será acessa na seguinte url http://localhost:3000. Caso queria alterar a porta padrão da aplicação, só é preciso fazer um pequeno ajuste no seu arquivo &lt;code&gt;package.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O padrão do &lt;code&gt;package.json&lt;/code&gt; no Next.js é assim (caso não use o Typescript):&lt;/p&gt;
+&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;meu-projeto-next&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;private&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next build&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next start&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;12.0.8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;17.0.2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;17.0.2&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para alterar a porta, você só precisa alterar o script &lt;code&gt;&amp;quot;dev&amp;quot;: &amp;quot;next dev&amp;quot;&lt;/code&gt; para &lt;code&gt;&amp;quot;dev&amp;quot;: &amp;quot;next dev -p 3001&amp;quot;&lt;/code&gt;. Assim, quando rodar &lt;code&gt;npm dev&lt;/code&gt;, seu aplicação rodará na url http://localhost:3001 e não mais na porta &amp;quot;3000&amp;quot;.&lt;/p&gt;
+&lt;p&gt;No final, o arquivo &lt;code&gt;package.json&lt;/code&gt; fica assim:&lt;/p&gt;
+&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;meu-projeto-next&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;private&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next dev -p 3001&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next build&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next start&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;12.0.8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;17.0.2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;17.0.2&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Tue, 18 Jan 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/configurar-porta-nextjs/</guid>
+      </item>
+      <item>
+        <title>Definições do front-end</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/definicao-frontend/</link>
+        <description>&lt;h2&gt;Front-end UI&lt;/h2&gt;
+&lt;p&gt;É focado em lidar com toda a parte visual da aplicação, e tem algumas obrigações, como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lidar com frameworks de layout;&lt;/li&gt;
+&lt;li&gt;cuidar do styleguide;&lt;/li&gt;
+&lt;li&gt;construir uma interface semântica;&lt;/li&gt;
+&lt;li&gt;facilitar visualização de dados através de gráficos SVG/canvas;&lt;/li&gt;
+&lt;li&gt;lidar com animações;&lt;/li&gt;
+&lt;li&gt;participar e encabeçar das discussões de UX;&lt;/li&gt;
+&lt;li&gt;desenvolver código acessível a pessoas com necessidades especiais;&lt;/li&gt;
+&lt;li&gt;garantir que o progressive enhancement ou graceful degradation sejam aplicados;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Front-end Engineer&lt;/h2&gt;
+&lt;p&gt;É responsável pela estrutura da aplicação. Suas responsabilidades se resumem a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;criar ambiente de front de desenvolvimento e produção;&lt;/li&gt;
+&lt;li&gt;definir tarefas de build;&lt;/li&gt;
+&lt;li&gt;prover a sincronia entre back-end e front;&lt;/li&gt;
+&lt;li&gt;escolher entre aplicar um framework de JavaScript ou não;&lt;/li&gt;
+&lt;li&gt;criar os testes de interface/unitários;&lt;/li&gt;
+&lt;li&gt;manter código padronizado;&lt;/li&gt;
+&lt;li&gt;definir pattern de código;&lt;/li&gt;
+&lt;li&gt;usar ferramentas compatíveis com browsers, lembrando sempre do cross-browser;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 17 Jan 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/definicao-frontend/</guid>
+      </item>
+      <item>
+        <title>Newsletters sobre tecnologias e desenvolvimento</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/newsletters-ti-desenvolvimento/</link>
+        <description>&lt;p&gt;Todas as newsletters abaixo são gratuitas!&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nome&lt;/th&gt;
 &lt;th&gt;Descrição&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.enabled&lt;/td&gt;
-&lt;td&gt;Habilita a integração do chatbot IA.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.braziljs.org/&quot;&gt;BrazilJS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Plataforma multicanal de produção e curadoria de conteúdo com foco nas Comunidades dev&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.sidebar&lt;/td&gt;
-&lt;td&gt;Exibe o painel de chat IA na barra lateral.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://filipedeschamps.com.br/newsletter&quot;&gt;Filipe Deschamps Newsletter&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Notícias de Tecnologia para quem não tem tempo de ler notícias&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.shortcuts&lt;/td&gt;
-&lt;td&gt;Permite acionar o chat a partir de texto selecionado ou atalhos.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://manualdousuario.net/acompanhe/&quot;&gt;Manual do Usuário&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A newsletter é a melhor maneira de acompanhar o Manual do Usuário&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.page&lt;/td&gt;
-&lt;td&gt;Exibe o menu de chat na página quando você seleciona texto.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.interfaces.news/&quot;&gt;Interfaces&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;o melhor da tecnologia na sua caixa de entrada, toda sexta-feira no seu e-mail&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.page.footerBadge&lt;/td&gt;
-&lt;td&gt;Exibe o badge flutuante na parte inferior da página.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://buttondown.email/pinguinsmoveis&quot;&gt;Pinguins Móveis&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Esta é uma newsletter semanal documentando e analisando a marcha do Linux por todos os cantos da eletrônica de consumo - e, portanto, das nossas vidas&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.page.menuBadge&lt;/td&gt;
-&lt;td&gt;Exibe o badge &lt;em&gt;&amp;quot;Ask AI&amp;quot;&lt;/em&gt; no menu da página.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://css-weekly.com/&quot;&gt;CSS Weekly&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Weekly e-mail roundup of CSS articles, tutorials, experiments, and tools curated by Zoran Jambor&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.chat.menu&lt;/td&gt;
-&lt;td&gt;Adiciona &lt;em&gt;&amp;quot;Chat about this&amp;quot;&lt;/em&gt; ao menu de clique com o botão direito.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://frontendfoc.us/&quot;&gt;Frontend focus&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A once–weekly roundup of the best front-end news, articles and tutorials. HTML, CSS, WebGL, Canvas, browser tech, and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.linkPreview.enabled&lt;/td&gt;
-&lt;td&gt;Gera previsões e sugestões de links baseadas em IA.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://bytes.dev/?x=478660080&amp;amp;ck_subscriber_id=478660080&quot;&gt;bytes.dev&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Staying informed on the JavaScript ecosystem has never been so entertaining. Delivered every Monday, for free&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;extensions.ml.enabled&lt;/td&gt;
-&lt;td&gt;Permite que extensões do navegador usem a API ML do Firefox.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.getrevue.co/profile/fridayfrontend&quot;&gt;Friday Front-end&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Front-end development links tweeted daily, emailed weekly&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.ml.pageAssist.enabled&lt;/td&gt;
-&lt;td&gt;Executa o assistente IA &lt;em&gt;&amp;quot;page assist&amp;quot;&lt;/em&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://javascriptweekly.com/&quot;&gt;Javascript Weekly&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A newsletter of JavaScript articles, news and cool projects&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.tabs.groups.smart.enabled&lt;/td&gt;
-&lt;td&gt;Usa IA para agrupar e rotular automaticamente suas abas.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://nodeweekly.com/&quot;&gt;Node Weekly&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A free, once–weekly e-mail round-up of Node.js news and articles&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;browser.tabs.groups.smart.userEnable&lt;/td&gt;
-&lt;td&gt;Permite que os usuários ativem manualmente o recurso de grupos de abas inteligentes.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://jamstack.email&quot;&gt;Jamstacked&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;An email update on the evolving JAMstack ecosystem&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.getrevue.co/profile/frontendhorse&quot;&gt;Frontend Horse Newsletter&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A round-up of the web&#39;s best CodePens, websites, and articles, plus the latest Frontend Horse content&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://react.statuscode.com/&quot;&gt;React Status&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A weekly roundup of the latest React and React Native links and tutorials&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://daily-dev-tips.com/&quot;&gt;Daily Dev Tips&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;I write daily web development tips that help you become a more efficient software developer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://web-design-weekly.com/&quot;&gt;Web Design Weekly&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Be the first to know about the latest Web Design and Front-end trends&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://serverless.email/&quot;&gt;Serverless Status&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A weekly newsletter on serverless and function-as-a-service (FaaS) architectures and platforms including AWS Lambda and Azure Functions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Referência: &lt;a href=&quot;https://flamedfury.com/posts/disable-ai-in-firefox/&quot;&gt;Disable AI In Firefox&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 30 Oct 2025 24:00:00 GMT</pubDate>
+        <pubDate>Sat, 15 Jan 2022 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</guid>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/newsletters-ti-desenvolvimento/</guid>
       </item>
       <item>
-        <title>Habilitando RSS no 11ty</title>
-        <link>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</link>
-        <description>&lt;p&gt;Continuando com as melhorias do blog, finalmente habilitei o feed RSS. Para isso, usei o plugin oficial do Eleventy (11ty): &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/&quot;&gt;@11ty/eleventy-plugin-rss&lt;/a&gt;. Como muita gente usa o 11ty, resolvi compartilhar os passos para você habilitar o feed RSS no seu blog ou site.&lt;/p&gt;
-&lt;h2&gt;O que é RSS?&lt;/h2&gt;
-&lt;p&gt;RSS é uma forma de acompanhar atualizações de sites sem precisar visitá-los diretamente. Funciona assim: o site disponibiliza um arquivo com as últimas publicações, e você usa um leitor de RSS para receber essas atualizações automaticamente.&lt;/p&gt;
-&lt;p&gt;É como assinar um canal de notícias. Sempre que o site publicar algo novo, você recebe no seu leitor de RSS.&lt;/p&gt;
-&lt;p&gt;Como leitor assíduo de vários blogs usando RSS, não fazia sentido meu blog não ter esse recurso. Além disso, o RSS facilita a indexação em diretórios de blogs.&lt;/p&gt;
-&lt;h2&gt;Instalando o plugin&lt;/h2&gt;
-&lt;p&gt;O 11ty tem um plugin oficial para RSS. Instale usando o gerenciador de pacotes que você utiliza:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; @11ty/eleventy-plugin-rss&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;ou&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; @11ty/eleventy-plugin-rss&lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;Duas formas de configurar&lt;/h3&gt;
-&lt;p&gt;O plugin oferece duas opções:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Automática&lt;/strong&gt;: configurar direto no &lt;code&gt;eleventy.config.js&lt;/code&gt; e o feed é gerado automaticamente&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Manual&lt;/strong&gt;: criar um arquivo &lt;code&gt;feed.njk&lt;/code&gt; com o template customizado&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Optei pela segunda opção porque precisava de algo rápido e a versão automática apresentou problemas no meu blog. No seu caso, pode funcionar diferente.&lt;/p&gt;
-&lt;h2&gt;Criando o template do feed&lt;/h2&gt;
-&lt;p&gt;Crie o arquivo &lt;code&gt;feed.njk&lt;/code&gt; na pasta dos seus arquivos. No meu caso, criei em &lt;code&gt;src/feed.njk&lt;/code&gt;. Esse arquivo é o template que gera o feed RSS.&lt;/p&gt;
-&lt;p&gt;O plugin suporta vários formatos (RSS, JSON, Atom). Escolhi RSS:&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/tcelestino/c63389b8713637252f44714109486bfc.js&quot;&gt;&lt;/script&gt;
-&lt;h3&gt;Entendendo as configurações&lt;/h3&gt;
-&lt;p&gt;O template precisa de algumas informações básicas:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;title&lt;/strong&gt;: título do blog&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;description&lt;/strong&gt;: descrição do blog&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;language&lt;/strong&gt;: idioma (ex: pt-BR)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;base&lt;/strong&gt;: URL completa do blog&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;author&lt;/strong&gt;: nome do autor&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;permalink&lt;/strong&gt;: onde o feed será gerado (geralmente &lt;code&gt;/feed.xml&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;No meu blog, os posts ficam em &lt;code&gt;src/posts/**/*.md&lt;/code&gt;, então uso &lt;code&gt;collections.posts&lt;/code&gt;. Se sua estrutura for diferente, ajuste conforme sua coleção de posts.&lt;/p&gt;
-&lt;p&gt;Outros formatos de template estão na &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/#sample-feed-templates&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Ativando o plugin no Eleventy&lt;/h2&gt;
-&lt;p&gt;Agora adicione o plugin no arquivo &lt;code&gt;eleventy.config.js&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Se usar CommonJS:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; feedPlugin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;@11ty/eleventy-plugin-rss&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feedPlugin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Se usar ESM:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; feedPlugin &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;@11ty/eleventy-plugin-rss&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feedPlugin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;Testando&lt;/h2&gt;
-&lt;p&gt;Pronto. Inicie seu blog e acesse &lt;code&gt;http://localhost:8080/feed.xml&lt;/code&gt; para verificar se o feed RSS foi gerado corretamente.&lt;/p&gt;
+        <title>As tendências de desenvolvimento em 2021</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/as-tendencias-de-2021/</link>
+        <description>&lt;p&gt;Confira o que foi tendência em 2021 no mundo do desenvolvimento frontend, Node.js, React, Vue, entre outros.&lt;/p&gt;
+&lt;p&gt;Confira na edição &amp;quot;&lt;a href=&quot;https://risingstars.js.org/2021/en&quot;&gt;2021 Javascript Rising Stars&lt;/a&gt;&amp;quot;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 19 Nov 2025 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 10 Jan 2022 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
-        <guid>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</guid>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/as-tendencias-de-2021/</guid>
+      </item>
+      <item>
+        <title>Faker.js encerrado por seu criador</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/fakerjs-encerrado-por-seu-criador/</link>
+        <description>&lt;p&gt;O &lt;a href=&quot;https://github.com/Marak/&quot;&gt;@marak&lt;/a&gt; fez um pull request encerrando o projeto do &lt;a href=&quot;https://github.com/Marak/faker.js&quot;&gt;Faker.js&lt;/a&gt;. Pelo o que entendi, seria uma forma de protestar sobre o fato da morte do &lt;a href=&quot;https://pt.wikipedia.org/wiki/Aaron_Swartz&quot;&gt;Aaron Swartz&lt;/a&gt;. Inclusive, recomendo assistir o documentário &lt;strong&gt;&amp;quot;The Internet&#39;s Own Boy: The Story of Aaron Swartz&amp;quot;&lt;/strong&gt; para conhecer os trabalhos do Swartz, que envolve grandes contribuições para Internet, como a criação da tecnologia &lt;a href=&quot;https://pt.wikipedia.org/wiki/RSS&quot;&gt;RSS&lt;/a&gt; e da rede social &lt;a href=&quot;https://reddit.com&quot;&gt;reddit&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;O que fazer?&lt;/h2&gt;
+&lt;p&gt;Mantenha a versão 5.5.3 fixa no arquivo &lt;em&gt;package.json&lt;/em&gt; em seus projetos.&lt;/p&gt;
+&lt;p&gt;Por ser um projeto de código aberto, foi feito um &lt;a href=&quot;https://github.com/withshepherd/faker.js&quot;&gt;fork&lt;/a&gt; no qual a comunidade pretende continuar mantendo o projeto.&lt;/p&gt;
+&lt;h2&gt;E o futuro&lt;/h2&gt;
+&lt;p&gt;Por enquanto não há nenhum indício de que o &lt;a href=&quot;https://twitter.com/marak&quot;&gt;@marak&lt;/a&gt; irá voltar oficialmente com o projeto. Em um tweet, ele expõem que o &lt;a href=&quot;https://github.com&quot;&gt;Github&lt;/a&gt; (dona do &lt;strong&gt;npm&lt;/strong&gt;) reverteu a versão do Faker.js com a remoção do código do projeto e suspendeu sua conta no site.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;NPM has reverted to a previous version of the faker.js package and Github has suspended my access to all public and private projects. I have 100s of projects. &lt;a href=&quot;https://twitter.com/hashtag/AaronSwartz?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#AaronSwartz&lt;/a&gt; &lt;a href=&quot;https://t.co/zFddwn631S&quot;&gt;pic.twitter.com/zFddwn631S&lt;/a&gt;&lt;/p&gt;&amp;mdash; marak 🗿 (@marak) &lt;a href=&quot;https://twitter.com/marak/status/1479200803948830724?ref_src=twsrc%5Etfw&quot;&gt;January 6, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;Acompanhando os próximos capítulos dessa história.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 07 Jan 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/fakerjs-encerrado-por-seu-criador/</guid>
+      </item>
+      <item>
+        <title>State of CSS 2021</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/state-of-css-2021/</link>
+        <description>&lt;p&gt;É notável que o CSS vem evoluindo de forma bem considerável durante esses anos, e olhando o resultado da pesquisa &lt;a href=&quot;https://2021.stateofcss.com&quot;&gt;State of CSS 2021&lt;/a&gt;, fica nítido a quantidade de recursos existentes que conseguem resolver problemas que antes eram resolvidos por Javascript.&lt;/p&gt;
+&lt;p&gt;Vale a &lt;a href=&quot;https://2021.stateofcss.com&quot;&gt;conferida&lt;/a&gt;!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Jan 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/state-of-css-2021/</guid>
+      </item>
+      <item>
+        <title>Iniciando</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2022/01/iniciando/</link>
+        <description>&lt;p&gt;Em 2021 algumas mudanças foram realizadas, outras nem chegaram acontecer, mas pretendo fazer diferente esse ano.&lt;/p&gt;
+&lt;p&gt;Nesse &lt;strong&gt;Blocos de Notas&lt;/strong&gt;, vou anotar irei aprender durante o ano, seja conhecimento técnico ou não.&lt;/p&gt;
+&lt;p&gt;Ao longo do tempo, farei ajustes por aqui para deixar com minha &amp;quot;cara&amp;quot;.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 01 Jan 2022 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/iniciando/</guid>
       </item>
   </channel>
 </rss>

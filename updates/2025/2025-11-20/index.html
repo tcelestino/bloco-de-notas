@@ -39,14 +39,31 @@
       
 <article>
   <header>
-   <time datetime="Sat Jan 01 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
-      1 de janeiro de 2022
+   <time datetime="Thu Nov 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      20 de novembro de 2025
     </time>
-    <h1>Iniciando</h1>
+    <h1></h1>
   </header>
-  <p>Em 2021 algumas mudanças foram realizadas, outras nem chegaram acontecer, mas pretendo fazer diferente esse ano.</p>
-<p>Nesse <strong>Blocos de Notas</strong>, vou anotar irei aprender durante o ano, seja conhecimento técnico ou não.</p>
-<p>Ao longo do tempo, farei ajustes por aqui para deixar com minha &quot;cara&quot;.</p>
+  <h3>Adicionado</h3>
+<ul>
+<li>Collection dedicada para o feed RSS
+<ul>
+<li>Criado <code>lib/collections/postsFeed.js</code> com todos os posts sem limite</li>
+<li>Registrada nova collection <code>postsFeed</code> em <code>eleventy.config.js</code></li>
+<li>Feed RSS agora exibe todos os posts publicados, não apenas os 6 mais recentes</li>
+</ul>
+</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Configuração do feed RSS
+<ul>
+<li><code>src/feed.njk</code> agora usa a collection <code>postsFeed</code> ao invés de <code>posts</code></li>
+<li><code>feedPath</code> em <code>src/_data/site.json</code> agora usa URL absoluta completa</li>
+<li>Meta tag do feed em <code>src/_layouts/default.njk</code> simplificada usando <code>site.feedPath</code> e <code>site.title</code></li>
+</ul>
+</li>
+</ul>
 
 </article>
 
