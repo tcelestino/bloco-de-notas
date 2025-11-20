@@ -52,14 +52,9 @@ yarn run build
 yarn run clean
 ```
 
-## Características
-
-- **Feed RSS**: Disponível em `/feed.xml` com os 5 posts mais recentes.
-- **Minimalista**: Sem frameworks CSS, mantendo o código simples e leve.
-
 ## Licença
 
-MIT
+[MIT](/LICENSE)
 
 ## Autor
 
