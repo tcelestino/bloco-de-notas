@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Como remover propriedades de um objeto no JavaScript
-description: Confira diversas maneiras de remover propriedades (chaves) de um objeto em JavaScript.
+summary: Confira diversas maneiras de remover propriedades (chaves) de um objeto em JavaScript.
 date: 2025-04-29
 tags: [javascript]
 ---
@@ -164,4 +164,3 @@ Recomendo dar uma lida no repositório "[You Don't Need Lodash/Underscore](https
 ## Conclusão
 
 Como a versatilidade do JavaScript, conseguimos ter várias diversas maneiras para remover propriedades de um objeto. A escolha da abordagem vai depender do caso de uso e do que o seu projeto precisa Usar o `delete` é o mais comum e mais fácil de entender, mas as outras abordagens também são úteis em diferentes situações e que traz impactos positivos para a performance das suas aplicações.
-
