@@ -9,9 +9,10 @@
   gap: var(--margin-small);
   align-items: center;
   margin-bottom: var(--margin-small);
+  font-weight: 800;
 }
 .last-posts ol li time {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-small);
 }
 .last-posts ol li time::after {
   content: '-';
@@ -21,9 +22,8 @@
   display: none;
 }
 .last-posts ol h3 {
-  font-weight: 800;
   font-size: var(--font-size-base);
-   white-space: nowrap;
+  white-space: nowrap;
 }
 .last-posts ol a {
   text-decoration: none;
