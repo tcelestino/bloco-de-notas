@@ -31,7 +31,7 @@ Na sua IDE, você verá o seguinte quando passar o mouse sobre o método/funçã
 
 Usamos a marcação `@deprecated` para indicar que o método foi depreciado. Essa marcação se tornará muito útil para avisar os usuários que o método foi depreciado e que devem migrar para outro método/função.
 
-Mas e se eu te dizer que existe uma forma prática de tornar um método obsoleto utilizando uma API oficial do Node.js?
+Mas e se eu te disser que existe uma forma prática de tornar um método obsoleto utilizando uma API oficial do Node.js?
 
 ## O método mais prático: `util.deprecate`
 
