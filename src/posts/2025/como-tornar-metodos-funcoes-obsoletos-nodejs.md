@@ -55,6 +55,6 @@ Com a API `util.deprecate`, podemos passar uma mensagem para o usuário avisando
 
 ## Conclusão
 
-De maneira simples e eficiente, conseguimos depreciar um método/função utilizando uma API oficial do Node.js sem a necessidade de usar bibliotecas externas. O mais interessante é que é possível fazer esse tipo de abordagem há [muito tempo](https://nodejs.org/docs/latest-v4.x/api/util.html#util_util_deprecate_function_string). Se perde as informações na IDE, porém temos a mensagem de forma mais imediata e clara ao executar o código.
+De maneira simples e eficiente, conseguimos depreciar um método/função utilizando uma API oficial do Node.js sem a necessidade de usar bibliotecas externas. O mais interessante é que é possível fazer esse tipo de abordagem há [muito tempo](https://nodejs.org/docs/latest-v4.x/api/util.html#util_util_deprecate_function_string). Apesar de se perderem as informações na IDE, a mensagem se torna mais imediata e clara durante a execução do código.
 
 Mas é bom lembrar que a API `util.deprecate` é uma API oficial do Node.js e não uma API oficial do JavaScript.
