@@ -35,7 +35,7 @@ Mas e se eu te disser que existe uma forma prática de tornar um método obsolet
 
 ## O método mais prático: `util.deprecate`
 
-Usando a API o [util.deprecate](https://nodejs.org/api/util.html#utildeprecatefn-msg-code-options), podemos tornar um método/função obsoleto da seguinte forma:
+Usando a API [util.deprecate](https://nodejs.org/api/util.html#utildeprecatefn-msg-code-options), podemos tornar um método/função obsoleto da seguinte forma:
 
 ```javascript
 const { deprecate } = require('node:util');
