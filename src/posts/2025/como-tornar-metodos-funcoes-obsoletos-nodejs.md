@@ -42,7 +42,7 @@ const { deprecate } = require('node:util');
 
 const foo = deprecate(() => {
   console.log('Método depreciado');
-}, 'Método depreciado. Utilize o metodo fooBar() ao invés de foo()');
+}, 'Método depreciado. Utilize o método fooBar() ao invés de foo()');
 
 foo();
 ```
