@@ -39,6 +39,42 @@
       <main>
   <p>Acompanhe as atualizações realizadas no <strong>Bloco de Notas</strong>, sejam de layout e ou novas funcionalidades implementadas.</p><article>
       <header>
+        <h2><time datetime="Tue Dec 02 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">2 de dezembro de 2025</time></h2>
+      </header>
+      <h3>Adicionado</h3>
+<ul>
+<li>Novo filtro de data numérica <code>shortDate</code>
+<ul>
+<li>Criado <code>lib/filters/shortDate.js</code> que formata datas no padrão brasileiro (DD/MM/YYYY)</li>
+<li>Registrado filtro em <code>eleventy.config.js</code></li>
+<li>Formato mais compacto com dois dígitos para dia e mês substitui o anterior de data por extenso</li>
+</ul>
+</li>
+</ul>
+<h3>Modificado</h3>
+<ul>
+<li>Listagem de posts na página inicial
+<ul>
+<li>Aumentado limite de 6 para 10 posts mais recentes através da constante <code>LATEST_POSTS_LIMIT</code> em <code>lib/collections/posts.js</code></li>
+<li>Título da seção alterado de &quot;Últimas postagens&quot; para &quot;Últimas publicações&quot;</li>
+<li>Layout reorganizado para exibição em linha horizontal com data e título</li>
+<li>Implementado espaçamento consistente usando variáveis CSS do projeto</li>
+</ul>
+</li>
+<li>Estilização da listagem
+<ul>
+<li>Adicionado CSS específico para itens de lista com <code>display: flex</code></li>
+<li>Ajustado tamanho de fonte do título para <code>var(--font-size-small)</code></li>
+<li>Classe <code>.summary</code> com <code>display: none</code> para ocultar descrição dos posts</li>
+<li>Hífen separador movido do template para CSS usando pseudo-elemento <code>::after</code></li>
+<li>Propriedade <code>white-space: nowrap</code> adicionada ao elemento <code>h3</code> para evitar quebra de linha</li>
+</ul>
+</li>
+<li>Usando o filtro <code>shortDate</code> para formatação da data no template <code>last-posts.njk</code></li>
+</ul>
+
+    </article><article>
+      <header>
         <h2><time datetime="Thu Nov 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)">20 de novembro de 2025</time></h2>
       </header>
       <h3>Adicionado</h3>
