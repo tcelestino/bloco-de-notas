@@ -2,7 +2,7 @@
 layout: post
 title: Como tornar métodos/funções obsoletos no Node.js
 summary: Descubra como tornar métodos/funções obsoletos no Node.js de maneira prática.
-date: 2025-11-25
+date: 2025-12-03
 tags: [dev, dica]
 ---
 
