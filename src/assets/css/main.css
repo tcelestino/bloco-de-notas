@@ -77,3 +77,8 @@ article ol li ul {
 .content-page p {
   line-height: 1.5;
 }
+
+.content-page ol li { display: flex; flex-direction: row; gap: var(--margin-small); align-items: center; margin-bottom: var(--margin-small); font-weight: 800; }
+.content-page ol li time { font-size: var(--font-size-base); }
+.content-page ol li h3 { font-size: var(--font-size-base); }
+.content-page ol li .summary { display: none; }
