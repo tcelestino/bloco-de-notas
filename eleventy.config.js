@@ -16,6 +16,7 @@ module.exports = (config) => {
   config.addCollection('navLinks', require('./lib/collections/nav-links'));
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
+  config.addFilter('shortDate', require('./lib/filters/shortDate'));
 
   config.addLiquidFilter('dateToRfc822', feedPlugin.dateToRfc822);
 

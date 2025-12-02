@@ -3,16 +3,16 @@ layout: default
 ---
 {# TODO: Criar include "includes/last-posts.njk" #}
 <section class="last-posts">
-  <h2>Últimas postagens</h2>
+  <h2>Últimas publicações</h2>
   <ol>
     {%- for post in collections.posts -%}
       <li>
-        <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
+        <time datetime="{{ post.date }}">{{ post.date | shortDate }}</time>
         <h3>
           <a href="{{ post.url }}">{{ post.data.title | safe }}</a>
         </h3>
         {% if post.data.summary  %}
-          <p>{{ post.data.summary | safe }}</p>
+          <span class="summary">{{ post.data.summary | safe }}</span>
         {% endif %}
       </li>
     {%- endfor -%}
