@@ -23,7 +23,6 @@
 }
 .last-posts ol h3 {
   font-size: var(--font-size-base);
-  white-space: nowrap;
 }
 .last-posts ol a {
   text-decoration: none;
