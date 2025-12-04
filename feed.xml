@@ -7,6 +7,46 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>Como depreciar funções/métodos no Node.js</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/12/como-depreciar-funcoes-metodos-no-nodejs/</link>
+        <description>&lt;p&gt;Estava lendo o post &amp;quot;&lt;a href=&quot;https://www.stefanjudis.com/today-i-learned/deprecate-method-in-node-js/&quot;&gt;How to &amp;quot;officially&amp;quot; deprecate methods with Node.js utilities&lt;/a&gt;&amp;quot; do Stefan Judis (recomendo a leitura do blog dele) e achei interessante compartilhar essa dica rápida para quem escreve código utilizando Node.js e precisa documentar que um método/função foi depreciado.&lt;/p&gt;
+&lt;h2&gt;O método que conhecia até hoje: JSDoc&lt;/h2&gt;
+&lt;p&gt;Muitas vezes precisamos depreciar métodos/funções e uma das formas mais comuns era utilizando o JSDoc para documentar o método/função como obsoleto. Se você não conhece o &lt;a href=&quot;https://jsdoc.app/&quot;&gt;JSDoc&lt;/a&gt;, ele é uma especificação de documentação para JavaScript que permite documentar o código de forma estruturada e consistente. Funciona tanto no JavaScript quanto no TypeScript.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+ * Executa um console.log com o texto &#39;foo&#39;.
+ * @deprecated Utilize a função `bar()` em seu lugar. Este método será removido em uma versão futura.
+ * @returns {void}
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;foo&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No seu editor de código, teremos uma mensagem de aviso quando passar o mouse sobre o método/função.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/VpbSWCWD/SCR-20251125-pvgr.png&quot; alt=&quot;Exemplo método depreciado com JSDoc/TSDoc em uma IDE&quot;&gt;
+&lt;em&gt;exemplo no VS Code&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Para isso, usamos a marcação &lt;code&gt;@deprecated&lt;/code&gt; para indicar que o método foi depreciado, exibindo uma mensagem de aviso na sua IDE.&lt;/p&gt;
+&lt;h2&gt;Uma nova abordagem mais prática: &lt;code&gt;util.deprecate&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Acabei descobrindo no artigo do Stefan Judis que é possível utilizar a API &lt;a href=&quot;https://nodejs.org/api/util.html#utildeprecatefn-msg-code-options&quot;&gt;util.deprecate&lt;/a&gt; para depreciar um método/função.&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; deprecate &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;node:util&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deprecate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Função obsoleta&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;Função obsoleta. Utilize fooBar() em vez de foo()&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se rodar o código acima usando o Node.js, você verá a seguinte resposta:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nq7ftzGH/SCR-20251125-pywd.png&quot; alt=&quot;Exemplo método depreciado com util.deprecate&quot;&gt;
+&lt;em&gt;exemplo da mensagem depreciada no terminal ao executar o código Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Com a API &lt;code&gt;util.deprecate&lt;/code&gt;, podemos passar uma mensagem para o usuário indicando qual é a migração recomendada quando o método/função for executado em tempo de execução.&lt;/p&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;De maneira simples, conseguimos depreciar um método/função utilizando uma API oficial do Node.js sem a necessidade de usar bibliotecas externas. O mais interessante é que é possível fazer esse tipo de abordagem há &lt;a href=&quot;https://nodejs.org/docs/latest-v4.x/api/util.html#util_util_deprecate_function_string&quot;&gt;muito tempo&lt;/a&gt;. Vale lembrar que a API &lt;code&gt;util.deprecate&lt;/code&gt; é uma funcionalidade oficial do Node.js, não do JavaScript.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Dec 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/12/como-depreciar-funcoes-metodos-no-nodejs/</guid>
+      </item>
+      <item>
         <title>Habilitando RSS no 11ty</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</link>
         <description>&lt;p&gt;Continuando com as melhorias do blog, finalmente habilitei o feed RSS. Para isso, usei o plugin oficial do Eleventy (11ty): &lt;a href=&quot;https://www.11ty.dev/docs/plugins/rss/&quot;&gt;@11ty/eleventy-plugin-rss&lt;/a&gt;. Como muita gente usa o 11ty, resolvi compartilhar os passos para você habilitar o feed RSS no seu blog ou site.&lt;/p&gt;
