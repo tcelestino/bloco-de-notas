@@ -10,7 +10,7 @@ Se estiver usando a última versão (146) do [Firefox](https://www.firefox.com/)
 
 ## Como habilitar o split view no Firefox
 
-Por enquanto, essa funcionlidade está disponível apenas via `about:config`, mas o que não impede de você testar.
+Por enquanto, essa funcionalidade está disponível apenas via `about:config`, mas o que não impede de você testar.
 
 1. Abra o Firefox e vá para `about:config`. Aceite o risco e clique em _"Accept the Risk and Continue"_ (Aceitar o Risco e Continuar).
 2. Localize a configuração `browser.tabs.splitView.enabled` e mude o valor para `true`. Não vai ser necessário reiniciar o Firefox para aplicar a configuração.
@@ -18,8 +18,8 @@ Por enquanto, essa funcionlidade está disponível apenas via `about:config`, ma
 
 ![Habilitando o split view no Firefox](https://i.ibb.co/DPk8nX8H/SCR-20251224-labh.png)
 
-![Screenshot do split view no Firefox](https://i.ibb.co/KxtmfbPJ/SCR-20251224-laed.png)
-_[Clique para ampliar a imagem](https://ibb.co/23z5CW9T)_
+[![Screenshot do split view no Firefox](https://i.ibb.co/KxtmfbPJ/SCR-20251224-laed.png)](https://i.ibb.co/KxtmfbPJ/SCR-20251224-laed.png)
+_Clique na imagem para ampliar_
 
 ## Referências
 
