@@ -7,6 +7,29 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>Habilitando o split view no Firefox</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2025/12/firefox-splitview/</link>
+        <description>&lt;p&gt;Se estiver usando a última versão (146) do &lt;a href=&quot;https://www.firefox.com/&quot;&gt;Firefox&lt;/a&gt;, já é possível habilitar a funcionalidade de split view (dividir a tela em uma única janela). Essa funcionalidade é útil para quem precisa visualizar duas páginas ao mesmo tempo, como por exemplo, comparar duas páginas de um site ou comparar duas páginas de um documento.&lt;/p&gt;
+&lt;h2&gt;Como habilitar o split view no Firefox&lt;/h2&gt;
+&lt;p&gt;Por enquanto, essa funcionalidade está disponível apenas via &lt;code&gt;about:config&lt;/code&gt;, mas o que não impede de você testar.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Abra o Firefox e vá para &lt;code&gt;about:config&lt;/code&gt;. Aceite o risco e clique em &lt;em&gt;&amp;quot;Accept the Risk and Continue&amp;quot;&lt;/em&gt; (Aceitar o Risco e Continuar).&lt;/li&gt;
+&lt;li&gt;Localize a configuração &lt;code&gt;browser.tabs.splitView.enabled&lt;/code&gt; e mude o valor para &lt;code&gt;true&lt;/code&gt;. Não vai ser necessário reiniciar o Firefox para aplicar a configuração.&lt;/li&gt;
+&lt;li&gt;Para usar o split view, basta clicar com o botão direito do mouse em uma aba e selecionar &amp;quot;Add Split View&amp;quot; (Adicionar Visualização Dividida, em português brasileiro literal).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/DPk8nX8H/SCR-20251224-labh.png&quot; alt=&quot;Habilitando o split view no Firefox&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://i.ibb.co/KxtmfbPJ/SCR-20251224-laed.png&quot;&gt;&lt;img src=&quot;https://i.ibb.co/KxtmfbPJ/SCR-20251224-laed.png&quot; alt=&quot;Screenshot do split view no Firefox&quot;&gt;&lt;/a&gt;
+&lt;em&gt;Clique na imagem para ampliar&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.omgubuntu.co.uk/2025/12/enable-firefox-split-view-feature&quot;&gt;OMG! Ubuntu! - Firefox is Adding Split View for Tabs, Here’s How to Enable It&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 24 Dec 2025 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2025/12/firefox-splitview/</guid>
+      </item>
+      <item>
         <title>Como depreciar funções/métodos no Node.js</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2025/12/como-depreciar-funcoes-metodos-no-nodejs/</link>
         <description>&lt;p&gt;Estava lendo o post &amp;quot;&lt;a href=&quot;https://www.stefanjudis.com/today-i-learned/deprecate-method-in-node-js/&quot;&gt;How to &amp;quot;officially&amp;quot; deprecate methods with Node.js utilities&lt;/a&gt;&amp;quot; do Stefan Judis (recomendo a leitura do blog dele) e achei interessante compartilhar essa dica rápida para quem escreve código utilizando Node.js e precisa documentar que um método/função foi depreciado.&lt;/p&gt;
