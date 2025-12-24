@@ -16,6 +16,11 @@ Por enquanto, essa funcionlidade está disponível apenas via `about:config`, ma
 2. Localize a configuração `browser.tabs.splitView.enabled` e mude o valor para `true`. Não vai ser necessário reiniciar o Firefox para aplicar a configuração.
 3. Para usar o split view, basta clicar com o botão direito do mouse em uma aba e selecionar "Add Split View" (Adicionar Visualização Dividida, em português brasileiro literal).
 
+![Habilitando o split view no Firefox](https://i.ibb.co/DPk8nX8H/SCR-20251224-labh.png)
+
+![Screenshot do split view no Firefox](https://i.ibb.co/KxtmfbPJ/SCR-20251224-laed.png)
+_[Clique para ampliar a imagem](https://ibb.co/23z5CW9T)_
+
 ## Referências
 
 - [OMG! Ubuntu! - Firefox is Adding Split View for Tabs, Here’s How to Enable It](https://www.omgubuntu.co.uk/2025/12/enable-firefox-split-view-feature)
