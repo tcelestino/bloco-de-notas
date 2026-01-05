@@ -4,7 +4,7 @@ title: Meus apps essenciais em 2025
 date: 2026-01-05
 ---
 
-Acabei esquecendo de compartilhar minha seleção de aplicativos essenciais para 2025. Como estamos no início do ano, ainda é válido compartilhar.
+Acabei esquecendo de compartilhar minha seleção de aplicativos essenciais para 2025, assim como [fiz](https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/) no ano passado. Como estamos no início do ano, acredito ser ainda válido compartilhar.
 
 - 🚀 **Launchers**: [Raycast](https://www.raycast.com/) (macOS) e [Ulauncher](https://ulauncher.io/) (Linux)
 - 📧 **Cliente de email:** [Gmail](https://gmail.com)
