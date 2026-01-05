@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Meus apps essenciais em 2025
+title: Meus aplicativos essenciais em 2025
+summary: Confira minha seleção de apps essenciais para 2025.
 date: 2026-01-05
 tags: [apps, listas]
 ---
