@@ -7,6 +7,27 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>As 10 extensões essenciais que uso no Firefox</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2026/02/10-extensoes-firefox/</link>
+        <description>&lt;p&gt;Depois de publicar sobre &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2026/01/meus-apps-essenciais-em-2025/&quot;&gt;meus aplicativos essenciais em 2025&lt;/a&gt;, algumas pessoas me perguntaram quais extensões uso no Firefox. Como a grande maioria das pessoas que conheço usa o Google Chrome, resolvi compartilhar as dez extensões que considero essenciais no meu dia a dia.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin/&quot;&gt;uBlock Origin&lt;/a&gt;: essencial nos dias de hoje com a quantidade de scripts que muitos sites usam para rastrear o usuário. Desabilito para alguns sites.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/bitwarden-password-manager/&quot;&gt;Bitwarden&lt;/a&gt;: gerenciador de senhas multiplataforma (tem versão para iOS, Android, Windows, Linux, terminal...). Uso a versão gratuita que atende bem para a grande maioria dos usuários.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/enhancer-for-youtube/&quot;&gt;Enhancer for YouTube&lt;/a&gt;: reduz distrações no YouTube, como comentários, e traz melhorias na interface e no player.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/linguist-translator/&quot;&gt;Linguist - web pages translator&lt;/a&gt;: uso para traduzir páginas automaticamente. O Firefox tem recurso nativo, mas ele se baseia no idioma do sistema operacional — que no meu caso é inglês. Para traduzir para pt-BR pelo recurso nativo, são necessários vários passos.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://raindrop.io/&quot;&gt;Raindrop&lt;/a&gt;: sinto falta da simplicidade do del.icio.us, mas com o Raindrop consigo automatizar utilizando o &lt;a href=&quot;https://ifttt.com/&quot;&gt;IFTTT&lt;/a&gt;. Por exemplo: os vídeos que dou like no YouTube, são adicionados automaticamente no Raindrop.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/notion-web-clipper/&quot;&gt;Notion Web Clipper&lt;/a&gt;: uso o Notion como um banco de dados, então tenho uma lista de artigos para ler posteriormente, artigos que já li e que posso querer rever, etc.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/marreta/&quot;&gt;Marreta&lt;/a&gt;: extensão para remover paywall de diversos sites.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/multi-account-containers/&quot;&gt;Firefox Multi-Account Containers&lt;/a&gt;: uso para isolar os cookies entre serviços que utilizo.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/gesturefy/&quot;&gt;Gesturefy&lt;/a&gt;: cria ações para o Firefox usando o mouse. Exemplo: mover o mouse para baixo segurando o botão direito fecha a aba ativa.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/redirector/&quot;&gt;Redirector&lt;/a&gt;: uso para redirecionar automaticamente alguns sites para suas versões alternativas. Por exemplo, todo link do x.com é redirecionado para o nitter.net.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 03 Feb 2026 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2026/02/10-extensoes-firefox/</guid>
+      </item>
+      <item>
         <title>Meus aplicativos essenciais em 2025</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2026/01/meus-apps-essenciais-em-2025/</link>
         <description>&lt;p&gt;Acabei esquecendo de compartilhar minha seleção de aplicativos essenciais para 2025, assim como &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/&quot;&gt;fiz&lt;/a&gt; no ano passado. Como estamos no início do ano, acredito ser ainda válido compartilhar.&lt;/p&gt;
