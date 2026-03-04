@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Como ativar BC Protege+ para bloquear contas fraudulentas
-summary: Proteja seu CPF contra fraudes ativando o BC Protege+ em minutos
+title: Como ativar o BC Protege+
+summary: Proteja seu CPF ou CNPJ contra fraudes ativando o BC Protege+
 date: 2026-03-04
 tags: [finanças]
 ---
