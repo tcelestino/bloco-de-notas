@@ -1,0 +1,25 @@
+.content__post p,
+.content__post li {
+  font-size: calc(var(--font-size-base) + 0.25rem);
+  line-height: 2.7ch;
+}
+.content__post ul,
+.content__post ol {
+  padding: 0 1rem;
+}
+.content__post ul li,
+.content__post ol li {
+  margin-bottom: calc(var(--margin-base) - 0.85rem);
+}
+.content__post a {
+  color: var(--color-text-link);
+}
+.content__post a:hover {
+  color: var(--color-text-link-hover);
+}
+.content__post a:active {
+  color: var(--color-text-link-active);
+}
+.content__post a:visited {
+  color: var(--color-text-link-visited);
+}

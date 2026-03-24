@@ -1,6 +1,10 @@
 :root {
   /* colors */
   --color-text: #444;
+  --color-text-link: #8a6fb6;
+  --color-text-link-hover: #551a8b;
+  --color-text-link-active: #ff7ac6;
+  --color-text-link-visited: #800080;
 
   /* social */
   --color-social-github: #1f2328;

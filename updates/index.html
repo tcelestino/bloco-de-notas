@@ -77,6 +77,14 @@
 <h3>Modificado</h3>
 <ul>
 <li>Tag <code>&lt;title&gt;</code> atualizada para incluir o <code>summary</code> do post como prefixo quando disponível, no formato <code>&quot;[summary] - [título do site]&quot;</code></li>
+<li>Classe <code>.content__post</code> adicionada ao elemento <code>&lt;article&gt;</code> em <code>src/_layouts/post.njk</code> para escopo dos novos estilos de post</li>
+<li>Tamanho de fonte dos títulos <code>h3</code> na listagem de posts alterado de <code>var(--font-size-base)</code> para <code>calc(var(--font-size-medium) - 5px)</code> em <code>src/assets/css/last-posts.css</code></li>
+<li>Cor de fundo do link &quot;ver todos os posts&quot; alterada de <code>#800080</code> para <code>#551a8b</code> em <code>src/assets/css/last-posts.css</code></li>
+<li>Tamanho de fonte do link &quot;ver todos os posts&quot; alterado de <code>var(--font-size-small)</code> para <code>var(--font-size-base)</code> em <code>src/assets/css/last-posts.css</code></li>
+<li>Texto do link &quot;ver todos os posts&quot; convertido para letras maiúsculas via <code>text-transform: uppercase</code> em <code>src/assets/css/last-posts.css</code></li>
+<li>Reset de <code>margin</code> e <code>padding</code> dos elementos <code>ul</code>, <code>ol</code> e <code>figure</code> consolidado com os demais elementos de título em <code>src/assets/css/main.css</code></li>
+<li>Novo arquivo <code>src/assets/css/post.css</code> com estilos específicos para o conteúdo dos posts, importado em <code>src/assets/css/main.css</code></li>
+<li>Novas variáveis CSS em <code>src/assets/css/var.css</code> para cores de links (<code>--color-text-link</code>, <code>--color-text-link-hover</code>, <code>--color-text-link-active</code>, <code>--color-text-link-visited</code>)</li>
 </ul>
 
     </article><article>
