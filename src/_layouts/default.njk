@@ -13,6 +13,22 @@
       content="{{ (tags or site.keywords) | join(', ') }}"
     />
     <link href="{{ site.feedPath }}" type="application/rss+xml" rel="alternate" title="{{ site.title }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if title %}article{% else %}website{% endif %}" />
+    <meta property="og:url" content="{{ site.baseUrl }}{{ page.url }}" />
+    <meta property="og:title" content="{{ title or site.title }}" />
+    <meta property="og:description" content="{{ summary or site.description }}" />
+    <meta property="og:image" content="{{ site.url }}assets/images/og-default.png" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title or site.title }}" />
+    <meta name="twitter:description" content="{{ summary or site.description }}" />
+    <meta name="twitter:image" content="{{ site.url }}assets/images/og-default.png" />
+
     <link rel="stylesheet" href="/assets/css/main.css" />
     <title>{% if summary %}{{ summary }} - {% endif %}{{ site.title }}</title>
 
