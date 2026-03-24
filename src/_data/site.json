@@ -1,6 +1,7 @@
 {
   "title": "Bloco de Notas por Tiago Celestino",
   "description": "Meu blog pessoal para anotações cotidianas.",
+  "tags": ["blog", "tecnologia", "pessoal", "desenvolvimento de software", "programação"],
   "url": "https://tcelestino.github.io/bloco-de-notas/",
   "author": {
     "name": "Tiago Celestino"
