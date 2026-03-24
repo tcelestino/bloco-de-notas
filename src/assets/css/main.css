@@ -1,8 +1,9 @@
-@import "var.css";
-@import "syntax-highlighting.css";
-@import "utils.css";
-@import "header.css";
-@import "last-posts.css";
+@import 'var.css';
+@import 'syntax-highlighting.css';
+@import 'utils.css';
+@import 'header.css';
+@import 'post.css';
+@import 'last-posts.css';
 
 * {
   box-sizing: border-box;
@@ -14,20 +15,18 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0;
-}
-
-body {
-  color: var(--color-text);
-  padding: var(--margin-small) var(--margin-small);
-}
-
+h6,
 ul,
 ol,
 figure {
   margin: 0;
   padding: 0;
+}
+
+body {
+  color: var(--color-text);
+  padding: var(--margin-small) var(--margin-small);
+  font-size: var(--font-size-base);
 }
 
 ol li {

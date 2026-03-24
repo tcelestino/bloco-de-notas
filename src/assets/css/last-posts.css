@@ -22,7 +22,7 @@
   display: none;
 }
 .last-posts ol h3 {
-  font-size: var(--font-size-base);
+  font-size: calc(var(--font-size-medium) - 5px);
 }
 .last-posts ol a {
   text-decoration: none;
@@ -40,8 +40,9 @@
   text-decoration: none;
   text-transform: lowercase;
   font-weight: 600;
-  background-color: #800080;
+  background-color: #551a8b;
   padding: var(--padding-small);
   color: #fff;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
 }
