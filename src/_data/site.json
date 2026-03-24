@@ -3,6 +3,7 @@
   "description": "Meu blog pessoal para anotações cotidianas.",
   "keywords": ["blog", "tecnologia", "pessoal", "desenvolvimento de software", "programação"],
   "url": "https://tcelestino.github.io/bloco-de-notas/",
+  "baseUrl": "https://tcelestino.github.io",
   "author": {
     "name": "Tiago Celestino"
   },
