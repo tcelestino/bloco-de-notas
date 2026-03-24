@@ -38,7 +38,6 @@
   width: fit-content;
   margin-top: var(--margin-base);
   text-decoration: none;
-  text-transform: lowercase;
   font-weight: 600;
   background-color: #551a8b;
   padding: var(--padding-small);
