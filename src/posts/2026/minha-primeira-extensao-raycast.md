@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Minha primeira extensão para o Raycast
-summary: Como criei minha primeira extensão para o Raycast
+summary: Como criei minha primeira extensão para o Raycast para acompanhar o Órbita do Manual do Usuário.
 date: 2026-03-27
 tags: [extensão, reactjs, raycast, macos, windows]
 ---
