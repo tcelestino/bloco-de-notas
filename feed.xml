@@ -7,6 +7,43 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>Minha primeira extensão para o Raycast</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2026/03/extensao-orbita-raycast/</link>
+        <description>&lt;p&gt;Para quem não conhece, o &lt;a href=&quot;https://raycast.com&quot;&gt;Raycast&lt;/a&gt; é um aplicativo similar ao Spotlight no macOS e a &amp;quot;Barra de Pesquisa&amp;quot; no Windows, só que com muito mais funcionalidades e aberto para o desenvolvimento de extensões que enriquecem o aplicativo. Essas extensões podem ser encontradas na &lt;a href=&quot;https://www.raycast.com/store&quot;&gt;Raycast Store&lt;/a&gt; e todas são totalmente gratuitas!&lt;/p&gt;
+&lt;p&gt;Por ser uma aplicação em React.js com Typescript, alguém que tenha o conhecimento básico consegue desenvolver uma extensão e pensando nisso, me motivei a criar uma. Nesse texto, faço um pequeno relato sobre o processo.&lt;/p&gt;
+&lt;h2&gt;Iniciando o desenvolvimento&lt;/h2&gt;
+&lt;p&gt;Lendo a &lt;a href=&quot;https://www.raycast.com/developers&quot;&gt;documentação&lt;/a&gt;, que é super didática, já é possível entender o ecossistema de desenvolvimento do Raycast. Seguindo o &lt;a href=&quot;https://developers.raycast.com/basics/getting-started&quot;&gt;passo-a-passo&lt;/a&gt;, é possível ter a base para a extensão rapidamente.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/nqnzCJ7B/raycast-developer.png&quot; alt=&quot;Screenshot do Raycast no modo desenvolvedor&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;Ideia para extensão&lt;/h2&gt;
+&lt;p&gt;Sou um usuário frequente do &lt;a href=&quot;https://manualdousuario.net/orbita/&quot;&gt;Órbita&lt;/a&gt;, que vejo como o equivalente português do &lt;a href=&quot;https://news.ycombinator.com/&quot;&gt;HackerNews&lt;/a&gt;. O site é mantido pelo Rodrigo Ghedin do blog &lt;a href=&quot;https://manualdousuario.net&quot;&gt;Manual do Usuário&lt;/a&gt;, que inclusive, super recomendo acompanhar. Diferente de outros sites/blogs de tecnologia, a leveza e a forma como os debates acontecem por lá lembram muito a velha época em que a internet era menos &amp;quot;oito ou oitenta&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Como sempre estou acompanhando o conteúdo postado no Órbita, resolvi criar uma extensão que me mostrasse as últimas postagens do Órbita. Como o site usa a tecnologia RSS, os posts publicados por lá podem ser lidos em diferentes leitores (&lt;a href=&quot;https://feedly.com&quot;&gt;Feedly&lt;/a&gt;, &lt;a href=&quot;https://netnewswire.com/&quot;&gt;NetNewsWire&lt;/a&gt;, por exemplo), além de servir como fonte de dados para minha extensão.&lt;/p&gt;
+&lt;p&gt;A ideia era muito simples:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ler o RSS do Órbita;&lt;/li&gt;
+&lt;li&gt;Listar todos os últimos posts com o autor e data da postagem;&lt;/li&gt;
+&lt;li&gt;Clicando no título, abrir a página da postagem para leitura em detalhes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Início da implementação&lt;/h2&gt;
+&lt;p&gt;Com a regra definida, iniciei a implementação e em poucas horas já tinha a extensão funcional rodando localmente. Caso queira ver o código, está nesse &lt;a href=&quot;https://github.com/tcelestino/orbita-raycast-extension&quot;&gt;repositório&lt;/a&gt; no GitHub.&lt;/p&gt;
+&lt;p&gt;Mais um detalhe. Antes de enviar a extensão para revisão e publicação na Raycast Store, tinha que pedir autorização ao Rodrigo para o uso do nome Órbita e também do Manual do Usuário. Fiz o contato por email informando sobre a minha ideia e se podia dar sequência a publicá-la na loja oficial do aplicativo. A autorização veio sem problemas. No dia &lt;strong&gt;06/12/2025&lt;/strong&gt; abri o &lt;a href=&quot;https://github.com/raycast/extensions/pull/23472&quot;&gt;PR&lt;/a&gt; para revisão.&lt;/p&gt;
+&lt;h2&gt;Da revisão à publicação&lt;/h2&gt;
+&lt;p&gt;O processo de revisão do Raycast é gerido de forma híbrida. Eles possuem um &lt;em&gt;bot&lt;/em&gt; no GitHub que faz uma análise do código, adicionando comentários sobre as boas práticas para o uso das APIs, garantindo que as extensões sigam as diretrizes de desenvolvimento. Além do &lt;em&gt;bot&lt;/em&gt;, existe o revisor humano, que não foca tanto no código, mas sim se as extensões estão seguindo &lt;em&gt;guideline&lt;/em&gt; do aplicativo. Foi nesse processo que tive o maior &amp;quot;entrave&amp;quot;, apesar de entender que pelo tamanho do projeto e a quantidade enorme de &lt;em&gt;issues&lt;/em&gt; abertas, o trabalho humano deve ser bem exaustivo, independentemente da automação.&lt;/p&gt;
+&lt;p&gt;Em relação ao código, houve poucas modificações. O ponto crucial envolveu o nome da extensão. Inicialmente, a ideia era manter a associação do Órbita ao Manual do Usuário, já que hoje faz parte do domínio do blog, porém o Raycast só aceita &lt;a href=&quot;https://github.com/raycast/extensions/pull/23472#pullrequestreview-3710545011&quot;&gt;extensões nomeadas em inglês&lt;/a&gt;, então ter o nome como &amp;quot;Órbita - Manual do Usuário&amp;quot; não era &amp;quot;permitido&amp;quot;. O &lt;a href=&quot;https://github.com/pernielsentikaer&quot;&gt;@pernielsentikaer&lt;/a&gt;, que por sinal foi muito solícito, trouxe esse &amp;quot;impasse&amp;quot; para a discussão. Procurei o Ghedin para informar sobre a situação e se seria um problema &amp;quot;desvincular&amp;quot; o Órbita do Manual do Usuário e o mesmo não viu problema. Até um nome genérico foi sugerido, mas chegamos à conclusão de que por se tratar de um nome próprio, não faria sentido alterar.&lt;/p&gt;
+&lt;p&gt;No final, removi todas as referências ao Manual do Usuário e solicitei uma nova revisão. No dia &lt;strong&gt;16/03/2026&lt;/strong&gt;, 3 meses depois da abertura do PR, finalmente a extensão foi aprovada, &lt;a href=&quot;https://github.com/raycast/extensions/pull/23472#pullrequestreview-3953818121&quot;&gt;mergeda&lt;/a&gt; e oficialmente publicada na Raycast Store: &lt;a href=&quot;https://www.raycast.com/tcelestino/orbita&quot;&gt;&lt;strong&gt;https://www.raycast.com/tcelestino/orbita&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O resultado final foi esse:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://files.raycast.com/pesfbxxiabexbazum0khwxppgl3g&quot; alt=&quot;screenshot da extensão do Órbita no Raycast&quot;&gt;
+&lt;em&gt;Baixe o Raycast e use a extensão do &lt;a href=&quot;https://www.raycast.com/tcelestino/orbita&quot;&gt;Órbita&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Apesar do tempo de revisão e publicação, tive uma comunicação bem saudável com o &lt;a href=&quot;https://github.com/pernielsentikaer&quot;&gt;@pernielsentikaer&lt;/a&gt;, que sempre trouxe de forma pertinente o que precisava ser alterado.&lt;/p&gt;
+&lt;p&gt;Saber que agora posso acessar o Órbita a partir do aplicativo com o qual mais interajo, vai facilitar e ajudar ainda mais a participar da comunidade.&lt;/p&gt;
+&lt;p&gt;Deixo aqui meus agradecimentos ao Rodrigo Ghedin, que apoiou a ideia e inclusive me disponibilizou a logo do Manual do Usuário para definir como ícone da extensão.&lt;/p&gt;
+&lt;p&gt;Já estou pensando em mais duas extensões que quero entregar ainda esse ano. É provável que venha um outro post sobre elas no futuro...&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 Mar 2026 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2026/03/extensao-orbita-raycast/</guid>
+      </item>
+      <item>
         <title>Como ativar o BC Protege+</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2026/03/como-ativar-bc-protege/</link>
         <description>&lt;p&gt;O &lt;a href=&quot;https://www.bcb.gov.br/meubc/bcprotege&quot;&gt;BC Protege+&lt;/a&gt; é um serviço gratuito do Banco Central do Brasil que bloqueia a abertura de contas em seu CPF ou CNPJ. Quando você ativa essa proteção, qualquer tentativa de alguém abrir uma conta usando seus dados será automaticamente negada. Desde dezembro de 2025, quando foi lançado, já bloqueou &lt;a href=&quot;https://tecnoblog.net/noticias/bc-protege-ja-defende-1-milhao-de-pessoas-contra-contas-bancarias-falsas/&quot;&gt;1 milhão de contas fraudulentas&lt;/a&gt;.&lt;/p&gt;
