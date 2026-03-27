@@ -3,18 +3,18 @@ layout: post
 title: Minha primeira extensão para o Raycast
 summary: Relato sobre o desenvolvimento e publicação de minha primeira extensão para o Raycast, uma ferramenta para acessar as postagens do Órbita direto do app.
 date: 2026-03-27
-tags: [extensão, reactjs, raycast, macos]
+tags: [extensão, reactjs, raycast, macos, windows]
 ---
 
-Já tem um bom tempo que queria desenvolver uma extensão para o [Raycast](https://raycast.com). Para quem não conhece, o Raycast é similar ao Spotlight, mas com muito mais funcionalidades e aberto para qualquer pessoa desenvolver extensões, o que enriquece o aplicativo. Você pode encontrá-las na [Raycast Store](https://www.raycast.com/store) e todas são totalmente gratuitas!
+Para quem não conhece, o [Raycast](https://raycast.com) é similar ao Spotlight no macOS e a "Barra de Pesquisa" no Windows, só que com muito mais funcionalidades e aberto para construção de extensões que enriquecem o aplicativo. Essas extensões podem ser encontradas na [Raycast Store](https://www.raycast.com/store) e todas são totalmente gratuitas!
 
-O aplicativo está disponível para macOS e Windows, trazendo funcionalidades para aumento da produtividade, como bloco de notas, snippets, gerenciamento de cores, entre outros recursos. Por ser uma aplicação em React.js com Typescript, alguém que tenha o conhecimento básico consegue desenvolver uma extensão para o app e foi o que me motivou a criar uma.
-
-Resolvi fazer um pequeno relato sobre o processo, sem nada de código por agora.
+Por ser uma aplicação em React.js com Typescript, alguém que tenha o conhecimento básico consegue desenvolver uma extensão e foi isso que me motivou a criar uma. Nesse texto, faço um pequeno relato sobre o processo.
 
 ## Iniciando o desenvolvimento
 
-Por ser desenvolvido em React.js + Typescript, quem já mexe com esses recursos, vai ter mais facilidades no desenvolvimento de extensões. A [documentação](https://www.raycast.com/developers) é super didática, disponibilizando bastante conteúdo bem explicado das APIs (hooks, no final), abrangendo o guia de design até como realizar a publicação da extensão. A partir do passo-a-passo, habilitei o modo desenvolvedor e iniciei o processo:
+Por utilizar o React.js + Typescript como base, quem já tem o conhecimento, mesmo que básico, consegue desenvolver extensões. A [documentação](https://www.raycast.com/developers) é super didática, com bastante conteúdo explicativo das APIs (hooks, no final das contas), abrangendo o guia de design até como realizar a publicação da extensão.
+
+A partir do [passo-a-passo](https://developers.raycast.com/basics/getting-started), iniciei o desenvolvimento.
 
 ![Screenshot do Raycast no modo desenvolvedor](https://i.ibb.co/nqnzCJ7B/raycast-developer.png)
 
