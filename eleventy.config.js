@@ -28,6 +28,7 @@ module.exports = (config) => {
       input: 'src',
       output: './_site',
       layouts: '_layouts',
+      includes: 'includes',
     },
     templateFormats: ['md', 'njk', 'html'],
     dataTemplateEngine: 'njk',
