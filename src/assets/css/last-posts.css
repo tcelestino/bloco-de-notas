@@ -3,6 +3,9 @@
   margin-bottom: var(--margin-small);
   text-transform: lowercase;
 }
+.last-posts ol {
+  max-width: 100%;
+}
 .last-posts ol li {
   display: flex;
   flex-direction: row;
@@ -10,9 +13,13 @@
   align-items: center;
   margin-bottom: var(--margin-small);
   font-weight: 800;
+  max-width: 100%;
+  min-width: 0;
 }
 .last-posts ol li time {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .last-posts ol li time::after {
   content: '-';
@@ -22,7 +29,28 @@
   display: none;
 }
 .last-posts ol h3 {
-  font-size: calc(var(--font-size-medium) - 5px);
+  font-size: calc(var(--font-size-base));
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .last-posts ol li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .last-posts ol li time::after {
+    display: none;
+  }
+  .last-posts ol h3 {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
 }
 .last-posts ol a {
   text-decoration: none;
