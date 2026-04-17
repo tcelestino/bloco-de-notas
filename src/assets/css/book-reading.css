@@ -1,0 +1,65 @@
+.home-sections {
+  display: flex;
+  flex-direction: row;
+  gap: var(--margin-x-large);
+  align-items: flex-start;
+}
+
+.home-sections .book-reading,
+.home-sections .last-posts {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .home-sections {
+    flex-direction: column;
+  }
+}
+
+.book-reading > h2 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--margin-small);
+  text-transform: lowercase;
+}
+
+.book-reading article {
+  display: flex;
+  flex-direction: row;
+  gap: var(--margin-base);
+  align-items: flex-start;
+}
+
+.book-reading figure {
+  flex-shrink: 0;
+  width: 110px;
+}
+
+.book-reading figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.book-reading figure figcaption {
+  display: none;
+}
+
+.book-reading .book-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-small);
+}
+
+.book-reading .book-info p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .book-reading figure {
+    width: 100px;
+  }
+}
