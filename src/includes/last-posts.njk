@@ -1,0 +1,17 @@
+<section class="last-posts">
+  <h2>Últimas publicações</h2>
+  <ol>
+    {%- for post in collections.posts -%}
+      <li>
+        <time datetime="{{ post.date }}">{{ post.date | shortDate }}</time>
+        <h3>
+          <a href="{{ post.url }}" title="{{ post.data.title }}">{{ post.data.title | safe }}</a>
+        </h3>
+        {% if post.data.summary  %}
+          <span class="summary">{{ post.data.summary | safe }}</span>
+        {% endif %}
+      </li>
+    {%- endfor -%}
+  </ol>
+    <a href="/posts.html" class="see-more">Ver todos os posts</a>
+</section>
