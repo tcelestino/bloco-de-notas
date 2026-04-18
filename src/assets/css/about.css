@@ -2,9 +2,8 @@
   margin-bottom: var(--margin-large);
 }
 .about-me p {
-  margin: 0 0 var(--margin-base);
-  font-size: var(--font-size-medium);
-  line-height: 1.5;
+  margin: 0 0 var(--margin-small);
+  font-size: var(--font-size-base);
 }
 
 @media (max-width: 640px) {

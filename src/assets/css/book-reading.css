@@ -1,22 +1,3 @@
-.home-sections {
-  display: flex;
-  flex-direction: row;
-  gap: var(--margin-x-large);
-  align-items: flex-start;
-}
-
-.home-sections .book-reading,
-.home-sections .last-posts {
-  flex: 1;
-  min-width: 0;
-}
-
-@media (max-width: 640px) {
-  .home-sections {
-    flex-direction: column;
-  }
-}
-
 .book-reading > h2 {
   font-size: var(--font-size-large);
   margin-bottom: var(--margin-small);
