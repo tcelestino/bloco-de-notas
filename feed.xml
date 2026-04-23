@@ -9,13 +9,13 @@
       <item>
         <title>O que um especialista em box para banheiro me ensinou sobre a adoção real de IA</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2026/04/ia-fora-da-bolha-tecnologia/</link>
-        <description>&lt;p&gt;&lt;em&gt;Originalmente postei no &lt;a href=&quot;https://manualdousuario.net/orbita&quot;&gt;Órbita&lt;/a&gt; esse relato. Caso queira conversar a respeito, fique à vontade: https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Na quarta-feira (22/04/2026), me aconteceu uma situação que abriu muito a minha mente sobre o uso de IA fora da bolha de tecnologia. Leio e assisto muito conteúdo sobre IA, agentes, etc., mas muito voltado para o mundo de desenvolvimento de software. Seja para aumentar produtividade, &lt;em&gt;vibe coding&lt;/em&gt;, no final é muito voltado para tecnologia. Na quarta-feira, mais do que confirmei que as pessoas fora dessa bolha também estão usando, e usando muito bem as ferramentas disponíveis.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;em&gt;Originalmente postei no &lt;a href=&quot;https://manualdousuario.net/orbita&quot;&gt;Órbita&lt;/a&gt; esse relato. Caso queira conversar a respeito, fique à vontade: &lt;a href=&quot;https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/&quot;&gt;https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Na quarta-feira (22/04/2026), aconteceu uma situação que me abriu muito a mente sobre o uso de IA fora da bolha de tecnologia. Leio, assisto e converso com amigos e colegas sobre IA, agentes, etc., tudo mais voltado para o desenvolvimento de software e áreas afins. Seja para aumentar produtividade, &lt;em&gt;vibe coding&lt;/em&gt;, no final é muito voltado para tecnologia. Na quarta-feira, mais do que nunca, confirmei que as pessoas fora dessa bolha também estão usando, e usando muito bem as ferramentas disponíveis.&lt;/p&gt;
 &lt;h2&gt;Contextualizando&lt;/h2&gt;
 &lt;p&gt;Precisei ajustar o box do banheiro daqui de casa e contratei um técnico que encontrei via Google Maps. Tenho o hábito de conversar com os prestadores de serviços, sempre reforçando se estou atrapalhando o serviço, óbvio. Surgiu o papo sobre tecnologia. Geralmente começam perguntando o que faço da vida, etc. Bom, o técnico já me vem com esta: “faço algumas coisas com JS”. E como ele faz isso? Usando o ChatGPT. Não fiquei impressionado com o fato de ele usar a IA para gerar código — hoje qualquer pessoa pode fazer isso — mas o fato de ele saber o que é JavaScript, inclusive diferenciar backend e frontend, me impressionou. Todo esse conhecimento foi adquirido com o uso dessas ferramentas de IA. Um detalhe: ele nunca foi da área de tecnologia.&lt;/p&gt;
 &lt;p&gt;A realidade é que, independentemente da qualidade do que essas ferramentas produzem, a maioria das automações para uso profissional não vai precisar escalar. Um especialista em boxes de banheiro não vai processar milhares de pedidos de orçamentos por hora, por exemplo.&lt;/p&gt;
 &lt;h2&gt;O uso de ferramentas de IA&lt;/h2&gt;
-&lt;p&gt;Assim como grande parte dos prestadores de serviços do país, ele usa o WhatsApp como CRM.&lt;/p&gt;
+&lt;p&gt;Assim como grande parte dos prestadores de serviços do país, ele usa o WhatsApp como &lt;a href=&quot;https://pt.wikipedia.org/wiki/Gest%C3%A3o_de_relacionamento_com_o_cliente&quot;&gt;CRM&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;O fluxo dele atualmente é:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Capturar o lead, seja por telefone, WhatsApp, Google Ads, etc. Inclusive, usa o Gemini para extrair os números de múltiplas ligações.&lt;/li&gt;
@@ -24,11 +24,11 @@
 &lt;li&gt;Enviar o orçamento.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Tem um detalhe no passo 4 que comento logo mais.&lt;/p&gt;
-&lt;p&gt;Ele quer automatizar esses processos que realiza manualmente. Comentei sobre o uso da automação utilizando o &lt;a href=&quot;https://n8n.io/&quot;&gt;n8n&lt;/a&gt; (nunca usei, mas já ouvi falar). Ele não conhecia, mas ficou bem interessado e anotou para pesquisar depois. Engraçado que ele chegou a comentar sobre os custos de uso da API do WhatsApp, sabendo até como os serviços autorizados pela Meta cobram, o que para ele não faria sentido no momento.&lt;/p&gt;
+&lt;p&gt;Ele quer automatizar esses processos que realiza manualmente. Comentei sobre o uso da automação utilizando o &lt;a href=&quot;https://n8n.io/&quot;&gt;n8n&lt;/a&gt; (nunca usei, mas já ouvi falar). Ele não conhecia, mas ficou bem interessado e anotou para pesquisar depois. Engraçado que ele chegou a comentar sobre os custos de uso da API do WhatsApp, sabendo até como as empresas autorizadas pela Meta cobram (por mensagem enviada), o que para ele não faria sentido no momento.&lt;/p&gt;
 &lt;h2&gt;Usando agentes&lt;/h2&gt;
 &lt;p&gt;A cereja do bolo veio no final do serviço. Ao acompanhá-lo até a saída, ele me mostra um agente criado no ChatGPT que, a partir dos vídeos dos problemas que os clientes enviam e com as informações que ele forneceu, já consegue gerar o orçamento de forma automática. Assim, ele só copia e envia no WhatsApp. Ou seja, as pessoas (não estou generalizando, obviamente) estão antenadas e usando as ferramentas de IA, não só para pedir para escrever código JS, mas indo além.&lt;/p&gt;
 &lt;p&gt;Fiquei de conversar com ele, até para ajudá-lo, porque vi que tem interesse genuíno no uso das ferramentas de IA. Inclusive, pensei em fazer uma permuta: ele me ensina a ajustar boxes de banheiro, eu ajudo-o a otimizar seu fluxo de trabalho, por que não?&lt;/p&gt;
-&lt;p&gt;PS.: eu paguei pelo serviço dele.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nota: eu paguei pelo serviço&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Apr 2026 24:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
