@@ -6,9 +6,9 @@ date: 2026-04-23
 tags: [ia, inteligência artificial, sociedade]
 ---
 
-_Originalmente postei no [Órbita](https://manualdousuario.net/orbita) esse relato. Caso queira conversar a respeito, fique à vontade: https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/_
+*Originalmente postei no [Órbita](https://manualdousuario.net/orbita) esse relato. Caso queira conversar a respeito, fique à vontade: [https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/](https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/)*
 
-Na quarta-feira (22/04/2026), me aconteceu uma situação que abriu muito a minha mente sobre o uso de IA fora da bolha de tecnologia. Leio e assisto muito conteúdo sobre IA, agentes, etc., mas muito voltado para o mundo de desenvolvimento de software. Seja para aumentar produtividade, _vibe coding_, no final é muito voltado para tecnologia. Na quarta-feira, mais do que confirmei que as pessoas fora dessa bolha também estão usando, e usando muito bem as ferramentas disponíveis.
+Na quarta-feira (22/04/2026), aconteceu uma situação que me abriu muito a mente sobre o uso de IA fora da bolha de tecnologia. Leio, assisto e converso com amigos e colegas sobre IA, agentes, etc., tudo mais voltado para o desenvolvimento de software e áreas afins. Seja para aumentar produtividade, _vibe coding_, no final é muito voltado para tecnologia. Na quarta-feira, mais do que nunca, confirmei que as pessoas fora dessa bolha também estão usando, e usando muito bem as ferramentas disponíveis.
 
 ## Contextualizando
 
@@ -18,7 +18,7 @@ A realidade é que, independentemente da qualidade do que essas ferramentas prod
 
 ## O uso de ferramentas de IA
 
-Assim como grande parte dos prestadores de serviços do país, ele usa o WhatsApp como CRM.
+Assim como grande parte dos prestadores de serviços do país, ele usa o WhatsApp como [CRM](https://pt.wikipedia.org/wiki/Gest%C3%A3o_de_relacionamento_com_o_cliente).
 
 O fluxo dele atualmente é:
 
@@ -29,7 +29,7 @@ O fluxo dele atualmente é:
 
 Tem um detalhe no passo 4 que comento logo mais.
 
-Ele quer automatizar esses processos que realiza manualmente. Comentei sobre o uso da automação utilizando o [n8n](https://n8n.io/) (nunca usei, mas já ouvi falar). Ele não conhecia, mas ficou bem interessado e anotou para pesquisar depois. Engraçado que ele chegou a comentar sobre os custos de uso da API do WhatsApp, sabendo até como os serviços autorizados pela Meta cobram, o que para ele não faria sentido no momento.
+Ele quer automatizar esses processos que realiza manualmente. Comentei sobre o uso da automação utilizando o [n8n](https://n8n.io/) (nunca usei, mas já ouvi falar). Ele não conhecia, mas ficou bem interessado e anotou para pesquisar depois. Engraçado que ele chegou a comentar sobre os custos de uso da API do WhatsApp, sabendo até como as empresas autorizadas pela Meta cobram (por mensagem enviada), o que para ele não faria sentido no momento.
 
 ## Usando agentes
 
@@ -37,4 +37,4 @@ A cereja do bolo veio no final do serviço. Ao acompanhá-lo até a saída, ele 
 
 Fiquei de conversar com ele, até para ajudá-lo, porque vi que tem interesse genuíno no uso das ferramentas de IA. Inclusive, pensei em fazer uma permuta: ele me ensina a ajustar boxes de banheiro, eu ajudo-o a otimizar seu fluxo de trabalho, por que não?
 
-PS.: eu paguei pelo serviço dele.
+**Nota: eu paguei pelo serviço**
