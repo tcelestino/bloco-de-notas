@@ -19,14 +19,14 @@ A extensão é simples de usar: basta digitar o nome do pacote que você deseja 
 ![Extensão DefinitelyTyped Search em ação](https://i.ibb.co/PvpSkXRx/raycast-definitelytyped.gif)
 _Extensão em ação_
 
-Além disso, a extensão também oferece a opção de abrir a página do pacote de tipos no [npmjs.com](https://www.npmjs.com/), [npmx.dev](https://npmx.dev/) ou no [GitHub](https://github.com), caso você queira verificar mais detalhes antes de instala-lo.
+Além disso, a extensão também oferece a opção de abrir a página do pacote de tipos no [npmjs.com](https://www.npmjs.com/), [npmx.dev](https://npmx.dev/) ou no [GitHub](https://github.com), caso você queira verificar mais detalhes antes de instalá-lo.
 
 ![Extensão DefinitelyTyped Search - Opções de visualização](https://i.ibb.co/cXZh9HJr/SCR-20260507-qrgr.png)
 _Opções de visualização_
 
 ## Adicione aos favoritos
 
-Para quem sempre precisa usar os mesmos `@types`, a extensão permite adiciona-los aos favoritos. Assim, você pode acessar rapidamente os pacotes que usa com frequência sem precisar pesquisar por eles toda vez.
+Para quem sempre precisa usar os mesmos `@types`, a extensão permite adicioná-los aos favoritos. Assim, você pode acessar rapidamente os pacotes que usa com frequência sem precisar pesquisar por eles toda vez.
 
 ![Extensão DefinitelyTyped Search - Favoritos](https://i.ibb.co/3ymp3j1j/raycast-definitelytyped-favs.gif)
 _Adicionando um pacote de tipos aos favoritos_
