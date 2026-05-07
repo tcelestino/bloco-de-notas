@@ -6,7 +6,7 @@
 
 .content__post code {
   font-size: var(--font-size-small);
-  color: #8e4f85;
+  color: var(--color-text-code);
   font-style: italic;
 }
 
