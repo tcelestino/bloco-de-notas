@@ -7,7 +7,6 @@
 .content__post code {
   font-size: var(--font-size-small);
   color: var(--color-text-code);
-  font-style: italic;
 }
 
 .content__post ul,
