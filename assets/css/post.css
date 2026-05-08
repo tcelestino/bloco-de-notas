@@ -3,6 +3,12 @@
   font-size: calc(var(--font-size-base) + 0.25rem);
   line-height: 2.7ch;
 }
+
+.content__post code {
+  font-size: var(--font-size-small);
+  color: var(--color-text-code);
+}
+
 .content__post ul,
 .content__post ol {
   padding: 0 1rem;

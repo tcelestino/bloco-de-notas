@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="title" content="Bloco de Notas por Tiago Celestino">
+    <meta name="description" content="Pesquise e instale pacotes de tipos do TypeScript diretamente do Raycast com a extensão DefinitelyTyped Search">
+    <meta name="keywords" content="post, extensão, typescript, raycast, npm, produtividade">
+    <link href="https://tcelestino.github.io/bloco-de-notas/feed.xml" type="application/rss+xml" rel="alternate" title="Bloco de Notas por Tiago Celestino">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tcelestino.github.io/2026/05/definitelytyped-search-extensao-raycast/">
+    <meta property="og:title" content="DefinitelyTyped Search: uma extensão Raycast para instalar @types">
+    <meta property="og:description" content="Pesquise e instale pacotes de tipos do TypeScript diretamente do Raycast com a extensão DefinitelyTyped Search">
+    <meta property="og:image" content="https://tcelestino.github.io/bloco-de-notas/assets/images/og-default.png">
+    <meta property="og:site_name" content="Bloco de Notas por Tiago Celestino">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DefinitelyTyped Search: uma extensão Raycast para instalar @types">
+    <meta name="twitter:description" content="Pesquise e instale pacotes de tipos do TypeScript diretamente do Raycast com a extensão DefinitelyTyped Search">
+    <meta name="twitter:image" content="https://tcelestino.github.io/bloco-de-notas/assets/images/og-default.png">
+
+    <link rel="stylesheet" href="/bloco-de-notas/assets/css/main.css">
+    <title>Pesquise e instale pacotes de tipos do TypeScript diretamente do Raycast com a extensão DefinitelyTyped Search - Bloco de Notas por Tiago Celestino</title>
+
+    <script defer="" src="https://cloud.umami.is/script.js" data-website-id="706bda1c-3aca-440d-b69a-905012ef0900"></script>
+  </head>
+
+  <body>
+    <header class="top-header">
+      <h1><a href="/bloco-de-notas/">Blocos de Notas</a></h1>
+      <small>Por Tiago Celestino</small>
+      <nav class="nav-links">
+        <ul class="nav-pages">
+          
+            <li><a href="/bloco-de-notas/updates">Changelog</a></li>
+          
+        </ul>
+        <ul class="nav-social">
+          
+            <li class="social-link-rss"><a href="/bloco-de-notas/feed.xml" target="_blank" rel="noopener noreferrer" title="Leia as postagens no seu leitor de RSS">RSS</a></li>
+          
+            <li class="social-link-github"><a href="https://github.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Github</a></li>
+          
+            <li class="social-link-linkedin"><a href="https://linkedin.com/in/tcelestino" target="_blank" rel="noopener noreferrer" title="">Linkedin</a></li>
+          
+            <li class="social-link-bsky"><a href="https://bsky.app/profile/tcelestino.bsky.social" target="_blank" rel="noopener noreferrer" title="">Bsky</a></li>
+          
+            <li class="social-link-unsplash"><a href="https://unsplash.com/tcelestino" target="_blank" rel="noopener noreferrer" title="">Unsplash</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-page">
+      
+<article class="content__post">
+  <header>
+   <time datetime="Fri May 08 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      8 de maio de 2026
+    </time>
+    <h1>DefinitelyTyped Search: uma extensão Raycast para instalar @types</h1>
+  </header>
+  <p>Depois de lançar minha <a href="https://tcelestino.github.io/bloco-de-notas/2026/03/minha-primeira-extensao-raycast/">primeira extensão</a> para o <a href="https://www.raycast.com/">Raycast</a>, decidi criar mais uma. Se você não conhece o Raycast, ele é um lançador de aplicativos para macOS e Windows que permite acessar rapidamente aplicativos, arquivos e outras funcionalidades do sistema. Ele também suporta extensões, o que permite aos desenvolvedores criar suas próprias funcionalidades personalizadas utilizando ReactJS com TypeScript.</p>
+<h2>A extensão: DefinitelyTyped Search</h2>
+<p>Como muitos desenvolvedores que trabalham com <a href="https://www.typescriptlang.org/">TypeScript</a>, sempre que preciso instalar um pacote (<code>npm i -S express</code>, por exemplo), em muitos casos preciso instalar o pacote de tipos (<code>npm i -D @types/express</code>, por exemplo) correspondente. Abrir o <a href="https://www.npmjs.com/">npmjs.com</a> em busca de cada pacote de tipos pode ser um processo demorado, especialmente quando você não tem certeza do nome exato do pacote.</p>
+<p>Para facilitar esse processo, criei a extensão &quot;<a href="https://www.raycast.com/tcelestino/definitelytyped">DefinitelyTyped Search</a>&quot; que permite pesquisar e instalar pacotes de tipos diretamente do Raycast.</p>
+<p>A extensão é simples de usar: basta digitar o nome do pacote que você deseja instalar, e a extensão irá mostrar os pacotes de tipos correspondentes disponíveis. Você pode então selecionar o pacote de tipos desejado e automaticamente o comando <code>npm install -D @types/nome-do-pacote</code> é copiado para a área de transferência, pronto para colar no seu terminal.</p>
+<p><img src="https://i.ibb.co/sdvtqGnm/raycast-definitelytyped.gif" alt="Extensão DefinitelyTyped Search em ação">
+<em>Extensão em ação</em></p>
+<p>Além disso, você pode ver os detalhes do pacote de tipos selecionado no <a href="https://www.npmjs.com/">npmjs.com</a>, <a href="https://npmx.dev/">npmx.dev</a> ou no <a href="https://github.com">GitHub</a> antes de instalá-lo.</p>
+<p><img src="https://i.ibb.co/cXZh9HJr/SCR-20260507-qrgr.png" alt="Extensão DefinitelyTyped Search - Opções de visualização">
+<em>Opções de visualização</em></p>
+<h2>Adicione aos favoritos</h2>
+<p>Para quem sempre precisa usar os mesmos <code>@types</code>, a extensão permite adicioná-los aos favoritos. Assim, você pode acessar rapidamente os pacotes que usa com frequência sem precisar pesquisar por eles toda vez.</p>
+<p><img src="https://i.ibb.co/wNBcMsGx/raycast-definitelytyped-favs.gif" alt="Extensão DefinitelyTyped Search - Favoritos">
+<em>Adicionando um pacote de tipos aos favoritos</em></p>
+<p>A extensão está disponível para download na <a href="https://www.raycast.com/tcelestino/definitelytyped">Raycast Store</a> e é compatível com macOS e Windows.</p>
+<p>Se você é um desenvolvedor que trabalha com TypeScript e utiliza o Raycast para aumentar sua produtividade, acredito que essa extensão pode ser uma ferramenta útil para agilizar seu fluxo de trabalho. Sinta-se à vontade para experimentar e enviar <em>feedbacks</em> ou <a href="https://github.com/raycast/extensions/issues/new?body=%3C!--%0APlease%20update%20the%20title%20above%20to%20consisely%20describe%20the%20feature%20request%0A--%3E%0A%0A%23%23%23%20Extension%0A%0Ahttps://www.raycast.com/tcelestino/definitelytyped%0A%0A%23%23%23%20Description%0A%0A%3C!--%0A%20%20Describe%20the%20feature%20and%20the%20current%20behavior/state.%0A--%3E%0A%0A%23%23%23%20Who%20will%20benefit%20from%20this%20feature?%0A%0A%23%23%23%20Anything%20else?%0A%0A%3C!--%0A%20%20Links?%20References?%20Anything%20that%20will%20give%20us%20more%20context!%0A%0A%20%20Tip:%20You%20can%20attach%20images%20or%20log%20files%20by%20clicking%20this%20area%20to%20highlight%20it%20and%20then%20dragging%20files%20in.%0A--%3E%0A&amp;title=%5BDefinitelyTyped%5D%20...&amp;template=extension_feature_request.yml&amp;labels=extension,feature+request&amp;extension-url=https://www.raycast.com/tcelestino/definitelytyped">sugestões de melhorias</a>.</p>
+
+</article>
+
+    </main>
+
+    <footer class="content-footer">
+      <small>built with <a href="https://11ty.dev" rel="noopener noreferrer" target="_blank">11ty</a></small>
+    </footer>
+  </body>
+</html>

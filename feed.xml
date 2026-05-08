@@ -7,6 +7,30 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>DefinitelyTyped Search: uma extensão Raycast para instalar @types</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2026/05/definitelytyped-search-extensao-raycast/</link>
+        <description>&lt;p&gt;Depois de lançar minha &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2026/03/minha-primeira-extensao-raycast/&quot;&gt;primeira extensão&lt;/a&gt; para o &lt;a href=&quot;https://www.raycast.com/&quot;&gt;Raycast&lt;/a&gt;, decidi criar mais uma. Se você não conhece o Raycast, ele é um lançador de aplicativos para macOS e Windows que permite acessar rapidamente aplicativos, arquivos e outras funcionalidades do sistema. Ele também suporta extensões, o que permite aos desenvolvedores criar suas próprias funcionalidades personalizadas utilizando ReactJS com TypeScript.&lt;/p&gt;
+&lt;h2&gt;A extensão: DefinitelyTyped Search&lt;/h2&gt;
+&lt;p&gt;Como muitos desenvolvedores que trabalham com &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt;, sempre que preciso instalar um pacote (&lt;code&gt;npm i -S express&lt;/code&gt;, por exemplo), em muitos casos preciso instalar o pacote de tipos (&lt;code&gt;npm i -D @types/express&lt;/code&gt;, por exemplo) correspondente. Abrir o &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npmjs.com&lt;/a&gt; em busca de cada pacote de tipos pode ser um processo demorado, especialmente quando você não tem certeza do nome exato do pacote.&lt;/p&gt;
+&lt;p&gt;Para facilitar esse processo, criei a extensão &amp;quot;&lt;a href=&quot;https://www.raycast.com/tcelestino/definitelytyped&quot;&gt;DefinitelyTyped Search&lt;/a&gt;&amp;quot; que permite pesquisar e instalar pacotes de tipos diretamente do Raycast.&lt;/p&gt;
+&lt;p&gt;A extensão é simples de usar: basta digitar o nome do pacote que você deseja instalar, e a extensão irá mostrar os pacotes de tipos correspondentes disponíveis. Você pode então selecionar o pacote de tipos desejado e automaticamente o comando &lt;code&gt;npm install -D @types/nome-do-pacote&lt;/code&gt; é copiado para a área de transferência, pronto para colar no seu terminal.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/sdvtqGnm/raycast-definitelytyped.gif&quot; alt=&quot;Extensão DefinitelyTyped Search em ação&quot;&gt;
+&lt;em&gt;Extensão em ação&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Além disso, você pode ver os detalhes do pacote de tipos selecionado no &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npmjs.com&lt;/a&gt;, &lt;a href=&quot;https://npmx.dev/&quot;&gt;npmx.dev&lt;/a&gt; ou no &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt; antes de instalá-lo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/cXZh9HJr/SCR-20260507-qrgr.png&quot; alt=&quot;Extensão DefinitelyTyped Search - Opções de visualização&quot;&gt;
+&lt;em&gt;Opções de visualização&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Adicione aos favoritos&lt;/h2&gt;
+&lt;p&gt;Para quem sempre precisa usar os mesmos &lt;code&gt;@types&lt;/code&gt;, a extensão permite adicioná-los aos favoritos. Assim, você pode acessar rapidamente os pacotes que usa com frequência sem precisar pesquisar por eles toda vez.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/wNBcMsGx/raycast-definitelytyped-favs.gif&quot; alt=&quot;Extensão DefinitelyTyped Search - Favoritos&quot;&gt;
+&lt;em&gt;Adicionando um pacote de tipos aos favoritos&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A extensão está disponível para download na &lt;a href=&quot;https://www.raycast.com/tcelestino/definitelytyped&quot;&gt;Raycast Store&lt;/a&gt; e é compatível com macOS e Windows.&lt;/p&gt;
+&lt;p&gt;Se você é um desenvolvedor que trabalha com TypeScript e utiliza o Raycast para aumentar sua produtividade, acredito que essa extensão pode ser uma ferramenta útil para agilizar seu fluxo de trabalho. Sinta-se à vontade para experimentar e enviar &lt;em&gt;feedbacks&lt;/em&gt; ou &lt;a href=&quot;https://github.com/raycast/extensions/issues/new?body=%3C!--%0APlease%20update%20the%20title%20above%20to%20consisely%20describe%20the%20feature%20request%0A--%3E%0A%0A%23%23%23%20Extension%0A%0Ahttps://www.raycast.com/tcelestino/definitelytyped%0A%0A%23%23%23%20Description%0A%0A%3C!--%0A%20%20Describe%20the%20feature%20and%20the%20current%20behavior/state.%0A--%3E%0A%0A%23%23%23%20Who%20will%20benefit%20from%20this%20feature?%0A%0A%23%23%23%20Anything%20else?%0A%0A%3C!--%0A%20%20Links?%20References?%20Anything%20that%20will%20give%20us%20more%20context!%0A%0A%20%20Tip:%20You%20can%20attach%20images%20or%20log%20files%20by%20clicking%20this%20area%20to%20highlight%20it%20and%20then%20dragging%20files%20in.%0A--%3E%0A&amp;amp;title=%5BDefinitelyTyped%5D%20...&amp;amp;template=extension_feature_request.yml&amp;amp;labels=extension,feature+request&amp;amp;extension-url=https://www.raycast.com/tcelestino/definitelytyped&quot;&gt;sugestões de melhorias&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 08 May 2026 24:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2026/05/definitelytyped-search-extensao-raycast/</guid>
+      </item>
+      <item>
         <title>O que um especialista em box para banheiro me ensinou sobre a adoção real de IA</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2026/04/ia-fora-da-bolha-tecnologia/</link>
         <description>&lt;p&gt;&lt;em&gt;Originalmente postei no &lt;a href=&quot;https://manualdousuario.net/orbita&quot;&gt;Órbita&lt;/a&gt; esse relato. Caso queira conversar a respeito, fique à vontade: &lt;a href=&quot;https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/&quot;&gt;https://manualdousuario.net/orbita-post/o-que-um-especialista-em-box-para-banheiro-me-ensinou-sobre-a-adocao-real-de-ia/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
