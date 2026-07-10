@@ -7,6 +7,51 @@
     <description>Meu blog pessoal para anotações cotidianas.</description>
     <language>pt-BR</language>
       <item>
+        <title>Por que o ::backdrop não funciona com o atributo open do &lt;dialog&gt;</title>
+        <link>https://tcelestino.github.io/bloco-de-notas/2026/07/backdrop-nao-funciona-com-atributo-open-dialog/</link>
+        <description>&lt;p&gt;No meu tempo livre, estou estudando alguns elementos HTML que não existiam anos atrás e que surgiram para dar mais semântica às marcações, melhorar a usabilidade e a acessibilidade, além de reduzir a quantidade de scripts em JavaScript.&lt;/p&gt;
+&lt;p&gt;A tag da vez é a &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt;, que permite criar caixas de diálogo semânticas e acessíveis em HTML. Em vez de usar um &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; ou &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; para criar uma caixa de diálogo, o &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; oferece uma maneira mais semântica e acessível de fazer isso. Além disso, é fácil customizar o estilo com CSS e adicionar recursos interativos com JavaScript.&lt;/p&gt;
+&lt;p&gt;Porém, descobri que, ao abrir o &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; com o atributo &lt;code&gt;open&lt;/code&gt;, o pseudo-elemento &lt;code&gt;::backdrop&lt;/code&gt; não é aplicado, o que pode ser um problema se você estiver usando um backdrop personalizado. Implementei o &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; no projeto &amp;quot;&lt;a href=&quot;https://neymar-jogou.onrender.com/&quot;&gt;Neymar Jogou?&lt;/a&gt;&amp;quot; e acabei descobrindo esse comportamento.&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.dialog-modal::backdrop&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;0&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 0.65&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dialog&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;dialog-modal&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Uma mensagem qualquer para exibir na modal&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dialog&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se usar o código acima em uma página HTML, vai notar que o &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; estará aberto, porém a formatação do &lt;code&gt;::backdrop&lt;/code&gt; não estará aplicada. Isso acontece porque o atributo &lt;code&gt;open&lt;/code&gt; abre o diálogo de forma não modal, e o backdrop só existe em diálogos modais.&lt;/p&gt;
+&lt;p&gt;Dando uma fuçada no MDN, acabei encontrando essa nota de uso:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O pseudo-elemento CSS &lt;code&gt;::backdrop&lt;/code&gt; pode ser usado para estilizar o plano de fundo de um elemento &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt;, por exemplo, para escurecer o conteúdo inacessível enquanto uma janela de diálogo modal está aberta. Porém, o backdrop só é desenhado quando o diálogo é exibido com &lt;code&gt;HTMLDialogElement.showModal()&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Link: &lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements/dialog#notas_de_uso&quot;&gt;Notas de uso do &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; no MDN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ou seja, se precisar usar o atributo &lt;code&gt;open&lt;/code&gt; para manter o &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; aberto sem necessidade de JavaScript, vai perder o backdrop personalizado. Caso precise do backdrop personalizado com o &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; já aberto ao carregar a página, por exemplo, vai precisar usar o método &lt;code&gt;HTMLDialogElement.showModal()&lt;/code&gt; e remover o atributo &lt;code&gt;open&lt;/code&gt; da marcação.&lt;/p&gt;
+&lt;p&gt;Algo assim:&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text/css&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.dialog-modal::backdrop&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;0&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 0.65&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dialog&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;dialog-modal&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Uma mensagem qualquer para exibir na modal&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dialog&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; $dialog &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;.dialog-modal&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;$dialog&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      $dialog&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;showModal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Resumindo: ao usar &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt;, você enfrenta um &lt;em&gt;trade-off&lt;/em&gt; entre simplicidade e funcionalidade. O atributo &lt;code&gt;open&lt;/code&gt; oferece um diálogo sem JavaScript, mas perde o backdrop visual. O método &lt;code&gt;showModal()&lt;/code&gt; exige JS, mas traz a experiência completa. A escolha depende do seu caso de uso — se o backdrop é apenas estético, &lt;code&gt;open&lt;/code&gt; resolve; se é essencial para a usabilidade, &lt;code&gt;showModal()&lt;/code&gt; é o caminho.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+        <dc:creator>Tiago Celestino</dc:creator>
+        <guid>https://tcelestino.github.io/bloco-de-notas/2026/07/backdrop-nao-funciona-com-atributo-open-dialog/</guid>
+      </item>
+      <item>
         <title>DefinitelyTyped Search: uma extensão Raycast para instalar @types</title>
         <link>https://tcelestino.github.io/bloco-de-notas/2026/05/definitelytyped-search-extensao-raycast/</link>
         <description>&lt;p&gt;Depois de lançar minha &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2026/03/minha-primeira-extensao-raycast/&quot;&gt;primeira extensão&lt;/a&gt; para o &lt;a href=&quot;https://www.raycast.com/&quot;&gt;Raycast&lt;/a&gt;, decidi criar mais uma. Se você não conhece o Raycast, ele é um lançador de aplicativos para macOS e Windows que permite acessar rapidamente aplicativos, arquivos e outras funcionalidades do sistema. Ele também suporta extensões, o que permite aos desenvolvedores criar suas próprias funcionalidades personalizadas utilizando ReactJS com TypeScript.&lt;/p&gt;
@@ -26,7 +71,7 @@
 &lt;p&gt;A extensão está disponível para download na &lt;a href=&quot;https://www.raycast.com/tcelestino/definitelytyped&quot;&gt;Raycast Store&lt;/a&gt; e é compatível com macOS e Windows.&lt;/p&gt;
 &lt;p&gt;Se você é um desenvolvedor que trabalha com TypeScript e utiliza o Raycast para aumentar sua produtividade, acredito que essa extensão pode ser uma ferramenta útil para agilizar seu fluxo de trabalho. Sinta-se à vontade para experimentar e enviar &lt;em&gt;feedbacks&lt;/em&gt; ou &lt;a href=&quot;https://github.com/raycast/extensions/issues/new?body=%3C!--%0APlease%20update%20the%20title%20above%20to%20consisely%20describe%20the%20feature%20request%0A--%3E%0A%0A%23%23%23%20Extension%0A%0Ahttps://www.raycast.com/tcelestino/definitelytyped%0A%0A%23%23%23%20Description%0A%0A%3C!--%0A%20%20Describe%20the%20feature%20and%20the%20current%20behavior/state.%0A--%3E%0A%0A%23%23%23%20Who%20will%20benefit%20from%20this%20feature?%0A%0A%23%23%23%20Anything%20else?%0A%0A%3C!--%0A%20%20Links?%20References?%20Anything%20that%20will%20give%20us%20more%20context!%0A%0A%20%20Tip:%20You%20can%20attach%20images%20or%20log%20files%20by%20clicking%20this%20area%20to%20highlight%20it%20and%20then%20dragging%20files%20in.%0A--%3E%0A&amp;amp;title=%5BDefinitelyTyped%5D%20...&amp;amp;template=extension_feature_request.yml&amp;amp;labels=extension,feature+request&amp;amp;extension-url=https://www.raycast.com/tcelestino/definitelytyped&quot;&gt;sugestões de melhorias&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 08 May 2026 24:00:00 GMT</pubDate>
+        <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2026/05/definitelytyped-search-extensao-raycast/</guid>
       </item>
@@ -54,7 +99,7 @@
 &lt;p&gt;Fiquei de conversar com ele, até para ajudá-lo, porque vi que tem interesse genuíno no uso das ferramentas de IA. Inclusive, pensei em fazer uma permuta: ele me ensina a ajustar boxes de banheiro, eu ajudo-o a otimizar seu fluxo de trabalho, por que não?&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Nota: eu paguei pelo serviço&lt;/strong&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 23 Apr 2026 24:00:00 GMT</pubDate>
+        <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2026/04/ia-fora-da-bolha-tecnologia/</guid>
       </item>
@@ -91,7 +136,7 @@
 &lt;p&gt;Deixo aqui meus agradecimentos ao Rodrigo Ghedin, que apoiou a ideia e inclusive me disponibilizou a logo do Manual do Usuário para definir como ícone da extensão.&lt;/p&gt;
 &lt;p&gt;Já estou pensando em mais duas extensões que quero entregar ainda esse ano. É provável que venha um outro post sobre elas no futuro...&lt;/p&gt;
 </description>
-        <pubDate>Fri, 27 Mar 2026 24:00:00 GMT</pubDate>
+        <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2026/03/minha-primeira-extensao-raycast/</guid>
       </item>
@@ -107,7 +152,7 @@
 &lt;/ol&gt;
 &lt;p&gt;Se precisar abrir uma conta no futuro, desative a proteção seguindo os mesmos passos e desmarcando &amp;quot;Proteção ativada&amp;quot;.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 04 Mar 2026 24:00:00 GMT</pubDate>
+        <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2026/03/como-ativar-bc-protege/</guid>
       </item>
@@ -128,7 +173,7 @@
 &lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/pt-BR/firefox/addon/redirector/&quot;&gt;Redirector&lt;/a&gt;: uso para redirecionar automaticamente alguns sites para suas versões alternativas. Por exemplo, todo link do x.com é redirecionado para o nitter.net.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
-        <pubDate>Tue, 03 Feb 2026 24:00:00 GMT</pubDate>
+        <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2026/02/10-extensoes-firefox/</guid>
       </item>
@@ -176,7 +221,7 @@
 &lt;li&gt;&lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/&quot;&gt;2024&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Mon, 05 Jan 2026 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2026/01/meus-apps-essenciais-em-2025/</guid>
       </item>
@@ -294,7 +339,7 @@
 &lt;li&gt;&lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2024/12/retrospectiva-2024/&quot;&gt;2024&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Wed, 31 Dec 2025 24:00:00 GMT</pubDate>
+        <pubDate>Wed, 31 Dec 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/12/retrospectiva-2025/</guid>
       </item>
@@ -317,7 +362,7 @@
 &lt;li&gt;&lt;a href=&quot;https://www.omgubuntu.co.uk/2025/12/enable-firefox-split-view-feature&quot;&gt;OMG! Ubuntu! - Firefox is Adding Split View for Tabs, Here’s How to Enable It&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Wed, 24 Dec 2025 24:00:00 GMT</pubDate>
+        <pubDate>Wed, 24 Dec 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/12/firefox-splitview/</guid>
       </item>
@@ -357,7 +402,7 @@
 &lt;h2&gt;Conclusão&lt;/h2&gt;
 &lt;p&gt;De maneira simples, conseguimos depreciar um método/função utilizando uma API oficial do Node.js sem a necessidade de usar bibliotecas externas. O mais interessante é que é possível fazer esse tipo de abordagem há &lt;a href=&quot;https://nodejs.org/docs/latest-v4.x/api/util.html#util_util_deprecate_function_string&quot;&gt;muito tempo&lt;/a&gt;. Vale lembrar que a API &lt;code&gt;util.deprecate&lt;/code&gt; é uma funcionalidade oficial do Node.js, não do JavaScript.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 04 Dec 2025 24:00:00 GMT</pubDate>
+        <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/12/como-depreciar-funcoes-metodos-no-nodejs/</guid>
       </item>
@@ -414,7 +459,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;h2&gt;Testando&lt;/h2&gt;
 &lt;p&gt;Pronto. Inicie seu blog e acesse &lt;code&gt;http://localhost:8080/feed.xml&lt;/code&gt; para verificar se o feed RSS foi gerado corretamente.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 19 Nov 2025 24:00:00 GMT</pubDate>
+        <pubDate>Wed, 19 Nov 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/11/habilitando-rss-11yt/</guid>
       </item>
@@ -494,7 +539,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;/table&gt;
 &lt;p&gt;Referência: &lt;a href=&quot;https://flamedfury.com/posts/disable-ai-in-firefox/&quot;&gt;Disable AI In Firefox&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 30 Oct 2025 24:00:00 GMT</pubDate>
+        <pubDate>Thu, 30 Oct 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/disabilitando-ai-no-firefox/</guid>
       </item>
@@ -505,7 +550,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;p&gt;A ideia é ir adicionando as atualizações tendo como base a estrutura de &amp;quot;&lt;a href=&quot;https://keepachangelog.com/pt-BR/1.1.0/&quot;&gt;CHANGELOG&lt;/a&gt;&amp;quot;, no qual cada atualização pode ser considerada um &lt;em&gt;release&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Se tiver interesse, acompanhe as atualizações na página &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/updates&quot;&gt;updates&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 22 Oct 2025 24:00:00 GMT</pubDate>
+        <pubDate>Wed, 22 Oct 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/changelog/</guid>
       </item>
@@ -530,7 +575,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;p&gt;São blogs que gosto de seguir e que vão me ajudar a criar meu próprio layout.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Agora é ver até onde vou conseguir chegar!&lt;/strong&gt; 🤞&lt;/p&gt;
 </description>
-        <pubDate>Mon, 20 Oct 2025 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 20 Oct 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/10/um-novo-comeco/</guid>
       </item>
@@ -554,7 +599,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;p&gt;Com o &lt;code&gt;--dry-run&lt;/code&gt; você pode ver quais arquivos serão publicados, mas não é gerado o arquivo &lt;code&gt;.tgz&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Simples, não!?&lt;/p&gt;
 </description>
-        <pubDate>Fri, 30 May 2025 24:00:00 GMT</pubDate>
+        <pubDate>Fri, 30 May 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/05/npm-pack/</guid>
       </item>
@@ -682,7 +727,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h2&gt;Conclusão&lt;/h2&gt;
 &lt;p&gt;Como a versatilidade do JavaScript, conseguimos ter várias diversas maneiras para remover propriedades de um objeto. A escolha da abordagem vai depender do caso de uso e do que o seu projeto precisa Usar o &lt;code&gt;delete&lt;/code&gt; é o mais comum e mais fácil de entender, mas as outras abordagens também são úteis em diferentes situações e que traz impactos positivos para a performance das suas aplicações.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 29 Apr 2025 24:00:00 GMT</pubDate>
+        <pubDate>Tue, 29 Apr 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/04/como-remover-propriedades-objeto-js/</guid>
       </item>
@@ -728,7 +773,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;&lt;a href=&quot;https://desenvolvimentoparaweb.com/css/textos-responsivos-com-css-clamp/&quot;&gt;Desenvolvimento para Web - Textos responsivos com CSS clamp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Thu, 06 Mar 2025 24:00:00 GMT</pubDate>
+        <pubDate>Thu, 06 Mar 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/03/criando-textos-responsivos-sem-media-queries/</guid>
       </item>
@@ -748,7 +793,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Mesmo com a obsolescência dos framesets com o surgimento do HTML5, esses valores especiais foram preservados na especificação. Hoje, quando usamos &lt;code&gt;target=&amp;quot;_blank&amp;quot;&lt;/code&gt;, continuamos aproveitando essa convenção estabelecida há décadas, mas com propósitos modernos de navegação.&lt;/p&gt;
 &lt;p&gt;Simples, porém eficiente, não é mesmo!? 😎&lt;/p&gt;
 </description>
-        <pubDate>Tue, 25 Feb 2025 24:00:00 GMT</pubDate>
+        <pubDate>Tue, 25 Feb 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/02/voce-sabe-por-que-usamos-o-underscore-no-target-blank/</guid>
       </item>
@@ -785,7 +830,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;/ul&gt;
 &lt;p&gt;O ponto principal é adaptar as configurações às suas necessidades específicas enquanto mantém a capacidade de replicar seu ambiente em qualquer computador rapidamente.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 24 Feb 2025 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 24 Feb 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/02/dotfiles/</guid>
       </item>
@@ -837,7 +882,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Por ser algo simples de implementar, a Web Share API pode trazer bons ganhos na experiência de usuário, principalmente por não haver interferência de terceiros e por proporcionar maior controle das ações realizadas pelo usuário em seu site.&lt;/p&gt;
 &lt;p&gt;Ter uma solução nativa integrada com os sistemas operacionais, sem dúvidas, trará uma experiência mais fluida para os usuários, além de garantir a autonomia do funcionamento de todo o seu site.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 31 Jan 2025 24:00:00 GMT</pubDate>
+        <pubDate>Fri, 31 Jan 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/01/web-share-api/</guid>
       </item>
@@ -943,7 +988,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Além disso, ao pedir feedbacks logo após as entrevistas só confirmou o quanto é importante se ter um feedback assertivo no frescor da situação, o que influencia muito na melhoria de desempenho para as próximas entrevistas.&lt;/p&gt;
 &lt;p&gt;Se você está buscando novas oportunidades no momento, recomendo tentar algum tipo de registro. Começando com algo mais básico, como registrando os benefícios e ou incrementar com a suas necessidades. Eu fiz no Notion, mas em uma planilha também pode ser bem útil. Certeza que isso vai te ajudar a entender quais as melhores oportunidades farão sentido para você.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 06 Jan 2025 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 06 Jan 2025 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2025/01/mapeando-minhas-entrevistas-pos-demissao/</guid>
       </item>
@@ -1051,7 +1096,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;Show despedida do Sepultura.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Mon, 30 Dec 2024 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2024/12/retrospectiva-2024/</guid>
       </item>
@@ -1071,7 +1116,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;É importante mencionar que, embora os desenvolvedores possam criar suas próprias implementações para gerenciar o modo tela cheia, muitos optam por utilizar a API nativa do macOS.&lt;/p&gt;
 &lt;p&gt;Assim como esse &lt;a href=&quot;https://www.reddit.com/r/osx/comments/ctqaa4/comment/kw4epf7&quot;&gt;comentário&lt;/a&gt; no reddit, seria interessante se a Apple considerasse olhar para este comportamento do sistema.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 20 Dec 2024 24:00:00 GMT</pubDate>
+        <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2024/12/otimize-modo-tela-cheia-firefox-macos/</guid>
       </item>
@@ -1106,7 +1151,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;👨‍💻 &lt;strong&gt;Git:&lt;/strong&gt; &lt;a href=&quot;https://github.com/mobile&quot;&gt;Github Mobile&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Tue, 03 Dec 2024 24:00:00 GMT</pubDate>
+        <pubDate>Tue, 03 Dec 2024 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/</guid>
       </item>
@@ -1132,7 +1177,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Se você se encontra na incerteza quanto à sua carreira, sentindo que nada está acontecendo como planejado, ou buscando &amp;quot;coragem&amp;quot; para se desafiar em outra profissão/empresa, &amp;quot;&lt;a href=&quot;https://www.amazon.com.br/Seja-ego%C3%ADsta-com-sua-carreira/dp/6588523343&quot;&gt;&lt;strong&gt;Seja egoísta com sua carreira&lt;/strong&gt;&lt;/a&gt;&amp;quot; é um ótimo livro para dar o pontapé inicial. Por experiência própria, posso dizer que a leitura do livro proporcionará mais tranquilidade e, ao mesmo tempo, incentivará você a ser mais ambicioso com sua carreira. Você ganhará coragem para questionar nas entrevistas, para &amp;quot;se jogar&amp;quot; em oportunidades desejadas mesmo sem anos de experiência e, principalmente, para não tomar decisões baseadas na ansiedade do momento.&lt;/p&gt;
 &lt;p&gt;Recomendo fortemente para quem deseja sair da zona de conforto e começar a enxergar sua carreira sob uma nova perspectiva.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 18 Nov 2024 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 18 Nov 2024 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2024/11/seja-egoista-com-sua-carreira/</guid>
       </item>
@@ -1172,7 +1217,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;&lt;a href=&quot;https://blog.stackblitz.com/posts/viteconf-2024-recap/&quot;&gt;https://blog.stackblitz.com/posts/viteconf-2024-recap/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Wed, 30 Oct 2024 24:00:00 GMT</pubDate>
+        <pubDate>Wed, 30 Oct 2024 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2024/10/github-copilot-workspace/</guid>
       </item>
@@ -1208,7 +1253,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Como todo &amp;quot;guru de investimentos&amp;quot; costuma dizer: faça sua reserva de emergência. Independentemente do valor que consiga adicionar mensalmente, crie o hábito de guardar dinheiro. No futuro, se enfrentar uma demissão, você se sentirá mais tranquilo por um período, pelo menos.&lt;/p&gt;
 &lt;p&gt;Quanto ao meu futuro, continuo participando de processos seletivos. Agora posso ser mais seletivo com as oportunidades, focando em empresas nas quais acredito, não apenas naquelas que oferecem um salário x ou y. Em breve, espero estar de volta ao mercado e torço para que todos os afetados na antiga empresa também encontrem novos desafios. Até lá, vou continuar colocando a leitura em dia, assistindo a séries e filmes, fazendo cursos e aproveitando meus dias de desempregado.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 17 Oct 2024 24:00:00 GMT</pubDate>
+        <pubDate>Thu, 17 Oct 2024 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2024/10/um-mes-desempregado/</guid>
       </item>
@@ -1217,7 +1262,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <link>https://tcelestino.github.io/bloco-de-notas/2022/02/state-of-js-2021/</link>
         <description>&lt;p&gt;Depois do &lt;a href=&quot;https://tcelestino.github.io/bloco-de-notas/2022/01/state-of-css-2021/&quot;&gt;State of CSS 2021&lt;/a&gt;, temos agora o &lt;a href=&quot;https://2021.stateofjs.com/&quot;&gt;States of JS 2021&lt;/a&gt;. Se você é interessado em entender quais foram as ferramentas, bibliotecas baseadas no Javascript mais populares no ano de 2021, vai querer conferir &lt;a href=&quot;https://2021.stateofjs.com/&quot;&gt;conferir&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 21 Feb 2022 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 21 Feb 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/02/state-of-js-2021/</guid>
       </item>
@@ -1227,7 +1272,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <description>&lt;p&gt;Se você utiliza o &lt;a href=&quot;https://nextjs.org&quot;&gt;Next.js&lt;/a&gt; em seus projetos pessoais, ou no trabalho, vale a pena responder a &lt;a href=&quot;https://docs.google.com/forms/d/e/1FAIpQLSeRWegF1xgt_mKkxQGSHZPyegADsMY0YhJSY61WYi_xgQfi3g/viewform&quot;&gt;pesquisa&lt;/a&gt; realizada pelo o time da &lt;a href=&quot;https://vercel.com&quot;&gt;Vercel&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Não vai levar mais de 5 minutos!&lt;/p&gt;
 </description>
-        <pubDate>Sat, 19 Feb 2022 24:00:00 GMT</pubDate>
+        <pubDate>Sat, 19 Feb 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/02/nextjs-developer-survey/</guid>
       </item>
@@ -1236,7 +1281,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <link>https://tcelestino.github.io/bloco-de-notas/2022/02/a-historia-do-reactjs/</link>
         <description>&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/Wm_xI7KntDs&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sat, 12 Feb 2022 24:00:00 GMT</pubDate>
+        <pubDate>Sat, 12 Feb 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/02/a-historia-do-reactjs/</guid>
       </item>
@@ -1282,7 +1327,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Como você deve ter notado, também será possível usar informações privadas de uma classe utilizando o operador &lt;code&gt;#&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Fonte: &lt;a href=&quot;https://bytes.dev/archives/83&quot;&gt;bytes.dev&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 25 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Tue, 25 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/novidades-javascript-2022/</guid>
       </item>
@@ -1324,7 +1369,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Tue, 18 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Tue, 18 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/configurar-porta-nextjs/</guid>
       </item>
@@ -1356,7 +1401,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;usar ferramentas compatíveis com browsers, lembrando sempre do cross-browser;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Mon, 17 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 17 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/definicao-frontend/</guid>
       </item>
@@ -1443,7 +1488,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
-        <pubDate>Sat, 15 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Sat, 15 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/newsletters-ti-desenvolvimento/</guid>
       </item>
@@ -1453,7 +1498,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <description>&lt;p&gt;Confira o que foi tendência em 2021 no mundo do desenvolvimento frontend, Node.js, React, Vue, entre outros.&lt;/p&gt;
 &lt;p&gt;Confira na edição &amp;quot;&lt;a href=&quot;https://risingstars.js.org/2021/en&quot;&gt;2021 Javascript Rising Stars&lt;/a&gt;&amp;quot;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 10 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 10 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/as-tendencias-de-2021/</guid>
       </item>
@@ -1469,7 +1514,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;blockquote&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;NPM has reverted to a previous version of the faker.js package and Github has suspended my access to all public and private projects. I have 100s of projects. &lt;a href=&quot;https://twitter.com/hashtag/AaronSwartz?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#AaronSwartz&lt;/a&gt; &lt;a href=&quot;https://t.co/zFddwn631S&quot;&gt;pic.twitter.com/zFddwn631S&lt;/a&gt;&lt;/p&gt;&amp;mdash; marak 🗿 (@marak) &lt;a href=&quot;https://twitter.com/marak/status/1479200803948830724?ref_src=twsrc%5Etfw&quot;&gt;January 6, 2022&lt;/a&gt;&lt;/blockquote&gt;
 &lt;p&gt;Acompanhando os próximos capítulos dessa história.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 07 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Fri, 07 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/fakerjs-encerrado-por-seu-criador/</guid>
       </item>
@@ -1479,7 +1524,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         <description>&lt;p&gt;É notável que o CSS vem evoluindo de forma bem considerável durante esses anos, e olhando o resultado da pesquisa &lt;a href=&quot;https://2021.stateofcss.com&quot;&gt;State of CSS 2021&lt;/a&gt;, fica nítido a quantidade de recursos existentes que conseguem resolver problemas que antes eram resolvidos por Javascript.&lt;/p&gt;
 &lt;p&gt;Vale a &lt;a href=&quot;https://2021.stateofcss.com&quot;&gt;conferida&lt;/a&gt;!&lt;/p&gt;
 </description>
-        <pubDate>Mon, 03 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Mon, 03 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/state-of-css-2021/</guid>
       </item>
@@ -1490,7 +1535,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Nesse &lt;strong&gt;Blocos de Notas&lt;/strong&gt;, vou anotar irei aprender durante o ano, seja conhecimento técnico ou não.&lt;/p&gt;
 &lt;p&gt;Ao longo do tempo, farei ajustes por aqui para deixar com minha &amp;quot;cara&amp;quot;.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 01 Jan 2022 24:00:00 GMT</pubDate>
+        <pubDate>Sat, 01 Jan 2022 00:00:00 GMT</pubDate>
         <dc:creator>Tiago Celestino</dc:creator>
         <guid>https://tcelestino.github.io/bloco-de-notas/2022/01/iniciando/</guid>
       </item>
