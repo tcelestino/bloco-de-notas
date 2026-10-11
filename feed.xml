@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bloco de Notas por Tiago Celestino</title>
+    <link>https://blog.tcelestino.dev.br/</link>
+    <atom:link href="https://tcelestino.github.io/bloco-de-notas/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Este feed foi movido para https://blog.tcelestino.dev.br/feed.xml</description>
+    <language>pt-BR</language>
+    <item>
+      <title>O Bloco de Notas mudou de endereço</title>
+      <link>https://blog.tcelestino.dev.br/</link>
+      <description>O blog agora fica em https://blog.tcelestino.dev.br/. Atualize sua assinatura para https://blog.tcelestino.dev.br/feed.xml.</description>
+      <pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+      <guid isPermaLink="false">mudanca-de-endereco-2026-10-11</guid>
+    </item>
+  </channel>
+</rss>

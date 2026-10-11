@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bloco de Notas mudou de endereço</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://blog.tcelestino.dev.br/" />
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=https://blog.tcelestino.dev.br/" />
+    </noscript>
+    <script>
+      var base = '/bloco-de-notas';
+      var path = location.pathname;
+      if (path === base || path.indexOf(base + '/') === 0) {
+        path = path.slice(base.length);
+      }
+      location.replace('https://blog.tcelestino.dev.br' + (path || '/') + location.search + location.hash);
+    </script>
+  </head>
+  <body>
+    <p>
+      O Bloco de Notas mudou de endereço. Se você não for redirecionado, acesse
+      <a href="https://blog.tcelestino.dev.br/">blog.tcelestino.dev.br</a>.
+    </p>
+  </body>
+</html>
