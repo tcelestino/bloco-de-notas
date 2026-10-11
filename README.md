@@ -52,6 +52,10 @@ yarn run build
 yarn run clean
 ```
 
+## Deploy
+
+O deploy em produção roda a cada push na `main` (`.github/workflows/build.yml`). Cada Pull Request recebe uma URL de preview no Cloudflare, comentada no próprio PR (`.github/workflows/preview.yml`).
+
 ## Licença
 
 [MIT](/LICENSE)
