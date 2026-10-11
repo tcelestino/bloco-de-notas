@@ -12,7 +12,7 @@
   --gutter: clamp(1rem, 5vw, 2rem);
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #161616;
     --fg: #f4f4f4;
     --muted: #a8a8a8;
@@ -20,6 +20,18 @@
     --accent: #b9a5f0;
     --code-bg: #232323;
   }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #161616;
+  --fg: #f4f4f4;
+  --muted: #a8a8a8;
+  --line: #3d3d3d;
+  --accent: #b9a5f0;
+  --code-bg: #232323;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 *,
@@ -73,7 +85,8 @@ a {
 a:hover {
   text-decoration-color: currentColor;
 }
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
@@ -134,11 +147,22 @@ main.wrap {
   color: var(--muted);
   text-decoration: none;
 }
+.site-nav button {
+  padding: 0.6rem 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
 .site-nav a:hover,
-.site-nav a[aria-current='page'] {
+.site-nav button:hover,
+.site-nav a[aria-current='page'],
+.site-nav button[aria-pressed='true'] {
   color: var(--fg);
 }
-.site-nav a[aria-current='page'] {
+.site-nav a[aria-current='page'],
+.site-nav button[aria-pressed='true'] {
   text-decoration: underline;
   text-underline-offset: 0.35em;
 }

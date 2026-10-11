@@ -11,14 +11,20 @@ function parseVars(block) {
   return vars;
 }
 
-// Le o bloco :root claro e o bloco :root dentro de @media (prefers-color-scheme: dark).
+// Le o :root claro, o bloco escuro por preferencia do sistema
+// (:root:not([data-theme='light']) dentro de @media) e o escuro forcado
+// pelo usuario (:root[data-theme='dark']).
 function readTokens(file) {
   const css = fs.readFileSync(path.join(cssDir, file), 'utf8');
-  const dark = css.match(/prefers-color-scheme:\s*dark\)\s*\{\s*:root\s*\{([^}]*)\}/);
+  const dark = css.match(
+    /prefers-color-scheme:\s*dark\)\s*\{\s*:root:not\(\[data-theme='light'\]\)\s*\{([^}]*)\}/
+  );
+  const forcedDark = css.match(/:root\[data-theme='dark'\]\s*\{([^}]*)\}/);
   const light = css.match(/(?:^|\})\s*:root\s*\{([^}]*)\}/);
   if (!light) throw new Error(`Bloco :root claro nao encontrado em ${file}`);
-  if (!dark) throw new Error(`Bloco :root escuro nao encontrado em ${file}`);
-  return { light: parseVars(light[1]), dark: parseVars(dark[1]) };
+  if (!dark) throw new Error(`Bloco escuro (sistema) nao encontrado em ${file}`);
+  if (!forcedDark) throw new Error(`Bloco :root[data-theme='dark'] nao encontrado em ${file}`);
+  return { light: parseVars(light[1]), dark: parseVars(dark[1]), forcedDark: parseVars(forcedDark[1]) };
 }
 
 function luminance(hex) {

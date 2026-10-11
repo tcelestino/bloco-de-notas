@@ -98,6 +98,7 @@ Note: Updates use a simpler structure without title, summary, or tags.
 ### Assets
 
 - CSS: `src/assets/css/` (`main.css`: tokens, base, layout, header, footer and post lists; `post.css`: long-form text via `.prose`; `syntax-highlighting.css`). Light/dark tokens live in `:root` (dark via `prefers-color-scheme`); no `@import`
+- Theme toggle: button `#theme-toggle` in the header; `src/_includes/theme.js` (inlined in `<head>`) stores the choice in `localStorage` and sets `data-theme` on `<html>`. Dark tokens are defined twice (system preference via `:root:not([data-theme='light'])` and forced via `:root[data-theme='dark']`); tests keep both in sync
 - Font: IBM Plex Sans loaded from Google Fonts in `default.njk` (no font files in the repo)
 - Post row partial: `src/_includes/post-row.njk`
 - Images: `src/assets/images/` and `src/posts/images/`

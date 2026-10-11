@@ -6,13 +6,20 @@
   --tok-func: #1f5fa8;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --tok-comment: #9a9a9a;
     --tok-keyword: #e08ac4;
     --tok-string: #8fd19e;
     --tok-number: #f0a35c;
     --tok-func: #8ab4f8;
   }
+}
+:root[data-theme='dark'] {
+  --tok-comment: #9a9a9a;
+  --tok-keyword: #e08ac4;
+  --tok-string: #8fd19e;
+  --tok-number: #f0a35c;
+  --tok-func: #8ab4f8;
 }
 
 pre[class*='language-'],

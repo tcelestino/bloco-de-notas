@@ -90,3 +90,10 @@ test('links dentro de .intro e rodape tem sublinhado visivel', () => {
   const css = fs.readFileSync(path.join(__dirname, '..', 'src', 'assets', 'css', 'main.css'), 'utf8');
   assert.match(css, /\.intro a,\s*\.site-footer p a\s*\{[^}]*text-decoration-color:\s*currentColor/);
 });
+
+test('botao de tema: escondido ate o JS rodar, com aria-pressed e script antes do CSS', () => {
+  const html = read(dir, 'index.html');
+  assert.match(html, /<li hidden><button type="button" id="theme-toggle" aria-pressed="false">Modo escuro<\/button><\/li>/);
+  const script = html.indexOf('<script>');
+  assert.ok(script > -1 && script < html.indexOf('rel="stylesheet"'), 'script de tema deve vir antes do CSS (evita flash)');
+});

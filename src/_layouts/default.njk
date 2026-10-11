@@ -29,6 +29,7 @@
     <meta name="twitter:description" content="{{ summary or site.description }}" />
     <meta name="twitter:image" content="{{ site.url }}assets/images/og-default.png" />
 
+    <script>{% include "theme.js" %}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap" />
@@ -51,6 +52,7 @@
           {%- for item in collections.navLinks.pages %}
             <li><a href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
           {%- endfor %}
+          <li hidden><button type="button" id="theme-toggle" aria-pressed="false">Modo escuro</button></li>
         </ul>
       </nav>
     </header>
