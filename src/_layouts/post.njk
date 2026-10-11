@@ -2,11 +2,9 @@
 layout: default
 ---
 
-<article class="content__post">
+<article class="prose">
   <header>
-   <time datetime="{{ page.date }}">
-      {{ page.date | readableDate }}
-    </time>
+    <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
     <h1>{{ title }}</h1>
   </header>
   {{ content | safe }}

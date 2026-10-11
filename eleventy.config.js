@@ -22,6 +22,11 @@ module.exports = (config) => {
 
   config.addLiquidFilter('dateToRfc822', feedPlugin.dateToRfc822);
 
+  const preTabindex = require('./lib/transforms/pre-tabindex');
+  config.addTransform('pre-tabindex', function (content) {
+    return this.page.outputPath && this.page.outputPath.endsWith('.html') ? preTabindex(content) : content;
+  });
+
   config.addPlugin(syntaxHighlight);
   config.addPlugin(feedPlugin);
 
