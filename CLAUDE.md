@@ -40,7 +40,8 @@ The main configuration is in `eleventy.config.js`:
 
 Collections are defined in `lib/collections/`:
 
-- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 6 most recent posts
+- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 10 most recent posts
+- `postsByYear.js`: Posts grouped by year (`[{ year, posts }]`), newest first, used by the all-posts page
 - `updates.js`: Aggregates all updates/changelog posts from `src/updates/**/*.md`, reversed chronologically
 - `nav-links.js`: Social media links (Github, LinkedIn, Bluesky)
 
@@ -49,6 +50,9 @@ Collections are defined in `lib/collections/`:
 Custom filters in `lib/filters/`:
 
 - `readableDate`: Converts dates to Brazilian Portuguese format (e.g., "20 de outubro de 2025")
+- `isoDate`: Converts dates to `YYYY-MM-DD` for `<time datetime>`
+
+A transform in `lib/transforms/pre-tabindex.js` adds `tabindex="0"` to `<pre>` so scrollable code blocks are keyboard accessible.
 
 ### Layouts
 
@@ -93,7 +97,9 @@ Note: Updates use a simpler structure without title, summary, or tags.
 
 ### Assets
 
-- CSS: `src/assets/css/` (includes `main.css`, `syntax-highlighting.css`, `var.css`, `theme.css`, `utils.css` and `header.css`)
+- CSS: `src/assets/css/` (`main.css`: tokens, base, layout, header, footer and post lists; `post.css`: long-form text via `.prose`; `syntax-highlighting.css`). Light/dark tokens live in `:root` (dark via `prefers-color-scheme`); no `@import`
+- Font: IBM Plex Sans loaded from Google Fonts in `default.njk` (no font files in the repo)
+- Post row partial: `src/_includes/post-row.njk`
 - Images: `src/assets/images/` and `src/posts/images/`
 
 Assets are copied through passthrough:
