@@ -5,8 +5,10 @@ layout: default
 <p class="intro">Acompanhe as atualizações do <strong>Bloco de Notas</strong>, de layout ou de novas funcionalidades.</p>
 
 {%- for update in collections.updates %}
-  <article class="prose">
+  <section>
     <h2 class="section-title"><time datetime="{{ update.date | isoDate }}">{{ update.date | readableDate }}</time></h2>
-    {{ update.content | safe }}
-  </article>
+    <div class="prose">
+      {{ update.content | safe }}
+    </div>
+  </section>
 {%- endfor %}

@@ -62,3 +62,31 @@ test('posts.html agrupa por ano com h2 em ordem decrescente', () => {
   assert.ok(years.length >= 2);
   assert.deepEqual(years, [...years].sort((a, b) => b - a));
 });
+
+test('titulo com <dialog> fica escapado nas listas de posts', () => {
+  for (const file of ['index.html', 'posts.html']) {
+    const html = read(dir, file);
+    assert.doesNotMatch(html, /<dialog/, file);
+    assert.match(html, /open do &lt;dialog&gt;<\/a>/, file);
+  }
+});
+
+test('updates nao geram paginas individuais (sem h1 vazio)', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const entries = fs.readdirSync(path.join(dir, 'updates'));
+  assert.deepEqual(entries, ['index.html']);
+});
+
+test('data do changelog fora do escopo .prose e sem h2 dentro dele', () => {
+  const html = read(dir, 'updates/index.html');
+  assert.doesNotMatch(html, /<article class="prose">\s*<h2/);
+  assert.match(html, /<h2 class="section-title"><time/);
+});
+
+test('links dentro de .intro e rodape tem sublinhado visivel', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const css = fs.readFileSync(path.join(__dirname, '..', 'src', 'assets', 'css', 'main.css'), 'utf8');
+  assert.match(css, /\.intro a,\s*\.site-footer p a\s*\{[^}]*text-decoration-color:\s*currentColor/);
+});
