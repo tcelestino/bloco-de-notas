@@ -1,4 +1,4 @@
-name: Build Eleventy
+name: Build and Deploy
 
 on:
   push:
@@ -6,25 +6,28 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: gh-pages
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
