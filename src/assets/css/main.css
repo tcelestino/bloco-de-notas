@@ -159,10 +159,10 @@ main.wrap {
   color: var(--muted);
   cursor: pointer;
 }
-#theme-toggle[aria-pressed='false'] .icon-sun {
+#theme-toggle[data-mode='light'] .icon-sun {
   display: none;
 }
-#theme-toggle[aria-pressed='true'] .icon-moon {
+#theme-toggle[data-mode='dark'] .icon-moon {
   display: none;
 }
 .site-nav a:hover,

@@ -14,6 +14,7 @@ function run({ stored, systemDark = false, storageThrows = false, noButton = fal
   const item = { hidden: true };
   const button = {
     parentElement: item,
+    dataset: {},
     handlers: {},
     setAttribute: (k, v) => (attrs[k] = v),
     addEventListener(ev, fn) {
@@ -59,7 +60,9 @@ test('botao aparece so quando o script roda e reflete o tema do sistema', () => 
   assert.equal(env.item.hidden, true);
   env.ready();
   assert.equal(env.item.hidden, false);
-  assert.equal(env.attrs['aria-pressed'], 'true');
+  assert.equal(env.button.dataset.mode, 'dark');
+  assert.equal(env.attrs['aria-label'], 'Ativar modo claro');
+  assert.equal(env.attrs.title, 'Ativar modo claro');
 });
 
 test('clicar alterna do escuro do sistema para claro e salva', () => {
@@ -68,7 +71,9 @@ test('clicar alterna do escuro do sistema para claro e salva', () => {
   env.button.handlers.click();
   assert.equal(env.root.dataset.theme, 'light');
   assert.equal(env.store.theme, 'light');
-  assert.equal(env.attrs['aria-pressed'], 'false');
+  assert.equal(env.button.dataset.mode, 'light');
+  assert.equal(env.attrs['aria-label'], 'Ativar modo escuro');
+  assert.equal(env.attrs.title, 'Ativar modo escuro');
 });
 
 test('clicar alterna do claro para escuro e de volta', () => {
@@ -76,7 +81,8 @@ test('clicar alterna do claro para escuro e de volta', () => {
   env.ready();
   env.button.handlers.click();
   assert.equal(env.root.dataset.theme, 'dark');
-  assert.equal(env.attrs['aria-pressed'], 'true');
+  assert.equal(env.button.dataset.mode, 'dark');
+  assert.equal(env.attrs.title, 'Ativar modo claro');
   env.button.handlers.click();
   assert.equal(env.root.dataset.theme, 'light');
 });

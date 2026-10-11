@@ -30,8 +30,13 @@
     var button = document.getElementById('theme-toggle');
     if (!button) return;
 
+    // O rotulo descreve a acao do clique; o title mostra a mesma dica ao passar o mouse.
     function sync() {
-      button.setAttribute('aria-pressed', String(effective() === 'dark'));
+      var dark = effective() === 'dark';
+      var label = dark ? 'Ativar modo claro' : 'Ativar modo escuro';
+      button.dataset.mode = dark ? 'dark' : 'light';
+      button.setAttribute('aria-label', label);
+      button.setAttribute('title', label);
     }
 
     button.parentElement.hidden = false;

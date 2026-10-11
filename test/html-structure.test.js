@@ -97,11 +97,13 @@ test('botao de tema: icones, nome acessivel, escondido ate o JS rodar e script a
   assert.ok(item, 'botao dentro de <li hidden>');
   const button = item[1];
   assert.match(button, /type="button"/);
-  assert.match(button, /aria-pressed="false"/);
-  assert.match(button, /aria-label="Modo escuro"/);
+  assert.match(button, /data-mode="light"/);
+  assert.match(button, /aria-label="Ativar modo escuro"/);
+  assert.match(button, /title="Ativar modo escuro"/);
+  assert.doesNotMatch(button, /aria-pressed/);
   assert.match(button, /class="icon icon-moon"[^>]*aria-hidden="true"/);
   assert.match(button, /class="icon icon-sun"[^>]*aria-hidden="true"/);
-  assert.doesNotMatch(button.replace(/<svg[\s\S]*?<\/svg>/g, ''), />\s*Modo escuro\s*</, 'sem texto visivel');
+  assert.doesNotMatch(button.replace(/<svg[\s\S]*?<\/svg>/g, ''), />\s*\S[^<]*</, 'sem texto visivel');
   const script = html.indexOf('<script>');
   assert.ok(script > -1 && script < html.indexOf('rel="stylesheet"'), 'script de tema deve vir antes do CSS (evita flash)');
 });
@@ -110,6 +112,6 @@ test('css mostra so o icone do estado atual do botao de tema', () => {
   const fs = require('node:fs');
   const path = require('node:path');
   const css = fs.readFileSync(path.join(__dirname, '..', 'src', 'assets', 'css', 'main.css'), 'utf8');
-  assert.match(css, /#theme-toggle\[aria-pressed='false'\] \.icon-sun\s*\{[^}]*display:\s*none/);
-  assert.match(css, /#theme-toggle\[aria-pressed='true'\] \.icon-moon\s*\{[^}]*display:\s*none/);
+  assert.match(css, /#theme-toggle\[data-mode='light'\] \.icon-sun\s*\{[^}]*display:\s*none/);
+  assert.match(css, /#theme-toggle\[data-mode='dark'\] \.icon-moon\s*\{[^}]*display:\s*none/);
 });
