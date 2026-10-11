@@ -2,7 +2,7 @@
 
 Blog pessoal sobre desenvolvimento web, JavaScript, CSS e carreira, baseado no Eleventy (11ty).
 
-**Link: https://tcelestino.github.io/bloco-de-notas/**
+**Link: https://blog.tcelestino.dev.br/**
 
 ## Sobre o Projeto
 
@@ -45,7 +45,7 @@ yarn run dev
 # Servidor de desenvolvimento (alternativa sem debug)
 yarn start
 
-# Build de produção para GitHub Pages
+# Build de produção (deploy no Cloudflare via GitHub Actions)
 yarn run build
 
 # Limpar diretório de output

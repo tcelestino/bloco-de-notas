@@ -4,3 +4,5 @@ _site
 
 posts/draft
 .vscode/
+.wrangler/
+docs/superpowers/

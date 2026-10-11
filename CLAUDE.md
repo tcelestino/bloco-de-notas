@@ -16,13 +16,13 @@ yarn run dev          # Cleans output, runs with DEBUG flag and watch mode
 yarn start            # Basic serve with watch mode, no debug output
 
 # Production build
-yarn run build        # Cleans, builds with pathprefix for GitHub Pages deployment
+yarn run build        # Cleans and builds for Cloudflare deployment
 
 # Clean output directory
 yarn run clean        # Removes _site folder
 ```
 
-Note: `yarn run dev` enables Eleventy debug output. `yarn run build` uses npm internally and adds the `bloco-de-notas` path prefix for GitHub Pages.
+Note: `yarn run dev` enables Eleventy debug output. `yarn run build` uses npm internally; the site is served from the root of `blog.tcelestino.dev.br` (no path prefix).
 
 ## Architecture
 
@@ -108,7 +108,7 @@ Assets are copied through passthrough:
 
 ## Important Notes
 
-- The blog is deployed to GitHub Pages with the path prefix `bloco-de-notas`
+- The blog is deployed to Cloudflare (Workers static assets) at `https://blog.tcelestino.dev.br/` via GitHub Actions on push to `main`
 - All content is in Brazilian Portuguese (pt-BR)
 - The design philosophy is minimalist - avoid adding CSS frameworks or complex styling
 - Keep performance as a priority (goal is to rank on 11ty's Speedlify performance leaderboard)

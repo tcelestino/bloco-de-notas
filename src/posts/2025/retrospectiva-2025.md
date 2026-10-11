@@ -101,4 +101,4 @@ Algumas metas que resolvi anotar esse ano:
 
 ## Leia outras retrospectivas:
 
-- [2024](https://tcelestino.github.io/bloco-de-notas/2024/12/retrospectiva-2024/)
+- [2024](https://blog.tcelestino.dev.br/2024/12/retrospectiva-2024/)

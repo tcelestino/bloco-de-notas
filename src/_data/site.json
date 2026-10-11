@@ -2,10 +2,10 @@
   "title": "Bloco de Notas por Tiago Celestino",
   "description": "Meu blog pessoal para anotações cotidianas.",
   "keywords": ["blog", "tecnologia", "pessoal", "desenvolvimento de software", "programação"],
-  "url": "https://tcelestino.github.io/bloco-de-notas/",
-  "baseUrl": "https://tcelestino.github.io",
+  "url": "https://blog.tcelestino.dev.br/",
+  "baseUrl": "https://blog.tcelestino.dev.br",
   "author": {
     "name": "Tiago Celestino"
   },
-  "feedPath": "https://tcelestino.github.io/bloco-de-notas/feed.xml"
+  "feedPath": "https://blog.tcelestino.dev.br/feed.xml"
 }

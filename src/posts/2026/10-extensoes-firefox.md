@@ -6,7 +6,7 @@ date: 2026-02-03
 tags: [firefox]
 ---
 
-Depois de publicar sobre [meus aplicativos essenciais em 2025](https://tcelestino.github.io/bloco-de-notas/2026/01/meus-apps-essenciais-em-2025/), algumas pessoas me perguntaram quais extensões uso no Firefox. Como a grande maioria das pessoas que conheço usa o Google Chrome, resolvi compartilhar as dez extensões que considero essenciais no meu dia a dia.
+Depois de publicar sobre [meus aplicativos essenciais em 2025](https://blog.tcelestino.dev.br/2026/01/meus-apps-essenciais-em-2025/), algumas pessoas me perguntaram quais extensões uso no Firefox. Como a grande maioria das pessoas que conheço usa o Google Chrome, resolvi compartilhar as dez extensões que considero essenciais no meu dia a dia.
 
 1. [uBlock Origin](https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin/): essencial nos dias de hoje com a quantidade de scripts que muitos sites usam para rastrear o usuário. Desabilito para alguns sites.
 2. [Bitwarden](https://addons.mozilla.org/pt-BR/firefox/addon/bitwarden-password-manager/): gerenciador de senhas multiplataforma (tem versão para iOS, Android, Windows, Linux, terminal...). Uso a versão gratuita que atende bem para a grande maioria dos usuários.
