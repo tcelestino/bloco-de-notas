@@ -1,21 +1,12 @@
 ---
 layout: default
 ---
-{# TODO: Criar include "includes/last-posts.njk" #}
-<section class="last-posts">
-  <h2>Últimas publicações</h2>
-  <ol>
-    {%- for post in collections.posts -%}
-      <li>
-        <time datetime="{{ post.date }}">{{ post.date | shortDate }}</time>
-        <h3>
-          <a href="{{ post.url }}">{{ post.data.title | safe }}</a>
-        </h3>
-        {% if post.data.summary  %}
-          <span class="summary">{{ post.data.summary | safe }}</span>
-        {% endif %}
-      </li>
-    {%- endfor -%}
-  </ol>
-   <a href="/posts.html" class="see-more">Ver todos os posts</a>
-</section>
+<p class="intro">{{ site.description }}</p>
+
+<h2 class="section-title">Últimas publicações</h2>
+<ol class="post-list">
+  {%- for post in collections.posts %}
+    {% include "post-row.njk" %}
+  {%- endfor %}
+</ol>
+<p class="more"><a href="/posts.html">Ver todos os posts</a></p>
