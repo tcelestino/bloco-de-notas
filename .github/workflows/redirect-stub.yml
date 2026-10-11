@@ -1,0 +1,40 @@
+name: Publish Redirect Stub
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'redirect-stub/**'
+      - '.github/workflows/redirect-stub.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Test
+        run: node --test 'test/**/*.test.js'
+
+      - name: Prepare stub
+        run: cp redirect-stub/404.html redirect-stub/index.html
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./redirect-stub
+          publish_branch: gh-pages
+          force_orphan: true
