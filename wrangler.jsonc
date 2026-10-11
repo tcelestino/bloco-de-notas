@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bloco-de-notas",
+  "compatibility_date": "2026-10-11",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "blog.tcelestino.dev.br",
+      "custom_domain": true
+    }
+  ]
+}
