@@ -1,0 +1,4 @@
+<li>
+  <time datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+  <a href="{{ post.url }}">{{ post.data.title | safe }}</a>
+</li>

@@ -2,18 +2,15 @@
 layout: default
 eleventyExcludeFromCollections: true
 permalink: posts.html
+title: Todas as postagens
 ---
+<h1>Todas as postagens</h1>
 
-<section class="last-posts">
-  <h2>Todas as postagens</h2>
-  <ol>
-    {%- for post in collections.lastPosts -%}
-      <li>
-        <time datetime="{{ post.date }}">{{ post.date | shortDate }}</time>
-        <h3>
-          <a href="{{ post.url }}">{{ post.data.title | safe }}</a>
-        </h3>
-      </li>
-    {%- endfor -%}
+{%- for group in collections.postsByYear %}
+  <h2 class="section-title">{{ group.year }}</h2>
+  <ol class="post-list">
+    {%- for post in group.posts %}
+      {% include "post-row.njk" %}
+    {%- endfor %}
   </ol>
-</section>
+{%- endfor %}

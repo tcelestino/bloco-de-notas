@@ -48,3 +48,17 @@ test('CSS referenciado sem @import e fonte via Google Fonts com preconnect', () 
   assert.match(html, /fonts\.googleapis\.com\/css2\?family=IBM\+Plex\+Sans:ital,wght@0,400;0,500;1,400&(?:amp;)?display=swap/);
   assert.doesNotMatch(html, /\.woff2/);
 });
+
+test('lista de posts: datetime valido e titulo com entidade sem escape duplo', () => {
+  const html = read(dir, 'posts.html');
+  const datetimes = [...html.matchAll(/<time datetime="([^"]*)"/g)].map((m) => m[1]);
+  assert.ok(datetimes.length > 10);
+  for (const d of datetimes) assert.match(d, /^\d{4}-\d{2}-\d{2}$/);
+  assert.doesNotMatch(html, /&amp;amp;/);
+});
+
+test('posts.html agrupa por ano com h2 em ordem decrescente', () => {
+  const years = [...read(dir, 'posts.html').matchAll(/<h2 class="section-title">(\d{4})<\/h2>/g)].map((m) => Number(m[1]));
+  assert.ok(years.length >= 2);
+  assert.deepEqual(years, [...years].sort((a, b) => b - a));
+});

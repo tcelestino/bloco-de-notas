@@ -12,11 +12,13 @@ module.exports = (config) => {
   config.addCollection('posts', require('./lib/collections/posts'));
   config.addCollection('postsFeed', require('./lib/collections/postsFeed'));
   config.addCollection('lastPosts', require('./lib/collections/lastPosts'));
+  config.addCollection('postsByYear', require('./lib/collections/postsByYear'));
   config.addCollection('updates', require('./lib/collections/updates'));
   config.addCollection('navLinks', require('./lib/collections/nav-links'));
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
   config.addFilter('shortDate', require('./lib/filters/shortDate'));
+  config.addFilter('isoDate', require('./lib/filters/isoDate'));
 
   config.addLiquidFilter('dateToRfc822', feedPlugin.dateToRfc822);
 
