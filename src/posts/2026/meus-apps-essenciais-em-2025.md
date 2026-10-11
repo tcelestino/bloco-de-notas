@@ -6,7 +6,7 @@ date: 2026-01-05
 tags: [apps, listas]
 ---
 
-Acabei esquecendo de compartilhar minha seleção de aplicativos essenciais para 2025, assim como [fiz](https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/) no ano passado. Como estamos no início do ano, acredito ser ainda válido compartilhar.
+Acabei esquecendo de compartilhar minha seleção de aplicativos essenciais para 2025, assim como [fiz](https://blog.tcelestino.dev.br/2024/12/meus-apps-essenciais-em-2024/) no ano passado. Como estamos no início do ano, acredito ser ainda válido compartilhar.
 
 - 🚀 **Launchers**: [Raycast](https://www.raycast.com/) (macOS) e [Ulauncher](https://ulauncher.io/) (Linux)
 - 📧 **Cliente de email:** [Gmail](https://gmail.com)
@@ -45,4 +45,4 @@ Troquei poucos apps essenciais em 2025, mas que me trouxeram melhorias na produt
 
 ## Listas anteriores
 
-- [2024](https://tcelestino.github.io/bloco-de-notas/2024/12/meus-apps-essenciais-em-2024/)
+- [2024](https://blog.tcelestino.dev.br/2024/12/meus-apps-essenciais-em-2024/)

@@ -6,7 +6,7 @@ date: 2026-05-08
 tags: [extensão, typescript, raycast, npm, produtividade]
 ---
 
-Depois de lançar minha [primeira extensão](https://tcelestino.github.io/bloco-de-notas/2026/03/minha-primeira-extensao-raycast/) para o [Raycast](https://www.raycast.com/), decidi criar mais uma. Se você não conhece o Raycast, ele é um lançador de aplicativos para macOS e Windows que permite acessar rapidamente aplicativos, arquivos e outras funcionalidades do sistema. Ele também suporta extensões, o que permite aos desenvolvedores criar suas próprias funcionalidades personalizadas utilizando ReactJS com TypeScript.
+Depois de lançar minha [primeira extensão](https://blog.tcelestino.dev.br/2026/03/minha-primeira-extensao-raycast/) para o [Raycast](https://www.raycast.com/), decidi criar mais uma. Se você não conhece o Raycast, ele é um lançador de aplicativos para macOS e Windows que permite acessar rapidamente aplicativos, arquivos e outras funcionalidades do sistema. Ele também suporta extensões, o que permite aos desenvolvedores criar suas próprias funcionalidades personalizadas utilizando ReactJS com TypeScript.
 
 ## A extensão: DefinitelyTyped Search
 

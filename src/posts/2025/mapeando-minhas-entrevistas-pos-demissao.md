@@ -11,7 +11,7 @@ TLDR:
 - Feedbacks como melhorias para próximas entrevistas.
 - A falta de respostas de algumas entrevistas e a adaptação ao modelo PJ, foram pontos impactantes.
 
-Depois de sofrer uma demissão, a primeira coisa que você pensa é buscar uma nova recolocação. Inclusive [escrevi](https://tcelestino.github.io/bloco-de-notas/2024/10/um-mes-desempregado/) sobre isso depois de um mês desempregado. Mesmo não buscando por vagas durante os últimos três meses, recebi alguns convites para entrevistas. Grande parte desses convites vieram via Linkedin. Seja por pessoas que viram a postagem da planilha com o nome das pessoas demitidas, por indicação de pessoas com quem já trabalhei (obrigado, inclusive) e/ou pela busca direta na plataforma.
+Depois de sofrer uma demissão, a primeira coisa que você pensa é buscar uma nova recolocação. Inclusive [escrevi](https://blog.tcelestino.dev.br/2024/10/um-mes-desempregado/) sobre isso depois de um mês desempregado. Mesmo não buscando por vagas durante os últimos três meses, recebi alguns convites para entrevistas. Grande parte desses convites vieram via Linkedin. Seja por pessoas que viram a postagem da planilha com o nome das pessoas demitidas, por indicação de pessoas com quem já trabalhei (obrigado, inclusive) e/ou pela busca direta na plataforma.
 
 ## Mapeamento das entrevistas
 
