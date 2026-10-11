@@ -148,21 +148,29 @@ main.wrap {
   text-decoration: none;
 }
 .site-nav button {
-  padding: 0.6rem 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
   border: 0;
   background: none;
   color: var(--muted);
-  font: inherit;
   cursor: pointer;
+}
+#theme-toggle[aria-pressed='false'] .icon-sun {
+  display: none;
+}
+#theme-toggle[aria-pressed='true'] .icon-moon {
+  display: none;
 }
 .site-nav a:hover,
 .site-nav button:hover,
-.site-nav a[aria-current='page'],
-.site-nav button[aria-pressed='true'] {
+.site-nav a[aria-current='page'] {
   color: var(--fg);
 }
-.site-nav a[aria-current='page'],
-.site-nav button[aria-pressed='true'] {
+.site-nav a[aria-current='page'] {
   text-decoration: underline;
   text-underline-offset: 0.35em;
 }
