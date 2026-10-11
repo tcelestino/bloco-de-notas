@@ -86,7 +86,7 @@ a:focus-visible {
 }
 main.wrap {
   flex: 1;
-  padding-block: 0 3rem;
+  padding-block: 0 1rem;
 }
 
 .skip {
