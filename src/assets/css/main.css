@@ -86,7 +86,7 @@ a:focus-visible {
 }
 main.wrap {
   flex: 1;
-  padding-block: 1.5rem 3rem;
+  padding-block: 0 3rem;
 }
 
 .skip {
@@ -165,7 +165,7 @@ main.wrap {
 
 /* paginas */
 h1 {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.015em;
@@ -178,7 +178,7 @@ h1 {
 .section-title {
   margin: 2.5rem 0 0.5rem;
   color: var(--muted);
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
