@@ -33,6 +33,8 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          RAINDROP_TOKEN: ${{ secrets.RAINDROP_TOKEN }}
 
       - name: Upload preview version
         id: upload

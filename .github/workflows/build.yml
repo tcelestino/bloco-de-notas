@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -24,6 +27,8 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          RAINDROP_TOKEN: ${{ secrets.RAINDROP_TOKEN }}
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v4

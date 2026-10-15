@@ -40,10 +40,19 @@ The main configuration is in `eleventy.config.js`:
 
 Collections are defined in `lib/collections/`:
 
-- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 10 most recent posts
+- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 3 most recent posts (home)
 - `postsByYear.js`: Posts grouped by year (`[{ year, posts }]`), newest first, used by the all-posts page
 - `updates.js`: Aggregates all updates/changelog posts from `src/updates/**/*.md`, reversed chronologically
 - `nav-links.js`: Social media links (Github, LinkedIn, Bluesky)
+
+### Raindrop favorites
+
+The home shows a "Últimos favoritos" section (5 links) built at build time from the Raindrop.io API:
+
+- `lib/raindrop.js`: `fetchFavoritos({ token, fetchFn, limit })`, excludes the "Vídeos" collection (and children) and youtube.com / youtu.be links; `fetch` is injectable for tests
+- `src/_data/favoritos.js`: global data `favoritos`; reads `RAINDROP_TOKEN` (env var or local `.env`, see `.env.example`). Without token or on API failure it returns `[]` with a `console.warn` and the section is omitted
+- `RAINDROP_TOKEN` is a GitHub Actions secret passed to the Build step in `build.yml` and `preview.yml`; `build.yml` also runs on a daily cron and `workflow_dispatch`
+- Tests never hit the API: `test/helpers/build.js` builds with `RAINDROP_TOKEN=''`
 
 ### Filters
 

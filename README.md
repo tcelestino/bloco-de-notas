@@ -56,6 +56,16 @@ yarn run clean
 
 O deploy em produção roda a cada push na `main` (`.github/workflows/build.yml`). Cada Pull Request recebe uma URL de preview no Cloudflare, comentada no próprio PR (`.github/workflows/preview.yml`).
 
+Há também um build diário agendado (cron) e disparo manual (`workflow_dispatch`), que mantêm a seção "Últimos favoritos" atualizada.
+
+### Favoritos do Raindrop.io
+
+A seção "Últimos favoritos" da home é gerada em build time pela API do Raindrop.io (`src/_data/favoritos.js`, lógica em `lib/raindrop.js`). Ela exclui a coleção "Vídeos" e links do YouTube.
+
+- **CI:** cadastre o secret `RAINDROP_TOKEN` no repositório (Settings > Secrets and variables > Actions).
+- **Local:** copie `.env.example` para `.env` e preencha `RAINDROP_TOKEN` (test token em https://app.raindrop.io/settings/integrations).
+- Sem token ou com falha na API, o build segue normalmente e a seção é omitida (aviso no log).
+
 ## Licença
 
 [MIT](/LICENSE)
