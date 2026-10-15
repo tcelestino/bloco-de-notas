@@ -46,15 +46,15 @@
     debug "^4.4.0"
     posthtml-match-helper "^2.0.3"
 
-"@11ty/eleventy-plugin-rss@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@11ty/eleventy-plugin-rss/-/eleventy-plugin-rss-2.0.4.tgz#3c0ba2792d5536345d5689068d598f26a8acfb75"
-  integrity sha512-LF60sGVlxGTryQe3hTifuzrwF8R7XbrNsM2xfcDcNMSliLN4kmB+7zvoLRySRx0AQDjqhPTAeeeT0ra6/9zHUQ==
+"@11ty/eleventy-plugin-rss@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@11ty/eleventy-plugin-rss/-/eleventy-plugin-rss-3.0.0.tgz#db0047d755601eb5a164ec34f4974ff3048e8bfd"
+  integrity sha512-kKW4DcR57xAyRx0e8gNhKh56ahHVEaAj8/TuXQDnw+B46ig2bWADJAlyj/GdV37IG5ja9dZ4SgKZrs/CHz6YWQ==
   dependencies:
-    "@11ty/eleventy-utils" "^2.0.0"
-    "@11ty/posthtml-urls" "^1.0.1"
-    debug "^4.4.0"
-    posthtml "^0.16.6"
+    "@11ty/eleventy-utils" "^2.0.7"
+    "@11ty/posthtml-urls" "^1.0.2"
+    debug "^4.4.3"
+    posthtml "^0.16.7"
 
 "@11ty/eleventy-plugin-syntaxhighlight@5.0.2":
   version "5.0.2"
@@ -63,7 +63,7 @@
   dependencies:
     prismjs "^1.30.0"
 
-"@11ty/eleventy-utils@^2.0.0", "@11ty/eleventy-utils@^2.0.1", "@11ty/eleventy-utils@^2.0.2", "@11ty/eleventy-utils@^2.0.7":
+"@11ty/eleventy-utils@^2.0.1", "@11ty/eleventy-utils@^2.0.2", "@11ty/eleventy-utils@^2.0.7":
   version "2.0.7"
   resolved "https://registry.npmjs.org/@11ty/eleventy-utils/-/eleventy-utils-2.0.7.tgz"
   integrity sha512-6QE+duqSQ0GY9rENXYb4iPR4AYGdrFpqnmi59tFp9VrleOl0QSh8VlBr2yd6dlhkdtj7904poZW5PvGr9cMiJQ==
@@ -111,16 +111,6 @@
   version "4.17.21"
   resolved "https://registry.npmjs.org/@11ty/lodash-custom/-/lodash-custom-4.17.21.tgz"
   integrity sha512-Mqt6im1xpb1Ykn3nbcCovWXK3ggywRJa+IXIdoz4wIIK+cvozADH63lexcuPpGS/gJ6/m2JxyyXDyupkMr5DHw==
-
-"@11ty/posthtml-urls@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@11ty/posthtml-urls/-/posthtml-urls-1.0.1.tgz"
-  integrity sha512-6EFN/yYSxC/OzYXpq4gXDyDMlX/W+2MgCvvoxf11X1z76bqkqFJ8eep5RiBWfGT5j0323a1pwpelcJJdR46MCw==
-  dependencies:
-    evaluate-value "^2.0.0"
-    http-equiv-refresh "^2.0.1"
-    list-to-array "^1.1.0"
-    parse-srcset "^1.0.2"
 
 "@11ty/posthtml-urls@^1.0.2":
   version "1.0.2"
@@ -756,14 +746,6 @@ posthtml-render@^3.0.0:
   integrity sha512-z+16RoxK3fUPgwaIgH9NGnK1HKY9XIDpydky5eQGgAFVXTCSezalv9U2jQuNV+Z9qV1fDWNzldcw4eK0SSbqKA==
   dependencies:
     is-json "^2.0.1"
-
-posthtml@^0.16.6:
-  version "0.16.6"
-  resolved "https://registry.npmjs.org/posthtml/-/posthtml-0.16.6.tgz"
-  integrity sha512-JcEmHlyLK/o0uGAlj65vgg+7LIms0xKXe60lcDOTU7oVX/3LuEuLwrQpW3VJ7de5TaFKiW4kWkaIpJL42FEgxQ==
-  dependencies:
-    posthtml-parser "^0.11.0"
-    posthtml-render "^3.0.0"
 
 posthtml@^0.16.7:
   version "0.16.7"
