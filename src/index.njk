@@ -4,12 +4,14 @@ layout: default
 <p class="intro">{{ site.description }}</p>
 {%- if favoritos.length %}
 
-<h2 class="section-title">Últimos favoritos</h2>
-<ul class="favorites">
-  {%- for favorito in favoritos %}
-    {% include "favorito-row.njk" %}
-  {%- endfor %}
-</ul>
+<section class="favorites" aria-labelledby="favoritos-titulo">
+  <h2 class="favorites-title" id="favoritos-titulo">Últimos favoritos</h2>
+  <ul>
+    {%- for favorito in favoritos %}
+      {% include "favorito-row.njk" %}
+    {%- endfor %}
+  </ul>
+</section>
 {%- endif %}
 
 <h2 class="section-title">Últimas publicações</h2>
