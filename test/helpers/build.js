@@ -11,7 +11,12 @@ function buildSite() {
     execFileSync(
       process.execPath,
       [path.join(__dirname, '..', '..', 'node_modules', '@11ty', 'eleventy', 'cmd.cjs'), `--output=${outDir}`, '--quiet'],
-      { cwd: path.join(__dirname, '..', '..'), stdio: 'pipe' }
+      {
+        cwd: path.join(__dirname, '..', '..'),
+        stdio: 'pipe',
+        // build determinístico: nunca consulta o Raindrop nos testes
+        env: { ...process.env, RAINDROP_TOKEN: '' },
+      }
     );
   }
   return outDir;
