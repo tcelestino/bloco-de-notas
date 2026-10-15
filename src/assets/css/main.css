@@ -242,17 +242,23 @@ h1 {
   list-style: none;
 }
 .favorites li {
+  min-width: 0;
   padding-block: 0.6rem;
 }
+.favorites a,
+.favorites .domain {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
 .favorites a {
-  overflow-wrap: anywhere;
   text-decoration: none;
 }
 .favorites a:hover {
   text-decoration: underline;
 }
 .favorites .domain {
-  display: block;
   color: var(--muted);
   font-size: 0.8125rem;
 }
