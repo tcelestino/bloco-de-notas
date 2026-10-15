@@ -226,14 +226,30 @@ h1 {
   gap: 0 1rem;
   align-items: baseline;
 }
-.post-list time,
-.post-list .domain {
+.post-list time {
   color: var(--muted);
   font-size: 0.9375rem;
   font-variant-numeric: tabular-nums;
 }
-.post-list .domain {
+.favorites {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.favorites li {
+  padding-block: 0.6rem;
+}
+.favorites a {
   overflow-wrap: anywhere;
+  text-decoration: none;
+}
+.favorites a:hover {
+  text-decoration: underline;
+}
+.favorites .domain {
+  margin-left: 0.5rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
 }
 .post-list a {
   display: block;

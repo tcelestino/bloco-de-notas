@@ -7,6 +7,8 @@ try {
   // sem .env: segue com o ambiente
 }
 
+const FAVORITOS_LIMIT = 3;
+
 const loadFavoritos = async ({
   token = process.env.RAINDROP_TOKEN,
   fetchFn = fetch,
@@ -17,7 +19,7 @@ const loadFavoritos = async ({
     return [];
   }
   try {
-    return await fetchFavoritos({ token, fetchFn });
+    return await fetchFavoritos({ token, fetchFn, limit: FAVORITOS_LIMIT });
   } catch (error) {
     warn(`favoritos: falha ao buscar no Raindrop, seção omitida (${error.message})`);
     return [];

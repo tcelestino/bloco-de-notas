@@ -2,6 +2,15 @@
 layout: default
 ---
 <p class="intro">{{ site.description }}</p>
+{%- if favoritos.length %}
+
+<h2 class="section-title">Últimos favoritos</h2>
+<ul class="favorites">
+  {%- for favorito in favoritos %}
+    {% include "favorito-row.njk" %}
+  {%- endfor %}
+</ul>
+{%- endif %}
 
 <h2 class="section-title">Últimas publicações</h2>
 <ol class="post-list">
@@ -10,12 +19,3 @@ layout: default
   {%- endfor %}
 </ol>
 <p class="more"><a href="/posts.html">Ver todos os posts</a></p>
-{%- if favoritos.length %}
-
-<h2 class="section-title">Últimos favoritos</h2>
-<ul class="post-list">
-  {%- for favorito in favoritos %}
-    {% include "favorito-row.njk" %}
-  {%- endfor %}
-</ul>
-{%- endif %}
