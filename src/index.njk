@@ -13,6 +13,7 @@ layout: default
 {%- if favoritos.length %}
 
 <h2 class="section-title">Últimos favoritos</h2>
+<p class="favorites-source">por <a href="https://raindrop.io" rel="noopener">raindrop.io</a></p>
 <ul class="favorites">
   {%- for favorito in favoritos %}
     {% include "favorito-row.njk" %}

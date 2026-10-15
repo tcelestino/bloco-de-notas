@@ -231,6 +231,14 @@ h1 {
   font-size: 0.9375rem;
   font-variant-numeric: tabular-nums;
 }
+.favorites-source {
+  margin: -0.25rem 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.favorites-source a {
+  text-underline-offset: 0.15em;
+}
 .favorites {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
