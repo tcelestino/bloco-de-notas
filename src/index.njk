@@ -12,12 +12,10 @@ layout: default
 <p class="more"><a href="/posts.html">Ver todos os posts</a></p>
 {%- if favoritos.length %}
 
-<section class="favorites" aria-labelledby="favoritos-titulo">
-  <h2 class="favorites-title" id="favoritos-titulo">Últimos favoritos</h2>
-  <ul>
-    {%- for favorito in favoritos %}
-      {% include "favorito-row.njk" %}
-    {%- endfor %}
-  </ul>
-</section>
+<h2 class="section-title">Últimos favoritos</h2>
+<ul class="favorites">
+  {%- for favorito in favoritos %}
+    {% include "favorito-row.njk" %}
+  {%- endfor %}
+</ul>
 {%- endif %}
