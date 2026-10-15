@@ -232,11 +232,13 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 .favorites {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.75rem;
   margin-top: 1.5rem;
+  line-height: 1.9;
+}
+.favorites-title,
+.favorites ul,
+.favorites li {
+  display: inline;
 }
 .favorites-title {
   margin: 0;
@@ -248,20 +250,16 @@ h1 {
   content: ':';
 }
 .favorites ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.favorites li + li::before {
+.favorites li:not(:last-child)::after {
   content: '|';
-  margin-inline: 0.75rem;
+  margin-inline: 0.6rem;
   color: var(--muted);
 }
 .favorites a {
-  padding-block: 0.4rem;
   overflow-wrap: anywhere;
   text-decoration: none;
 }
@@ -269,7 +267,7 @@ h1 {
   text-decoration: underline;
 }
 .favorites .domain {
-  margin-left: 0.35rem;
+  margin-left: 0.25rem;
   color: var(--muted);
   font-size: 0.8125rem;
 }

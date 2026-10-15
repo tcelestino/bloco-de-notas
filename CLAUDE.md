@@ -40,14 +40,14 @@ The main configuration is in `eleventy.config.js`:
 
 Collections are defined in `lib/collections/`:
 
-- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 3 most recent posts (home)
+- `posts.js`: Aggregates blog posts from `src/posts/**/*.md`, reversed chronologically, limited to 5 most recent posts (home)
 - `postsByYear.js`: Posts grouped by year (`[{ year, posts }]`), newest first, used by the all-posts page
 - `updates.js`: Aggregates all updates/changelog posts from `src/updates/**/*.md`, reversed chronologically
 - `nav-links.js`: Social media links (Github, LinkedIn, Bluesky)
 
 ### Raindrop favorites
 
-The home shows a "Últimos favoritos" section (3 links, above the posts) built at build time from the Raindrop.io API:
+The home shows a "Últimos favoritos" section (3 links, inline, below "Ver todos os posts") built at build time from the Raindrop.io API:
 
 - `lib/raindrop.js`: `fetchFavoritos({ token, fetchFn, limit })`, excludes the "Vídeos" collection (and children) and youtube.com / youtu.be links; `fetch` is injectable for tests
 - `src/_data/favoritos.js`: global data `favoritos`; reads `RAINDROP_TOKEN` (env var or local `.env`, see `.env.example`). Without token or on API failure it returns `[]` with a `console.warn` and the section is omitted

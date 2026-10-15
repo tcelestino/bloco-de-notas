@@ -71,10 +71,10 @@ test('titulo com <dialog> fica escapado nas listas de posts', () => {
   assert.match(html, /open do &lt;dialog&gt;<\/a>/);
 });
 
-test('home lista no maximo 3 posts', () => {
+test('home lista 5 posts', () => {
   const html = read(dir, 'index.html');
   const section = html.split('Últimas publicações')[1].split('Ver todos os posts')[0];
-  assert.equal(count(section, /<li>/g), 3);
+  assert.equal(count(section, /<li>/g), 5);
 });
 
 test('home omite "Últimos favoritos" quando nao ha favoritos', () => {
