@@ -37,7 +37,8 @@ test('item ativo do menu recebe aria-current', () => {
 });
 
 test('links externos do rodape nao abrem nova aba', () => {
-  assert.doesNotMatch(read(dir, 'index.html'), /target="_blank"/);
+  const footer = read(dir, 'index.html').match(/<footer[\s\S]*?<\/footer>/)[0];
+  assert.doesNotMatch(footer, /target="_blank"/);
 });
 
 test('CSS referenciado sem @import e fonte via Google Fonts com preconnect', () => {
