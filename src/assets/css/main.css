@@ -232,7 +232,10 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 .favorites-title {
+  margin-top: 2rem;
   margin-bottom: 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
 }
 .favorites-source {
   margin: 0 0 0.5rem;
