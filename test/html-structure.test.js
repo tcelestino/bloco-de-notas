@@ -64,11 +64,21 @@ test('posts.html agrupa por ano com h2 em ordem decrescente', () => {
 });
 
 test('titulo com <dialog> fica escapado nas listas de posts', () => {
-  for (const file of ['index.html', 'posts.html']) {
-    const html = read(dir, file);
-    assert.doesNotMatch(html, /<dialog/, file);
-    assert.match(html, /open do &lt;dialog&gt;<\/a>/, file);
-  }
+  // a home lista so os posts mais recentes; o post do <dialog> so e garantido em posts.html
+  assert.doesNotMatch(read(dir, 'index.html'), /<dialog/);
+  const html = read(dir, 'posts.html');
+  assert.doesNotMatch(html, /<dialog/);
+  assert.match(html, /open do &lt;dialog&gt;<\/a>/);
+});
+
+test('home lista no maximo 3 posts', () => {
+  const html = read(dir, 'index.html');
+  const section = html.split('Últimas publicações')[1].split('Ver todos os posts')[0];
+  assert.equal(count(section, /<li>/g), 3);
+});
+
+test('home omite "Últimos favoritos" quando nao ha favoritos', () => {
+  assert.doesNotMatch(read(dir, 'index.html'), /Últimos favoritos/);
 });
 
 test('updates nao geram paginas individuais (sem h1 vazio)', () => {
