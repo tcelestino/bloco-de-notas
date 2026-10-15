@@ -7,7 +7,7 @@ try {
   // sem .env: segue com o ambiente
 }
 
-const FAVORITOS_LIMIT = 4;
+const FAVORITOS_LIMIT = 6;
 
 const loadFavoritos = async ({
   token = process.env.RAINDROP_TOKEN,

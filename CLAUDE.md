@@ -47,7 +47,7 @@ Collections are defined in `lib/collections/`:
 
 ### Raindrop favorites
 
-The home shows a "Últimos favoritos" section (4 links in a 2x2 grid, below "Ver todos os posts") built at build time from the Raindrop.io API:
+The home shows a "Últimos favoritos" section (6 links in 2 columns of 3, domain below the title, below "Ver todos os posts") built at build time from the Raindrop.io API:
 
 - `lib/raindrop.js`: `fetchFavoritos({ token, fetchFn, limit })`, excludes the "Vídeos" collection (and children) and youtube.com / youtu.be links; `fetch` is injectable for tests
 - `src/_data/favoritos.js`: global data `favoritos`; reads `RAINDROP_TOKEN` (env var or local `.env`, see `.env.example`). Without token or on API failure it returns `[]` with a `console.warn` and the section is omitted
