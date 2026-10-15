@@ -4,9 +4,14 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 9 * * *'
-  workflow_dispatch:
+  workflow_call:
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        required: true
+      RAINDROP_TOKEN:
+        required: false
 
 jobs:
   deploy:

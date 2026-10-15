@@ -56,7 +56,7 @@ yarn run clean
 
 O deploy em produção roda a cada push na `main` (`.github/workflows/build.yml`). Cada Pull Request recebe uma URL de preview no Cloudflare, comentada no próprio PR (`.github/workflows/preview.yml`).
 
-Há também um build diário agendado (cron) e disparo manual (`workflow_dispatch`), que mantêm a seção "Últimos favoritos" atualizada.
+O workflow `.github/workflows/raindrop-refresh.yml` reaproveita o `build.yml` (via `workflow_call`) em um build diário agendado (cron) e em disparo manual (`workflow_dispatch`), mantendo a seção "Últimos favoritos" atualizada.
 
 ### Favoritos do Raindrop.io
 

@@ -51,7 +51,7 @@ The home shows a "Últimos favoritos" section (6 links in 2 columns of 3, domain
 
 - `lib/raindrop.js`: `fetchFavoritos({ token, fetchFn, limit })`, excludes the "Vídeos" collection (and children) and youtube.com / youtu.be links; `fetch` is injectable for tests
 - `src/_data/favoritos.js`: global data `favoritos`; reads `RAINDROP_TOKEN` (env var or local `.env`, see `.env.example`). Without token or on API failure it returns `[]` with a `console.warn` and the section is omitted
-- `RAINDROP_TOKEN` is a GitHub Actions secret passed to the Build step in `build.yml` and `preview.yml`; `build.yml` also runs on a daily cron and `workflow_dispatch`
+- `RAINDROP_TOKEN` is a GitHub Actions secret passed to the Build step in `build.yml` and `preview.yml`; `build.yml` is also a reusable workflow (`workflow_call`) called by `raindrop-refresh.yml`, which runs on a daily cron and `workflow_dispatch` to refresh the favorites
 - Tests never hit the API: `test/helpers/build.js` builds with `RAINDROP_TOKEN=''`
 
 ### Filters
