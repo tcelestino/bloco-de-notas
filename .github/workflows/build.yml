@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_call:
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        required: true
+      RAINDROP_TOKEN:
+        required: false
 
 jobs:
   deploy:
@@ -24,6 +32,8 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          RAINDROP_TOKEN: ${{ secrets.RAINDROP_TOKEN }}
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v4

@@ -231,6 +231,58 @@ h1 {
   font-size: 0.9375rem;
   font-variant-numeric: tabular-nums;
 }
+.favorites-title {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.favorites-source {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.favorites-source a {
+  text-underline-offset: 0.15em;
+}
+.favorites {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  gap: 0 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.favorites li {
+  min-width: 0;
+  padding-block: 0.6rem;
+}
+.favorites a,
+.favorites .domain {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+.favorites a {
+  text-decoration: none;
+}
+.favorites a:hover {
+  text-decoration: underline;
+}
+.favorites .domain {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+@media (max-width: 30rem) {
+  .favorites {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+}
 .post-list a {
   display: block;
   padding-block: 0.6rem;

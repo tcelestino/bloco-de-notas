@@ -1,0 +1,13 @@
+name: Atualizar favoritos do Raindrop
+
+# O site é estático: a seção "Últimos favoritos" só muda em um novo build.
+# Este workflow reaproveita o build/deploy de build.yml em horário agendado.
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    uses: ./.github/workflows/build.yml
+    secrets: inherit

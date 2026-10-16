@@ -10,3 +10,13 @@ layout: default
   {%- endfor %}
 </ol>
 <p class="more"><a href="/posts.html">Ver todos os posts</a></p>
+{%- if favoritos.length %}
+
+<h2 class="section-title favorites-title">Últimos favoritos</h2>
+<p class="favorites-source">por <a href="https://raindrop.io" target="_blank" rel="noopener">raindrop.io</a></p>
+<ul class="favorites">
+  {%- for favorito in favoritos %}
+    {% include "favorito-row.njk" %}
+  {%- endfor %}
+</ul>
+{%- endif %}

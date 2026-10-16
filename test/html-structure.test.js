@@ -37,7 +37,8 @@ test('item ativo do menu recebe aria-current', () => {
 });
 
 test('links externos do rodape nao abrem nova aba', () => {
-  assert.doesNotMatch(read(dir, 'index.html'), /target="_blank"/);
+  const footer = read(dir, 'index.html').match(/<footer[\s\S]*?<\/footer>/)[0];
+  assert.doesNotMatch(footer, /target="_blank"/);
 });
 
 test('CSS referenciado sem @import e fonte via Google Fonts com preconnect', () => {
@@ -64,11 +65,21 @@ test('posts.html agrupa por ano com h2 em ordem decrescente', () => {
 });
 
 test('titulo com <dialog> fica escapado nas listas de posts', () => {
-  for (const file of ['index.html', 'posts.html']) {
-    const html = read(dir, file);
-    assert.doesNotMatch(html, /<dialog/, file);
-    assert.match(html, /open do &lt;dialog&gt;<\/a>/, file);
-  }
+  // a home lista so os posts mais recentes; o post do <dialog> so e garantido em posts.html
+  assert.doesNotMatch(read(dir, 'index.html'), /<dialog/);
+  const html = read(dir, 'posts.html');
+  assert.doesNotMatch(html, /<dialog/);
+  assert.match(html, /open do &lt;dialog&gt;<\/a>/);
+});
+
+test('home lista 5 posts', () => {
+  const html = read(dir, 'index.html');
+  const section = html.split('Últimas publicações')[1].split('Ver todos os posts')[0];
+  assert.equal(count(section, /<li>/g), 5);
+});
+
+test('home omite "Últimos favoritos" quando nao ha favoritos', () => {
+  assert.doesNotMatch(read(dir, 'index.html'), /Últimos favoritos/);
 });
 
 test('updates nao geram paginas individuais (sem h1 vazio)', () => {
