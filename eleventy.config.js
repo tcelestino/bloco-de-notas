@@ -1,5 +1,5 @@
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const feedPlugin = require('@11ty/eleventy-plugin-rss');
+const { rssPlugin, dateToRfc822 } = require('@11ty/eleventy-plugin-rss');
 
 module.exports = (config) => {
   config.addPassthroughCopy('src/assets/images/**/*');
@@ -20,7 +20,7 @@ module.exports = (config) => {
   config.addFilter('shortDate', require('./lib/filters/shortDate'));
   config.addFilter('isoDate', require('./lib/filters/isoDate'));
 
-  config.addLiquidFilter('dateToRfc822', feedPlugin.dateToRfc822);
+  config.addLiquidFilter('dateToRfc822', dateToRfc822);
 
   const preTabindex = require('./lib/transforms/pre-tabindex');
   config.addTransform('pre-tabindex', function (content) {
@@ -28,7 +28,7 @@ module.exports = (config) => {
   });
 
   config.addPlugin(syntaxHighlight);
-  config.addPlugin(feedPlugin);
+  config.addPlugin(rssPlugin);
 
   return {
     dir: {

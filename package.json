@@ -19,10 +19,10 @@
   "author": "tcelestino",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "3.1.5",
+    "@11ty/eleventy": "3.1.7",
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.2"
   },
   "dependencies": {
-    "@11ty/eleventy-plugin-rss": "2.0.4"
+    "@11ty/eleventy-plugin-rss": "3.1.0"
   }
 }
